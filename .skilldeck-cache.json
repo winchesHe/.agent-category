@@ -1,0 +1,64 @@
+{
+  "repoHistory" : [
+    {
+      "scannedAt" : "2026-04-20T09:55:53Z",
+      "source" : "winchesHe\/winches-skills",
+      "sourceUrl" : "https:\/\/github.com\/winchesHe\/winches-skills.git"
+    },
+    {
+      "scannedAt" : "2026-04-20T07:57:10Z",
+      "source" : "dokobot\/skills",
+      "sourceUrl" : "https:\/\/github.com\/dokobot\/skills.git"
+    },
+    {
+      "scannedAt" : "2026-04-20T07:24:15Z",
+      "source" : "epiral\/bb-browser",
+      "sourceUrl" : "https:\/\/github.com\/epiral\/bb-browser.git"
+    },
+    {
+      "scannedAt" : "2026-04-20T03:28:48Z",
+      "source" : "obra\/superpowers",
+      "sourceUrl" : "https:\/\/github.com\/obra\/superpowers.git"
+    },
+    {
+      "scannedAt" : "2026-04-20T03:28:31Z",
+      "source" : "softaworks\/agent-toolkit",
+      "sourceUrl" : "https:\/\/github.com\/softaworks\/agent-toolkit.git"
+    },
+    {
+      "scannedAt" : "2026-04-20T03:28:06Z",
+      "source" : "charon-fan\/agent-playbook",
+      "sourceUrl" : "https:\/\/github.com\/charon-fan\/agent-playbook.git"
+    },
+    {
+      "scannedAt" : "2026-04-20T03:26:41Z",
+      "source" : "dimillian\/skills",
+      "sourceUrl" : "https:\/\/github.com\/dimillian\/skills.git"
+    },
+    {
+      "scannedAt" : "2026-04-20T03:22:20Z",
+      "source" : "github\/awesome-copilot",
+      "sourceUrl" : "https:\/\/github.com\/github\/awesome-copilot.git"
+    },
+    {
+      "scannedAt" : "2026-04-18T06:28:11Z",
+      "source" : "juliusbrussee\/caveman",
+      "sourceUrl" : "https:\/\/github.com\/juliusbrussee\/caveman.git"
+    }
+  ],
+  "skills" : {
+    "bb-browser" : "561c00261981546d2e662329eb1343d072f80ea5",
+    "caveman" : "c2ed24b3e5d412cd0c25197b2bc9af587621fd99",
+    "caveman-compress" : "c2ed24b3e5d412cd0c25197b2bc9af587621fd99",
+    "create-prompts" : "d9901b40229072adab30a8c8d1ef80e979ba09fc",
+    "create-system-rules" : "2b69f4ddc27a4bb67c0674cb7c61dcd9697f3972",
+    "documentation-writer" : "4c862de882d75533e8d44a83f96276bdf5781cf8",
+    "doko" : "01e28bbceb2e34b544347d86f37ad04a92f59c04",
+    "dokobot-browser" : "fe4fd279ccfdc18314d7ac5090d4053a8d7f3810",
+    "review-swarm" : "05ba982bfeb0d77d3c97d4542b0ee15034d05f84",
+    "self-improving-agent" : "e55b839c0f44a451978db68d514746c02e9fd685",
+    "session-handoff" : "3027f20f3181758385a1bb8c022d4041dfb4de84",
+    "subagent-driven-development" : "b55764852ac78870e65c6565fb585b6cd8b3c5c9",
+    "ww-browser" : "675b1c8695bd8449fcd25b6d6871f0f7de8d2fd3"
+  }
+}

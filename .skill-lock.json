@@ -1,0 +1,83 @@
+{
+  "dismissed" : {
+
+  },
+  "lastSelectedAgents" : [
+
+  ],
+  "skills" : {
+    "caveman" : {
+      "installedAt" : "2026-04-18T06:34:20Z",
+      "skillFolderHash" : "825e13085d1515fe67881b2123f3bf9b34c26154",
+      "skillPath" : "skills\/caveman\/SKILL.md",
+      "source" : "juliusbrussee\/caveman",
+      "sourceType" : "github",
+      "sourceUrl" : "https:\/\/github.com\/juliusbrussee\/caveman.git",
+      "updatedAt" : "2026-04-18T06:34:20Z"
+    },
+    "create-prompts" : {
+      "installedAt" : "2026-04-20T02:35:25Z",
+      "skillFolderHash" : "3c252818899cf245b1cce204fbe2724f14d53bcd",
+      "skillPath" : "create-prompts\/SKILL.md",
+      "source" : "winchesHe\/winches-skills",
+      "sourceType" : "github",
+      "sourceUrl" : "https:\/\/github.com\/winchesHe\/winches-skills.git",
+      "updatedAt" : "2026-04-20T02:35:25Z"
+    },
+    "create-system-rules" : {
+      "installedAt" : "2026-04-20T03:20:58Z",
+      "skillFolderHash" : "1d1d22fd9143834b606cb9e35549223e8a55c73b",
+      "skillPath" : "create-system-rules\/SKILL.md",
+      "source" : "winchesHe\/winches-skills",
+      "sourceType" : "github",
+      "sourceUrl" : "https:\/\/github.com\/winchesHe\/winches-skills.git",
+      "updatedAt" : "2026-04-23T11:50:03Z"
+    },
+    "documentation-writer" : {
+      "installedAt" : "2026-04-20T03:23:21Z",
+      "skillFolderHash" : "016d8040a3f91c8360b1003e74fbf29f34c283f5",
+      "skillPath" : "skills\/documentation-writer\/SKILL.md",
+      "source" : "github\/awesome-copilot",
+      "sourceType" : "github",
+      "sourceUrl" : "https:\/\/github.com\/github\/awesome-copilot.git",
+      "updatedAt" : "2026-04-20T03:23:21Z"
+    },
+    "review-swarm" : {
+      "installedAt" : "2026-04-20T03:27:44Z",
+      "skillFolderHash" : "85a9ba515bc8c168d02b7b9013cd71a03c7602cf",
+      "skillPath" : "review-swarm\/SKILL.md",
+      "source" : "dimillian\/skills",
+      "sourceType" : "github",
+      "sourceUrl" : "https:\/\/github.com\/dimillian\/skills.git",
+      "updatedAt" : "2026-04-20T03:27:44Z"
+    },
+    "self-improving-agent" : {
+      "installedAt" : "2026-04-20T03:28:13Z",
+      "skillFolderHash" : "cc099bdad0f644886d6862da1eb887fdaab1256a",
+      "skillPath" : "skills\/self-improving-agent\/SKILL.md",
+      "source" : "charon-fan\/agent-playbook",
+      "sourceType" : "github",
+      "sourceUrl" : "https:\/\/github.com\/charon-fan\/agent-playbook.git",
+      "updatedAt" : "2026-04-20T03:28:13Z"
+    },
+    "session-handoff" : {
+      "installedAt" : "2026-04-20T03:28:35Z",
+      "skillFolderHash" : "9038976da9e22fa34168feb813ef18082fe005b1",
+      "skillPath" : "dist\/plugins\/session-handoff\/skills\/session-handoff\/SKILL.md",
+      "source" : "softaworks\/agent-toolkit",
+      "sourceType" : "github",
+      "sourceUrl" : "https:\/\/github.com\/softaworks\/agent-toolkit.git",
+      "updatedAt" : "2026-04-20T03:28:35Z"
+    },
+    "subagent-driven-development" : {
+      "installedAt" : "2026-04-20T03:28:52Z",
+      "skillFolderHash" : "fbcd94ffcf589754a8ecfa59861cc8843313590e",
+      "skillPath" : "skills\/subagent-driven-development\/SKILL.md",
+      "source" : "obra\/superpowers",
+      "sourceType" : "github",
+      "sourceUrl" : "https:\/\/github.com\/obra\/superpowers.git",
+      "updatedAt" : "2026-04-20T03:28:52Z"
+    }
+  },
+  "version" : 3
+}
