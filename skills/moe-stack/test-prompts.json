@@ -1,0 +1,39 @@
+[
+  {
+    "id": "cross-repo-grpc-sdk-positive",
+    "type": "positive",
+    "evidence": ["019f91c7-5a2a-7bd1-9b01-3de86aed2cbb", "ses_05964294effeO64imousyeGSTa"],
+    "prompt": "GRM-2144 要给 First-time Pet 增加显式 gRPC 字段，api-definitions、api-v3、svc-appointment 和 Boarding_Desktop 都要改，主线包还没发布。请给出仓库边界、分支/发包顺序和每一步验证点。",
+    "expect": [
+      "应触发 moe-stack",
+      "先确认 proto SoT 与消费链路",
+      "协议/SDK 先于后端消费者和前端",
+      "feature dist-tag 必须从 CI 与 registry 实物核验",
+      "给出跨仓 checkpoint 与失败回退"
+    ]
+  },
+  {
+    "id": "single-repo-typescript-negative",
+    "type": "negative",
+    "evidence": ["019f3c10-...", "019ee7f7-..."],
+    "prompt": "只改 moego-agent 单仓的 TypeScript logger：调整颜色和空格，不涉及接口、协议、SDK、其他仓库或发布。应该加载 moe-stack 吗？接下来怎么做？",
+    "expect": [
+      "明确不加载 moe-stack",
+      "只遵循目标仓库规则并做定向验证",
+      "不展开 proto/OpenAPI/SDK/reference 细节"
+    ]
+  },
+  {
+    "id": "dynamic-struct-ambiguous",
+    "type": "ambiguous",
+    "evidence": ["ses_0c423595bffeS9R3jg40xWO8fE", "019f637b-..."],
+    "prompt": "api-v3 只是在现有 google.protobuf.Struct extra 里新增一个 JSON key，前端继续通过已有 extra.fields 读取，proto schema 没变。是否必须在 api-definitions 建同名空分支、发一个新的 @moego/api-web feature 包？请说明判断和验证顺序。",
+    "expect": [
+      "不能直接回答必须",
+      "dynamic Struct 本身不产生新生成类型",
+      "先核对前端是否因其他原因需要 feature SDK 版本",
+      "仅当消费者确需对应 dist-tag 产物时才建分支",
+      "从 CI 脚本、package 版本和 registry 实物验证"
+    ]
+  }
+]
