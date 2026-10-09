@@ -1,0 +1,46 @@
+{
+  "channel": {
+    "id": "C_TESTRELEASE",
+    "name": "release-ops",
+    "is_private": false,
+    "is_archived": false
+  },
+  "limit": {
+    "raw": "1d",
+    "count": null,
+    "oldest_ts": 1779913700
+  },
+  "message_count": 3,
+  "messages": [
+    {
+      "ts": "1780000100.000100",
+      "thread_ts": "1780000100.000100",
+      "reply_count": 1,
+      "author": {
+        "id": "U_TESTALICE",
+        "name": "Alice Example"
+      },
+      "text_raw": "TEST deploy wave started for release-sim-42",
+      "text_rendered": "TEST deploy wave started for release-sim-42"
+    },
+    {
+      "ts": "1780000105.000200",
+      "thread_ts": "1780000100.000100",
+      "author": {
+        "id": "U_TESTBOB",
+        "name": "Bob Example"
+      },
+      "text_raw": "thread replies show one canary warning on synthetic job TEST-CANARY-7",
+      "text_rendered": "thread replies show one canary warning on synthetic job TEST-CANARY-7"
+    },
+    {
+      "ts": "1780000200.000300",
+      "author": {
+        "id": "U_TESTCAROL",
+        "name": "Carol Example"
+      },
+      "text_raw": "risk: rollback rehearsal is green, but docs owner still needs signoff",
+      "text_rendered": "risk: rollback rehearsal is green, but docs owner still needs signoff"
+    }
+  ]
+}

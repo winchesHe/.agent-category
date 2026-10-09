@@ -1,0 +1,20 @@
+[
+  {
+    "id": "slack_val_jira_permalink",
+    "question": "A Jira ticket body contains a Slack permalink to the CS discussion thread, and the user asks for root-cause analysis. Which first-step label is required? Options: read_thread_first, skip_thread_and_infer, send_summary_to_slack, delete_bot_message. Return only the label.",
+    "context": "The Slack skill says CS ticket analysis should first read the Slack thread because QA/RD discussion often contains decisive context.",
+    "answers": ["read_thread_first"]
+  },
+  {
+    "id": "slack_val_complex_search_reference",
+    "question": "A Slack search returns too many or too few results, and the user asks for a deeper historical search. Which reference-policy label applies? Options: load_search_syntax_reference, ignore_reference, send_message, read_recent_threads_only. Return only the label.",
+    "context": "The Slack skill points to references/search-syntax.md for complex searches, poor results, and multi-search patterns.",
+    "answers": ["load_search_syntax_reference"]
+  },
+  {
+    "id": "slack_val_image_attachment",
+    "question": "The thread JSON contains an attachment with is_image=true and a local_path. What should the agent do with that attachment? Options: inspect_local_image, ignore_image, ask_user_to_download, search_slack_again. Return only the label.",
+    "context": "The Slack skill states that when an attachment is_image true and has local_path, the local image file should be inspected directly.",
+    "answers": ["inspect_local_image"]
+  }
+]

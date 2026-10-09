@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "command": "search",
+  "ok": true,
+  "jql": "project = CS AND created >= \"2026-08-23\" AND created < \"2026-09-01\" ORDER BY created DESC",
+  "fields": [
+    "summary",
+    "status",
+    "created",
+    "issuetype",
+    "issuelinks",
+    "components",
+    "customfield_10089"
+  ],
+  "count": 12,
+  "total": 12,
+  "is_last": true,
+  "next_page_token": null,
+  "issues": [
+    {
+      "key": "CS-50601",
+      "summary": "[From Design] [From Bug] Booking flow Issue with Grooming add-on",
+      "issue_type": "Feature Request",
+      "status": "Open",
+      "squad": "Grooming",
+      "components": ["Appointment(Grooming)", "Service"],
+      "created": "2026-08-29T03:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1096", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50603",
+      "summary": "[From Design] [From Bug] Online Booking allows same-day daycare requests after 10 AM check-in cutoff",
+      "issue_type": "Feature Request",
+      "status": "Open",
+      "squad": "BD",
+      "components": ["Appointment(BD&grooming)"],
+      "created": "2026-08-29T02:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1106", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50602",
+      "summary": "[From Design] [From Bug] Unable to select a groomer when booking grooming services on the last available day",
+      "issue_type": "Feature Request",
+      "status": "Open",
+      "squad": "BD",
+      "components": ["Appointment(BD&grooming)"],
+      "created": "2026-08-29T01:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1097", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50598",
+      "summary": "Allow option to calculate tip pre or post tax - luckydogutah@example.com",
+      "issue_type": "Feature Request",
+      "status": "Open",
+      "squad": "FinTech",
+      "components": ["Payments"],
+      "created": "2026-08-28T09:00:00Z",
+      "links": []
+    },
+    {
+      "key": "CS-50520",
+      "summary": "Online Booking allows same-day daycare requests after 10 AM check-in cutoff",
+      "issue_type": "Bug Report",
+      "status": "Open",
+      "squad": "BD",
+      "components": ["Appointment(BD&grooming)"],
+      "created": "2026-08-27T07:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1106", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50487",
+      "summary": "Auto-Accepted Appointments > Update Booking Request Page",
+      "issue_type": "Feature Request",
+      "status": "Open",
+      "squad": "BD",
+      "components": ["Appointment(BD&grooming)", "Client/pet/leads"],
+      "created": "2026-08-26T10:00:00Z",
+      "links": []
+    },
+    {
+      "key": "CS-50476",
+      "summary": "Signed agreements showing as not signed",
+      "issue_type": "Bug Report",
+      "status": "Open",
+      "squad": "Grooming",
+      "components": ["Agreement"],
+      "created": "2026-08-26T08:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1107", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50468",
+      "summary": "Unable to select a groomer when booking grooming services on the last available day",
+      "issue_type": "Bug Report",
+      "status": "Open",
+      "squad": "BD",
+      "components": ["Appointment(BD&grooming)"],
+      "created": "2026-08-26T06:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1097", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50460",
+      "summary": "Booking flow Issue with Grooming add-on",
+      "issue_type": "Bug Report",
+      "status": "Open",
+      "squad": "BD",
+      "components": ["Appointment(BD&grooming)", "Service"],
+      "created": "2026-08-26T04:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1096", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50441",
+      "summary": "Breed value mismatch hides applicable grooming services, leaving only the puppy package",
+      "issue_type": "Bug Report",
+      "status": "Open",
+      "squad": "Grooming",
+      "components": ["Service"],
+      "created": "2026-08-26T02:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1095", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50431",
+      "summary": "Payroll omits 7.82 hours from Kasey Bolles's August 3–9 time card",
+      "issue_type": "Bug Report",
+      "status": "Open",
+      "squad": "Grooming",
+      "components": ["Staff(Shift/permission)", "Payroll"],
+      "created": "2026-08-25T08:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1104", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    },
+    {
+      "key": "CS-50369",
+      "summary": "Waitlist calendar suggestions ignore groomer pet and service capacity limits",
+      "issue_type": "Bug Report",
+      "status": "Open",
+      "squad": "Grooming",
+      "components": ["Appointment(Grooming)", "Waitlist"],
+      "created": "2026-08-24T08:00:00Z",
+      "links": [{"type": "Defect", "direction": "outward", "relationship": "created", "key": "DES-1094", "project_key": "DES", "issue_type": "Design Issue", "status": "Open"}]
+    }
+  ]
+}

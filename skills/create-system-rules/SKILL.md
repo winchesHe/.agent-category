@@ -1,12 +1,8 @@
 ---
 name: create-system-rules
-version: 2.0.0
-description: >
-  Create or update an AGENTS.md file optimized for AI coding agents. First inspect the
-  repository to extract real project facts, commands, workflows, constraints, and tool
-  boundaries. Then write a compact, high-signal AGENTS.md that is specific, verifiable,
-  and low-cost to keep in persistent agent context.
-  Chinese keywords: 创建 AGENTS.md、生成仓库代理文档、审查 AGENTS.md、压缩规则文档、项目规则。
+description: 基于仓库实际情况创建、审查或精简面向 AI 编码代理的 AGENTS.md。
+metadata:
+  version: 2.0.0
 ---
 
 # Create AI-agent-optimized `AGENTS.md`

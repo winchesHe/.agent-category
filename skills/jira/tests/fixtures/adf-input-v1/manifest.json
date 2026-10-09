@@ -1,0 +1,211 @@
+{
+  "contract_version": "jira-adf-input-v1",
+  "status": "implemented",
+  "canonical_format": "adf",
+  "markdown_profile": "jira-md-v1",
+  "scope": "create_description",
+  "runtime_reference": "references/adf.md",
+  "implementation_contract": "../docs/specs/jira-skill.md",
+  "interfaces": {
+    "adf": {
+      "preferred": true,
+      "flag": "--description-adf-file",
+      "legacy_path": "--additional-fields.description",
+      "transport": ["api"]
+    },
+    "markdown": {
+      "preferred": false,
+      "flags": ["--description", "--description-file"],
+      "transport": ["api"],
+      "behavior": "jira-md-v1-to-adf"
+    },
+    "automation_text": {
+      "flags": ["--description", "--description-file"],
+      "transport": ["automation"],
+      "behavior": "paragraph-string",
+      "rich_text_guarantee": false
+    },
+    "auto_detection": false,
+    "mutually_exclusive": true
+  },
+  "link_policy": {
+    "allowed_schemes": ["https", "http", "mailto"],
+    "blocked_query_keys": [
+      "token",
+      "access_token",
+      "api_key",
+      "apikey",
+      "authorization",
+      "jwt",
+      "signature",
+      "sig",
+      "x-amz-signature",
+      "x-goog-signature",
+      "x-oss-signature"
+    ]
+  },
+  "supported_syntax": {
+    "block": [
+      {"id": "atx_heading", "adf": "heading"},
+      {"id": "paragraph_hard_break", "adf": "paragraph/hardBreak"},
+      {"id": "blockquote", "adf": "blockquote"},
+      {"id": "bullet_list", "adf": "bulletList/listItem"},
+      {"id": "ordered_list", "adf": "orderedList/listItem"},
+      {"id": "pipe_table", "adf": "table/tableRow/tableHeader/tableCell"},
+      {"id": "fenced_code", "adf": "codeBlock"}
+    ],
+    "inline": [
+      {"id": "strong", "adf": "strong"},
+      {"id": "em", "adf": "em"},
+      {"id": "strike", "adf": "strike"},
+      {"id": "inline_code", "adf": "code"},
+      {"id": "inline_link", "adf": "link"},
+      {"id": "backslash_escape", "adf": "text"}
+    ]
+  },
+  "unsupported_syntax": [
+    "setext_heading",
+    "thematic_break",
+    "indented_code",
+    "nested_list",
+    "task_list",
+    "definition_list",
+    "nested_blockquote",
+    "blockquote_complex_block",
+    "image",
+    "reference_link",
+    "autolink",
+    "footnote",
+    "raw_html",
+    "mdx",
+    "emoji_shortcode",
+    "jira_wiki_markup",
+    "aligned_table",
+    "malformed_table",
+    "multiline_table_cell",
+    "invalid_inline_delimiter"
+  ],
+  "error_codes": [
+    {"code": "adf_invalid", "category": "validation", "exit": 4},
+    {"code": "markdown_unsupported", "category": "validation", "exit": 4},
+    {"code": "markdown_residual", "category": "validation", "exit": 4},
+    {"code": "unsafe_link", "category": "validation", "exit": 4},
+    {"code": "adf_unsupported_transport", "category": "usage", "exit": 2}
+  ],
+  "source_snapshots": [
+    {
+      "id": "opc_lightweight_prd",
+      "fixture": "opc-lightweight-prd.md",
+      "source": ".codex/skills/moe-opc/assets/templates/lightweight-prd.md",
+      "sha256": "8ebf6193d4961f6b8cb0dc73c24ffef1269582bef6a32a5fea1914564fb1f489"
+    }
+  ],
+  "cases": [
+    {
+      "id": "markdown_supported_golden",
+      "kind": "markdown_to_adf",
+      "input": "supported.md",
+      "expected_adf": "supported.adf.json",
+      "outcome": "accept",
+      "coverage": [
+        "atx_heading",
+        "paragraph_hard_break",
+        "blockquote",
+        "bullet_list",
+        "ordered_list",
+        "pipe_table",
+        "fenced_code",
+        "strong",
+        "em",
+        "strike",
+        "inline_code",
+        "inline_link",
+        "backslash_escape"
+      ]
+    },
+    {
+      "id": "opc_lightweight_prd_acceptance",
+      "kind": "markdown_to_adf",
+      "input": "opc-lightweight-prd.md",
+      "outcome": "accept",
+      "expected_structure": {
+        "heading_levels": {"1": 1, "2": 7, "3": 2},
+        "blockquote": 2,
+        "bullet_list": 7,
+        "list_item": 19,
+        "table": 1
+      }
+    },
+    {
+      "id": "native_adf_passthrough",
+      "kind": "adf_passthrough",
+      "input": "valid-rich.adf.json",
+      "outcome": "accept",
+      "deep_equal_after_local_validation": true
+    },
+    {
+      "id": "unknown_adf_node_passthrough",
+      "kind": "adf_passthrough",
+      "input": "structurally-valid-unknown.adf.json",
+      "outcome": "accept_locally_service_authoritative",
+      "deep_equal_after_local_validation": true
+    },
+    {
+      "id": "large_adf_service_authoritative",
+      "kind": "generated_adf",
+      "minimum_serialized_bytes": 1048577,
+      "outcome": "accept_locally_service_authoritative"
+    },
+    {
+      "id": "malformed_adf_json",
+      "kind": "adf_passthrough",
+      "input": "malformed-adf.txt",
+      "outcome": "reject",
+      "error": "adf_invalid"
+    },
+    {
+      "id": "invalid_adf_root",
+      "kind": "adf_passthrough",
+      "input": "invalid-adf-root.json",
+      "outcome": "reject",
+      "error": "adf_invalid"
+    },
+    {
+      "id": "unsupported_markdown_task_list",
+      "kind": "markdown_to_adf",
+      "input": "unsupported-task-list.md",
+      "outcome": "reject",
+      "error": "markdown_unsupported"
+    },
+    {
+      "id": "unsafe_markdown_link",
+      "kind": "markdown_to_adf",
+      "input": "unsafe-link.md",
+      "outcome": "reject",
+      "error": "unsafe_link"
+    },
+    {
+      "id": "unsafe_adf_link",
+      "kind": "adf_passthrough",
+      "input": "unsafe-link.adf.json",
+      "outcome": "reject",
+      "error": "unsafe_link"
+    },
+    {
+      "id": "markdown_residual_heading",
+      "kind": "residual_guard",
+      "input": "residual-source.md",
+      "candidate_adf": "residual-output.adf.json",
+      "outcome": "reject",
+      "error": "markdown_residual"
+    },
+    {
+      "id": "automation_adf_transport",
+      "kind": "adf_passthrough",
+      "input": "valid-rich.adf.json",
+      "mode": "automation",
+      "outcome": "reject",
+      "error": "adf_unsupported_transport"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "moego-svc-billing": {
+    "calls": [
+      "postgres"
+    ]
+  },
+  "moego-svc-subscription": {
+    "calls": [
+      "moego-server-payment",
+      "postgres",
+      "moego-svc-billing",
+      "moego-svc-organization"
+    ]
+  },
+  "postgres": {}
+}

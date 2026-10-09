@@ -1,0 +1,82 @@
+{
+  "newest_pages": {
+    "1": {
+      "posts": [
+        {
+          "_id": "post-new",
+          "authorID": "author-1",
+          "commentCount": 1,
+          "created": "2026-08-25T08:00:00.000Z",
+          "details": "希望批量操作预约",
+          "score": 3,
+          "status": "open",
+          "title": "批量操作预约",
+          "urlName": "batch-appointments"
+        },
+        {
+          "_id": "post-top",
+          "authorID": "author-2",
+          "commentCount": 2,
+          "created": "2026-08-01T08:00:00.000Z",
+          "details": "希望增强报表",
+          "score": 12,
+          "status": "open",
+          "title": "增强报表",
+          "urlName": "better-reports"
+        }
+      ],
+      "hasNextPage": false
+    }
+  },
+  "score_pages": {
+    "1": {
+      "posts": [
+        {
+          "_id": "post-top",
+          "authorID": "author-2",
+          "commentCount": 2,
+          "created": "2026-08-01T08:00:00.000Z",
+          "details": "希望增强报表",
+          "score": 12,
+          "status": "open",
+          "title": "增强报表",
+          "urlName": "better-reports"
+        },
+        {
+          "_id": "post-low",
+          "authorID": "author-3",
+          "commentCount": 0,
+          "created": "2026-07-01T08:00:00.000Z",
+          "details": "低票需求",
+          "score": 8,
+          "status": "open",
+          "title": "低票需求",
+          "urlName": "low-vote"
+        }
+      ],
+      "hasNextPage": true
+    }
+  },
+  "details": {
+    "post-new": {
+      "comments": {
+        "comment-1": {
+          "_id": "comment-1",
+          "value": "这个场景每天都会用"
+        }
+      },
+      "activities": [],
+      "hasMore": false
+    },
+    "post-top": {
+      "comments": {},
+      "activities": [],
+      "hasMore": false
+    },
+    "post-low": {
+      "comments": {},
+      "activities": [],
+      "hasMore": false
+    }
+  }
+}

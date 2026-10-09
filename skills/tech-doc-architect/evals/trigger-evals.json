@@ -1,0 +1,74 @@
+[
+  {
+    "query": "$tech-doc-architect 我们刚接手一个 Go 服务，代码有一百多个包，老板下周要看整体架构。帮我从代码和测试整理 Overview、核心链路、状态和部署边界，最后放进飞书 Wiki。",
+    "should_trigger": true
+  },
+  {
+    "query": "$tech-doc-architect 这份 Agent 架构文档太像功能清单了，帮我重构成由浅入深的技术文档集，系统上下文、运行时序、Session 状态和 live E2E 都要讲清楚。",
+    "should_trigger": true
+  },
+  {
+    "query": "$tech-doc-architect 把 repo 里的 docs/architecture 改成新同事能快速理解的版本，图和正文不要互相重复，所有结论都要能追到代码或测试。",
+    "should_trigger": true
+  },
+  {
+    "query": "$tech-doc-architect 在 Obsidian 的 工程/支付 下面建一个架构 Hub，拆出支付状态机、退款恢复和对账三个专题，沿用现有 wikilink 和附件目录。",
+    "should_trigger": true
+  },
+  {
+    "query": "$tech-doc-architect 这个 Kafka 消费服务的技术文档需要更新：重试现在由队列层拥有，旧的业务层重试结论删掉，并同步飞书和 Markdown。",
+    "should_trigger": true
+  },
+  {
+    "query": "$tech-doc-architect 我想写一份专业的系统设计说明给架构评审，重点解释边界、所有权、失败恢复和测试怎么证明不变量。",
+    "should_trigger": true
+  },
+  {
+    "query": "$tech-doc-architect 画一张 E2E test architecture，说明真实 Slack、模型依赖、独立测试实例、断言和失败现场，然后放回运行与验证专题。",
+    "should_trigger": true
+  },
+  {
+    "query": "$tech-doc-architect 请 review 这份技术架构文档是不是太浅了，新 CTO 很看重架构专业性，希望领导看 Overview、工程师继续下钻专题。",
+    "should_trigger": true
+  },
+  {
+    "query": "$tech-doc-architect 只写一个 OAuth token refresh 协议的 Markdown，包含状态、错误、恢复和测试证据，不要拆成很多空页面。",
+    "should_trigger": true
+  },
+  {
+    "query": "我们刚接手一个 Go 服务，代码有一百多个包，老板下周要看整体架构。帮我从代码和测试整理 Overview、核心链路、状态和部署边界，最后放进飞书 Wiki。",
+    "should_trigger": false
+  },
+  {
+    "query": "这份 Agent 架构文档太像功能清单了，帮我重构成由浅入深的技术文档集，系统上下文、运行时序、Session 状态和 live E2E 都要讲清楚。",
+    "should_trigger": false
+  },
+  {
+    "query": "在 Obsidian 的 工程/支付 下面建一个架构 Hub，拆出支付状态机、退款恢复和对账三个专题，沿用现有 wikilink 和附件目录。",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我 review 这个 PR 的 TypeScript diff，重点看并发 bug 和测试覆盖。",
+    "should_trigger": false
+  },
+  {
+    "query": "把这段已有的架构介绍润色得更正式一点，不要改变结构和技术内容。",
+    "should_trigger": false
+  },
+  {
+    "query": "画一个好看的登录流程图，我只需要一张 PNG 放进汇报 PPT。",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我把这个产品需求写成 PRD，包含用户故事、成功指标、竞品和排期。",
+    "should_trigger": false
+  },
+  {
+    "query": "整理今天架构评审会议纪要，按参会人、讨论项、结论和 action items 输出。",
+    "should_trigger": false
+  },
+  {
+    "query": "为 3.8.0 版本写 release notes，面向客户介绍新增能力、修复问题和升级注意事项。",
+    "should_trigger": false
+  }
+]

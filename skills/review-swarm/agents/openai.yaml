@@ -1,4 +1,6 @@
 interface:
   display_name: "Review Swarm"
-  short_description: "Parallel multi-agent diff review swarm"
-  default_prompt: "Use $review-swarm to review the current diff with four focused read-only reviewers and summarize the highest-signal issues."
+  short_description: "按风险动态并行、缺陷优先且证据可核验的只读代码审查"
+  default_prompt: "使用 $review-swarm 按输出合同审查当前 Git 改动；如果我另行指定 PR、分支、提交、revision range、路径过滤器或静态文件范围，则以该模式和范围为准。"
+policy:
+  allow_implicit_invocation: false

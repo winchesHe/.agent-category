@@ -1,0 +1,4 @@
+interface:
+  display_name: "本地 Session 上下文"
+  short_description: "准确检索本地 Agent Session，并按需读取最新上下文与覆盖证明"
+  default_prompt: "先执行 memory-manager scan --all 刷新索引，再使用 $local-session-context 检索最近的本地 Session；按需读取最新命中上下文后总结，并披露 scan coverage 与 limitations。"

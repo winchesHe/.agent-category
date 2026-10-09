@@ -1,0 +1,5 @@
+{
+  "tool": "read_issue",
+  "args_contain": {"issue_key": "GRM-123"},
+  "result": {"issue_key": "GRM-123", "status": "Done"}
+}

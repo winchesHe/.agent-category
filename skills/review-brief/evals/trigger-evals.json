@@ -1,0 +1,22 @@
+[
+  {"query":"帮我根据这个 PR 的完整 diff 写一份中文 PR Description，让 Reviewer 先看懂改动再开始审。","should_trigger":true},
+  {"query":"这个分支改了不少异步任务，我想给同事一份改动导览和推荐阅读顺序。","should_trigger":true},
+  {"query":"把当前 worktree 的 staged、unstaged 和 untracked 变化整理成 Reviewer Brief，先不要创建 PR。","should_trigger":true},
+  {"query":"PR 已经开了，帮我更新 body，概要和主要变化要按业务能力组织，不要逐文件罗列。","should_trigger":true},
+  {"query":"这个 revision range 从 API 改到 worker 和 webhook，给我一个 Full review brief。","should_trigger":true},
+  {"query":"把刚生成的 review brief 分别准备成 GitHub 完整版和 Slack 精简版，不要发布。","should_trigger":true},
+  {"query":"我需要让 reviewer 快速理解这次迁移为什么要先读 schema、再读 service、最后看 consumer。","should_trigger":true},
+  {"query":"这次前端 PR 有真实改后截图，帮我把它放进对应的主要变化里，形成 PR body。","should_trigger":true},
+  {"query":"根据 PR #128 的 diff 生成审阅导览；复杂调用链确实需要时再画图。","should_trigger":true},
+  {"query":"给这个跨服务改动整理一份人能读懂的变更说明，后面要同时贴到 PR 和 Slack thread。","should_trigger":true},
+  {"query":"帮我 review PR #42，重点找正确性、性能、可靠性问题，按 P0-P3 给 findings。","should_trigger":false},
+  {"query":"代码已经写完了，帮我修掉这里的 race condition 并补单测。","should_trigger":false},
+  {"query":"画一下现有订单系统架构，没有代码改动，只想看组件关系。","should_trigger":false},
+  {"query":"解释 src/booking/createBooking.ts 现在做什么，不需要比较任何版本。","should_trigger":false},
+  {"query":"这个 PR 能 approve 吗？请直接给 Request changes 或 Approve。","should_trigger":false},
+  {"query":"帮我把这段代码重构得更容易维护，复用仓库已有函数。","should_trigger":false},
+  {"query":"检查这次提交有没有泄露 token、越权或 SQL 注入风险。","should_trigger":false},
+  {"query":"单独生成一个 C4 container diagram，输入是现有架构文档，不是 diff。","should_trigger":false},
+  {"query":"创建 PR、push 当前分支并等待 CI 通过。","should_trigger":false},
+  {"query":"总结一下昨天 Slack 里大家对预约提醒方案的讨论。","should_trigger":false}
+]

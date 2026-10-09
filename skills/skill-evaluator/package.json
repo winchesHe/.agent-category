@@ -1,0 +1,11 @@
+{
+  "name": "@winches/skill-evaluator-eval-runtime",
+  "private": true,
+  "description": "skill-evaluator 使用的 Pi SDK bridge 依赖",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "0.84.2"
+  }
+}

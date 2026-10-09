@@ -1,0 +1,62 @@
+$schema: ../../../../../evals/schemas/trigger-cases.schema.json
+skill: slack
+queries:
+  - id: slack-permalink-thread
+    query: |-
+      这个 Slack thread 太长了，帮我读完整 replies 并总结 blockers：https://slack.example.com/archives/C08OPS98765/p1783035600987654?thread_ts=1783032000.123456
+    should_trigger: true
+  - id: slack-channel-history-window
+    query: "看一下 #eng-release 最近 2h 的 channel history，thread 回复也算进去，重点找 rollback 和 hotfix。"
+    should_trigger: true
+  - id: slack-search-modifiers
+    query: |-
+      Please search Slack for "appointment import failed" in:#data-platform from:@mia after:2026-07-01 before:2026-07-08, sorted by timestamp.
+    should_trigger: true
+  - id: slack-resolve-identities
+    query: 帮我在 Slack 里确认 @ryan、#ops-alerts 和 ^oncall-dba 分别对应哪个 user、channel 和 user group。
+    should_trigger: true
+  - id: slack-download-private-file
+    query: |-
+      这条 Slack 消息里有一份私有 CSV，请先读消息再把附件下载到本地：https://slack.example.com/archives/C08DATA222/p1783040000000999
+    should_trigger: true
+  - id: slack-upload-candidate-needs-gating
+    query: "值班日报在 /tmp/oncall-report.pdf，可能要发到 Slack #team-ops，你帮我处理一下。"
+    should_trigger: true
+  - id: slack-mention-current-thread-upload
+    query: |-
+      当前对话来自 Slack @mention，channel_id=C08AGENT999，root thread_ts=1783101200.654321。把 /tmp/incident-summary.md 发到这里。
+    should_trigger: true
+  - id: slack-send-direct-request
+    query: "在 Slack #release-war-room 发一条 `QA sign-off received`。"
+    should_trigger: true
+  - id: slack-composite-write-needs-gating
+    query: 把上一条 Slack bot 消息改一下，再给 root 加 eyes，旧的误发消息也删掉。
+    should_trigger: true
+  - id: slack-link-inside-pr
+    query: |-
+      PR #1842 引用了 Slack context https://slack.example.com/archives/C08FE98765/p1783048888000123，先读这条消息确认 reviewer concern。
+    should_trigger: true
+  - id: jira-no-slack-link
+    query: 查一下 Jira MOE-4821 的状态、assignee 和 linked CS ticket，不需要看 Slack。
+    should_trigger: false
+  - id: pr-review-no-slack-link
+    query: "Review PR #1842 的 TypeScript diff，重点检查并发更新和错误处理；描述里没有外部讨论链接。"
+    should_trigger: false
+  - id: teams-thread-link
+    query: 请打开这个 Microsoft Teams thread 并总结结论：https://teams.example.com/l/message/19:channel/1783000000
+    should_trigger: false
+  - id: slack-app-development
+    query: 给我们的 Slack app 增加 OAuth v2 安装流程和 events API signature verification，并补单元测试。
+    should_trigger: false
+  - id: generic-message-drafting
+    query: 帮我把这段团队公告润色得更简洁，先不要发到 Slack 或任何其他平台。
+    should_trigger: false
+  - id: local-file-download
+    query: 把 https://files.example.com/report.csv 下载到 /tmp/reports，然后告诉我文件大小。
+    should_trigger: false
+  - id: address-book-email-lookup
+    query: 在公司通讯录里查一下 ryan.chen@example.test 对应的员工和直属经理，不需要 Slack 信息。
+    should_trigger: false
+  - id: discord-message-operation
+    query: 把这条 Discord 消息 pin 起来，并给它加一个 eyes reaction：https://discord.example.com/channels/100/200/300
+    should_trigger: false

@@ -1,0 +1,37 @@
+{
+  "name": "metersphere",
+  "description": "MeterSphere 测试资产入口。查找/搜索/列举/创建/编辑测试用例（也叫测试 case、功能用例、test case、TC、用例）：按关键字定位模组并返回前端链接，按 case 名搜单条，查看用例详情/评审记录/关联缺陷；同时支持根据需求生成功能用例草稿、根据 Swagger/OpenAPI 生成接口定义与接口用例并批量写入。",
+  "version": "2.0.0",
+  "author": "OpenClaw Skills",
+  "requiredEnvVars": [
+    "METERSPHERE_BASE_URL",
+    "METERSPHERE_ACCESS_KEY",
+    "METERSPHERE_SECRET_KEY"
+  ],
+  "requiredBinaries": [
+    "python3",
+    "openssl"
+  ],
+  "optionalEnvVars": [
+    "METERSPHERE_ENV_FILE",
+    "METERSPHERE_TIMEOUT_SECONDS",
+    "METERSPHERE_PROJECT_ID",
+    "METERSPHERE_ORGANIZATION_ID",
+    "METERSPHERE_WORKSPACE_ID",
+    "METERSPHERE_HEADERS_JSON",
+    "METERSPHERE_PROTOCOLS_JSON",
+    "METERSPHERE_DEFAULT_MAINTAINER",
+    "METERSPHERE_DEFAULT_VERSION_ID",
+    "METERSPHERE_DEFAULT_NODE_PATH",
+    "METERSPHERE_NODE_PATH_MAP_JSON"
+  ],
+  "securityNotes": [
+    "仅提供具有最小必要权限的 MeterSphere 测试账户凭证",
+    "建议使用只读 API 密钥进行查询操作",
+    "为创建操作使用单独的、有限权限的密钥",
+    "METERSPHERE_HEADERS_JSON 可注入任意 HTTP 头，请谨慎使用",
+    "真实 .env 不得提交；使用 .env.example 作为配置模板",
+    "浏览器不得作为 MeterSphere CRUD 或认证兜底"
+  ],
+  "usage": "用户提到测试用例、测试 case、功能用例、test case、TC、用例，或要查找/搜索/列出/查看详情/创建/编辑/批量导入这些资产时使用；也包括用例评审、评审单、评审状态、关联缺陷、评审记录、按模组定位用例、按需求生成用例、按 Swagger/OpenAPI 导入接口用例等 MeterSphere 相关请求。"
+}

@@ -1,0 +1,24 @@
+{
+  "source": "file-id",
+  "file": {
+    "id": "F_TEST_PRIVATE_CSV",
+    "name": "synthetic-retry-sample.csv",
+    "mimetype": "text/csv",
+    "category": "text",
+    "size": 31,
+    "local_path": "/tmp/moe-slack-eval/F_TEST_PRIVATE_CSV.csv",
+    "skipped": false,
+    "skipped_reason": null,
+    "error": null
+  },
+  "summary": {
+    "total_files": 1,
+    "downloaded": 1,
+    "skipped": 0,
+    "errored": 0
+  },
+  "types": [
+    "text"
+  ],
+  "files_dir": "/tmp/moe-slack-eval"
+}

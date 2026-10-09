@@ -1,0 +1,20 @@
+{
+  "channel_id": "C_TESTDATA",
+  "ts": "1782600000.123456",
+  "permalink": "https://slack.example.com/archives/C_TESTDATA/p1782600000123456",
+  "author": {
+    "id": "U_TESTDATA",
+    "name": "TEST Data Owner",
+    "display_name": "TEST Data Owner",
+    "is_bot": false
+  },
+  "text_rendered": "Synthetic retry sample attached for column validation.",
+  "files": [
+    {
+      "id": "F_TEST_PRIVATE_CSV",
+      "name": "synthetic-retry-sample.csv",
+      "mimetype": "text/csv",
+      "url_private": "https://slack.example.com/files-pri/T_TEST/F_TEST_PRIVATE_CSV/synthetic-retry-sample.csv"
+    }
+  ]
+}

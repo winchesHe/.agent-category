@@ -1,0 +1,29 @@
+{
+  "data": {
+    "id": "c8ea8a75-2dbf-403d-8669-386d65a557f9",
+    "type": "services_list",
+    "attributes": {
+      "metadata": [
+        {
+          "isTraced": true
+        },
+        {
+          "isTraced": true
+        },
+        {
+          "isTraced": true
+        }
+      ],
+      "services": [
+        "moego-server-retail",
+        "moego-recurring-payment",
+        "moego-svc-branded-app",
+        "moego-svc-fulfillment",
+        "moego-expo-updates",
+        "moego-svc-appointment",
+        "moego-svc-offering",
+        "moego-fulfillment"
+      ]
+    }
+  }
+}

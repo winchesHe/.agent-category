@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "defaultConnection": "t2-cluster-api",
+  "catalogConnection": "prod-wire",
+  "connections": {
+    "customer-search-api": {
+      "deployment": "serverless",
+      "transport": "data_api",
+      "database": "dev",
+      "target": {
+        "region": "us-west-2",
+        "workgroupName": "customer-search-workgroup"
+      },
+      "authentication": {
+        "mode": "iam"
+      },
+      "awsCredentials": {
+        "source": "profile",
+        "profile": "moego-prod",
+        "expectedAccountId": "693727988157"
+      },
+      "awsApiTimeoutSeconds": 10,
+      "sessionKeepAliveSeconds": 300,
+      "statementTimeoutMs": 30000
+    },
+    "prod-cluster-api": {
+      "deployment": "provisioned",
+      "transport": "data_api",
+      "database": "dev",
+      "target": {
+        "region": "us-west-2",
+        "clusterIdentifier": "redshift-cluster-1"
+      },
+      "authentication": {
+        "mode": "iam"
+      },
+      "awsCredentials": {
+        "source": "profile",
+        "profile": "moego-prod",
+        "expectedAccountId": "693727988157"
+      },
+      "awsApiTimeoutSeconds": 10,
+      "sessionKeepAliveSeconds": 300,
+      "statementTimeoutMs": 30000
+    },
+    "prod-wire": {
+      "deployment": "provisioned",
+      "transport": "wire",
+      "database": "mysql_prod",
+      "target": {
+        "host": "redshift-cluster-1.crxqzxdst2fl.us-west-2.redshift.amazonaws.com",
+        "port": 5439
+      },
+      "authentication": {
+        "mode": "password",
+        "usernameEnv": "WAREHOUSE_USER",
+        "passwordEnv": "WAREHOUSE_PASSWORD"
+      },
+      "tls": {
+        "mode": "verify-full",
+        "trust": {
+          "source": "file",
+          "pathEnv": "WAREHOUSE_CA"
+        }
+      },
+      "connectTimeoutSeconds": 10,
+      "statementTimeoutMs": 30000
+    },
+    "reporting-api": {
+      "deployment": "serverless",
+      "transport": "data_api",
+      "database": "dev",
+      "target": {
+        "region": "us-west-2",
+        "workgroupName": "reporting-workgroup"
+      },
+      "authentication": {
+        "mode": "iam"
+      },
+      "awsCredentials": {
+        "source": "profile",
+        "profile": "moego-prod",
+        "expectedAccountId": "693727988157"
+      },
+      "awsApiTimeoutSeconds": 10,
+      "sessionKeepAliveSeconds": 300,
+      "statementTimeoutMs": 30000
+    },
+    "t2-cluster-api": {
+      "deployment": "provisioned",
+      "transport": "data_api",
+      "database": "dev",
+      "target": {
+        "region": "us-west-2",
+        "clusterIdentifier": "redshift-cluster-t2"
+      },
+      "authentication": {
+        "mode": "iam"
+      },
+      "awsCredentials": {
+        "source": "profile",
+        "profile": "moego-prod",
+        "expectedAccountId": "693727988157"
+      },
+      "awsApiTimeoutSeconds": 10,
+      "sessionKeepAliveSeconds": 300,
+      "statementTimeoutMs": 30000
+    },
+    "t2-reporting-api": {
+      "deployment": "serverless",
+      "transport": "data_api",
+      "database": "dev",
+      "target": {
+        "region": "us-west-2",
+        "workgroupName": "t2-reporting-workgroup"
+      },
+      "authentication": {
+        "mode": "iam"
+      },
+      "awsCredentials": {
+        "source": "profile",
+        "profile": "moego-prod",
+        "expectedAccountId": "693727988157"
+      },
+      "awsApiTimeoutSeconds": 10,
+      "sessionKeepAliveSeconds": 300,
+      "statementTimeoutMs": 30000
+    }
+  }
+}

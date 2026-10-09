@@ -1,0 +1,9 @@
+defaultLocale: en
+icon: document
+locales:
+  en:
+    displayName: t2 database
+    shortDescription: Use when MoeGo engineers need T2 PostgreSQL or MySQL connection details, database names, table names, or direct psql/mysql command patterns for the main PostgreSQL instance, membership v2, grooming, message, or business databases.
+  zh-CN:
+    displayName: T2 数据库
+    shortDescription: 获取测试数据库连接与客户端指引。

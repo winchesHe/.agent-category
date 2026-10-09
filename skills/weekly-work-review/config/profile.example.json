@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1",
+  "owner": {
+    "display_name": "winches"
+  },
+  "company": {
+    "name": "MoeGo"
+  },
+  "week": {
+    "starts_on": "monday",
+    "timezone": "machine-local"
+  },
+  "vault": {
+    "root_env": "WEEKLY_REVIEW_VAULT_ROOT",
+    "archive_relative_dir": "工作/周报",
+    "existing_shape": "single-week-note",
+    "package_migration_target": "flat-week-dir"
+  },
+  "scratch": {
+    "root_env": "WEEKLY_REVIEW_SCRATCH_ROOT",
+    "must_be_outside_vault": true
+  },
+  "sources": {
+    "sessions": {
+      "enabled": true,
+      "collector": "scripts/collect-sessions.mjs",
+      "backend": "memory-manager",
+      "cli_env": "WEEKLY_REVIEW_MEMORY_MANAGER_CLI",
+      "agents": ["claude", "codex", "opencode", "pi", "copilot", "cursor"],
+      "scan_is_opt_in": true,
+      "missing_behavior": "tool_unavailable"
+    },
+    "slack": {
+      "enabled": true,
+      "skill_root_env": "WEEKLY_REVIEW_SLACK_SKILL_DIR",
+      "default_relative_path": "../slack"
+    },
+    "lark": {
+      "enabled": true,
+      "command": "lark-cli"
+    },
+    "github": {
+      "enabled": true
+    },
+    "jira": {
+      "enabled": true
+    },
+    "personal_outputs": {
+      "enabled": true
+    }
+  },
+  "report": {
+    "personal_full_review_is_primary": true,
+    "sprint_review_is_excerpt": true,
+    "required_tags": [
+      "工作/周报",
+      "MoeGo"
+    ]
+  }
+}

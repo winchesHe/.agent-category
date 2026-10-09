@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "fixtures": [
+    {
+      "id": "hard-two-clean",
+      "planned": 2,
+      "events": [
+        {"type": "started", "reviewer": "a", "parent": "root"},
+        {"type": "started", "reviewer": "b", "parent": "root"},
+        {"type": "completed", "reviewer": "a", "usable": true},
+        {"type": "completed", "reviewer": "b", "usable": true}
+      ],
+      "expected": {"started": 2, "completed": 2, "nested": false}
+    },
+    {
+      "id": "started-then-failed",
+      "planned": 2,
+      "events": [
+        {"type": "started", "reviewer": "a", "parent": "root"},
+        {"type": "started", "reviewer": "b", "parent": "root"},
+        {"type": "completed", "reviewer": "a", "usable": true},
+        {"type": "completed", "reviewer": "b", "usable": false}
+      ],
+      "expected": {"started": 2, "completed": 1, "nested": false}
+    },
+    {
+      "id": "nested-delegation",
+      "planned": 2,
+      "events": [
+        {"type": "started", "reviewer": "a", "parent": "root"},
+        {"type": "started", "reviewer": "b", "parent": "root"},
+        {"type": "started", "reviewer": "helper", "parent": "a"}
+      ],
+      "expected": {"started": 3, "completed": 0, "nested": true}
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "slack_train_permalink_thread",
+    "question": "A user asks: \"帮我分析这个 Slack permalink 里的 CS 工单讨论：https://moego.slack.com/archives/C01TT9K995M/p1774500000000000\". Which action label should the Slack skill choose first? Options: read_thread, search_history, send_message, no_tool. Return only the label.",
+    "context": "The task involves a Slack message permalink and asks for analysis of the discussion. The Slack skill has a dedicated command for reading a thread permalink before analysis.",
+    "answers": ["read_thread"]
+  },
+  {
+    "id": "slack_train_search_boolean",
+    "question": "A user asks to search Slack for historical discussion and suggests query text: \"refund OR chargeback\". Which search-query rule label applies? Options: use_boolean_operators, avoid_boolean_operators, write_to_slack, read_recent_only. Return only the label.",
+    "context": "Slack search in this skill must not use boolean operators such as AND, OR, or NOT. It should use separate searches, implicit AND by spaces, or '-' exclusions.",
+    "answers": ["avoid_boolean_operators"]
+  },
+  {
+    "id": "slack_train_no_implicit_write",
+    "question": "After reading a thread, the user says: \"先告诉我你的结论\". Which Slack write-policy label applies? Options: send_to_slack, do_not_write_slack, add_reaction, delete_message. Return only the label.",
+    "context": "The user asks for the conclusion in the current conversation and does not explicitly request sending, editing, deleting, or reacting in Slack.",
+    "answers": ["do_not_write_slack"]
+  },
+  {
+    "id": "slack_train_recent_channel",
+    "question": "A user asks: \"看一下 #customer-support-issue-discussion 最近 10 个 thread 有没有相似问题\". Which action label should the Slack skill choose first? Options: read_recent_threads, read_single_thread, edit_message, delete_message. Return only the label.",
+    "context": "The task is to browse recent discussions in a known channel, not to inspect one permalink.",
+    "answers": ["read_recent_threads"]
+  }
+]

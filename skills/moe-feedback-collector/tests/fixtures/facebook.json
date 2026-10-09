@@ -1,0 +1,55 @@
+{
+  "query": "in:community-pending-posts after:2026-08-16 before:2026-08-24",
+  "total": 3,
+  "returned": 3,
+  "matches": [
+    {
+      "channel_id": "C0BEL8Y0Y74",
+      "ts": "1786984569.528059",
+      "thread_ts": "1786984569.528059",
+      "permalink": "https://moegoworkspace.slack.com/archives/C0BEL8Y0Y74/p1786984569528059",
+      "text_raw": "",
+      "raw": {
+        "files": [
+          {
+            "id": "FTESTPOST1",
+            "subject": "Test User's post in MoeGo for Premium... needs approval: \"How can I make scheduling easier?\"",
+            "from": [
+              {
+                "address": "groupupdates@facebookmail.com",
+                "name": "Facebook"
+              }
+            ],
+            "to": [
+              {
+                "address": "owner@example.com",
+                "name": "Owner"
+              }
+            ],
+            "plain_text": "View post\nhttps://www.facebook.com/nd/?groups%2Fmoego%2Fpending%2F&n_m=owner%40example.com\n\nHi Owner,\n\nTest User's post in MoeGo for Premium... needs approval: \"How can I make scheduling easier? Contact me at customer@example.com\".\n\n\"How can I make scheduling easier? Contact me at customer@example.com\"\n\nThanks,\nThe Facebook team\n\nhttps://www.facebook.com/o.php?unsubscribe=secret"
+          }
+        ]
+      }
+    },
+    {
+      "channel_id": "C0BEL8Y0Y74",
+      "ts": "1786984669.528059",
+      "thread_ts": "1786984569.528059",
+      "permalink": "https://moegoworkspace.slack.com/archives/C0BEL8Y0Y74/p1786984669528059?thread_ts=1786984569.528059",
+      "text_raw": "Campaign comment summary: The customer wants a five-minute scheduling interval. https://www.facebook.com/groups/moego/posts/123456/?tracking=secret",
+      "raw": {
+        "files": []
+      }
+    },
+    {
+      "channel_id": "C0BEL8Y0Y74",
+      "ts": "1786984769.528059",
+      "thread_ts": "1786984569.528059",
+      "permalink": "https://moegoworkspace.slack.com/archives/C0BEL8Y0Y74/p1786984769528059?thread_ts=1786984569.528059",
+      "text_raw": "DM'd",
+      "raw": {
+        "files": []
+      }
+    }
+  ]
+}

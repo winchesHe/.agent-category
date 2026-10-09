@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "databases": {
+    "dbt_dw": {
+      "sourceType": "warehouse"
+    },
+    "mysql_prod": {
+      "sourceType": "mysql"
+    },
+    "pg_moego_account_prod": {
+      "sourceType": "postgres"
+    },
+    "pg_moego_customer_prod": {
+      "sourceType": "postgres"
+    },
+    "pg_moego_fulfillment_prod": {
+      "sourceType": "postgres"
+    },
+    "pg_moego_membership_prod": {
+      "sourceType": "postgres"
+    },
+    "pg_moego_membership_prod_v2": {
+      "sourceType": "postgres"
+    },
+    "pg_moego_order_prod": {
+      "sourceType": "postgres"
+    },
+    "pg_moego_payment_prod": {
+      "sourceType": "postgres"
+    }
+  },
+  "relations": {
+    "pg_moego_account_prod.public.account": {
+      "domain": "account",
+      "subdomain": "identity",
+      "service": "account",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "mysql_prod.moe_business.moe_staff": {
+      "domain": "account",
+      "subdomain": "organization-membership",
+      "service": "business",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "mysql_prod.moe_business.moe_company": {
+      "domain": "account",
+      "subdomain": "organization",
+      "service": "business",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "mysql_prod.moe_business.moe_business": {
+      "domain": "account",
+      "subdomain": "business-location",
+      "service": "business",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_customer_prod.public.customer": {
+      "domain": "customer",
+      "subdomain": null,
+      "service": "customer",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_customer_prod.public.contact": {
+      "domain": "customer",
+      "subdomain": "contact",
+      "service": "customer",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_customer_prod.public.customer_related_data": {
+      "domain": "customer",
+      "subdomain": "organization-link",
+      "service": "customer",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_customer_prod.public.moe_customer_pet": {
+      "domain": "customer",
+      "subdomain": "pet",
+      "service": "customer",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_fulfillment_prod.public.appointment": {
+      "domain": "fulfillment",
+      "subdomain": "appointment",
+      "service": "fulfillment",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_fulfillment_prod.public.appointment_status_record": {
+      "domain": "fulfillment",
+      "subdomain": "appointment-status-history",
+      "service": "fulfillment",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_order_prod.public.order": {
+      "domain": "order",
+      "subdomain": null,
+      "service": "order",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_order_prod.public.order_line_item": {
+      "domain": "order",
+      "subdomain": "line-item",
+      "service": "order",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_order_prod.public.order_payment": {
+      "domain": "payment",
+      "subdomain": "order-payment",
+      "service": "order",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_payment_prod.public.payment": {
+      "domain": "payment",
+      "subdomain": "payment",
+      "service": "payment",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_payment_prod.public.refund": {
+      "domain": "payment",
+      "subdomain": "refund",
+      "service": "payment",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_payment_prod.public.dispute": {
+      "domain": "payment",
+      "subdomain": "dispute",
+      "service": "payment",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_payment_prod.public.payout": {
+      "domain": "payment",
+      "subdomain": "payout",
+      "service": "payment",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "mysql_prod.moe_payment.payment": {
+      "domain": "payment",
+      "subdomain": "legacy-payment",
+      "service": "legacy-payment",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "mysql_prod.moe_grooming.moe_grooming_package": {
+      "domain": "fulfillment",
+      "subdomain": "package",
+      "service": "grooming",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "mysql_prod.moe_grooming.moe_grooming_package_service": {
+      "domain": "fulfillment",
+      "subdomain": "package-service",
+      "service": "grooming",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "mysql_prod.moe_grooming.moe_grooming_package_history": {
+      "domain": "fulfillment",
+      "subdomain": "package-redemption",
+      "service": "grooming",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "mysql_prod.moe_grooming.moe_grooming_invoice_apply_package": {
+      "domain": "fulfillment",
+      "subdomain": "package-redemption",
+      "service": "grooming",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod_v2.public.memberships": {
+      "domain": "membership",
+      "subdomain": "membership",
+      "service": "membership-v2",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod_v2.public.subscriptions": {
+      "domain": "membership",
+      "subdomain": "subscription",
+      "service": "membership-v2",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod_v2.public.benefit_configs": {
+      "domain": "membership",
+      "subdomain": "benefit-config",
+      "service": "membership-v2",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod_v2.public.benefits": {
+      "domain": "membership",
+      "subdomain": "benefit",
+      "service": "membership-v2",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod_v2.public.events": {
+      "domain": "membership",
+      "subdomain": "event",
+      "service": "membership-v2",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod_v2.public.prices": {
+      "domain": "membership",
+      "subdomain": "price",
+      "service": "membership-v2",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod_v2.public.sell_links": {
+      "domain": "membership",
+      "subdomain": "sell-link",
+      "service": "membership-v2",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod.public.membership": {
+      "domain": "membership",
+      "subdomain": "legacy-membership",
+      "service": "membership-v1",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod.public.membership_perk": {
+      "domain": "membership",
+      "subdomain": "legacy-perk",
+      "service": "membership-v1",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod.public.membership_discount_benefits": {
+      "domain": "membership",
+      "subdomain": "legacy-discount-benefit",
+      "service": "membership-v1",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    },
+    "pg_moego_membership_prod.public.membership_quantity_benefits": {
+      "domain": "membership",
+      "subdomain": "legacy-quantity-benefit",
+      "service": "membership-v1",
+      "layer": "unknown",
+      "hiddenByDefault": false
+    }
+  }
+}

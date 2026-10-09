@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "suite": "moe-redshift-v2-deterministic-cli-contract",
+  "cases": [
+    {
+      "id": "missing-command",
+      "networkRequired": false,
+      "args": [],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": null,
+          "error.category": "usage",
+          "error.code": "missing_command",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "unknown-command",
+      "networkRequired": false,
+      "args": [
+        "qurey"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": null,
+          "error.category": "usage",
+          "error.code": "unknown_command",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "root-database-option-scope",
+      "networkRequired": false,
+      "args": [
+        "--database",
+        "example_db",
+        "query",
+        "--sql",
+        "SELECT 1"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": null,
+          "error.category": "usage",
+          "error.code": "option_scope",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "root-connection-option-scope",
+      "networkRequired": false,
+      "args": [
+        "--connection",
+        "example",
+        "query",
+        "--sql",
+        "SELECT 1"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": null,
+          "error.category": "usage",
+          "error.code": "option_scope",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "query-missing-source",
+      "networkRequired": false,
+      "args": [
+        "query",
+        "--database",
+        "example_db"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "query",
+          "error.category": "usage",
+          "error.code": "missing_argument",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "schemas-missing-target",
+      "networkRequired": false,
+      "args": [
+        "schemas"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "schemas",
+          "error.category": "usage",
+          "error.code": "missing_argument",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "relations-missing-target",
+      "networkRequired": false,
+      "args": [
+        "relations"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "relations",
+          "error.category": "usage",
+          "error.code": "missing_argument",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "query-unknown-option",
+      "networkRequired": false,
+      "args": [
+        "query",
+        "--sql",
+        "SELECT 1",
+        "--unknown-option"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "query",
+          "error.category": "usage",
+          "error.code": "unknown_option",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "recipe-invalid-name",
+      "networkRequired": false,
+      "args": [
+        "recipe",
+        "unknown-recipe"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "recipe",
+          "error.category": "usage",
+          "error.code": "invalid_value",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "recipe-list-connection-invalid-combination",
+      "networkRequired": false,
+      "args": [
+        "recipe",
+        "list",
+        "--connection",
+        "example"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "recipe",
+          "error.category": "usage",
+          "error.code": "invalid_combination",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "doctor-list-connect-invalid-combination",
+      "networkRequired": false,
+      "args": [
+        "doctor",
+        "--list-connections",
+        "--connect"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "doctor",
+          "error.category": "usage",
+          "error.code": "invalid_combination",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "json-output-invalid-combination",
+      "networkRequired": false,
+      "args": [
+        "query",
+        "--sql",
+        "SELECT 1",
+        "--format",
+        "json",
+        "--output",
+        "result.json"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "query",
+          "error.category": "usage",
+          "error.code": "invalid_combination",
+          "error.retryClass": "after_change"
+        }
+      }
+    },
+    {
+      "id": "csv-output-missing-name",
+      "networkRequired": false,
+      "args": [
+        "query",
+        "--sql",
+        "SELECT 1",
+        "--format",
+        "csv"
+      ],
+      "expected": {
+        "exitCode": 2,
+        "jsonPaths": {
+          "schemaVersion": 1,
+          "ok": false,
+          "command": "query",
+          "error.category": "usage",
+          "error.code": "missing_argument",
+          "error.retryClass": "after_change"
+        }
+      }
+    }
+  ]
+}

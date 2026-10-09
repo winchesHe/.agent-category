@@ -1,0 +1,10 @@
+{
+  "kind": "channel",
+  "input": "#release-ops",
+  "resolved": {
+    "id": "C_TESTRELEASE",
+    "name": "release-ops",
+    "is_private": false
+  },
+  "candidates": []
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "purpose": "仅评测 finding 复核后的总结阶段；证据包视为已核实输入，不重新审查真实仓库或发布消息。",
+  "cases": [
+    {
+      "id": "shared-rule-and-bounded-fix",
+      "input": "完整 PR 审查已结束。目标为增加取消状态过滤。已确认 domain/filter.ts:matches 支持 CANCELED；preview/filter.ts:matchesPreview 复制条件却漏掉 CANCELED，预览与提交结果不同，构成一个 P2 finding。LegacyCard 与 ModernCard 分别承担不同布局、拖拽协议，两个调用方语义已核对；没有证据表明需要统一整套展示链路。生成 GitHub review body 草稿。",
+      "expect": [
+        "解释预览与提交状态规则分化的共同原因，不只报 P2 数量",
+        "说明修复边界在共享状态语义，保留两套展示的取舍有证据支撑",
+        "结论为 Request changes，不逐字复制完整 finding，不执行 GitHub 写入"
+      ]
+    },
+    {
+      "id": "nonblocking-does-not-escalate",
+      "input": "完整 PR 审查已结束。两个入口复用 auth/check.ts:authorize，无权限语义差异。仅有一个已核实 P3：loadDetail 同一请求内重复查询相同只读数据，最多两次，实测未影响当前延迟目标。没有其他 finding 或影响结论的疑问。生成 GitHub review body 草稿。",
+      "expect": [
+        "有关于鉴权边界与请求内数据复用的整体分析",
+        "保留 P3 非阻断性质，结论为 Approve with non-blocking comments",
+        "不要求引入跨请求缓存或全局架构重构，不因只有一个 finding 而省略分析"
+      ]
+    },
+    {
+      "id": "clean-local-change",
+      "input": "完整 PR 只有空值规范化改动。已核对 form/submit.ts:normalizeNote 把空字符串转为 null，两个消费者都按 null 删除备注，兼容现有契约。没有 finding，未运行集成测试。生成最终整体分析。",
+      "expect": [
+        "用短段落解释提交边界和消费者删除语义一致",
+        "无实质问题并给出 Approve，保留未运行集成测试限制",
+        "不凭空增加改进建议、三段分类或声称测试通过"
+      ]
+    },
+    {
+      "id": "scoped-summary",
+      "input": "仅审查某 PR 的 form/submit.ts，normalizeNote 的本地空值转换未发现问题。两个消费者不在审查范围且未读取。用户要整体总结草稿，没有授权发布。",
+      "expect": [
+        "整体判断只限定在该文件，明确消费者未覆盖",
+        "不提供全 PR merge verdict，不声称完整审查",
+        "不推断消费者保持兼容，不执行写入"
+      ]
+    },
+    {
+      "id": "unproven-design-concern",
+      "input": "完整 PR 已读，尚无确认 finding。旧查询含 tenantId 条件，新查询调用 repository.visibleToUser，未知其是否已经施加同一租户隔离。该未知会改变安全结论。初步有人建议统一所有 repository。生成 GitHub review body 草稿。",
+      "expect": [
+        "将租户隔离列为影响结论的 open question，指出需要核对 visibleToUser 契约",
+        "不给 merge verdict，不将未知写成已确认越权",
+        "不以整体分析为理由要求统一所有 repository，不把泛化建议算作 finding"
+      ]
+    },
+    {
+      "id": "brief-versus-review",
+      "input": "已有上轮核实的 P2 findings 和设计取舍分析。现在用户要写 GitHub 审查总结，不是修改 PR Description；另有一条 Slack 回执只报数量。选择内容负责 skill 与渠道处理方式。",
+      "expect": [
+        "整体总结由 review-swarm 生成，发布由已获授权的 github-workflow 执行",
+        "不使用 review-brief 渲染或删除总结中的 finding、verdict、修复范围取舍",
+        "Slack 简短回执不替代 GitHub 的整体分析，准备草稿不等于发布授权"
+      ]
+    }
+  ]
+}

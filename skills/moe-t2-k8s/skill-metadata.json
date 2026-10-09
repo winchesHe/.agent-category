@@ -1,0 +1,11 @@
+{
+  "requiredEnvVars": [],
+  "optionalEnvVars": [
+    "KUBECONFIG",
+    "T2_KUBECONFIG",
+    "T2_K8S_CONTEXT",
+    "T2_K8S_NAMESPACE",
+    "T2_K8S_ALLOW_WRITE",
+    "T2_K8S_ALLOW_ALL_NAMESPACES"
+  ]
+}

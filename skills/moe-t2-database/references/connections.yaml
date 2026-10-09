@@ -1,0 +1,74 @@
+# MoeGo T2 development database registry.
+# Credentials come from host configuration. Never store passwords or credential-bearing DSNs here.
+
+credentials:
+  user_env: T2_DATABASE_USER
+  postgres_password_env: PGPASSWORD
+  mysql_option_file_env: T2_MYSQL_OPTION_FILE
+  mysql_password_source: host MySQL option file
+
+defaults:
+  postgres:
+    host: postgres.t2.moego.dev
+    sslmode: disable
+  mysql:
+    host: mysql.t2.moego.dev
+
+postgres:
+  pg_main:
+    host: postgres.t2.moego.dev
+    port: 40132
+    sslmode: disable
+    note: Main T2 PostgreSQL instance; most PostgreSQL databases are on this host and port.
+    databases:
+      membership_old:
+        database: moego_membership
+        table: public.membership
+      subscription:
+        database: moego_subscription
+        table: public.subscription
+        inferred: true
+        note: Inferred from the test PostgreSQL convention; verify before relying on it.
+      billing:
+        database: moego_billing
+        table: public.subscription_relation
+        inferred: true
+        note: Inferred from the test PostgreSQL convention; verify before relying on it.
+      account:
+        database: moego_account
+        table: public.account
+        note: Owner account lookup. Join public.account.id to moe_business.moe_company.account_id.
+
+  membership_v2:
+    host: postgres.t2.moego.dev
+    port: 40134
+    database: moego_membership
+    sslmode: disable
+    table: public.memberships
+
+mysql:
+  grooming:
+    host: mysql.t2.moego.dev
+    port: 40107
+    database: moe_grooming
+    source:
+      - $CODE_ROOT/moego-server-grooming/moego-server-grooming/src/main/resources/application-local.yaml
+      - $CODE_ROOT/moego-server-grooming/moego-server-grooming/src/main/resources/MyBatisGeneratorConfig.xml
+
+  message:
+    host: mysql.t2.moego.dev
+    port: 40108
+    database: moe_message
+    source:
+      - $CODE_ROOT/moego-server-message/moego-server-message/src/main/resources/application-local.yaml
+      - $CODE_ROOT/moego-server-message/moego-server-message/src/main/resources/MyBatisGeneratorConfig.xml
+      - $CODE_ROOT/moego-svc-message-v2/config/config.yaml
+
+  business:
+    host: mysql.t2.moego.dev
+    port: 40106
+    database: moe_business
+    source:
+      - $CODE_ROOT/moego-server-business/moego-server-business/src/main/resources/application-local.yml
+      - $CODE_ROOT/moego-server-business/moego-server-business/src/main/resources/MyBatisGeneratorConfig.xml
+    note: Join moe_company.account_id to pg_main account public.account.id.

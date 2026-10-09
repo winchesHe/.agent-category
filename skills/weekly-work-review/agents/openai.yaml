@@ -1,0 +1,4 @@
+interface:
+  display_name: "Weekly Work Review"
+  short_description: "Archive a complete personal weekly output review"
+  default_prompt: "Use $weekly-work-review to resolve the target week with scripts/resolve-week.mjs and archive a complete personal review to 工作/周报/<YYYY>/<MM>/<日期范围>/. Run check-environment.mjs first, then collect multi-agent AI sessions read-only via collect-sessions.mjs, plus Slack, Lark meetings, docs, personal outputs and code/ticket activity. Build the full output ledger before selecting Sprint Review excerpts, keep raw dumps outside the vault, index meetings instead of duplicating their bodies, and close with the two-phase validate-package.mjs readback."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Subagent Orchestration"
+  short_description: "主 Agent 规划并调度 Codex 子 Agent"
+  default_prompt: "使用 $subagent-orchestration 先生成并确认 Plan，再调度 Codex 子 Agent 执行，并按合同复核结果。"

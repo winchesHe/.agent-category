@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/Manrope.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+/* 取自 T2 的 @moego/design-tokens 1.2.3 亮色主题，仅映射阅读页及其浮层。 */
+.evidence-report,
+.ev-modal,
+.ev-popover {
+  --ev-brand: #f96b18;
+  --ev-brand-hover: #de5a21;
+  --ev-brand-text: #be471f;
+  --ev-brand-subtle: #fff7f0;
+  --ev-brand-delicate: #ffe3c5;
+  --ev-ink: #202020;
+  --ev-muted: #505050;
+  --ev-surface: #ffffff;
+  --ev-sunken: #fafafa;
+  --ev-sunken-hover: #f3f3f3;
+  --ev-line: #e6e6e6;
+  --ev-control-border: #cdcdcd;
+  --ev-divider: #b4b4b4;
+  /* 小字采用同色阶的深色，品牌橙保留在选中标记和交互控件中。 */
+  --ev-success-text: #0a7435;
+  --ev-danger-text: #b6201f;
+  --ev-warning-text: #874d00;
+  --ev-warning-subtle: #fff8e5;
+  --ev-warning-delicate: #ffecb8;
+  --ev-font:
+    "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  --background: var(--ev-surface);
+  --foreground: var(--ev-ink);
+  --card: var(--ev-surface);
+  --card-foreground: var(--ev-ink);
+  --popover: var(--ev-surface);
+  --popover-foreground: var(--ev-ink);
+  --muted: var(--ev-sunken-hover);
+  --muted-foreground: var(--ev-muted);
+  --secondary: var(--ev-sunken-hover);
+  --secondary-foreground: var(--ev-ink);
+  --accent: var(--ev-brand-subtle);
+  --accent-foreground: var(--ev-brand-text);
+  --primary: var(--ev-brand);
+  --primary-foreground: var(--ev-surface);
+  --destructive: var(--ev-danger-text);
+  --border: var(--ev-line);
+  --input: var(--ev-control-border);
+  --ring: var(--ev-brand);
+
+  color-scheme: light;
+  color: var(--ev-ink);
+  background: var(--ev-surface);
+  font: 1rem/1.65 var(--ev-font);
+  letter-spacing: normal;
+  accent-color: var(--ev-brand);
+}
+
+.evidence-report [data-variant="link"] {
+  color: var(--ev-brand-text);
+}
+
+.evidence-report [data-slot="tabs-trigger"][data-state="active"] {
+  color: var(--ev-brand-text);
+}

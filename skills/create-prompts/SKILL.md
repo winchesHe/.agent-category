@@ -1,12 +1,8 @@
 ---
 name: create-prompts
-version: 1.1.0
-description: >
-  This skill should be used when composing one-shot prompts, task instructions,
-  questions, code requests, or analysis prompts to send to an LLM — any input
-  consumed once that does not reside in context long-term. Also triggers when the
-  user wants to optimize an existing prompt or improve output quality from an LLM.
-  Chinese keywords: 编写 prompt、任务指令、LLM 输入、优化 prompt、prompt 输出不符合预期。
+description: 编写或优化供 LLM 单次使用的提示词与任务指令。
+metadata:
+  version: 1.1.0
 ---
 
 # AI Prompt Writing Guide

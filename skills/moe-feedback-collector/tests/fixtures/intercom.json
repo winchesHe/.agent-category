@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "command": "list-datastore-items",
+  "ok": true,
+  "target": {
+    "kind": "actions_datastore_items",
+    "datastore_id": "a56cf9ac-2d2d-4e72-b19a-f9f0107868aa",
+    "filter": "conversation_created_at:>=1786896000000 AND conversation_created_at:<1787500800000",
+    "item_key": null,
+    "sort": null,
+    "fields": [
+      "id",
+      "business_type",
+      "conversation_created_at",
+      "conversation_updated_at",
+      "domain",
+      "enterprise",
+      "jira",
+      "leads_business_type",
+      "requirement",
+      "role",
+      "sentiment",
+      "squad",
+      "stripe_plan",
+      "tier",
+      "type"
+    ]
+  },
+  "result": {
+    "items": [
+      {
+        "id": "raw-datadog-item-1",
+        "created_at": "2026-08-20T00:00:00Z",
+        "modified_at": "2026-08-20T01:00:00Z",
+        "value": {
+          "id": "primary-1",
+          "business_type": "Grooming",
+          "conversation_created_at": 1787000000000,
+          "conversation_updated_at": 1787003600000,
+          "domain": "Online Booking",
+          "enterprise": "false",
+          "jira": "CS-123",
+          "leads_business_type": null,
+          "requirement": "支持如customer@example.com在在线预约时选择偏好员工",
+          "role": "Owner",
+          "sentiment": "negative",
+          "squad": "Grooming",
+          "stripe_plan": "Growth",
+          "tier": "Tier 2",
+          "type": "feature_request"
+        }
+      }
+    ],
+    "returned": 1
+  },
+  "meta": {
+    "pagination": {
+      "mode": "offset",
+      "start": 0,
+      "limit": 100,
+      "returned": 1,
+      "total": 1,
+      "has_more": false,
+      "next": null,
+      "completion": "complete"
+    }
+  },
+  "verification": {
+    "mode": "converged-read",
+    "passes": 2,
+    "matched": true
+  },
+  "warnings": []
+}

@@ -1,0 +1,546 @@
+{
+  "report": {
+    "title": "Grooming Ops Review",
+    "period": "2026-05",
+    "period_granularity": "monthly",
+    "language": "zh-CN",
+    "generated_at": "2026-06-26T10:00:00+08:00",
+    "target_business": "Grooming only"
+  },
+  "overall_summary": [
+    {
+      "conclusion": "ARR 与 ARPU 保持增长，但新增注册仍需按完整周桶口径解读。",
+      "emphasis": [
+        {"text": "ARR 与 ARPU 保持增长", "color": "green"},
+        {"text": "完整周桶口径", "color": "blue"}
+      ]
+    },
+    {
+      "conclusion": "Retention 压力集中在高 tier churn，需要优先复盘可干预原因。",
+      "emphasis": [
+        {"text": "高 tier churn", "color": "red"},
+        {"text": "可干预原因", "color": "orange"}
+      ]
+    },
+    {
+      "conclusion": "Customer Feedback & FR 需要按四源信号识别跨来源高频主题。",
+      "emphasis": [
+        {"text": "四源信号", "color": "blue"},
+        {"text": "跨来源高频主题", "color": "orange"}
+      ]
+    }
+  ],
+  "sections": {
+    "growth": {
+      "insights": [
+        {
+          "topic": "Growth / Acquisition",
+          "data": "5 月 ARR 和 ARPU 环比增长；signup 和 upgrade 使用已接受的 PostHog 完整周桶窗口。",
+          "insight": "收入侧增长为正，但获客归因要绑定 dashboard 周期口径，不写成自然月口径。",
+          "team_attention": "用 ARR / ARPU 做增长 headline，signup / upgrade 作为周期口径下的支撑指标。"
+        }
+      ],
+      "highlights": [
+        "5 月 ARR 和 ARPU 环比增长；PostHog signup 和 upgrade 使用已接受的完整周桶窗口。"
+      ],
+      "metrics": [
+        {
+          "name": "Total ARR",
+          "value": "$29.8M",
+          "delta": "+3.5% MoM",
+          "period": "2026-05",
+          "source_id": "tableau_growth_monthly",
+          "confidence": "verified"
+        },
+        {
+          "name": "Signup",
+          "value": "118",
+          "delta": "2026-05-03 to 2026-05-30 full weekly buckets",
+          "period": "2026-05",
+          "source_id": "posthog_grooming_dashboard",
+          "confidence": "verified"
+        }
+      ],
+      "visuals": [],
+      "risks": [
+        "Signup 和 upgrade 需要描述为已接受的 dashboard 周期指标，不写成自然月归因。"
+      ],
+      "source_ids": ["tableau_growth_monthly", "posthog_grooming_dashboard"]
+    },
+    "retention": {
+      "insights": [
+        {
+          "topic": "Retention / Churn",
+          "data": "Churn logos 集中在较高 tier；GRR / NDR 以 Tableau PNG 作为展示证据。",
+          "insight": "Retention 复盘要区分可结构化复核的 churn case 和 visual-only 的 GRR / NDR 趋势。",
+          "team_attention": "优先复盘高 tier churn case，用脱敏后的直接 reason 决定下一步干预。"
+        }
+      ],
+      "highlights": [
+        "Churn logos 集中在较高 tier；GRR / NDR 可作为 dashboard 视觉证据展示。"
+      ],
+      "metrics": [
+        {
+          "name": "Churn logos",
+          "value": "14",
+          "delta": "T4=10, T3=3, T2=1",
+          "period": "2026-05",
+          "source_id": "tableau_churn_logos",
+          "confidence": "verified"
+        },
+        {
+          "name": "Average GRR Month12",
+          "value": "78%",
+          "delta": "Read from Tableau PNG dashboard",
+          "period": "2026-05",
+          "source_id": "tableau_retention_grr_ndr_png",
+          "confidence": "visual_only"
+        }
+      ],
+      "visuals": [
+        {
+          "title": "GRR / NDR dashboard PNG",
+          "href": "https://example.com/grooming-grr-ndr.png",
+          "caption": "GRR / NDR visual-only dashboard, 2026-05",
+          "width": 960,
+          "source_id": "tableau_retention_grr_ndr_png",
+          "confidence": "visual_only"
+        }
+      ],
+      "churn_reason_details": [
+        {
+          "date": "2026-05-08",
+          "segment": "Salon",
+          "tier": "T4",
+          "reason": "Business closed / stopped operation"
+        },
+        {
+          "date": "2026-05-19",
+          "segment": "Mobile",
+          "tier": "T3",
+          "reason": "Setup and data migration effort was too high"
+        }
+      ],
+      "risks": [
+        "极端 NDR segment 只作为参考信号，不单独作为 headline。"
+      ],
+      "source_ids": ["tableau_churn_logos", "tableau_retention_grr_ndr_png"]
+    },
+    "onboarding": {
+      "insights": [
+        {
+          "topic": "Onboarding",
+          "data": "dailyMetricsUpload 新订阅 cohort 的 Days to first value 为 4.8 天，Go-live rate 为 44.6%，预约首次使用率为 91.7%。",
+          "insight": "基础预约采用较高，但 Online Booking 与 Grooming Report 的首次使用仍明显偏低。",
+          "team_attention": "按成熟 cohort 跟踪首价值，并检查关键功能首次使用前的阻塞。"
+        }
+      ],
+      "highlights": [
+        "Days to first value、Go-live rate 和关键功能首次使用率共同反映 activation 进展。"
+      ],
+      "metrics": [
+        {
+          "name": "Days to first value (reached cohort avg)",
+          "value": "4.8 天",
+          "delta": "4/36 companies reached first value",
+          "period": "2026-05",
+          "source_id": "posthog_grooming_dashboard",
+          "confidence": "derived"
+        },
+        {
+          "name": "Go-live rate",
+          "value": "44.6%",
+          "delta": "1,721 / 3,856 Grooming companies",
+          "period": "2026-05",
+          "source_id": "posthog_grooming_dashboard",
+          "confidence": "derived"
+        },
+        {
+          "name": "Appointment first-use rate",
+          "value": "91.7%",
+          "delta": "33 / 36 new-subscription companies",
+          "period": "2026-05",
+          "source_id": "posthog_grooming_dashboard",
+          "confidence": "derived"
+        }
+      ],
+      "visuals": [],
+      "risks": [
+        "First-value 完成度偏低可能拖累后续产品采用。"
+      ],
+      "proxy_only": false,
+      "source_ids": ["posthog_grooming_dashboard"]
+    },
+    "product_usage": {
+      "insights": [
+        {
+          "topic": "Product usage",
+          "data": "已接受的 PostHog 窗口内，总 appointments 为 535,548。",
+          "insight": "核心使用量健康，但 manual appointment 仍明显高于 OB 和 report adoption 信号。",
+          "team_attention": "继续把 OB adoption 和 report adoption 作为 workflow 改进候选项。"
+        }
+      ],
+      "highlights": [
+        "核心 appointment volume 健康，但 OB 和 report adoption 仍低于 manual appointment usage。"
+      ],
+      "metrics": [
+        {
+          "name": "Total appointments",
+          "value": "535,548",
+          "delta": "Accepted full-week dashboard window",
+          "period": "2026-05",
+          "source_id": "posthog_grooming_dashboard",
+          "confidence": "verified"
+        }
+      ],
+      "visuals": [],
+      "risks": [
+        "Manual appointment 占比仍高，OB workflow 改进需要持续进入 review 视野。"
+      ],
+      "source_ids": ["posthog_grooming_dashboard"]
+    },
+    "customer_feedback": {
+      "source_mode": "four_source",
+      "excludes_bug_only": true,
+      "summary": [
+        "Customer Feedback & FR 合并 Community FR、Quick-win Canny、Intercom feedback 和 Jira Grooming CS 四源。",
+        "Online Booking / Scheduling 是最高优先级的跨来源主题，其次是 Staff / Operations 和 Service / Pricing / Checkout。",
+        "Quick-win Canny 作为当前 filtered view 快照处理，不写成自然月计数。"
+      ],
+      "insights": [
+        {
+          "topic": "Online Booking / Scheduling",
+          "data": "该主题同时出现在 Community FR、Quick-win Canny、Intercom feedback 和 Jira Grooming CS。",
+          "insight": "这是跨来源 roadmap signal，不是单一 support channel 的局部问题。",
+          "customer_examples": [
+            {
+              "text": "在线预约返回上一步后，之前选好的服务会被清空，只能重新开始。",
+              "representation": "anonymized_paraphrase",
+              "sources": [
+                {
+                  "label": "CS-46790（客户工单）",
+                  "url": "https://moego.atlassian.net/browse/CS-46790"
+                }
+              ]
+            }
+          ],
+          "team_attention": "Roadmap review 前先拆分 quick-win fix 和中长期 booking workflow 工作。"
+        },
+        {
+          "topic": "Quick-win registry",
+          "data": "Quick-win registry 有 40 行；PM Decision 分布包括 backlog 12、transfer_team 10、accepted 7、needs_discovery 5。",
+          "insight": "该 registry 适合做 action selection，但空/未知 classification 不进入 review headline。",
+          "customer_examples": [
+            {
+              "text": "希望前台接电话时可以直接看到任意员工最早可预约时间，不必逐个员工点开。",
+              "representation": "anonymized_paraphrase",
+              "sources": [
+                {
+                  "label": "Quick-win Canny（原始记录）",
+                  "url": "https://mengshikeji.feishu.cn/wiki/VcAXwDpvNi3xWXkJtoEcKbGinFb?table=tbltJF44cQ2CV67E&view=vew5lJ8rKM"
+                }
+              ]
+            }
+          ],
+          "team_attention": "用 PM Decision 和可行动分类挑选 grooming review 候选项。"
+        }
+      ],
+      "theme_rows": [
+        {
+          "theme": "Online Booking / Scheduling",
+          "total_signals": 135,
+          "community_fr": 3,
+          "quick_win_canny": 13,
+          "intercom_feedback": 80,
+          "jira_grooming_cs": 39,
+          "readout": "跨来源优先看"
+        },
+        {
+          "theme": "Staff / Operations",
+          "total_signals": 54,
+          "community_fr": 8,
+          "quick_win_canny": 11,
+          "intercom_feedback": 8,
+          "jira_grooming_cs": 27,
+          "readout": "跨来源优先看"
+        },
+        {
+          "theme": "Other / Triage backlog",
+          "total_signals": 97,
+          "community_fr": 19,
+          "quick_win_canny": 16,
+          "intercom_feedback": 17,
+          "jira_grooming_cs": 45,
+          "readout": "低量或未归入 headline 的信号保留为 triage backlog，确保主题表总数与四源 coverage 对齐"
+        }
+      ],
+      "source_coverage": [
+        {
+          "source": "Community FR",
+          "signals_used": 30,
+          "rows_scanned": 57,
+          "window": "2026-05 by Date；Business Type = GR/Both"
+        },
+        {
+          "source": "Quick-win Canny",
+          "signals_used": 40,
+          "rows_scanned": 40,
+          "window": "当前 filtered view 快照"
+        },
+        {
+          "source": "Intercom feedback",
+          "signals_used": 105,
+          "rows_scanned": 5928,
+          "window": "2026-05 by conversation_created_at；squad/domain 包含 Grooming"
+        },
+        {
+          "source": "Jira Grooming CS",
+          "signals_used": 111,
+          "rows_scanned": 124,
+          "window": "2026-05 by created date；squad = Grooming；仅 feedback/support-like issue"
+        }
+      ],
+      "highlights": [
+        "跨来源信号集中在 Online Booking / Scheduling 和 Staff / Operations。"
+      ],
+      "metrics": [],
+      "visuals": [],
+      "risks": [
+        "Needs Triage / Other 只作为 backlog triage，不作为 review headline。"
+      ],
+      "source_ids": [
+        "community_fr_google_sheet",
+        "quick_win_canny_base",
+        "datadog_intercom_feedback",
+        "jira_grooming_feedback"
+      ]
+    },
+    "bug_tickets": {
+      "insights": [
+        {
+          "topic": "Bug tickets",
+          "data": "Jira bug-like tickets 共 7 个，Staff 和 Service Settings 反复出现。",
+          "insight": "Bug volume 低于 feedback volume，复盘应关注重复 workflow quality，而不是泛化成事故量问题。",
+          "customer_examples": [
+            {
+              "text": "重复预约生成的副本不会继承原预约的附加服务，导致金额和服务内容不一致。",
+              "representation": "anonymized_paraphrase",
+              "sources": [
+                {
+                  "label": "CS-49541（客户工单）",
+                  "url": "https://moego.atlassian.net/browse/CS-49541"
+                },
+                {
+                  "label": "GRM-2244（修复单）",
+                  "url": "https://moego.atlassian.net/browse/GRM-2244"
+                }
+              ]
+            }
+          ],
+          "team_attention": "检查重复 component 是否已映射到当前 grooming roadmap 或 support process。"
+        }
+      ],
+      "highlights": [
+        "Jira bug-like tickets 低于 feature-like tickets，Staff 和 Service Settings 反复出现。"
+      ],
+      "metrics": [
+        {
+          "name": "Bug-like tickets",
+          "value": "7",
+          "delta": "Top components: Staff=2; Service Settings/Mobile/OB/Calendar=1 each",
+          "period": "2026-05",
+          "source_id": "jira_grooming_bugs",
+          "confidence": "verified"
+        }
+      ],
+      "visuals": [],
+      "risks": [
+        "归因前需要结合 release quality context 一起看 priority mix。"
+      ],
+      "source_ids": ["jira_grooming_bugs"]
+    },
+    "cs_related": {
+      "insights": [
+        {
+          "topic": "CS related",
+          "data": "OB bug-like tickets 在 H1 target 内；NPS official 是人工收集项。",
+          "insight": "Jira 中 OB bug target 看起来受控，NPS 不应阻塞自动生成。",
+          "team_attention": "把 OB feature pressure 和 bug-volume target 分开讨论。"
+        }
+      ],
+      "highlights": [
+        "OB bug volume 在 H1 target 内，但 feature pressure 仍集中在 OB 和 Service Settings。"
+      ],
+      "metrics": [
+        {
+          "name": "OB bug-like tickets",
+          "value": "1",
+          "delta": "Target <= 5/month",
+          "period": "2026-05",
+          "source_id": "jira_grooming_bugs",
+          "confidence": "verified"
+        },
+        {
+          "name": "Grooming-only NPS official",
+          "value": "Manual collection",
+          "delta": "Not counted as an automated data gap",
+          "period": "2026-05",
+          "source_id": "manual_nps_collection_policy",
+          "confidence": "manual"
+        }
+      ],
+      "visuals": [],
+      "risks": [
+        "NPS target 只在 owner 提供人工 official value 后进入业务讨论，不作为自动补数缺口。"
+      ],
+      "source_ids": ["jira_grooming_bugs", "manual_nps_collection_policy"]
+    },
+    "system_loading": {
+      "insights": [
+        {
+          "topic": "System loading",
+          "data": "月度 Grooming API error rate 为 0.0012%，但日级 spike 和前端质量指标仍值得复盘。",
+          "insight": "月度 backend health 稳定，但用户体验风险仍可能来自 spike 和 frontend errors。",
+          "team_attention": "先复盘 spike day 和 frontend JS error views，再决定 engineering follow-up 的优先级。"
+        }
+      ],
+      "highlights": [
+        "API error rate 在月度层面较低，但日级 spike 和 RUM 质量指标仍需要 review attention。"
+      ],
+      "metrics": [
+        {
+          "name": "Grooming API error rate",
+          "value": "0.0012%",
+          "delta": "Monthly aggregate",
+          "period": "2026-05",
+          "source_id": "datadog_grooming_ops_review",
+          "confidence": "verified"
+        }
+      ],
+      "visuals": [],
+      "risks": [
+        "单日 error spike 和 frontend JS error views 应作为体验风险复盘。"
+      ],
+      "source_ids": ["datadog_grooming_ops_review"]
+    }
+  },
+  "traceability": [
+    {
+      "source_id": "tableau_growth_monthly",
+      "source_type": "tableau_view",
+      "title": "MonthlyOpsReviw / WeeklyOpsReviw",
+      "source_url": "https://prod-apnortheast-a.online.tableau.com/#/site/joanneb20fcb2f83/views/Dashboard/MonthlyOpsReviw",
+      "query_or_filter": "Business=Grooming only; period=2026-05",
+      "retrieved_at": "2026-06-26T10:00:00+08:00",
+      "owner": "Jenny"
+    },
+    {
+      "source_id": "tableau_churn_logos",
+      "source_type": "tableau_view",
+      "title": "ChurnLogos",
+      "source_url": "https://prod-apnortheast-a.online.tableau.com/#/site/joanneb20fcb2f83/views/Dashboard/ChurnLogos",
+      "query_or_filter": "Business=Grooming only; period=2026-05",
+      "retrieved_at": "2026-06-26T10:00:00+08:00",
+      "owner": "Jenny"
+    },
+    {
+      "source_id": "tableau_retention_grr_ndr_png",
+      "source_type": "tableau_png",
+      "title": "GRR / NDR dashboard PNG",
+      "source_url": "https://prod-apnortheast-a.online.tableau.com/#/site/joanneb20fcb2f83/views/Dashboard/Retention",
+      "query_or_filter": "Business=Grooming only; image resolution=high; visual-only",
+      "retrieved_at": "2026-06-26T10:00:00+08:00",
+      "owner": "Jenny"
+    },
+    {
+      "source_id": "posthog_grooming_dashboard",
+      "source_type": "posthog_dashboard",
+      "title": "PostHog dashboard 546845",
+      "source_url": "https://us.posthog.com/project/21084/dashboard/546845",
+      "query_or_filter": "2026-05-03 to 2026-05-30 full weekly buckets; planVersion != 5",
+      "retrieved_at": "2026-06-26T10:00:00+08:00",
+      "owner": "Jenny"
+    },
+  {
+    "source_id": "jira_grooming_feedback",
+    "source_type": "jira_jql_aggregate",
+    "title": "Grooming feature and feedback tickets",
+    "source_url": "",
+    "query_or_filter": "project = CS AND created >= 2026-05-01 AND created < 2026-06-01 AND squad = Grooming; feedback/support-like aggregation",
+    "retrieved_at": "2026-06-26T10:00:00+08:00",
+    "owner": "PM / Data"
+  },
+  {
+    "source_id": "community_fr_google_sheet",
+    "source_type": "google_sheet",
+    "title": "Community FR",
+    "source_url": "https://docs.google.com/spreadsheets/d/1e16Ju91WuxqYKFW2x6JOTttg8jVTqUzpNZfYJEI2Cvo/edit",
+    "query_or_filter": "2026-05 by Date; Business Type = GR/Both; retrieved via Google Sheets API when CSV export is unauthorized",
+    "retrieved_at": "2026-06-26T10:00:00+08:00",
+    "owner": "PM / Community"
+  },
+  {
+    "source_id": "quick_win_canny_base",
+    "source_type": "lark_base_view",
+    "title": "Quick-win Canny",
+    "source_url": "https://mengshikeji.feishu.cn/wiki/VcAXwDpvNi3xWXkJtoEcKbGinFb?table=tbltJF44cQ2CV67E&view=vew5lJ8rKM",
+    "query_or_filter": "current filtered view snapshot; projected fields Demand Theme, Classification, Priority, PM Decision, Updated At, Source Type",
+    "retrieved_at": "2026-06-26T10:00:00+08:00",
+    "owner": "PM"
+  },
+  {
+    "source_id": "datadog_intercom_feedback",
+    "source_type": "datadog_actions_datastore",
+    "title": "Intercom feedback datastore",
+    "source_url": "https://us5.datadoghq.com/actions/datastores/a56cf9ac-2d2d-4e72-b19a-f9f0107868aa",
+    "query_or_filter": "2026-05 by conversation_created_at; squad/domain contains Grooming; aggregate domain/type only",
+    "retrieved_at": "2026-06-26T10:00:00+08:00",
+    "owner": "Support / Data"
+  },
+  {
+    "source_id": "jira_grooming_bugs",
+      "source_type": "jira_jql_aggregate",
+      "title": "Grooming bug-like tickets",
+      "source_url": "",
+      "query_or_filter": "Grooming-relevant CS tickets in 2026-05; bug-like aggregation",
+      "retrieved_at": "2026-06-26T10:00:00+08:00",
+      "owner": "PM / Data"
+    },
+    {
+      "source_id": "manual_nps_collection_policy",
+      "source_type": "manual_policy",
+      "title": "Grooming-only NPS official",
+      "source_url": "",
+      "query_or_filter": "NPS official is manually collected and not an automated data gap",
+      "retrieved_at": "2026-06-26T10:00:00+08:00",
+      "owner": "PM / CS"
+    },
+    {
+      "source_id": "datadog_grooming_ops_review",
+      "source_type": "datadog_dashboard",
+      "title": "Grooming dev ops review",
+      "source_url": "https://us5.datadoghq.com/dashboard/bk2-7s3-xqq/grooming-ops-review",
+      "query_or_filter": "dashboard=bk2-7s3-xqq; 2026-05",
+      "retrieved_at": "2026-06-26T10:00:00+08:00",
+      "owner": "PiEgg"
+    }
+  ],
+  "pre_generation_confirmations": [],
+  "meeting_notes": [
+    {
+      "topic": "Retention / Churn",
+      "observation": "Churn logos 集中在 high tier，GRR / NDR 为 visual-only。",
+      "impact": "Retention 讨论应聚焦 high-tier case review，避免过度解读低基数 NDR segment。",
+      "suggested_action": "复盘 top churn cases，并决定下个周期跟进哪些 segment movement。",
+      "owner": "PM / CS / Data"
+    },
+    {
+      "topic": "Roadmap signal concentration",
+      "observation": "Jira feedback 集中在 Online Booking 和 Service Settings。",
+      "impact": "这些区域可能同时影响 acquisition、onboarding 和 CS workload。",
+      "suggested_action": "用 ticket cluster 选择下次 review 的重点 workflow improvement 候选项。",
+      "owner": "PM"
+    }
+  ],
+  "open_questions": []
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Ablation · 消融实验"
+  short_description: "检验已有设计或实现，移除不影响目标成立的抽象与复杂度"
+  default_prompt: "使用 $ablation，对当前设计或实现做消融实验，验证哪些部分可以移除，并完成必要调整。"
+
+policy:
+  allow_implicit_invocation: false

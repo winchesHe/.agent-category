@@ -1,0 +1,38 @@
+[
+  {
+    "id": "slack_cmd_val_send_abs_path",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user explicitly asks to send /tmp/analysis.md to channel C01TT9K995M in thread 1774500000.000000. Return exactly one shell command.",
+    "context": "The write is explicit, so the send-message script is allowed. The command must work from the stated cwd.",
+    "answers": ["python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-send-message.py --channel C01TT9K995M --thread-ts 1774500000.000000 --text-file /tmp/analysis.md"]
+  },
+  {
+    "id": "slack_cmd_val_search_abs_path",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user asks to search Slack for exact phrase \"debit card fee\" in channel C01TT9K995M after 2026-03-01. Return exactly one shell command.",
+    "context": "Use exact phrase quoting in the search query and the Slack search script with an absolute script path.",
+    "answers": ["python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-search.py \"debit card fee\" --channel C01TT9K995M --after 2026-03-01"]
+  },
+  {
+    "id": "slack_cmd_val_react_abs_path",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user explicitly asks to add eyes reaction to channel C01TT9K995M message ts 1774500000.000000. Return exactly one shell command.",
+    "context": "The reaction write is explicit, so the react script is allowed. The command must work from the stated cwd.",
+    "answers": ["python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-react.py --emoji eyes --channel C01TT9K995M --ts 1774500000.000000"]
+  },
+  {
+    "id": "slack_cmd_val_dm_with_user",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user provides Slack profile URL https://moego.slack.com/team/U12345678 and asks for my 1:1 chat history with that person. Return exactly one shell command.",
+    "context": "When the user gives a Slack user/profile URL rather than a DM URL, use slack-read-history.py --with-user. The output file should be /tmp/dm-history.json.",
+    "answers": [
+      "python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-history.py --with-user \"https://moego.slack.com/team/U12345678\" --limit 100 --output /tmp/dm-history.json",
+      "python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-history.py --with-user U12345678 --limit 100 --output /tmp/dm-history.json"
+    ]
+  },
+  {
+    "id": "slack_cmd_val_channel_from_me",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user provides Slack channel message link https://moego.slack.com/archives/C01TT9K995M/p1774500000000000 and asks for my messages in that channel. Return exactly one shell command.",
+    "context": "Use slack-read-history.py with --url and --from-me. Because the URL is a message permalink, the history reader can scan around the linked message. The output file should be /tmp/my-channel-messages.json.",
+    "answers": [
+      "python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-history.py --url \"https://moego.slack.com/archives/C01TT9K995M/p1774500000000000\" --from-me --limit 100 --output /tmp/my-channel-messages.json",
+      "python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-history.py --url \"https://moego.slack.com/archives/C01TT9K995M/p1774500000000000\" --from-me --output /tmp/my-channel-messages.json"
+    ]
+  }
+]

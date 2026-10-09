@@ -1,0 +1,42 @@
+{
+  "actor": {
+    "requested": "auto",
+    "selected": "user",
+    "source_env": "SLACK_USER_TOKEN",
+    "team_id": "T_TEST",
+    "user_id": "U_TESTREVIEWER",
+    "bot_id": null,
+    "fallback_reason": null,
+    "warnings": []
+  },
+  "channel_id": "C_TESTREL",
+  "ts": "1782700100.333444",
+  "thread_ts": "1782700100.333444",
+  "is_thread_root": true,
+  "permalink": "https://slack.example.com/archives/C_TESTREL/p1782700100333444",
+  "author": {
+    "id": "B_TESTBOT",
+    "user_id": "U_TESTBOT",
+    "bot_id": "B_TESTBOT",
+    "name": "TEST Release Bot",
+    "display_name": "TEST Release Bot",
+    "is_bot": true
+  },
+  "subtype": null,
+  "text_raw": "Deploy is yellow",
+  "text_rendered": "Deploy is yellow",
+  "blocks_rendered": null,
+  "reply_count": null,
+  "reply_users_count": null,
+  "reactions": [],
+  "files": [],
+  "attachments": [],
+  "raw": {
+    "type": "message",
+    "user": "U_TESTBOT",
+    "bot_id": "B_TESTBOT",
+    "username": "TEST Release Bot",
+    "text": "Deploy is yellow",
+    "ts": "1782700100.333444"
+  }
+}

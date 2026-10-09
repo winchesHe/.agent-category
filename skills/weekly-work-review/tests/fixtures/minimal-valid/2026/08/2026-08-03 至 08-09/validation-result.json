@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "validator_version": "1.2.0",
+  "validated_at": "2026-08-09T04:04:18.021Z",
+  "package_path": "/Users/moego-winches/Desktop/Company/person/skills/weekly-work-review/tests/fixtures/minimal-valid/2026/08/2026-08-03 至 08-09",
+  "week_label": "2026-08-03 至 08-09",
+  "report_path": "2026-08-03 至 08-09 周复盘.md",
+  "manifest_sha256": "5e93385141b9aa166fe27a71177a811bd5796413c4b82095908239af2196be77",
+  "failures": 0,
+  "warnings": 1,
+  "failure_rule_ids": []
+}

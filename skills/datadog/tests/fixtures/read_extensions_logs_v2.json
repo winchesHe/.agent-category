@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "id": "log-1",
+      "attributes": {
+        "timestamp": "2026-08-17T00:01:00.000Z",
+        "service": "moego-api",
+        "status": "error",
+        "message": "Order 123 failed for 10.1.2.3 user first@example.com",
+        "host": "api-1",
+        "tags": ["env:production"],
+        "attributes": {
+          "trace_id": "trace-123",
+          "span_id": "span-1",
+          "@id": "request-1",
+          "http": {
+            "method": "POST",
+            "status_code": 500,
+            "url_details": {
+              "path": "/orders/123"
+            }
+          },
+          "error": {
+            "kind": "OrderError",
+            "message": "order failed",
+            "stack": "sensitive stack omitted by normalizer"
+          }
+        }
+      }
+    },
+    {
+      "id": "log-2",
+      "attributes": {
+        "timestamp": "2026-08-17T00:02:00.000Z",
+        "service": "moego-api",
+        "status": "error",
+        "message": "Order 456 failed for 10.2.3.4 user second@example.com",
+        "attributes": {
+          "trace_id": "trace-123"
+        }
+      }
+    },
+    {
+      "id": "log-3",
+      "attributes": {
+        "timestamp": "2026-08-17T00:03:00.000Z",
+        "service": "moego-worker",
+        "status": "error",
+        "message": "token abcdefghijklmnopqrstuvwxyz123456 was rejected"
+      }
+    }
+  ],
+  "meta": {
+    "page": {
+      "after": "cursor-after-1"
+    }
+  }
+}

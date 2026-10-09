@@ -1,0 +1,81 @@
+{
+  "channel_id": "C_TESTTHREAD",
+  "thread_ts": "1780000000.000100",
+  "message_count": 3,
+  "root": {
+    "ts": "1780000000.000100",
+    "author": {
+      "id": "U_TESTALICE",
+      "name": "Alice Example",
+      "display_name": "Alice Example",
+      "is_bot": false
+    },
+    "text_raw": "release gate is blocked because the synthetic smoke check timed out",
+    "text_rendered": "release gate is blocked because the synthetic smoke check timed out",
+    "files": []
+  },
+  "replies": [
+    {
+      "ts": "1780000005.000200",
+      "author": {
+        "id": "U_TESTBOB",
+        "name": "Bob Example",
+        "display_name": "Bob Example",
+        "is_bot": false
+      },
+      "text_raw": "decision: hold rollout until the synthetic smoke check passes; fallback owner is U_TESTCAROL; no customer data involved",
+      "text_rendered": "decision: hold rollout until the synthetic smoke check passes; fallback owner is U_TESTCAROL; no customer data involved",
+      "files": []
+    },
+    {
+      "ts": "1780000012.000300",
+      "author": {
+        "id": "U_TESTCAROL",
+        "name": "Carol Example",
+        "display_name": "Carol Example",
+        "is_bot": false
+      },
+      "text_raw": "next action: rerun TEST pipeline and post status before 10:30 UTC",
+      "text_rendered": "next action: rerun TEST pipeline and post status before 10:30 UTC",
+      "files": []
+    }
+  ],
+  "messages": [
+    {
+      "ts": "1780000000.000100",
+      "author": {
+        "id": "U_TESTALICE",
+        "name": "Alice Example",
+        "display_name": "Alice Example",
+        "is_bot": false
+      },
+      "text_raw": "release gate is blocked because the synthetic smoke check timed out",
+      "text_rendered": "release gate is blocked because the synthetic smoke check timed out",
+      "files": []
+    },
+    {
+      "ts": "1780000005.000200",
+      "author": {
+        "id": "U_TESTBOB",
+        "name": "Bob Example",
+        "display_name": "Bob Example",
+        "is_bot": false
+      },
+      "text_raw": "decision: hold rollout until the synthetic smoke check passes; fallback owner is U_TESTCAROL; no customer data involved",
+      "text_rendered": "decision: hold rollout until the synthetic smoke check passes; fallback owner is U_TESTCAROL; no customer data involved",
+      "files": []
+    },
+    {
+      "ts": "1780000012.000300",
+      "author": {
+        "id": "U_TESTCAROL",
+        "name": "Carol Example",
+        "display_name": "Carol Example",
+        "is_bot": false
+      },
+      "text_raw": "next action: rerun TEST pipeline and post status before 10:30 UTC",
+      "text_rendered": "next action: rerun TEST pipeline and post status before 10:30 UTC",
+      "files": []
+    }
+  ]
+}

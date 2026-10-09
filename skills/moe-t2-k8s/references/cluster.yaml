@@ -1,0 +1,74 @@
+# MoeGo T2 Kubernetes registry.
+# Do not copy kubeconfig token, certificate data, or secret values into this file.
+
+cluster:
+  environment: t2
+  purpose: MoeGo development/test Kubernetes namespace for Agent operations
+  provider: aws-eks
+  region: us-west-2
+  name: moego-server-cluster-development
+  arn: arn:aws:eks:us-west-2:693727988157:cluster/moego-server-cluster-development
+
+access:
+  context: moego-development-ns-testing
+  namespace: ns-testing
+  context_override_env: T2_K8S_CONTEXT
+  namespace_override_env: T2_K8S_NAMESPACE
+  kubeconfig_priority:
+    - KUBECONFIG
+    - T2_KUBECONFIG
+    - $HOME/.kube/headlamp-moego-development-ns-testing.kubeconfig
+    - $HOME/.kube/config
+  wrapper: scripts/t2kubectl
+  warning: Always pin the T2 context because the host default context can target another environment.
+
+verified_on: "2026-05-27"
+verified_read_commands:
+  - kubectl --context moego-development-ns-testing -n ns-testing auth can-i get pods
+  - kubectl --context moego-development-ns-testing -n ns-testing get pods --request-timeout=10s
+  - kubectl --context moego-development-ns-testing -n ns-testing get deploy --request-timeout=10s
+  - kubectl --context moego-development-ns-testing -n ns-testing get svc --request-timeout=10s
+
+permission_snapshot:
+  captured_on: "2026-05-27"
+  status: historical
+  get_pods: yes
+  get_pods_log: yes
+  create_pods_exec: yes
+  create_pods_portforward: yes
+  create_pods: yes
+  delete_pods: yes
+  note: Verify with auth can-i before unusual writes because RBAC can drift.
+
+known_services:
+  external_names:
+    mysql: testing-mysql-aurora.cluster-cmv9c9tztifm.us-west-2.rds.amazonaws.com:3306
+    aws-mysql: testing-mysql-aurora.cluster-cmv9c9tztifm.us-west-2.rds.amazonaws.com:3306
+    postgres: testing-postgres-aurora.cluster-cmv9c9tztifm.us-west-2.rds.amazonaws.com:5432
+    aws-postgres: testing-postgres-aurora.cluster-cmv9c9tztifm.us-west-2.rds.amazonaws.com:5432
+    redis: master.moego-redis-testing.fwafye.usw2.cache.amazonaws.com:6379
+  common_ports:
+    backend_java_http: 9090
+    node_or_bff_http: 8080
+    legacy_web_api: 9620
+    legacy_web_admin: 9800
+    web_client_portal: 9600
+
+safe_defaults:
+  request_timeout: 10s
+  log_since: 30m
+  log_tail: 200
+  write_guard_env: T2_K8S_ALLOW_WRITE=1
+
+known_limitations:
+  - T2_K8S_CONTEXT and T2_K8S_NAMESPACE can override the defaults; the wrapper is not an environment isolation guarantee.
+  - exec, debug, and cp do not require the write guard.
+  - Unknown kubectl verbs do not require the write guard.
+  - kubectl global flags before the command can make the first token not be the verb and bypass write classification.
+  - auth reconcile and certificate approve or deny are not classified as writes.
+  - Read-only kubectl config subcommands do not require the write guard; other config subcommands do.
+  - T2_K8S_ALLOW_ALL_NAMESPACES=1 permits all-namespace access.
+  - Missing dedicated kubeconfig falls back to $HOME/.kube/config.
+  - Namespace and cluster-scoped restrictions apply only to recognized writes.
+  - Manifest-based apply, create, and replace inspect only argument text and cannot detect namespace or cluster-scoped resources inside manifests.
+  - The permission snapshot is dated and does not prove current RBAC.

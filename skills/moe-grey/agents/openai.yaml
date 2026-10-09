@@ -1,0 +1,4 @@
+interface:
+  display_name: "MoeGo Grey"
+  short_description: "查询与受控管理 Grey 规则和服务分支"
+  default_prompt: "使用 $moe-grey 查询或管理 Grey 规则、服务分支与 service mapping。"

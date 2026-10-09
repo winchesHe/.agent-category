@@ -1,0 +1,2 @@
+error: bot is not a member of channel C_TESTPRIVATE. Invite the bot (/invite @your-bot) or use a different channel.
+hint: the selected actor isn't a member of this channel. With auto, configure a reachable User token; with explicit bot, invite it or use --as user.

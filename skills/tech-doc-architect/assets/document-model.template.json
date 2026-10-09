@@ -1,0 +1,69 @@
+{
+  "document": {
+    "title": "系统名称 · 技术架构",
+    "one_sentence": "用一句话说明系统是什么、为谁解决什么问题",
+    "mode": "new",
+    "audience": [
+      "主要读者"
+    ],
+    "reader_questions": [
+      "读完后必须能回答的问题"
+    ],
+    "scope": {
+      "in": [
+        "本文覆盖的系统边界"
+      ],
+      "out": []
+    },
+    "evidence": [
+      {
+        "claim": "会影响架构判断的关键事实",
+        "status": "verified",
+        "sources": [
+          "代码、schema、测试、配置或运行证据"
+        ],
+        "impacts": [
+          "overview",
+          "topic:示例问题"
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "稳定术语",
+        "definition": "跨图、表和正文一致使用的定义"
+      }
+    ],
+    "overview": {
+      "context": "系统参与者、外部依赖和边界",
+      "internal_model": "内部职责、依赖方向和所有权",
+      "invariants": [
+        "异常路径中仍必须成立的规则"
+      ],
+      "deployment_boundary": "必要时说明部署和故障域"
+    },
+    "topics": [
+      {
+        "question": "示例问题",
+        "answer": "本页开头的一句话答案",
+        "diagram": {
+          "question": "这张图只回答什么问题",
+          "type": "sequence"
+        },
+        "concepts": [],
+        "normal_path": [
+          "正常路径阶段"
+        ],
+        "failures": [],
+        "recovery": [],
+        "verification": [
+          "证明关键不变量的测试或运行证据"
+        ],
+        "code_entries": []
+      }
+    ],
+    "outputs": [
+      "markdown"
+    ]
+  }
+}

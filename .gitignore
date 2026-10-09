@@ -32,3 +32,6 @@ __pycache__/
 # 已确认的技能运行缓存
 /skills/slack/cache/
 /skills/twitter-user-posts/cache/
+
+# 技能临时输出
+/skills/twitter-user-posts/tmp-outputs/

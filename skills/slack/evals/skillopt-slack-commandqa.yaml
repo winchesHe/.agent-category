@@ -1,0 +1,5 @@
+_base_: "/Users/moego-perfecto/.ai-config/custom-skills/slack/evals/skillopt-slack-searchqa.yaml"
+
+env:
+  split_dir: "/Users/moego-perfecto/.ai-config/custom-skills/slack/evals/skillopt-commandqa-split"
+  out_root: "/Users/moego-perfecto/.ai-config/custom-skills/slack/evals/skillopt-runs/commandqa"

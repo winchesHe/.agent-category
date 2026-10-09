@@ -1,0 +1,60 @@
+{
+  "by_service": {
+    "data": {
+      "buckets": [
+        {
+          "by": {
+            "service": "moego-api"
+          },
+          "computes": {
+            "c0": 100
+          }
+        },
+        {
+          "by": {
+            "service": "moego-worker"
+          },
+          "computes": {
+            "c0": 23
+          }
+        }
+      ]
+    }
+  },
+  "by_error_kind": {
+    "data": {
+      "buckets": [
+        {
+          "by": {
+            "error.kind": "OrderError"
+          },
+          "computes": {
+            "c0": 91
+          }
+        }
+      ]
+    }
+  },
+  "total": {
+    "data": {
+      "buckets": [
+        {
+          "computes": {
+            "c0": 123
+          }
+        }
+      ]
+    }
+  },
+  "zero": {
+    "data": {
+      "buckets": [
+        {
+          "computes": {
+            "c0": 0
+          }
+        }
+      ]
+    }
+  }
+}

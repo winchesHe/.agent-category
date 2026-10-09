@@ -1,0 +1,20 @@
+[
+  {
+    "id": "slack_test_explicit_send",
+    "question": "The user explicitly says: \"把这段结论发到这个 thread 里\" and provides channel plus thread timestamp. Which command label applies? Options: slack-send-message, slack-search, slack-read-thread, slack-delete-message. Return only the label.",
+    "context": "The Slack skill allows external write operations only when the user explicitly requests them. Sending to a channel or thread uses the send-message script.",
+    "answers": ["slack-send-message"]
+  },
+  {
+    "id": "slack_test_search_token_priority",
+    "question": "For Slack historical search, which token class should be preferred when available? Options: user_token, bot_token, no_token, file_token. Return only the label.",
+    "context": "The Slack skill token priority says search should prefer SLACK_USER_TOKEN or SHERLOCK_USER_TOKEN before bot tokens because user tokens have broader search scope.",
+    "answers": ["user_token"]
+  },
+  {
+    "id": "slack_test_temp_cleanup",
+    "question": "After consuming Slack thread output that includes a temp_dir for downloaded attachments, what cleanup label applies? Options: clean_temp_dir_after_analysis, leave_temp_dir_forever, delete_slack_message, edit_thread_root. Return only the label.",
+    "context": "The Slack skill safety section says reading scripts may create temp_dir paths and analysis should clean them up after use.",
+    "answers": ["clean_temp_dir_after_analysis"]
+  }
+]

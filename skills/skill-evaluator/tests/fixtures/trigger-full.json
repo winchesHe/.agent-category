@@ -1,0 +1,82 @@
+[
+  {
+    "query": "为已有的 jira-summary Skill 跑 evals，结合原始输出指出哪些断言失败以及原因。",
+    "should_trigger": true
+  },
+  {
+    "query": "比较这个 Skill 的修改前快照和当前版本，检查成功率、耗时和 token 差异。",
+    "should_trigger": true
+  },
+  {
+    "query": "这个 SKILL.md 经常被不相关请求触发，设计正反样本并优化 description。",
+    "should_trigger": true
+  },
+  {
+    "query": "为已有 Skill 跑默认隔离 Codex headless 评测，生成 Benchmark、JUnit 和 summary。",
+    "should_trigger": true
+  },
+  {
+    "query": "给这个 Skill 的用例增加 exact 工具轨迹断言，要求先 search_issue 再 read_issue，并使用固定工具响应。",
+    "should_trigger": true
+  },
+  {
+    "query": "对比 with_skill 和 without_skill 的输出，判断 Skill 是否确实改善结果。",
+    "should_trigger": true
+  },
+  {
+    "query": "读取这个 Skill 的 benchmark.json 和用户反馈，分析高方差用例并据此迭代。",
+    "should_trigger": true
+  },
+  {
+    "query": "用 skill-evaluator 检查我已有的客服摘要 Skill，生成方便人工审阅的 Viewer。",
+    "should_trigger": true
+  },
+  {
+    "query": "从零创建一个帮助客服总结客户对话的 Skill，先写 SKILL.md。",
+    "should_trigger": false
+  },
+  {
+    "query": "把已有 SKILL.md 的标题改成中文，保持流程不变，不需要评测。",
+    "should_trigger": false
+  },
+  {
+    "query": "把这段操作步骤整理成一个 Skill，先帮我起草。",
+    "should_trigger": false
+  },
+  {
+    "query": "仅将 skill-creator 目录改名为 skill-evaluator，不执行模型评测。",
+    "should_trigger": false
+  },
+  {
+    "query": "总结 Jira 工单 GRM-123 并告诉我当前状态。",
+    "should_trigger": false
+  },
+  {
+    "query": "运行生产 API 的集成测试，调查失败的 JUnit case。",
+    "should_trigger": false
+  },
+  {
+    "query": "使用 Pi 调用 Jira API，返回这个客户的查询结果。",
+    "should_trigger": false
+  },
+  {
+    "query": "审查这个 PR，给 TypeScript 实现提出修复建议。",
+    "should_trigger": false
+  },
+  {
+    "query": "对三个区域的 API 延迟做 benchmark 并写性能报告。",
+    "should_trigger": false
+  },
+  {
+    "query": "从会议记录生成团队周报 Markdown。",
+    "should_trigger": false
+  },
+  {
+    "query": "优化这个 Python 函数的内存占用，保持行为不变。",
+    "should_trigger": false
+  },
+  {
+    "query": "生成 Web 应用构建的 CI 报告并上传 artifact。",
+    "should_trigger": false
+  }
+]

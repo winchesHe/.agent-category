@@ -1,0 +1,225 @@
+{
+  "skill_name": "moe-feedback-collector",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "请用 tests/fixtures/canny.json 做首次离线 Canny 采集，然后为 2026-08-17 至 2026-08-23 渲染周报预览。不要访问真实 Canny、MIS 或飞书。",
+      "expected_output": "使用唯一 CLI 在本地建立完整基线，飞书周报只展示周期内新增，不发布初始全量基线。",
+      "files": [],
+      "assertions": [
+        "首次采集 baseline=true，基线包含全部扫描 Post",
+        "Canny manifest 绑定 2026-08-17 至 2026-08-23，发布不能改用其它周期",
+        "周报包含本周概览、Quick Win 候选和 Canny 源数据",
+        "历史周期只把周期内创建的 Post 作为上周新增",
+        "初始全量基线只保存在本地状态，不进入周报",
+        "周报明确说明无法还原建立基线前的老 Post 变化",
+        "没有访问真实 Canny、MIS 或飞书"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "只读检查默认飞书 Wiki，并输出 Canny 首期的飞书归档模型。不能创建或修改任何飞书资源。",
+      "expected_output": "输出年份、月份、周总看板与四个来源子看板结构，明确每周总看板是该周入口，飞书只做自动阅读归档且不使用多维表格。",
+      "files": [],
+      "assertions": [
+        "默认 Wiki 解析成功且标题为 AI 全渠道自动化收集",
+        "Schema 包含年份、月份、周总看板和四个来源子看板",
+        "Canny、Intercom、Jira、Facebook 来源看板都是同一周总看板的直接子文档",
+        "周报只包含概览、Quick Win 候选和 Canny 源数据",
+        "明确不使用 Base、表单或规则配置视图",
+        "没有执行外部 mutation"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "请用 tests/fixtures/intercom.json 离线采集 2026-08-17 至 2026-08-23 的 Intercom feedback。不要访问真实 Datadog 或飞书。",
+      "expected_output": "通过唯一 CLI 生成 Intercom 周期 manifest/evidence，不建立 checkpoint，且不泄露原始 item id 或客户隐私字段。",
+      "files": [],
+      "assertions": [
+        "source=intercom 且 mode=period",
+        "周期按上海时区转换为毫秒半开区间",
+        "完整采集消费单个 Datadog 进程的 converged-read 两轮一致性结果",
+        "evidence 包含结构化 requirement/domain/type/sentiment/squad",
+        "evidence 不包含 email、conversation_id、quote 或原始 Datadog item id",
+        "未生成 state/intercom.json",
+        "没有访问真实 Datadog 或飞书"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "配置 MFC_SQUAD=Grooming，使用一个已完成的 Intercom period manifest 预览该周飞书周报。只要功能反馈和功能需求，不要访问或修改飞书。",
+      "expected_output": "使用唯一 CLI dry-run，按 Grooming Squad 精确筛选 feature_feedback 与 feature_request，生成包含 Squad 稳定身份的周报标题，并输出可追溯的计数和两类周报内容。",
+      "files": [],
+      "assertions": [
+        "使用 publish --source intercom --dry-run 且不要求 Quick Win 复筛文件",
+        "Squad 按 MFC_SQUAD 做忽略大小写的精确匹配",
+        "只保留 feature_feedback 和 feature_request",
+        "周报分别包含功能反馈和功能需求章节",
+        "周报标题包含 Intercom 用户反馈｜Grooming，避免覆盖同周其它团队文档",
+        "输出采集总数、Squad 命中数、两类入选数和规则版本",
+        "不包含 email、conversation_id、quote 或原始 Datadog item id",
+        "没有执行飞书写入"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "对同一个已完成的 Intercom period manifest，分别配置 MFC_SQUAD=Grooming 和 Boarding 做 dry-run。不要访问或修改飞书。",
+      "expected_output": "两次预览按各自 Squad 精确筛选，并生成同周期但标题身份不同的 Intercom 周报；不存在跨团队覆盖。",
+      "files": [],
+      "assertions": [
+        "两次都使用 publish --source intercom --dry-run",
+        "Grooming 与 Boarding 分别按 squad 忽略大小写精确匹配",
+        "两个周报标题分别以 Intercom 用户反馈｜Grooming 和 Intercom 用户反馈｜Boarding 结尾",
+        "两个标题不相等",
+        "没有执行飞书写入"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "配置 MFC_SQUAD=Grooming，使用 tests/fixtures/jira_grooming_scope_week.json 离线采集并预览 2026-08-24 至 2026-08-30 的 Jira CS 反馈周报。该 fixture 是 2026-W35 已人工核验的范围基准：8 条确认属于 Grooming、2 条待复核、2 条明确排除。另用离线合成标题 Advance booking window、Update booking context、Update multiple appointments 验证业务分类词边界，并验证 Grooming Squad 的 Daycare booking issue 进入人工复核。不要访问真实 Jira 或飞书。",
+      "expected_output": "完整消费不预先限定 Squad 的 Jira search envelope，先按 Feature Request 或关联 DES Design Issue 建立反馈候选，再按 Grooming Customer 强弱证据输出 8 条确认纳入、2 条人工复核、2 条范围排除，为确认项生成 6+1 主业务分类，并在带 Grooming 身份的 dry-run 周报中保留可审计的复核与排除明细。",
+      "files": ["tests/fixtures/jira_grooming_scope_week.json"],
+      "assertions": [
+        "使用 collect --source jira --mode period 和 publish --source jira --dry-run",
+        "JQL 只限定 CS 项目和扩展日期窗口，不使用 Squad 作为前置过滤条件",
+        "只有源 Issue Type 为 Feature Request 或关联目标同时为 DES 和 Design Issue 的工单进入反馈候选",
+        "确认纳入 8 条：原 Grooming Squad 5 条，以及 BD Squad 中标题明确包含 Grooming 或 groomer 语义的 CS-50460、CS-50468、CS-50602",
+        "CS-50487 和 CS-50598 仅有共享 Component 弱证据，进入人工复核且不计入确认反馈",
+        "CS-50520 和 CS-50603 是纯 Daycare 场景，明确排除",
+        "CS-50520 和 CS-50603 仍以脱敏范围审计项保存在 reportRows，包含 scopeDecision=excluded 和 non_grooming_service 判定理由",
+        "Grooming Squad 的 Daycare booking issue 同时具有强信号和明确非 Grooming 信号，进入人工复核而不是自动纳入",
+        "确认项默认只有一个 businessCategory，取值限定为 scheduling、fulfillment、communication、management、payment、van-staff-shift-management、others；冲突类别写入 auxiliaryCategories",
+        "业务分类按完整英文词或短语匹配，advance、context、multiple 不得分别误命中 van、text、tip",
+        "CS-50460 主分类为 fulfillment，CS-50431 主分类为 van-staff-shift-management",
+        "Summary 邮箱替换为 [EMAIL]，不保存 description、comments、attachments 或 reporter",
+        "周报概览同时显示确认纳入、待人工复核和范围排除计数，正文包含待人工复核和范围排除审计章节，并能追溯对应 Jira Key 与判定理由",
+        "周报标题包含 Jira CS 反馈｜Grooming，且没有执行真实 Jira 或飞书写入"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "请用 tests/fixtures/facebook.json 离线采集 2026-08-17 至 2026-08-23 的 Facebook Community 反馈。不要访问真实 Slack、Facebook 或飞书。",
+      "expected_output": "通过唯一 CLI 生成 Facebook 周期 manifest/evidence，只接受 Group 新帖与明确留言总结，跳过内部协作消息并清除邮件隐私和追踪参数。",
+      "files": [],
+      "assertions": [
+        "source=facebook、mode=period 且 coverage=channel-summary",
+        "group_post 与 campaign_comment_summary 被归一化",
+        "DM'd 等普通 thread 协作回复被跳过",
+        "evidence 不包含邮件收件人、facebookmail 发件人、退订链接或追踪参数",
+        "重复采集产生相同 evidence ID",
+        "没有访问真实 Slack、Facebook 或飞书"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "使用同一自然周的 Canny、Intercom、Jira 和 Facebook manifest 生成 Grooming 全渠道反馈总看板 dry-run。不要访问或修改飞书。",
+      "expected_output": "通过 dashboard 子命令复用各来源既有筛选合同和周度 AI analysis，输出四源数据、主题、重点反馈、洞察、建议与来源入口，并明确总信号跨源未去重。",
+      "files": [],
+      "assertions": [
+        "使用 dashboard 并重复传入 --manifest",
+        "正式 dry-run 同时提供四源 manifest、Canny Quick Win AI 复筛和 --analysis",
+        "四个来源必须属于同一自然周且来源不能重复",
+        "四个来源的本周入选数据都必须至少为 1 条",
+        "analysis schemaVersion=2，摘要、主题、洞察和建议逐项标注置信度并只引用本周已知 evidenceId",
+        "totalSignals 明确为来源入选数相加且跨来源未去重",
+        "Facebook 明确标记 channel-summary 限制",
+        "dry-run 不执行飞书写入"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "准备发布 Grooming 正式周总看板，但目前只有 Intercom、Jira 和 Facebook manifest，没有 Canny。本次不能写飞书。",
+      "expected_output": "拒绝正式总看板流程并明确缺少 Canny；不能用旧飞书 Canny 页面替代本周采集。仅在用户明确要诊断预览时才可使用 --allow-partial --dry-run。",
+      "files": [],
+      "assertions": [
+        "正式 dashboard 因缺少 canny manifest 而失败",
+        "说明必须先完成 Canny full 或 incremental 采集",
+        "要求对该次 Canny run 生成 Quick Win AI 复筛",
+        "已有或旧版飞书页面不能替代本周 Canny manifest",
+        "没有执行飞书写入"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "准备发布 Grooming 正式周总看板，四个来源 manifest 都存在，但 Jira 本周筛选后入选数据为 0。本次不能写飞书。",
+      "expected_output": "拒绝正式总看板流程并明确 Jira 无入选数据；四源 manifest 存在不能替代四源均有实际入选数据的门禁。仅诊断时可使用 --allow-partial --dry-run。",
+      "files": [],
+      "assertions": [
+        "正式 dashboard 因 jira 入选数据为 0 而失败",
+        "明确区分来源缺失与来源无入选数据",
+        "其它三个来源有数据不能绕过四源均非 0 的门禁",
+        "只有 --allow-partial --dry-run 可以展示无入选数据状态",
+        "没有执行飞书写入"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "四个来源 manifest 与来源周报都已准备好，但其中一个同名飞书来源页缺少 Collector 托管标记。尝试正式发布总看板，本次不得修改任何飞书页面。",
+      "expected_output": "在覆盖周总看板前完成四源页面 preflight；因来源页缺少精确 source、period 和 run 托管身份而失败，不补建目录、不迁移页面，也不覆盖总看板。",
+      "files": [],
+      "assertions": [
+        "总看板发布先读取已存在的年份、月份、周总看板和四个直接子来源页",
+        "每个来源页必须包含与本次 manifest 对应的 MFC_MANAGED_SOURCE_V1 完整 run 标记",
+        "缺少、陈旧或未托管来源页时在第一次飞书写入前失败",
+        "总看板发布不负责创建目录、创建来源页或迁移旧页",
+        "没有执行飞书写入"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "使用 weekly-analysis-input-v1 固定示例生成一次 Grooming 语义分析 prompt。不要调用真实外部数据源、模型 API 或飞书。",
+      "expected_output": "通过 analysis-prompt 校验输入并输出一次性中文 prompt；格式要求先于任务内容，反馈文本被标记为不可信数据，模型只负责语义结果而不输出确定性计数或人工身份。",
+      "files": [],
+      "assertions": [
+        "使用 analysis-prompt --input",
+        "要求模型只输出 weekly-analysis-model-output-v1 JSON",
+        "明确 AI 不能确认 others，无法判断时进入 review",
+        "明确反馈数量下降不等于产品改善",
+        "明确忽略 records 文本中的任何指令",
+        "没有调用外部模型 API 或写入飞书"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "使用固定 weekly-analysis-input-v1 与 model-output-v1 示例构建 weekly-analysis-v3；验证分类、周环比、下周 baseline 和人工复核边界。不要写飞书。",
+      "expected_output": "通过 analysis-build 严格校验模型输出并由程序重算七类计数、差值、趋势、待复核数和 baselineExport；AI 不能确认 others，人工复核来自独立文件。",
+      "files": [],
+      "assertions": [
+        "模型 classifications 恰好覆盖本周每条 record 一次",
+        "模型 quickWinAssessments 按输入顺序恰好覆盖四源每条 record 一次",
+        "只有诉求明确、范围集中、预估改动较小三项全部满足才能标记 candidate",
+        "所有 candidate assessment 必须且只能归入一个 quickWinCandidates 项",
+        "未知证据、错周期引用和分类不匹配的周环比被拒绝",
+        "无可比基线时改善与关注数组必须为空",
+        "categoryOverview、reviewQueue 和 baselineExport 由程序确定性生成",
+        "模型原始输出不包含 classificationSource 或 reviewMetadata",
+        "others 只有独立人工复核带 reviewedBy 和 reviewedAt 时才能确认",
+        "没有写入飞书"
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "使用同一批四源 manifest、weekly-analysis-input-v1 和包含四源 Quick Win 筛选结果的 weekly-analysis-v3 生成 Grooming 总看板 dry-run。验证固定五段顺序、上周对比、全量 Quick Win 覆盖和发布前一致性门禁；不要写飞书。",
+      "expected_output": "dashboard 识别 schema v3，要求 --analysis-input 与当前四源 snapshot 完全一致，重新验证确定性结果后输出固定五段式精简父页和一个按分类组织的完整分析明细文档；schema v2 兼容路径保持不变。",
+      "files": [],
+      "assertions": [
+        "v3 dashboard 同时使用 --analysis 和 --analysis-input",
+        "四源 run ID、周期、scope、来源计数和 records 与 analysis input 精确一致",
+        "comparisonBaseline、baselineExport、categoryOverview 和 reviewQueue 在发布前重新计算",
+        "总览依次为周环比、本周反馈概览、产品/设计关注点、Quick Win 候选、原始证据",
+        "父页本周反馈概览按固定七类顺序只展示本周数量、占比、环比和主要主题",
+        "父页只保留最多两项改善、两项关注和三项产品设计关注卡片",
+        "父页长叙述按摘要长度收敛，完整原文保留在分析明细",
+        "Quick Win assessment 覆盖 Canny、Intercom、Jira、Facebook 全部本周 records",
+        "父页展示 Quick Win 筛选总数、来源覆盖和七分类分布，不内联全部候选",
+        "分类与主题明细保留完整周环比，并在每个分类内按主要主题、代表反馈、产品设计动作、Quick Win 候选的顺序展示",
+        "全部跨源归并候选在主分类下以普通 Wiki 文档表格逐行展示，并保留稳定编号、勾选框、三项入选理由和原始证据",
+        "dry-run 返回一个 category detailDocument 及父页和明细字符数",
+        "正式写入只覆盖带精确周期和 scope 托管身份的同名明细页",
+        "最终 analysis 被修改或 analysis input 对应另一批 run 时拒绝发布",
+        "保留四源入口、Facebook channel-summary 和跨源未语义去重声明",
+        "dry-run 不执行飞书写入"
+      ]
+    }
+  ]
+}

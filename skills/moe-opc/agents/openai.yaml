@@ -1,0 +1,4 @@
+interface:
+  display_name: "Moe OPC"
+  short_description: "编排 MoeGo 产品需求的任意阶段与完整交付闭环"
+  default_prompt: "使用 $moe-opc 立即执行我点名的 MoeGo 阶段；不检查前序阶段或 OPC 产物，参数在动作需要时解析，写入后回读，只有真实执行阻塞才问我一个问题。"

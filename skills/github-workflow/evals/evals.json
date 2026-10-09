@@ -1,0 +1,281 @@
+{
+  "skill_name": "github-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "PR #42 的 review 和 CI 都通过了，帮我合并。这个 PR 使用当前任务的独立 worktree。",
+      "expected_output": "锁定 PR head 并通过 merge 门禁；成功回读 MERGED 后默认检查并安全 Release 对应 worktree，保留本地和远端 branch。",
+      "files": [],
+      "expectations": [
+        "只有回读确认同一 headRefOid 已 MERGED 后才进入 Release",
+        "用户未要求保留时不再询问是否清理 worktree",
+        "Release 只针对该 PR 对应的精确任务 worktree",
+        "清理后本地和远端 branch 均保留"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "合并 PR #42，但先保留这个 worktree，我后面还要排查问题。",
+      "expected_output": "完成 merge 与写后回读，但识别显式保留指令并跳过 Release。",
+      "files": [],
+      "expectations": [
+        "显式保留指令覆盖默认自动 Release",
+        "不会移除或 prune 该 worktree",
+        "不会删除本地或远端 branch"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "合并 PR #42。合并完成后发现对应 worktree 里有一个 ignored 的 .env 和一个未推送 commit。",
+      "expected_output": "merge 成功仍如实报告；Release fail-closed，保留 worktree 并指出受保护 ignored 文件和 ahead 状态，禁止 force。",
+      "files": [],
+      "expectations": [
+        "不会因为 Release 被阻断而把 MERGED 报告成失败",
+        "受保护 ignored 文件或未推送 commit 任一存在都阻断 Release",
+        "保留 worktree 并报告精确原因",
+        "不使用 --force，也不删除 branch"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "修复这个仓库里的问题并完成验证。没有特别说明提交方式。",
+      "expected_output": "验证通过后，在当前任务 worktree 中默认执行 commit 与普通 push；由于没有指定 review comment，不自动回复评论；不创建 PR、不 resolve、不 rerun CI。",
+      "files": [],
+      "expectations": [
+        "修改类任务完成且未声明例外时默认执行 commit → push",
+        "默认授权只覆盖当前任务 worktree、任务文件和非默认分支",
+        "默认 commit/push 不扩展为创建 PR、回复、resolve、rerun 或 merge"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "修复这个仓库里的问题并完成验证，但不要 commit 或 push。",
+      "expected_output": "完成 worktree 内修改和验证后停止，不执行 commit 或 push。",
+      "files": [],
+      "expectations": [
+        "显式不 commit / 不 push 覆盖默认收尾授权",
+        "不会因为任务完成而创建 PR 或执行其他 GitHub 写操作"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "处理 PR #42 的 inline review comment：评论说‘找不到关联记录时都应该直接报错’。检查后发现新建流程允许关联记录暂时不存在，但更新流程必须存在。请按评论处理。",
+      "expected_output": "直接加载评论真实性与修复安全判定，验证评论事实和两条业务流程，不能把局部问题扩展成全局规则；如更新流程确有缺陷，只修复该分支，完成验证后默认 commit、push，并回复原 review thread，不自动调用 review-swarm，不直接套用“全部报错”的建议，也不 resolve。",
+      "files": [],
+      "expectations": [
+        "先加载 review-comment-assessment，直接完成事实、业务问题和修改方案三层判定，不自动调用 review-swarm",
+        "将事实主张、业务问题和修改方案分开判定",
+        "识别直接应用建议会破坏新建流程，并采用更窄的安全方案",
+        "产生改动后默认执行 commit → push",
+        "push 成功并回读后回复同一原 review thread",
+        "不会回复其他评论或自动 resolve"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "处理 PR #42 的 review comment：评论要求禁止这个看似危险的 fallback，但 PR 设计文档明确说明它用于外部系统未知结果时保持幂等。请先判断是否真的需要改。",
+      "expected_output": "直接按评论真实性与修复安全判定核对设计文档、调用链和幂等约束，将行为标记为符合预期或事实不足；不修改、不 commit、不 push，也不自动调用 review-swarm 或触发默认回复。",
+      "files": [],
+      "expectations": [
+        "直接加载 review-comment-assessment，按三层判定核对代码证据，不自动调用 review-swarm",
+        "结合设计文档、调用链和幂等约束独立验证事实与业务契约",
+        "不会因为评论表达了担忧就直接修改符合业务契约的行为",
+        "没有文件改动时不触发默认 commit/push",
+        "没有 push 时不触发评论自动回复"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "处理 PR #42 的 review comment：评论指出重试会造成重复扣款，并建议删除所有重试。确认问题成立，但删除重试会让网络抖动时的合法扣款失败。请完成安全修复。",
+      "expected_output": "直接按高风险评论的三层判定检查重复扣款问题和合法重试路径，保留问题结论，拒绝删除所有重试的处方，改用幂等键或等价的安全方案；验证成功后默认 commit、push，再回复原 thread，说明替代方案和验证结果。",
+      "files": [],
+      "expectations": [
+        "直接按评论真实性与修复安全判定处理，不自动调用 review-swarm，并按高风险维度扩大证据范围",
+        "主 agent 直接核对代码、调用链、契约和测试，不把任何候选 finding 当作修改指令",
+        "输出‘问题成立但建议不适用’或等价判断",
+        "检查幂等、超时、部分失败和合法重试路径",
+        "回复内容说明没有直接采用原建议及原因",
+        "回复发生在 push 成功回读之后，且不自动 resolve"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "处理 PR #42 的 review comment。完成本地分析后发现 PR head 已被其他人推进，目标 thread 也出现了新的回复。",
+      "expected_output": "重新 Acquire 并报告 stale/concurrent 状态，停止修改前的远端写入，不 commit、push 或回复旧 thread，不覆盖他人的改动。",
+      "files": [],
+      "expectations": [
+        "检测到 head 或 thread 并发变化后停止",
+        "不会基于旧 head 执行 commit/push 或评论回复",
+        "不会自动 rebase、reset、force push 或覆盖他人改动"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "处理 PR #42 的 review comment，修复并验证后正常 commit 和 push，但我明确说不要回复评论。",
+      "expected_output": "执行 worktree 内修改、验证、普通 commit 和 push；显式‘不要回复’覆盖默认回复，不发送 reply，不 resolve 或创建 PR。",
+      "files": [],
+      "expectations": [
+        "显式不回复覆盖 review comment 的默认回复门禁",
+        "未声明不 commit/push 时仍执行默认 commit → push",
+        "不会以其他评论、resolve 或 PR 创建替代被禁止的回复"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "处理 PR #42 的 review comment，代码已经 commit。push 命令超时，暂时不知道远端是否成功。",
+      "expected_output": "先比较本地和远端 branch SHA 并回读 PR head；在结果明确前不重复 push、不发送评论回复。若确认 push 成功，再按原 thread 回复；否则报告代码与回复状态。",
+      "files": [],
+      "expectations": [
+        "不因 push 超时就盲目重试",
+        "先通过 branch SHA/PR head 回读确认 push 状态",
+        "push 状态不明时不发送或重复发送评论回复"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "处理 PR #42 的 inline review comment（thread_id=thread-42-payment，comment_id=comment-42-payment，文件 payments/charge.ts 第 88 行，开始 head=sha-42-payment）。PR diff 同时修改扣款、租户权限和并发状态迁移路径；请按高风险路径处理。",
+      "expected_output": "直接按高风险评论的三层判定检查业务不变量、主体/目标/租户作用域、状态迁移、幂等/竞态、兼容迁移、回滚和可观测性，并用覆盖正向和负向场景的回归验证支撑是否修改；不因评论涉及多模块就自动调用 review-swarm。",
+      "files": [],
+      "expectations": [
+        "直接按评论真实性与修复安全判定扩大证据范围，不自动调用 review-swarm",
+        "主 agent 独立核验涉及金额、权限和状态的代码、契约与测试证据",
+        "按风险提高审查深度，而不是只看被标记行",
+        "覆盖金额、权限/租户、状态、并发、兼容和回滚维度",
+        "验证业务规则和失败路径，而不只验证实现细节"
+      ],
+      "assertions": [
+        {
+          "type": "contains",
+          "text": "识别金额、权限和状态迁移为高风险",
+          "value": "金额"
+        },
+        {
+          "type": "contains",
+          "text": "覆盖并发与回滚维度",
+          "value": "回滚"
+        },
+        {
+          "type": "contains",
+          "text": "完成三层判定",
+          "value": "三层"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "只回复 PR #42 的指定 review thread，说明已经确认该建议会破坏现有业务流程；不要修改代码。",
+      "expected_output": "定位指定 thread，按 Markdown 与写后回读协议发送回复；不修改、commit、push、resolve 或处理其他评论。",
+      "files": [],
+      "expectations": [
+        "独立回复请求可以只执行回复，不扩展为代码修改或 commit/push",
+        "回复前定位精确 thread ID，回复后按同一 ID 回读正文",
+        "不会自动 resolve 或处理其他评论"
+      ],
+      "assertions": [
+        {
+          "type": "not_contains",
+          "text": "纯回复不触发代码审查",
+          "value": "review-swarm"
+        },
+        {
+          "type": "contains",
+          "text": "按指定 thread 回复",
+          "value": "thread"
+        },
+        {
+          "type": "not_contains",
+          "text": "纯回复不修改代码",
+          "value": "commit"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "请对 PR #42 做完整代码 review，给出是否存在阻断问题的结论；只读，不要修改仓库。",
+      "expected_output": "先按 review-swarm 的差异模式解析 PR base/head、真实 diff 和适用规则，依据客观条件选择 reviewer 路由并记录计划/启动/完成数量；reviewer 只读返回候选 finding，主 agent 逐项核验后输出 findings、open questions、范围限制和描述性结论，不执行修改或任何 GitHub 写操作。",
+      "files": [],
+      "expectations": [
+        "明确使用 review-swarm 差异模式，而不是临时手工 review 或静态模式替代",
+        "先记录 route_class、命中理由、审查范围和 planned/started/completed reviewer 数",
+        "命中 hard-2 或 hard-3 时实际启动准确数量的 reviewer",
+        "主 agent 独立验证 finding，不把 reviewer 输出直接当作最终结论",
+        "只读完成，不修改、commit、push、回复、resolve 或 rerun"
+      ],
+      "assertions": [
+        {
+          "type": "contains",
+          "text": "明确使用 review-swarm",
+          "value": "review-swarm"
+        },
+        {
+          "type": "contains",
+          "text": "记录 reviewer 计划与完成数量",
+          "value": "planned"
+        },
+        {
+          "type": "contains",
+          "text": "保持只读",
+          "value": "只读"
+        },
+        {
+          "type": "not_contains",
+          "text": "不执行写操作",
+          "value": "已修改代码"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "只查看 PR #42 的标题、Body 和 CI 状态，不做代码审查，也不要修改任何内容。",
+      "expected_output": "使用 GitHub 只读 metadata、Body 和 checks 查询；不触发 review-swarm，不读取或修改代码，不执行任何写操作。",
+      "files": [],
+      "expectations": [
+        "普通 metadata、PR Body 和 CI 查询不会因自身操作触发 review-swarm",
+        "不把查看 Body 或 checks 扩展成代码 review",
+        "不修改、commit、push、回复、resolve 或 rerun"
+      ],
+      "assertions": [
+        {
+          "type": "not_contains",
+          "text": "metadata/CI 查询不触发 review-swarm",
+          "value": "review-swarm"
+        },
+        {
+          "type": "not_contains",
+          "text": "metadata/CI 查询不触发代码审查",
+          "value": "代码审查"
+        },
+        {
+          "type": "not_contains",
+          "text": "不执行写操作",
+          "value": "commit"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "只静态审查 github-workflow/SKILL.md 当前内容，不比较 diff；只读，不修改仓库。",
+      "expected_output": "显式 handoff $review-swarm 并选择 static 模式审查指定文件；不伪造 diff/merge-base 结论，不修改、commit 或 push。",
+      "files": [
+        "SKILL.md"
+      ],
+      "assertions": [
+        {
+          "type": "contains",
+          "text": "显式使用 review-swarm",
+          "value": "review-swarm"
+        },
+        {
+          "type": "contains",
+          "text": "选择静态模式",
+          "value": "static"
+        },
+        {
+          "type": "not_contains",
+          "text": "静态只读审查不写入仓库",
+          "value": "commit"
+        }
+      ]
+    }
+  ]
+}
