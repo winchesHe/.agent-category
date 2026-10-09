@@ -1,0 +1,5 @@
+{
+  "name": "pi-smoke",
+  "description": "用于验证 Pi Executor 的最小 Skill。",
+  "instructions": "当用户要求执行 Pi smoke test 时，只回复 `PI_OK`，不要调用工具。"
+}

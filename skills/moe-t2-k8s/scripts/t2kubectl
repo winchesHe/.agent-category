@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+EXPECTED_CONTEXT="${T2_K8S_CONTEXT:-moego-development-ns-testing}"
+EXPECTED_NAMESPACE="${T2_K8S_NAMESPACE:-ns-testing}"
+DEFAULT_KUBECONFIG="${T2_KUBECONFIG:-${HOME}/.kube/headlamp-moego-development-ns-testing.kubeconfig}"
+FALLBACK_KUBECONFIG="${HOME}/.kube/config"
+
+if [[ $# -eq 0 ]]; then
+  cat >&2 <<USAGE
+usage: t2kubectl <kubectl args>
+
+Runs kubectl against context ${EXPECTED_CONTEXT}, namespace ${EXPECTED_NAMESPACE}.
+Set T2_K8S_ALLOW_WRITE=1 for mutating commands such as delete/apply/patch/rollout restart.
+USAGE
+  exit 64
+fi
+
+if [[ -z "${KUBECONFIG:-}" ]]; then
+  if [[ -f "${DEFAULT_KUBECONFIG}" ]]; then
+    export KUBECONFIG="${DEFAULT_KUBECONFIG}"
+  else
+    export KUBECONFIG="${FALLBACK_KUBECONFIG}"
+  fi
+fi
+
+args=("$@")
+
+for ((i = 0; i < ${#args[@]}; i++)); do
+  arg="${args[$i]}"
+  case "${arg}" in
+    --context|--context=*|--kubeconfig|--kubeconfig=*|-n|-n*|--namespace|--namespace=*)
+      echo "t2kubectl refuses scope/auth flags; it always uses ${EXPECTED_CONTEXT}/${EXPECTED_NAMESPACE}" >&2
+      exit 65
+      ;;
+    -A|--all-namespaces|--all-namespaces=*)
+      if [[ "${T2_K8S_ALLOW_ALL_NAMESPACES:-}" != "1" ]]; then
+        echo "t2kubectl refuses all-namespace access unless T2_K8S_ALLOW_ALL_NAMESPACES=1 is set" >&2
+        exit 65
+      fi
+      ;;
+  esac
+done
+
+verb="${args[0]}"
+subverb="${args[1]:-}"
+requires_write=0
+
+case "${verb}" in
+  annotate|apply|autoscale|cordon|create|delete|drain|edit|expose|label|patch|replace|run|scale|set|taint|uncordon)
+    requires_write=1
+    ;;
+  config)
+    case "${subverb}" in
+      current-context|get-clusters|get-contexts|get-users|view)
+        ;;
+      *)
+        requires_write=1
+        ;;
+    esac
+    ;;
+  rollout)
+    case "${subverb}" in
+      restart|undo|pause|resume)
+        requires_write=1
+        ;;
+    esac
+    ;;
+esac
+
+if [[ "${requires_write}" == "1" && "${T2_K8S_ALLOW_WRITE:-}" != "1" ]]; then
+  echo "t2kubectl blocked a mutating command. Re-run with T2_K8S_ALLOW_WRITE=1 after confirming the target is ns-testing." >&2
+  exit 66
+fi
+
+if [[ "${requires_write}" == "1" ]]; then
+  for token in "${args[@]}"; do
+    case "${token}" in
+      ns|ns/*|namespace|namespace/*|namespaces|namespaces/*|node|node/*|nodes|nodes/*|clusterrole|clusterrole/*|clusterroles|clusterroles/*|clusterrolebinding|clusterrolebinding/*|clusterrolebindings|clusterrolebindings/*|customresourcedefinition|customresourcedefinition/*|customresourcedefinitions|customresourcedefinitions/*|crd|crd/*|crds|crds/*|persistentvolume|persistentvolume/*|persistentvolumes|persistentvolumes/*|pv|pv/*|pvs|pvs/*|storageclass|storageclass/*|storageclasses|storageclasses/*|sc|sc/*)
+        echo "t2kubectl refuses mutating namespace or cluster-scoped resources" >&2
+        exit 67
+        ;;
+    esac
+  done
+fi
+
+exec kubectl --context "${EXPECTED_CONTEXT}" --namespace "${EXPECTED_NAMESPACE}" "$@"

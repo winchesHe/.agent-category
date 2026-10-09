@@ -1,0 +1,39 @@
+{
+  "skill_name": "pi-replay-negative",
+  "evals": [
+    {
+      "id": 1,
+      "name": "wrong-order",
+      "prompt": "严格执行两次工具调用：先搜索 replay issue GRM-123，再读取该 issue，只回答 issue 的 status。",
+      "assertions": [
+        {"type": "contains", "text": "包含 Done", "value": "Done"}
+      ],
+      "trajectory": {
+        "mode": "exact",
+        "calls": [
+          {"tool": "read_issue", "args_exact": {"issue_key": "GRM-123"}},
+          {"tool": "search_issue", "args_exact": {"query": "GRM-123"}}
+        ],
+        "max_calls": 2
+      },
+      "fixtures": ["fixtures/search-issue.json", "fixtures/read-issue.json"]
+    },
+    {
+      "id": 2,
+      "name": "wrong-args",
+      "prompt": "严格执行两次工具调用：先搜索 replay issue GRM-123，再读取该 issue，只回答 issue 的 status。",
+      "assertions": [
+        {"type": "contains", "text": "包含 Done", "value": "Done"}
+      ],
+      "trajectory": {
+        "mode": "exact",
+        "calls": [
+          {"tool": "search_issue", "args_exact": {"query": "GRM-999"}},
+          {"tool": "read_issue", "args_exact": {"issue_key": "GRM-123"}}
+        ],
+        "max_calls": 2
+      },
+      "fixtures": ["fixtures/search-issue.json", "fixtures/read-issue.json"]
+    }
+  ]
+}

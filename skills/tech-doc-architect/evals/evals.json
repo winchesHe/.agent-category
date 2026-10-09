@@ -1,0 +1,83 @@
+{
+  "skill_name": "tech-doc-architect",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "$tech-doc-architect 请读取当前仓库和这份旧飞书 Wiki，把支付编排服务重构成给新任技术负责人阅读的系统架构文档。不要保留 MVP、历史阶段和默认 Owner 信息；复杂链路用可编辑白板，并直接更新原 Wiki。",
+      "expected_output": "先建立事实与文档拓扑，再交付 Overview + 专题飞书文档；白板使用明确箭头语义并在实际页面回读。",
+      "files": [],
+      "expectations": [
+        "区分已验证事实、推断和待确认假设",
+        "Overview 能说明系统边界、所有权、不变量和专题导航",
+        "不默认展示 MVP、Owner、文档状态或架构驱动力",
+        "飞书写入前确认授权，写入后检查原生白板节点和实际页面显示",
+        "API 成功不被当作最终视觉验收"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "$tech-doc-architect 基于 services/order-router 的代码和测试，在我的 Obsidian Vault 现有『工程/架构』目录里整理一套订单路由架构文档。要有 Hub Note、请求路由和失败恢复专题，沿用当前 properties 和附件目录。",
+      "expected_output": "生成服从现有 Vault 约定的 Overview Hub 与专题笔记，使用稳定 wikilink、callout 和可解析附件嵌入。",
+      "files": [],
+      "expectations": [
+        "先检查 Vault 既有目录、frontmatter、链接和附件约定",
+        "Overview 能到达全部专题，专题能返回 Overview",
+        "不引入未确认安装的 Obsidian 插件语法",
+        "图、表、正文不重复表达同一内容",
+        "实际检查 wikilink 和嵌入资源"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "$tech-doc-architect 给这个 GitHub 仓库新增 docs/architecture，写一套可直接进 PR 的 Markdown 架构文档，覆盖系统上下文、核心事件生命周期、状态持久化和部署边界。CI 只支持 GFM，不支持 Mermaid 插件。",
+      "expected_output": "输出可移植的 GFM 文档集和相对链接图稿，复用仓库规范并通过链接与渲染检查。",
+      "files": [],
+      "expectations": [
+        "使用 README/Overview 与稳定的 kebab-case 专题文件",
+        "不包含 Obsidian wikilink、飞书专属结构或本机绝对路径",
+        "图稿以仓库内相对路径引用且不依赖 Mermaid",
+        "使用仓库已有 Markdown lint 或文档构建命令",
+        "至少渲染 Overview 和一个复杂专题"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "$tech-doc-architect 架构有变化：Delivery Outcome 现在是独立事实，不再跟 Run terminal 共用状态。请同步更新飞书、Obsidian 和仓库 Markdown 三份文档，不要新增『新版变化』章节。",
+      "expected_output": "从变化事实定位受影响的图、表、章节和验证说明，直接改写当前结论并保持三种载体语义一致。",
+      "files": [],
+      "expectations": [
+        "先确认新事实的代码、schema 或测试证据",
+        "直接改写当前架构，不把过期结论与新结论并排保留",
+        "明确区分执行终态、用户可见状态和实际交付结果",
+        "更新受影响的图、表、专题链接和验证证据",
+        "对三种载体执行语义校验和与各自的显示验收"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "$tech-doc-architect 这个库只有一个 token refresh 协议，帮我写清楚调用方、状态变化、失败码和测试证据。不要为了体系感拆很多页面，最后给一个普通 Markdown 文件。",
+      "expected_output": "选择紧凑单页而非机械拆分文档集，用最少图表把协议边界、状态和失败语义讲清楚。",
+      "files": [],
+      "expectations": [
+        "识别为适合单页的小型主题",
+        "只保留能回答读者问题的章节",
+        "不强制生成无关的部署、能力或运维专题",
+        "使用可移植 Markdown 语法和相对代码入口",
+        "验证事实、链接和最终渲染"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "$tech-doc-architect 我准备给非常在意架构专业性的新领导看这套 Agent 技术文档。请评审它是否由浅入深、边界清晰，并补上 E2E 如何证明架构不变量；不要把正文变成长篇代码文件清单。",
+      "expected_output": "从认知顺序、边界、状态权威、失败闭环和验证证据评审，必要时增加 Test Architecture 图与专题。",
+      "files": [],
+      "expectations": [
+        "专业性用可观察的理解与追溯结果衡量，而不是章节数量",
+        "Overview 服务快速评审，专题服务机制理解和实现追溯",
+        "E2E 图说明真实依赖、隔离实例、断言和失败取证",
+        "代码入口经过筛选且说明阅读目的",
+        "文字、表格和图承担不同表达职责"
+      ]
+    }
+  ]
+}

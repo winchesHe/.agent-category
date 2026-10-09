@@ -1,0 +1,20 @@
+{
+  "actor": {
+    "requested": "auto",
+    "selected": "bot",
+    "source_env": "SLACK_BOT_TOKEN",
+    "team_id": "T_TEST",
+    "user_id": "U_TESTBOT",
+    "bot_id": "B_TESTBOT",
+    "fallback_reason": null,
+    "warnings": []
+  },
+  "status": "unknown",
+  "retry_safe": false,
+  "channel": "C_TESTRELEASE",
+  "thread_ts": null,
+  "delivery_phase": "request_sent",
+  "payload_digest": "sha256:test-unknown",
+  "slack_request_id": "Req-TEST-UNKNOWN",
+  "reason": "timeout"
+}

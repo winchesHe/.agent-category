@@ -1,0 +1,58 @@
+{
+  "all_lists": {
+    "dashboard_lists": [
+      {
+        "id": 10,
+        "name": "Production",
+        "type": "manual_dashboard_list",
+        "dashboard_count": 2,
+        "is_favorite": true,
+        "created": "2026-08-01T00:00:00Z",
+        "modified": "2026-08-16T00:00:00Z",
+        "author": {
+          "handle": "owner@example.com",
+          "name": "Owner",
+          "email": "private@example.com"
+        }
+      }
+    ]
+  },
+  "single": {
+    "id": 10,
+    "name": "Production",
+    "type": "manual_dashboard_list",
+    "dashboard_count": 2,
+    "is_favorite": true,
+    "author": {
+      "handle": "owner@example.com",
+      "name": "Owner",
+      "email": "private@example.com"
+    }
+  },
+  "items": {
+    "dashboards": [
+      {
+        "id": "abc-def-ghi",
+        "type": "custom_timeboard",
+        "title": "API Overview",
+        "url": "/dashboard/abc-def-ghi/api-overview",
+        "is_favorite": true,
+        "is_read_only": false,
+        "is_shared": false,
+        "tags": ["team:platform"],
+        "popularity": 5,
+        "author": {
+          "handle": "owner@example.com",
+          "name": "Owner",
+          "email": "private@example.com"
+        }
+      },
+      {
+        "id": "jkl-mno-pqr",
+        "type": "custom_screenboard",
+        "title": "Worker Overview"
+      }
+    ],
+    "total": 2
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "data": [
+    {
+      "id": "AZ3EVUWDAACUo6tUG66i0Coz",
+      "type": "spans",
+      "attributes": {
+        "custom": {
+          "component": "google.golang.org/grpc",
+          "container_tags": [
+            "kube_replica_set:moego-svc-subscription-primary-74ff7cd958",
+            "pod_phase:running",
+            "kube_namespace:ns-staging",
+            "env:ns-staging",
+            "version:primary",
+            "image_name:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-subscription",
+            "kube_service:moego-svc-subscription-primary",
+            "kube_ownerref_kind:replicaset",
+            "kube_qos:burstable",
+            "kube_container_name:moego-svc-subscription",
+            "short_image:moego-svc-subscription",
+            "image_tag:release",
+            "kube_deployment:moego-svc-subscription-primary",
+            "service:moego-svc-subscription",
+            "kube_service:moego-svc-subscription",
+            "image_id:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-subscription@sha256:0895d24fc65dbb5acff35114fe658becbf2b14efe8caf9e59de212ac4b3414af",
+            "git.commit.sha:08b2e17defbed495502fe55a8c8184c32d4b50ef",
+            "git.repository_url:https://github.com/moegolibrary/moego-svc-subscription.git",
+            "pod_name:moego-svc-subscription-primary-74ff7cd958-9466b",
+            "kube_ownerref_name:moego-svc-subscription-primary-74ff7cd958",
+            "display_container_name:moego-svc-subscription_moego-svc-subscription-primary-74ff7cd958-9466b",
+            "container_id:bcb28d9b8600850d88fbf901304ef3a47b45fea775536a39c411af90b2ce5427",
+            "container_name:moego-svc-subscription"
+          ],
+          "duration": 631237857,
+          "env": "ns-staging",
+          "git": {
+            "commit": {
+              "sha": "08b2e17defbed495502fe55a8c8184c32d4b50ef"
+            },
+            "repository": {
+              "id": "github.com/moegolibrary/moego-svc-subscription"
+            },
+            "repository_url": "https://github.com/MoeGolibrary/moego-svc-subscription.git"
+          },
+          "go_path": "github.com/MoeGolibrary/moego-svc-subscription/internal",
+          "infra_tags": [
+            "kube_replica_set:moego-svc-subscription-primary-74ff7cd958",
+            "pod_phase:running",
+            "kube_namespace:ns-staging",
+            "env:ns-staging",
+            "version:primary",
+            "image_name:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-subscription",
+            "kube_service:moego-svc-subscription-primary",
+            "kube_ownerref_kind:replicaset",
+            "kube_qos:burstable",
+            "kube_container_name:moego-svc-subscription",
+            "short_image:moego-svc-subscription",
+            "image_tag:release",
+            "kube_deployment:moego-svc-subscription-primary",
+            "service:moego-svc-subscription",
+            "kube_service:moego-svc-subscription",
+            "image_id:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-subscription@sha256:0895d24fc65dbb5acff35114fe658becbf2b14efe8caf9e59de212ac4b3414af",
+            "git.commit.sha:08b2e17defbed495502fe55a8c8184c32d4b50ef",
+            "git.repository_url:https://github.com/moegolibrary/moego-svc-subscription.git",
+            "pod_name:moego-svc-subscription-primary-74ff7cd958-9466b",
+            "kube_ownerref_name:moego-svc-subscription-primary-74ff7cd958",
+            "display_container_name:moego-svc-subscription_moego-svc-subscription-primary-74ff7cd958-9466b",
+            "container_id:bcb28d9b8600850d88fbf901304ef3a47b45fea775536a39c411af90b2ce5427",
+            "container_name:moego-svc-subscription"
+          ],
+          "language": "go",
+          "network": {
+            "destination": {
+              "ip": "10.100.157.249",
+              "port": 9090
+            }
+          },
+          "peer": {
+            "hostname": "moego-svc-billing",
+            "rpc": {
+              "service": "moego.service.billing.v1.subscriptionservice",
+              "system": "grpc"
+            },
+            "service": "moego-svc-billing"
+          },
+          "process_id": "12",
+          "rpc": {
+            "grpc": {
+              "full_method": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+              "kind": "unary",
+              "status_code": "InvalidArgument"
+            },
+            "method": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+            "service": "moego.service.billing.v1.SubscriptionService",
+            "system": "grpc"
+          },
+          "runtime-id": "09a28368-28e8-4669-9792-c531cec8ee5a",
+          "span": {
+            "kind": "client"
+          },
+          "span_tags": [
+            "ingestion_reason:auto",
+            "dd_resource_key:arn:aws:ec2:us-west-2:693727988157:instance/ip-172-31-197-197.us-west-2.compute.internal"
+          ],
+          "version": "primary"
+        },
+        "end_timestamp": "2026-04-25T11:10:14.898Z",
+        "env": "ns-staging",
+        "error": null,
+        "host": "i-049c2ffe8edd1a625",
+        "ingestion_reason": "",
+        "operation_name": "grpc.client",
+        "parent_id": "0",
+        "resource_hash": "bb301115f977f2e",
+        "resource_name": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+        "retained_by": "retention_filter",
+        "service": "moego-svc-subscription",
+        "single_span": false,
+        "span_id": "3686883715093716466",
+        "start_timestamp": "2026-04-25T11:10:14.267Z",
+        "status": "ok",
+        "tags": [
+          "container_id:bcb28d9b8600850d88fbf901304ef3a47b45fea775536a39c411af90b2ce5427",
+          "image_tag:release",
+          "kube_namespace:ns-staging"
+        ],
+        "trace_id": "69eca11600000000332a713476555df2",
+        "type": "rpc"
+      }
+    },
+    {
+      "id": "AZ3EVUWDAAAfNnB7RwvtECoz",
+      "type": "spans",
+      "attributes": {
+        "custom": {
+          "duration": 630929097,
+          "env": "ns-staging",
+          "git": {
+            "commit": {
+              "sha": "08b2e17defbed495502fe55a8c8184c32d4b50ef"
+            },
+            "repository": {
+              "id": "github.com/moegolibrary/moego-svc-subscription"
+            },
+            "repository_url": "https://github.com/MoeGolibrary/moego-svc-subscription.git"
+          },
+          "go_path": "github.com/MoeGolibrary/moego-svc-subscription/internal",
+          "infra_tags": [
+            "kube_replica_set:moego-svc-subscription-primary-74ff7cd958",
+            "pod_phase:running",
+            "kube_namespace:ns-staging",
+            "env:ns-staging",
+            "version:primary",
+            "image_name:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-subscription",
+            "kube_service:moego-svc-subscription-primary",
+            "kube_ownerref_kind:replicaset",
+            "kube_qos:burstable",
+            "kube_container_name:moego-svc-subscription",
+            "short_image:moego-svc-subscription",
+            "image_tag:release",
+            "kube_deployment:moego-svc-subscription-primary",
+            "service:moego-svc-subscription",
+            "kube_service:moego-svc-subscription",
+            "image_id:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-subscription@sha256:0895d24fc65dbb5acff35114fe658becbf2b14efe8caf9e59de212ac4b3414af",
+            "git.commit.sha:08b2e17defbed495502fe55a8c8184c32d4b50ef",
+            "git.repository_url:https://github.com/moegolibrary/moego-svc-subscription.git",
+            "pod_name:moego-svc-subscription-primary-74ff7cd958-9466b",
+            "kube_ownerref_name:moego-svc-subscription-primary-74ff7cd958",
+            "display_container_name:moego-svc-subscription_moego-svc-subscription-primary-74ff7cd958-9466b",
+            "container_id:bcb28d9b8600850d88fbf901304ef3a47b45fea775536a39c411af90b2ce5427",
+            "container_name:moego-svc-subscription"
+          ],
+          "language": "go",
+          "network": {
+            "destination": {
+              "ip": "10.100.157.249",
+              "port": 9090
+            }
+          },
+          "peer": {
+            "hostname": "10.100.157.249",
+            "rpc": {
+              "service": "moego.service.billing.v1.subscriptionservice",
+              "system": "grpc"
+            },
+            "service": "moego-svc-billing"
+          },
+          "process_id": "12",
+          "rpc": {
+            "grpc": {
+              "full_method": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+              "status_code": "InvalidArgument"
+            },
+            "method": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+            "service": "moego.service.billing.v1.SubscriptionService",
+            "system": "grpc"
+          },
+          "runtime-id": "09a28368-28e8-4669-9792-c531cec8ee5a",
+          "span": {
+            "kind": "client"
+          },
+          "span_tags": [
+            "ingestion_reason:auto",
+            "dd_resource_key:arn:aws:ec2:us-west-2:693727988157:instance/ip-172-31-197-197.us-west-2.compute.internal"
+          ],
+          "version": "primary"
+        },
+        "end_timestamp": "2026-04-25T11:10:14.897Z",
+        "env": "ns-staging",
+        "error": null,
+        "host": "i-049c2ffe8edd1a625",
+        "ingestion_reason": "",
+        "operation_name": "grpc.client",
+        "parent_id": "3686883715093716466",
+        "resource_hash": "bb301115f977f2e",
+        "resource_name": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+        "retained_by": "retention_filter",
+        "service": "moego-svc-subscription",
+        "single_span": false,
+        "span_id": "1202332059611230497",
+        "start_timestamp": "2026-04-25T11:10:14.267Z",
+        "status": "ok",
+        "tags": [
+          "container_id:bcb28d9b8600850d88fbf901304ef3a47b45fea775536a39c411af90b2ce5427",
+          "image_tag:release",
+          "kube_namespace:ns-staging"
+        ],
+        "trace_id": "69eca11600000000332a713476555df2",
+        "type": "rpc"
+      }
+    },
+    {
+      "id": "AZ3EVUeiAACzDdUeqycwNyoz",
+      "type": "spans",
+      "attributes": {
+        "custom": {
+          "component": "google.golang.org/grpc",
+          "container_tags": [
+            "kube_deployment:moego-svc-billing-primary",
+            "kube_container_name:moego-svc-billing",
+            "kube_service:moego-svc-billing-primary",
+            "pod_phase:running",
+            "image_tag:release",
+            "image_id:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-billing@sha256:85d202ddace3067e4e47752346326b1787318b7b25abaf0c0d41999dbfb30444",
+            "service:moego-svc-billing",
+            "short_image:moego-svc-billing",
+            "version:primary",
+            "env:ns-staging",
+            "kube_service:moego-svc-billing",
+            "kube_replica_set:moego-svc-billing-primary-86657d87f9",
+            "image_name:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-billing",
+            "kube_qos:burstable",
+            "kube_ownerref_kind:replicaset",
+            "kube_namespace:ns-staging",
+            "git.repository_url:https://github.com/moegolibrary/moego-svc-billing.git",
+            "git.commit.sha:b84bd899cf2079f5c8056f3f0e56a7c824566a98",
+            "pod_name:moego-svc-billing-primary-86657d87f9-h6dm7",
+            "kube_ownerref_name:moego-svc-billing-primary-86657d87f9",
+            "container_id:b4d07f4efc9db0593940b6870c1b3fe4351944cab2f0590f7d305b3792023ebf",
+            "display_container_name:moego-svc-billing_moego-svc-billing-primary-86657d87f9-h6dm7",
+            "container_name:moego-svc-billing"
+          ],
+          "duration": 628188261,
+          "env": "ns-staging",
+          "git": {
+            "commit": {
+              "sha": "b84bd899cf2079f5c8056f3f0e56a7c824566a98"
+            },
+            "repository": {
+              "id": "github.com/moegolibrary/moego-svc-billing"
+            },
+            "repository_url": "https://github.com/MoeGolibrary/moego-svc-billing.git"
+          },
+          "go_path": "github.com/MoeGolibrary/moego-svc-billing",
+          "grpc": {
+            "request": "{\"planUnits\":[{\"count\":\"1\", \"unitPriceId\":\"26116\"}], \"paymentMethod\":\"pm_1T529WIZwcIFVLGrrOu9GGJG\", \"applicationFeePercent\":3.47, \"onBehalfOf\":\"acct_1Sssl0ID4ZPwGqLy\", \"transferData\":{\"destination\":\"acct_1Sssl0ID4ZPwGqLy\"}, \"paymentBehavior\":\"ERROR_IF_INCOMPLETE\", \"description\":\"12 Days Per Month - 10% Off Created\", \"vendorCustomerId\":\"cus_U2t5gL1J5z9iit\", \"idempotencyKey\":\"019c8db0-2e53-706a-a8b0-e22eb9448c8f\"}"
+          },
+          "infra_tags": [
+            "kube_deployment:moego-svc-billing-primary",
+            "kube_container_name:moego-svc-billing",
+            "kube_service:moego-svc-billing-primary",
+            "pod_phase:running",
+            "image_tag:release",
+            "image_id:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-billing@sha256:85d202ddace3067e4e47752346326b1787318b7b25abaf0c0d41999dbfb30444",
+            "service:moego-svc-billing",
+            "short_image:moego-svc-billing",
+            "version:primary",
+            "env:ns-staging",
+            "kube_service:moego-svc-billing",
+            "kube_replica_set:moego-svc-billing-primary-86657d87f9",
+            "image_name:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-billing",
+            "kube_qos:burstable",
+            "kube_ownerref_kind:replicaset",
+            "kube_namespace:ns-staging",
+            "git.repository_url:https://github.com/moegolibrary/moego-svc-billing.git",
+            "git.commit.sha:b84bd899cf2079f5c8056f3f0e56a7c824566a98",
+            "pod_name:moego-svc-billing-primary-86657d87f9-h6dm7",
+            "kube_ownerref_name:moego-svc-billing-primary-86657d87f9",
+            "container_id:b4d07f4efc9db0593940b6870c1b3fe4351944cab2f0590f7d305b3792023ebf",
+            "display_container_name:moego-svc-billing_moego-svc-billing-primary-86657d87f9-h6dm7",
+            "container_name:moego-svc-billing"
+          ],
+          "language": "go",
+          "process_id": "11",
+          "rpc": {
+            "grpc": {
+              "full_method": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+              "kind": "unary",
+              "request": {
+                "metadata": {
+                  ":authority": {
+                    "0": "moego-svc-billing"
+                  },
+                  "content-type": {
+                    "0": "application/grpc"
+                  },
+                  "traceparent": {
+                    "0": "00-69eca11600000000332a713476555df2-332a713476555df2-01",
+                    "1": "00-69eca11600000000332a713476555df2-10af8aa35330f121-01"
+                  },
+                  "tracestate": {
+                    "0": "dd=s:1;p:332a713476555df2;t.dm:-1;t.tid:69eca11600000000",
+                    "1": "dd=s:1;p:10af8aa35330f121;t.dm:-1;t.tid:69eca11600000000"
+                  },
+                  "user-agent": {
+                    "0": "grpc-go/1.76.0"
+                  },
+                  "x-datadog-tags": {
+                    "0": "_dd.p.dm=-1,_dd.p.tid=69eca11600000000",
+                    "1": "_dd.p.dm=-1,_dd.p.tid=69eca11600000000"
+                  },
+                  "x-envoy-attempt-count": {
+                    "0": "1"
+                  },
+                  "x-forwarded-client-cert": {
+                    "0": "By=spiffe://cluster.local/ns/ns-staging/sa/default;Hash=306db11cb549cadfe6a3e67b97b0004181864a1c6e9d241d8c82cb4d51e1c712;Subject=\"\";URI=spiffe://cluster.local/ns/ns-staging/sa/default"
+                  },
+                  "x-forwarded-proto": {
+                    "0": "http"
+                  },
+                  "x-request-id": {
+                    "0": "9db7d8be-78bd-41a2-8642-c6662262be45"
+                  }
+                }
+              },
+              "status_code": "InvalidArgument"
+            },
+            "method": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+            "service": "moego.service.billing.v1.SubscriptionService",
+            "system": "grpc"
+          },
+          "runtime-id": "15267e44-263f-465b-b344-c5d1430ce545",
+          "span": {
+            "kind": "server"
+          },
+          "span_tags": [
+            "ingestion_reason:auto",
+            "dd_resource_key:arn:aws:ec2:us-west-2:693727988157:instance/ip-172-31-199-187.us-west-2.compute.internal"
+          ],
+          "version": "primary"
+        },
+        "end_timestamp": "2026-04-25T11:10:14.896Z",
+        "env": "ns-staging",
+        "error": null,
+        "host": "i-08f4a58f637c45bdd",
+        "ingestion_reason": "",
+        "operation_name": "grpc.server",
+        "parent_id": "1202332059611230497",
+        "resource_hash": "bb301115f977f2e",
+        "resource_name": "/moego.service.billing.v1.SubscriptionService/CreateSubscription",
+        "retained_by": "retention_filter",
+        "service": "moego-svc-billing",
+        "single_span": false,
+        "span_id": "2934770314650924144",
+        "start_timestamp": "2026-04-25T11:10:14.268Z",
+        "status": "ok",
+        "tags": [
+          "image_id:693727988157.dkr.ecr.us-west-2.amazonaws.com/moego-svc-billing@sha256:85d202ddace3067e4e47752346326b1787318b7b25abaf0c0d41999dbfb30444",
+          "image_tag:release",
+          "service:moego-svc-billing"
+        ],
+        "trace_id": "69eca11600000000332a713476555df2",
+        "type": "rpc"
+      }
+    }
+  ],
+  "meta": {
+    "elapsed": 194,
+    "request_id": "pddv1ChZHd1ZnUzdMWVJrcVgyaTNadk1DRHFBIi0KHWH0jQhgt04siSAq-DNSrhRsxxFQJmdFRp67V6HEEgyjdohOUNeM0kAvPLc",
+    "status": "done",
+    "page": null,
+    "traffic_type": "sampled"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "doc",
+  "version": 1,
+  "content": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "下载",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {"href": "https://example.com/file?access_token=secret-value"}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

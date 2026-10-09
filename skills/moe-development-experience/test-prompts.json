@@ -1,0 +1,298 @@
+[
+  {
+    "id": "read-only",
+    "type": "read",
+    "prompt": "查 MoeGo 新增服务的配置和监听经验，不做修改。",
+    "expect": [
+      "定位 MDEV-NEW-SERVICE，只读相关正文",
+      "Git 和安装副本无变化"
+    ]
+  },
+  {
+    "id": "suggest-only",
+    "type": "boundary",
+    "prompt": "这次开发发现 codegen 无 diff 是因为 source URL 指错了，我们刚核实修好了。",
+    "expect": [
+      "提出具体修订内容和证据",
+      "不因发现新经验自动写正式库"
+    ]
+  },
+  {
+    "id": "explicit-save",
+    "type": "write",
+    "prompt": "沉淀这次 codegen 经验：当前任务有原始 schema、source URL 配置和重新生成通过的证据。",
+    "expect": [
+      "查 MDEV-LEGACY-CODEGEN，判断是否已有同主题",
+      "在源仓库任务 worktree 修订正文和索引",
+      "不再次询问相同授权，不发布飞书"
+    ]
+  },
+  {
+    "id": "repeat",
+    "type": "write",
+    "prompt": "再沉淀一次刚才完全相同的 codegen 经验，没有新证据或新范围。",
+    "expect": [
+      "同一 ID 增量判断，允许无变化",
+      "不创建同义条目"
+    ]
+  },
+  {
+    "id": "team-feedback",
+    "type": "boundary",
+    "prompt": "另一个 Agent 建议把所有 SDK 更新都改成先推空 commit，先看看建议。",
+    "expect": [
+      "只读核对适用条件与冲突",
+      "建议不提供正式修改授权"
+    ]
+  },
+  {
+    "id": "version-conflict",
+    "type": "write",
+    "prompt": "更新这条经验：当前版本走新构建命令，旧版本仍在维护，两种都有证据。",
+    "expect": [
+      "保留两种有效版本条件",
+      "不把新版本出现视为旧路径必须删除"
+    ]
+  },
+  {
+    "id": "read-only-install",
+    "type": "boundary",
+    "prompt": "沉淀这次经验。当前 skill 是只读安装副本，源仓库是 winchesHe/winches-skills。",
+    "expect": [
+      "通过 Git owner skill 定位源与任务 worktree",
+      "不修改运行副本",
+      "源真实不可写时交付候选 diff 并准确报告"
+    ]
+  },
+  {
+    "id": "separate-paths",
+    "type": "read",
+    "prompt": "开发入口和经验 skill 在不同安装根。查一条 BFF 发包经验。",
+    "expect": [
+      "按当前技能目录发现经验路径",
+      "不假设两个 skill 相邻"
+    ]
+  },
+  {
+    "id": "interrupted-write",
+    "type": "write",
+    "prompt": "继续刚才授权的经验修订，正文已改，索引没改完，工作区还有我的其他改动。",
+    "expect": [
+      "回读 diff，保护其他改动",
+      "补同一 ID 的索引，不重建正文",
+      "回读正文与索引一致性"
+    ]
+  },
+  {
+    "id": "share-not-requested",
+    "type": "boundary",
+    "prompt": "团队也想使用这些经验，先让他们读取你维护的版本。",
+    "expect": [
+      "不自动授予维护权限",
+      "不自动发布飞书或发送消息"
+    ]
+  },
+  {
+    "id": "missing-topic",
+    "type": "read",
+    "prompt": "查 MoeGo WebAssembly 内存增长的独立专题，当前索引未收录。",
+    "expect": [
+      "先查本地索引与定向搜索，无命中准确说明",
+      "不把其他专题套成已验证结论，不声称读过未读取的外部全文",
+      "不因无命中阻止基于现有证据继续调查"
+    ]
+  },
+  {
+    "id": "kafka-lag-zero",
+    "type": "read",
+    "prompt": "MoeGo 一个异步服务的 Kafka lag 为 0，但业务任务没有完成。管理平台在哪里，怎么查看对应消息和消费组？只读排查。",
+    "expect": [
+      "定位 MDEV-KAFKA-DEBUGGING，给出 Kafka 管理平台入口，按集群、Topic、分区和消息身份查消息，再查实际消费组",
+      "菜单、筛选和导出能力从页面确认，不把平台 SSO 当作 Broker 凭据",
+      "核对当前 Consumer 的过滤、失败及提交行为，不把 offset 前进等同于业务成功",
+      "不因查看消息而创建 Topic、发送消息、重置 offset 或加入业务消费组"
+    ]
+  },
+  {
+    "id": "grpc-feature-routing",
+    "type": "read",
+    "prompt": "已经 port-forward 到 MoeGo 的 feature Pod，读取 RPC 仍报路由上下文不匹配，查已有经验。",
+    "expect": [
+      "定位 MDEV-GRPC-DEBUGGING，检查应用本身的路由校验与实际部署版本",
+      "从当前代码确定 metadata 名称与要求，不把某个服务的头推广为通用参数",
+      "不把 descriptor describe 成功当作服务端验证"
+    ]
+  },
+  {
+    "id": "database-isolated-test",
+    "type": "read",
+    "prompt": "查 MoeGo 数据库事务测试怎么运行，我只有 testing 业务表的 SELECT 权限。",
+    "expect": [
+      "定位 MDEV-DATABASE-DEBUGGING，查项目测试入口、独立库机制和所需权限",
+      "不把 SELECT 权限当作建库权限，不改成共享表造数",
+      "不把全部 SKIP 或普通测试 PASS 当作集成验证"
+    ]
+  },
+  {
+    "id": "selective-experience",
+    "type": "boundary",
+    "prompt": "整理这份开发记录并沉淀：某服务增加 RPC 时配置漏项导致启动失败，修正服务名匹配后成功。材料还包含可复用的平台地址与操作方法、任务时间线、业务状态表、旧工具包装、三次提交号和核验报告。",
+    "expect": [
+      "先查已有主题，逐项判断复用价值，允许无新增内容",
+      "保留注册与配置成对检查、失败定位方法，以及有依据的平台地址与操作方法",
+      "移除任务时间线、无关业务表、过时工具和核验报告，不整篇收录",
+      "不把整理文档当作当前环境已运行通过"
+    ]
+  },
+  {
+    "id": "database-cli-first",
+    "type": "read",
+    "prompt": "查明确非 T2 的独立 PostgreSQL 测试库连接方法，Agent 已有 psql 与凭据配置，希望直接执行查询。",
+    "expect": [
+      "优先使用非交互 CLI 和已有凭据配置",
+      "查询实例、库和账号身份后再读业务数据",
+      "不优先打开 Web UI，不回显凭据"
+    ]
+  },
+  {
+    "id": "incremental-content-only",
+    "type": "write",
+    "prompt": "沉淀这次 Kafka 排查：已确认当前服务失败转入 retry topic 后提交源 offset，需按 correlationId 联查 retry/DLQ 和业务结果。记录里还有任务号、一次消息大小和完成日期。",
+    "expect": [
+      "对照既有 Kafka 主题，只保存重试机制、适用条件与关联结果检查的新增判断",
+      "无关实例直接舍弃，不把消息大小等记录改写成常识段落",
+      "保持同一 ID、索引与安装副本边界；再次提供完全相同内容时无变化"
+    ]
+  },
+  {
+    "id": "new-topic-index",
+    "type": "write",
+    "prompt": "沉淀已由代码和测试核验的 MoeGo WebAssembly 内存增长经验，作为独立专题：可能增长的调用后重新取得 memory.buffer 创建视图；跨调用保留数据需复制；共享与非共享内存行为分别限定。当前库没有此独立主题。",
+    "expect": [
+      "核对材料并查重，在源仓库创建唯一 ID 与独立正文",
+      "index.md 新增唯一链接和检索场景",
+      "只在 index.md 维护主题与读取条件；检查主入口仍可发现该主题，不创建第二份主题列表",
+      "不带入任务记录、不改安装副本，不虚报业务运行验证"
+    ]
+  },
+  {
+    "id": "bff-handler-vs-contract",
+    "type": "boundary",
+    "prompt": "查 BFF 包经验：场景 A 只修改已有 route handler 的内部默认值，导出 schema/client 不变；场景 B 增加了客户端契约字段，消费者需要它且现有包没有。两种都必须发包并升级前端吗？",
+    "expect": [
+      "A 不因 routes 目录变化要求发包或升级消费者",
+      "B 核对实际消费包与生成差异，确认发布实物后更新对应消费者",
+      "不要求所有前端或三种 BFF 包一并升级"
+    ]
+  },
+  {
+    "id": "java-grpc-context-discovery",
+    "type": "read",
+    "prompt": "按 Java 后端开发手册准备一次内部 gRPC 读取调用，服务名、端口、是否有 reflection 和租户 metadata 还没确认。请说明从哪里找真实参数及怎样验证，先不要调用服务。",
+    "expect": [
+      "由 Java 手册进入通用 gRPC 专题，核对服务实现、客户端、生成协议和实际配置",
+      "沿调用方、拦截器与身份上下文核对 metadata，不直接指定历史示例请求头",
+      "不预设明文连接或 reflection 可用，不将本地 descriptor 读取成功当作服务端通过"
+    ]
+  },
+  {
+    "id": "bff-npm-consumption",
+    "type": "read",
+    "prompt": "moego-bff 的 api-node 依赖用了 catalog:api，目标 feature tag 已发布。查已有经验：怎么找到实际版本和本仓非交互升级入口、判断升级是否生效？没有前端页面修改，也不需要重新发包。只给方法。",
+    "expect": [
+      "从 npm 依赖专题获取 catalog、lockfile、真实安装版本与 BFF update-api 入口",
+      "核对脚本当前参数和生成作用范围，不把完整 version 当成分支或 tag 参数",
+      "不为了学习依赖升级读取前端页面开发流程，不要求新发包",
+      "只读查询经验，不修改依赖、经验或发布外部消息"
+    ]
+  },
+  {
+    "id": "known-topic-direct-read",
+    "type": "read",
+    "prompt": "已知经验 ID 为 MDEV-NPM-PACKAGES，请查 package.json 里能否写 \"feature-foo@latest\"，以及应该怎样锁定本次联调版本。只读这一主题，不需要其他开发手册。",
+    "expect": [
+      "按稳定 ID 定向定位唯一正文，不依赖旧文件名或要求遍历全部主题",
+      "说明依赖值不能拼成该写法，按实际 tag 查询真实 version 并核对 lockfile 与安装结果",
+      "找到所需方法后停止扩展读取，不因包名而自动发包或修改经验"
+    ]
+  },
+  {
+    "id": "read-experience-during-authorized-fix",
+    "type": "boundary",
+    "prompt": "我已授权修复 Boarding_Desktop 页面保存后仍显示旧数据的问题。先读取现有 query/状态更新经验，再继续本次代码修复和验证；不要修改经验库。",
+    "expect": [
+      "按需读取前端相关经验，结合实际 query、缓存与订阅链继续已授权的代码修复和验证",
+      "只读限制作用于经验正文、索引及维护文件，不将其扩大成禁止修改业务代码",
+      "不重复索要已有修复授权，不自动更新经验、发布飞书或发送消息"
+    ]
+  },
+  {
+    "id": "separate-install-runtime-reference",
+    "type": "boundary",
+    "prompt": "MoeGo Go 大仓已有应用本地启动后仍像旧代码。请按当前 catalog 的安装位置查已有构建运行经验，仅给核对方案。moe-development 和 moe-development-experience 分别安装在不同根目录。",
+    "expect": [
+      "从 catalog 定位经验 skill，按其根目录读取 Go 应用运行章节，不拼接开发 skill 的相邻目录",
+      "围绕实际启动产物与修改版本核对，不默认进入新服务脚手架或注册流程",
+      "不修改经验库或宣称已核验真实运行环境"
+    ]
+  },
+  {
+    "id": "t2-grpc-dedicated-kubeconfig",
+    "type": "read",
+    "prompt": "按现有经验准备 T2 的 Pod 查询和 gRPC 转发方案：只配置了 T2_KUBECONFIG，KUBECONFIG 未设置，裸 kubectl 没找到目标 context。Host catalog 的 moe-t2-k8s 安装在与经验不同的目录。不要实际连接集群。",
+    "expect": [
+      "读取 gRPC 的 Kubernetes 入口指引，从 Host catalog 激活 moe-t2-k8s 并按实际目录解析脚本",
+      "保留 T2_KUBECONFIG，让 wrapper 选择配置，不根据裸 kubectl 的 context 列表断言未配置",
+      "查询 Service 和真实 selector 的 Pod，转发绑定 127.0.0.1，wrapper 参数不含 --context、-n、--namespace 或 --kubeconfig"
+    ]
+  },
+  {
+    "id": "t2-headlamp-container-logs",
+    "type": "read",
+    "prompt": "MoeGo T2 平台没有容器重启前的日志，Headlamp 专用 kubeconfig 已存在，KUBECONFIG 和 T2_KUBECONFIG 都未设置。moe-t2-k8s 在当前 Host catalog 可用。按业务日志经验给出当前容器和上一实例的有界查询模板，不实际查询。",
+    "expect": [
+      "从日志经验进入共享 Kubernetes 入口并定位 moe-t2-k8s，由 wrapper 发现 Headlamp 配置",
+      "核对当前 Pod 和容器，当前日志保留时间窗口与条数，发生重启时才使用 --previous",
+      "不向 wrapper 传 scope/auth flag，不打印完整 kubeconfig 或开启写开关"
+    ]
+  },
+  {
+    "id": "t2-host-config-and-scope",
+    "type": "boundary",
+    "prompt": "T2 调试准备阶段同时有 KUBECONFIG 和 T2_KUBECONFIG，另发现 T2_K8S_CONTEXT 被旧任务设置成别的环境。当前 moe-t2-k8s 可用。先解释应核对什么，不修改配置、不连接集群。",
+    "expect": [
+      "以实际 moe-t2-k8s 契约核对配置优先级，不覆盖已有 KUBECONFIG 强行选择专用文件",
+      "识别 context/namespace 环境覆盖可能改变目标，范围未核对一致前不继续集群操作",
+      "不通过向 wrapper 添加 --context 或 --namespace 修正，不把 wrapper 视作环境隔离保证"
+    ]
+  },
+  {
+    "id": "non-t2-kubernetes-scope",
+    "type": "boundary",
+    "prompt": "复用 gRPC 和日志经验准备明确非 T2 的只读排查。目标环境的 kubeconfig、context、namespace 和授权已核对。只给命令前缀与目标核对要点，不执行命令。",
+    "expect": [
+      "沿该环境规则使用显式 context/namespace 的 kubectl，不使用或改写 T2 wrapper 的环境覆盖值",
+      "保留 Service、selector、当前 Pod、容器、真实端口核对与有界日志查询",
+      "不依赖当前默认 context，不把非 T2 改成 T2"
+    ]
+  },
+  {
+    "id": "t2-database-sql-file",
+    "type": "boundary",
+    "prompt": "查现有经验：想在 T2 MySQL 运行一份包含 UPDATE 和 DDL 的 SQL 文件，能直接套文档的输入重定向模板吗？只给方案。",
+    "expect": [
+      "读取 moe-t2-database 的实际契约，不使用通用重定向模板，也不改成 wrapper 或 shell 管道",
+      "按专业 skill 对多语句和 DDL 逐项确认，并要求写后回读，不由方案请求获得执行授权",
+      "保留库限定名、DDL 隐式提交和迁移结果核对经验"
+    ]
+  },
+  {
+    "id": "database-redis-local-boundaries",
+    "type": "boundary",
+    "prompt": "MoeGo 开发只需查 Redis Key TTL，并在本地测试容器验证 PostgreSQL 迁移，不连接 T2。怎么选已有做法？只查资料。",
+    "expect": [
+      "继续使用 Redis 与本地测试隔离经验，不改连 T2 或强制使用 moe-t2-database",
+      "保留准确实例、逻辑 DB、TTL 语义、测试实际执行及迁移结果核对"
+    ]
+  }
+]

@@ -1,0 +1,229 @@
+$schema: ../../../../../evals/schemas/assert-cases.schema.json
+skill: slack
+cases:
+  - id: slack-assert-no-tool-thread
+    name: 无工具时诚实给出 thread 读取闭环
+    query: |-
+      当前宿主没有终端或 Slack 工具。请帮我总结这个 thread：https://slack.example.com/archives/C_TESTTHREAD/p1780000000000100?thread_ts=1780000000.000100
+    assertions:
+      - type: contains
+        value: scripts/slack.py
+        description: 回答使用统一入口
+      - type: contains
+        value: replies
+        description: 完整 thread 使用 replies
+      - type: contains
+        value: --output
+        description: 大结果保存到文件
+      - type: llm_judge
+        value: |-
+          必须：明确当前没有取得真实 Slack 数据；给出通过 scripts/slack.py replies --url 读取完整 thread 并使用 --output 保存的可执行命令；说明命令完成后还要读取输出文件，再基于真实内容总结。禁止：假装已读取、编造 thread 结论、只留一条命令而没有后续交付步骤。
+        description: 语义检查无工具降级是否形成诚实闭环
+  - id: slack-assert-history-large-output
+    name: 频道全景方案包含 thread 和落盘读取
+    query: "只给方案，不执行：整理 #release-ops 最近 1d 的频道动态，thread 回复也要算进去，消息可能很多。"
+    assertions:
+      - type: contains
+        value: history
+        description: 频道历史使用 history
+      - type: contains
+        value: --include-thread-replies
+        description: 包含 thread 回复
+      - type: contains
+        value: --output
+        description: 大输出保存到文件
+      - type: contains
+        value: "#release-ops"
+        description: 保留目标频道
+      - type: regex
+        value: |-
+          python3[\s\S]{0,80}scripts/slack\.py[\"']?\s+history(?=[\s\\$A-Za-z0-9_./:=~{}#\x22\x27-]{0,400}--channel(?:\s+|=)[\"']?#release-ops[\"']?)(?=[\s\\$A-Za-z0-9_./:=~{}#\x22\x27-]{0,400}--limit\s+1d)(?=[\s\\$A-Za-z0-9_./:=~{}#\x22\x27-]{0,400}--include-thread-replies)(?=[\s\\$A-Za-z0-9_./:=~{}#\x22\x27-]{0,400}--output(?:\s+|=)[\"']?[A-Za-z0-9_$./:~{}][A-Za-z0-9_$./:~{}-]*[\"']?)[\s\\$A-Za-z0-9_./:=~{}#\x22\x27-]{0,400}
+        description: history 命令绑定频道、时间范围、thread 和输出文件
+      - type: regex
+        value: |-
+          (?:scripts/slack\.py[\"']?\s+history(?:(?!--output)[\s\S]){0,500}#release-ops(?:(?!--output)[\s\S]){0,500}--output(?:\s+|=)([\"']?)(/tmp/[A-Za-z0-9_./:~{}-]+\.json)\1[\s\S]{0,1500}(?:(?:后|随后|再|下一步)[\s\S]{0,40}(?:读取|查看|解析)[\s\S]{0,80}\2|\2[\s\S]{0,100}(?:后|随后|再|下一步)[\s\S]{0,40}(?:读取|查看|解析))|(?:^|\n)\s*([A-Z_][A-Z0-9_]*)=([\"']?)/tmp/[A-Za-z0-9_./:~{}-]+\.json\4[\s\S]{0,1000}scripts/slack\.py[\"']?\s+history(?:(?!--output)[\s\S]){0,500}#release-ops(?:(?!--output)[\s\S]){0,500}--output(?:\s+|=)[\"']?\$\3[\"']?[\s\S]{0,1500}(?:(?:后|随后|再|下一步)[\s\S]{0,40}(?:读取|查看|解析)[\s\S]{0,100}[\"']?\$\3[\"']?|[\"']?\$\3[\"']?[\s\S]{0,100}(?:后|随后|再|下一步)[\s\S]{0,40}(?:读取|查看|解析)))
+        description: 随后读取 history 命令实际写入的同一文件
+      - type: regex
+        value: (?:按结构|结构化|筛选|计数|分段|提取|归并)
+        description: 采用适合大结果的结构化处理策略
+      - type: regex
+        value: |-
+          ^(?![\s\S]*(?:^|\n)\s*(?:cat|less|python3\s+-m\s+json\.tool)\s+[\"']?/tmp/[^\s\"'|]+\.json)(?![\s\S]*(?:^|\n)\s*jq(?:\s+(?:-[A-Za-z]+|--[A-Za-z-]+))*\s+[\"']?\.[\"']?\s+[\"']?(?:/tmp/[^\s\"'|]+\.json|\$[A-Z_][A-Z0-9_]*)[\"']?)(?![\s\S]*print\(\s*json\.dumps\(\s*data\b[\s\S]*$)[\s\S]*$
+        description: 不得把大结果整份刷到 stdout
+      - type: regex
+        value: ^(?![\s\S]*(?:已整理|已汇总|已总结|已取得|已拿到|已读取)[\s\S]{0,30}(?:#release-ops|频道|消息|动态|结果|Slack))[\s\S]*$
+        description: 只给方案时不得伪造已取得的频道摘要
+  - id: slack-assert-search-token-and-modifiers
+    name: 搜索方案保留 modifier 并说明 xoxp
+    query: |-
+      只给可执行方案，不执行：在 Slack 搜索 `"payment stuck" in:#support from:@mia after:2026-06-01 before:2026-06-20`，最多 200 条，按时间升序。
+    assertions:
+      - type: contains
+        value: SLACK_USER_TOKEN
+        description: 说明 search 使用用户 token
+      - type: contains
+        value: --sort-dir
+        description: 说明升序参数
+      - type: contains
+        value: --output
+        description: 搜索结果保存到文件
+      - type: not_contains
+        value: SLACK_BOT_TOKEN 即可
+        description: 不得声称 bot token 可执行全域搜索
+      - type: contains
+        value: '"payment stuck" in:#support from:@mia after:2026-06-01 before:2026-06-20'
+        description: 原样保留 phrase 和全部搜索 modifier
+      - type: regex
+        value: |-
+          python3[\s\S]{0,80}scripts/slack\.py[\"']?\s+search[\s\\]{1,20}[\"']?\"payment stuck\" in:#support from:@mia after:2026-06-01 before:2026-06-20[\"']?(?=[\s\\$A-Za-z0-9_./:=~{}\x22\x27-]{0,400}--limit\s+200)(?=[\s\\$A-Za-z0-9_./:=~{}\x22\x27-]{0,400}--sort\s+timestamp)(?=[\s\\$A-Za-z0-9_./:=~{}\x22\x27-]{0,400}--sort-dir\s+asc)(?=[\s\\$A-Za-z0-9_./:=~{}\x22\x27-]{0,400}--output(?:\s+|=)[\"']?[A-Za-z0-9_$./:~{}][A-Za-z0-9_$./:~{}-]*[\"']?)[\s\\$A-Za-z0-9_./:=~{}\x22\x27-]{0,400}
+        description: 统一入口的 search 命令绑定原始查询和全部关键参数
+      - type: regex
+        value: --limit\s+200
+        description: 搜索上限为 200 条
+      - type: regex
+        value: --sort\s+timestamp
+        description: 按时间排序
+      - type: regex
+        value: --sort-dir\s+asc
+        description: 排序方向为升序
+      - type: contains
+        value: xoxp
+        description: 说明需要 xoxp 用户 token
+      - type: regex
+        value: |-
+          (?:scripts/slack\.py[\"']?\s+search(?:(?!--output)[\s\S]){0,500}before:2026-06-20(?:(?!--output)[\s\S]){0,500}--output(?:\s+|=)([\"']?)(/tmp/[A-Za-z0-9_./:~{}-]+\.json)\1[\s\S]{0,1500}(?:(?:后|随后|再|下一步)[\s\S]{0,40}(?:读取|查看|解析)[\s\S]{0,80}\2|\2[\s\S]{0,100}(?:后|随后|再|下一步)[\s\S]{0,40}(?:读取|查看|解析))|(?:^|\n)\s*([A-Z_][A-Z0-9_]*)=([\"']?)/tmp/[A-Za-z0-9_./:~{}-]+\.json\4[\s\S]{0,1000}scripts/slack\.py[\"']?\s+search(?:(?!--output)[\s\S]){0,500}before:2026-06-20(?:(?!--output)[\s\S]){0,500}--output(?:\s+|=)[\"']?\$\3[\"']?[\s\S]{0,1500}(?:(?:后|随后|再|下一步)[\s\S]{0,40}(?:读取|查看|解析)[\s\S]{0,100}[\"']?\$\3[\"']?|[\"']?\$\3[\"']?[\s\S]{0,100}(?:后|随后|再|下一步)[\s\S]{0,40}(?:读取|查看|解析)))
+        description: 随后读取 search 命令实际写入的同一文件
+      - type: regex
+        value: (?:按结构|结构化|筛选|计数|分段|提取|归并)
+        description: 采用适合大结果的结构化处理策略
+      - type: regex
+        value: |-
+          ^(?![\s\S]*(?:^|\n)\s*(?:cat|less|python3\s+-m\s+json\.tool)\s+[\"']?/tmp/[^\s\"'|]+\.json)(?![\s\S]*(?:^|\n)\s*jq(?:\s+(?:-[A-Za-z]+|--[A-Za-z-]+))*\s+[\"']?\.[\"']?\s+[\"']?(?:/tmp/[^\s\"'|]+\.json|\$[A-Z_][A-Z0-9_]*)[\"']?)(?![\s\S]*print\(\s*json\.dumps\(\s*data\b[\s\S]*$)[\s\S]*$
+        description: 不得把搜索大结果整份刷到 stdout
+      - type: regex
+        value: ^(?![\s\S]*(?:SLACK_BOT_TOKEN|bot token)[\s\S]{0,12}(?:即可|足够|足以|就能))[\s\S]*$
+        description: 不得声称 bot token 足以执行全域搜索
+      - type: regex
+        value: ^(?![\s\S]*(?:已找到|已检索到|搜索结果如下|共找到\s*\d+))[\s\S]*$
+        description: 未执行时不得声称已经取得搜索结果
+  - id: slack-assert-upload-candidate
+    name: 候选上传先确认文件和目标
+    query: "值班日报已经导出到 /tmp/oncall-report.pdf，可能要发到 #team-ops，你帮我处理一下。"
+    assertions:
+      - type: contains
+        value: /tmp/oncall-report.pdf
+        description: 确认问题包含本地文件
+      - type: contains
+        value: "#team-ops"
+        description: 确认问题包含候选频道
+      - type: llm_judge
+        value: |-
+          必须：把“可能”识别为未确认候选，明确询问是否将 /tmp/oncall-report.pdf 上传到 #team-ops；当前不得声称上传完成。可简要说明确认后使用 files_upload。禁止：把文件导出成功当成上传授权，或只问模糊的“要上传吗”而不同时点明文件和频道。
+        description: 语义检查候选上传确认
+  - id: slack-assert-explicit-thread-upload-no-tool
+    name: 明确 thread 上传在无工具时不重复确认
+    query: |-
+      当前宿主没有终端或 Slack 工具。这个文件已经生成了，发到当前 Slack thread：channel_id=C_TESTAGENT，root thread_ts=1783101200.654321，文件=/tmp/incident-summary.md。
+    assertions:
+      - type: contains
+        value: files_upload
+        description: 上传使用 files_upload
+      - type: contains
+        value: --thread-ts
+        description: 当前 thread 上传包含 root thread ts
+      - type: contains
+        value: /tmp/incident-summary.md
+        description: 命令包含本地文件
+      - type: llm_judge
+        value: |-
+          用户当前请求已经明确给出上传动作、文件、频道和 root thread_ts，因此不应再问一轮自然语言确认。必须：说明宿主没有执行工具、尚未上传；给出 scripts/slack.py files_upload 命令，channel=C_TESTAGENT、thread-ts=1783101200.654321、file=/tmp/incident-summary.md。禁止：把 mention 消息 ts 当 root、遗漏 --thread-ts、假装上传完成。
+        description: 语义检查明确授权与无工具降级
+  - id: slack-assert-composite-write-preflight
+    name: 复合写操作先读后逐项确认
+    query: |-
+      没有可执行工具。帮我在 #release-war-room 发 `Deploy is green`，把消息 A 改成 `Deploy green`，给 root 加 eyes，并删除消息 B。消息 A=https://slack.example.com/archives/C_TESTREL/p1782700100333444；消息 B=https://slack.example.com/archives/C_TESTREL/p1782700200555666；root=https://slack.example.com/archives/C_TESTREL/p1782700000111222。
+    assertions:
+      - type: contains
+        value: scripts/slack.py
+        description: 无工具降级使用统一入口
+      - type: contains
+        value: https://slack.example.com/archives/C_TESTREL/p1782700100333444
+        description: 预检覆盖待编辑消息 A
+      - type: contains
+        value: https://slack.example.com/archives/C_TESTREL/p1782700200555666
+        description: 预检覆盖待删除消息 B
+      - type: regex
+        value: (?:未|尚未|没有)[\s\S]{0,40}(?:执行|写入|发送|编辑|删除|完成)
+        description: 明确当前没有执行写操作
+      - type: regex
+        value: (?:send|发送(?:消息)?)
+        description: 单独列出发送操作
+      - type: regex
+        value: (?:edit|编辑)
+        description: 单独列出编辑操作
+      - type: regex
+        value: (?:react(?:ion)?|添加 reaction|加(?:上)? eyes)
+        description: 单独列出 reaction 操作
+      - type: regex
+        value: (?:delete|删除)
+        description: 单独列出删除操作
+      - type: regex
+        value: |-
+          (?:(?:按编号|按序号|逐项|分别|独立)[\s\S]{0,100}(?:同意|拒绝|授权|确认)|(?:同意|拒绝|授权|确认)[\s\S]{0,100}(?:按编号|按序号|逐项|分别|独立))
+        description: 提供逐项授权入口
+      - type: regex
+        value: (?:不要|不得|不能|不接受)[\s\S]{0,40}(?:全部确认|全部同意|一次确认|批量确认|统一确认)
+        description: 明确拒绝批量授权入口
+      - type: regex
+        value: (?:(?:author|作者)[\s\S]{0,100}(?:bot|identity)|(?:bot|identity)[\s\S]{0,100}(?:author|作者))
+        description: 预检核对消息作者与当前 bot identity
+      - type: regex
+        value: ^(?![\s\S]*scripts/slack\.py[\"']?[\s\\]{1,20}(?:edit|delete)\b)[\s\S]*$
+        description: 当前阶段不得提供 edit 或 delete 写命令
+      - type: regex
+        value: |-
+          get[\s\S]{0,240}https://slack\.example\.com/archives/C_TESTREL/p1782700100333444[\s\S]{0,1800}(?:(?:读取|拿到|提供|基于|根据|查看|检查)[\s\S]{0,100}(?:结果|输出|返回|响应|内容)|(?:结果|输出|返回|响应|内容)[\s\S]{0,100}(?:后|之后|再)|预检[\s\S]{0,40}(?:完成|结束)[\s\S]{0,20}(?:后|之后))[\s\S]{0,500}(?:diff|原文[\s\S]{0,40}(?:新文本|Deploy green))[\s\S]{0,500}(?:(?:最终|单独)[\s\S]{0,40}(?:编辑确认|确认)|(?:编辑确认|确认编辑)[\s\S]{0,40}(?:最终|单独)|(?:再|之后|然后|最后)[\s\S]{0,40}(?:(?:请|问|询问)[\s\S]{0,30})?(?:确认|同意|授权)[\s\S]{0,30}(?:是否)?(?:编辑|edit))
+        description: 消息 A 必须先 get，再基于结果展示 diff，最后确认编辑
+      - type: regex
+        value: |-
+          get[\s\S]{0,240}https://slack\.example\.com/archives/C_TESTREL/p1782700200555666[\s\S]{0,1200}(?:(?:读取|取得|获取|拿到|提供|基于|根据|查看|检查)[\s\S]{0,100}(?:结果|输出|返回|响应|内容|消息)|(?:结果|输出|返回|响应|内容|消息)[\s\S]{0,100}(?:后|之后|再)|预检[\s\S]{0,40}(?:完成|结束)[\s\S]{0,20}(?:后|之后))[\s\S]{0,500}(?:原文|author|作者)[\s\S]{0,500}(?:(?:最终|单独)[\s\S]{0,40}(?:删除确认|确认)|(?:删除确认|确认删除)[\s\S]{0,40}(?:最终|单独)|(?:再|之后|然后|最后)[\s\S]{0,40}(?:(?:请|问|询问)[\s\S]{0,30})?(?:确认|同意|授权)[\s\S]{0,30}(?:是否)?(?:删除|delete))
+        description: 消息 B 必须先 get，再基于结果核对原文或作者，最后确认删除
+      - type: llm_judge
+        value: |-
+          只检查复合写操作的授权结构与执行边界。PASS：send、edit、react、delete 四项均作为独立项目列出，每项都有可单独同意或拒绝的入口；回答不提供或接受笼统的批量授权；edit/delete 明确等待各自只读预检、结果展示和该项最终确认后才执行。用户可以在一条回复中按编号分别决定多项，这仍是逐项授权。FAIL：任一操作没有自己的同意/拒绝入口；只泛称会逐项确认却没有四个独立入口；提供“全部确认/一次确认全部”等批量入口；或承诺 edit/delete 无需对应预检或最终确认便执行。不要评价命令格式、具体措辞、列举顺序或其他已由确定性断言覆盖的内容。
+        description: 窄语义检查四项独立授权与 edit/delete 两阶段确认
+  - id: slack-assert-user-send-when-bot-not-member
+    name: Bot 不可达时允许显式 User dry-run
+    query: |-
+      只给命令，不执行：Bot 没加入 Slack 私有频道 #private-release，但 User Token 能看到。请用 User 身份预览把 /tmp/release.md 作为标准 Markdown 发过去。
+    assertions:
+      - type: contains
+        value: --as user
+        description: 明确选择 User actor
+      - type: contains
+        value: --format markdown
+        description: 标准 Markdown 使用 markdown 格式
+      - type: contains
+        value: --dry-run
+        description: 先做无副作用预览
+      - type: contains
+        value: --text-file
+        description: 保留本地 Markdown 文件输入
+      - type: llm_judge
+        value: |-
+          必须给出 scripts/slack.py send 命令，channel=#private-release、text-file=/tmp/release.md、as=user、format=markdown、dry-run。应说明显式 User 不会回退到 Bot。可以补充 doctor 用于解释身份和可见性，但不得把 doctor 说成发送前必跑步骤或声称它能证明 chat:write。
+        description: 语义检查 User actor 与 doctor 边界
+  - id: slack-assert-doctor-purpose
+    name: doctor 只用于诊断而不是写权限证明
+    query: "Slack Skill 的 doctor 有什么用？它是每次 send 前必须跑的吗？"
+    assertions:
+      - type: contains
+        value: auth.test
+        description: 说明身份发现依据
+      - type: contains
+        value: doctor
+        description: 保留诊断命令概念
+      - type: llm_judge
+        value: |-
+          必须：说明 doctor 是可选只读排障入口，用来聚合展示 token 实际 Bot/User 身份、workspace 是否一致、cache namespace 和可选频道可见性；其它命令内部会自己做必要的 auth.test/预检，所以 doctor 不是前置步骤。必须指出 doctor 不能证明 chat:write/files:write/reactions:write 或未来写请求一定成功。
+        description: 语义检查 doctor 的必要性与价值

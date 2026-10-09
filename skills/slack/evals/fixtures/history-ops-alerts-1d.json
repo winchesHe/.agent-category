@@ -1,0 +1,46 @@
+{
+  "channel": {
+    "id": "C_TESTOPS",
+    "name": "ops-alerts",
+    "is_private": false,
+    "is_archived": false
+  },
+  "limit": {
+    "raw": "1d",
+    "count": null,
+    "oldest_ts": 1783913700
+  },
+  "message_count": 3,
+  "messages": [
+    {
+      "ts": "1784000100.000100",
+      "thread_ts": "1784000100.000100",
+      "reply_count": 1,
+      "author": {
+        "id": "U_TESTMONITOR",
+        "name": "TEST Monitor"
+      },
+      "text_raw": "TEST-ALERT-17 fired on the synthetic checkout queue",
+      "text_rendered": "TEST-ALERT-17 fired on the synthetic checkout queue"
+    },
+    {
+      "ts": "1784000110.000200",
+      "thread_ts": "1784000100.000100",
+      "author": {
+        "id": "U_TESTONCALL",
+        "name": "TEST On-call"
+      },
+      "text_raw": "decision: shift traffic to the synthetic backup queue and keep release paused",
+      "text_rendered": "decision: shift traffic to the synthetic backup queue and keep release paused"
+    },
+    {
+      "ts": "1784000200.000300",
+      "author": {
+        "id": "U_TESTDOCS",
+        "name": "TEST Docs Owner"
+      },
+      "text_raw": "action: docs signoff is still pending from U_TESTDOCS",
+      "text_rendered": "action: docs signoff is still pending from U_TESTDOCS"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+[
+  {
+    "id": "known-code-business-meaning",
+    "type": "positive",
+    "prompt": "MoeGo 新页面要复用 appointment.priorityRank，代码位置已知：imports/queue.ts 在导入批次内按队列位置赋值，views/queue.ts 用于本次预约排序，客户等级另存 customer.level。先核对业务含义，再列最小开发范围与验证步骤；不改文件、不连接服务。",
+    "expect": [
+      "代码已定位仍按需读取 moe-business-context 及字段调查资料，保留给定路径和范围。",
+      "不能把批次排序当客户等级；业务解释后继续给开发范围、待决策事项和验证方案。"
+    ]
+  },
+  {
+    "id": "complete-context-no-business-detour",
+    "type": "boundary",
+    "prompt": "MoeGo mapper 的字段定义、写入、消费者和验收标准都已确认，只需把已有 displayName 复制到响应。先整理给定事实，再列最小修改与验证步骤；不要补查业务背景，也不要执行修改。",
+    "expect": [
+      "直接完成材料整理与局部开发方案，不因 MoeGo 字段关键词加载业务调查。",
+      "不扩展协议发布、跨仓开发或外部调查，不执行修改。"
+    ]
+  },
+  {
+    "id": "cross-repo-grpc-sdk-positive",
+    "type": "positive",
+    "prompt": "GRM-2144 要给 First-time Pet 增加显式 gRPC 字段，api-definitions、api-v3、svc-appointment 和 Boarding_Desktop 都要改，主线包还没发布。请给出仓库边界、分支/发包顺序和每一步验证点。",
+    "expect": [
+      "应触发 moe-development；从统一协议与依赖判断确认 proto SoT、消费链路与实际依赖",
+      "编码可按已知契约并行，需要上游包的消费与联调步骤等产物可用后执行",
+      "feature dist-tag 从对应 CI 与 registry 实物核验，不跨仓套用分支规则",
+      "给出产物、运行版本和逐层验证条件；失败时定位受影响依赖，不盲目重发所有仓库"
+    ]
+  },
+  {
+    "id": "single-repo-typescript-positive",
+    "type": "positive",
+    "prompt": "只改 moego-agent 单仓的 TypeScript logger：调整颜色和空格，不涉及接口、协议、SDK、其他仓库或发布。应该加载 moe-development 吗？接下来怎么做？",
+    "expect": [
+      "进入 moe-development 的单仓开发路由",
+      "依据已有目标仓库事实选择验证；不强制读经验",
+      "不展开 proto/OpenAPI/SDK 或协议与依赖判断",
+      "开发完成不自动写经验"
+    ]
+  },
+  {
+    "id": "dynamic-struct-ambiguous",
+    "type": "ambiguous",
+    "prompt": "api-v3 只是在现有 google.protobuf.Struct extra 里新增一个 JSON key，前端继续通过已有 extra.fields 读取，proto schema 没变。是否必须在 api-definitions 建同名空分支、发一个新的 @moego/api-web feature 包？请说明判断和验证顺序。",
+    "expect": [
+      "不能直接回答必须",
+      "dynamic Struct 本身不产生新生成类型",
+      "先核对前端是否因其他原因需要 feature SDK 版本",
+      "仅当消费者确需对应 dist-tag 产物时才建分支",
+      "从 CI 脚本、package 版本和 registry 实物验证"
+    ]
+  },
+  {
+    "id": "single-repo-java",
+    "type": "positive",
+    "prompt": "修复 MoeGo svc-appointment 单仓 Java 业务校验，不改接口。已有测试入口，补正常、边界和失败验证。",
+    "expect": [
+      "单仓后端路由；按需参考 Java 经验",
+      "不强制协议发布或跨仓分支",
+      "验证业务行为"
+    ]
+  },
+  {
+    "id": "go-new-service",
+    "type": "positive",
+    "prompt": "在 MoeGo Go 大仓新增一个服务，先核对复用骨架、配置、监听和落库目标。",
+    "expect": [
+      "按需读 MDEV-NEW-SERVICE，核对实际工具链",
+      "不将 Java Gradle 命令用于 Go",
+      "按仓库规则先验证端到端最小骨架"
+    ]
+  },
+  {
+    "id": "no-protocol-no-publish",
+    "type": "boundary",
+    "prompt": "api-v3 只改 mapper 默认值，SDK 已支持该字段，同事建议所有仓库都建同名空分支。",
+    "expect": [
+      "没有新产物需求时不发包",
+      "不根据同事建议扩大仓库范围",
+      "修复并验证 mapper"
+    ]
+  },
+  {
+    "id": "non-moego",
+    "type": "negative",
+    "prompt": "修复个人番茄钟应用的按钮样式，与 MoeGo 无关。",
+    "expect": [
+      "不触发 MoeGo 开发或经验入口"
+    ]
+  },
+  {
+    "id": "read-only-query",
+    "type": "boundary",
+    "prompt": "只看一个 MoeGo PR 的 CI 是否通过，不做开发判断。",
+    "expect": [
+      "使用 Git owner skill 查询",
+      "不加载整套开发或经验流程，不修改文件"
+    ]
+  },
+  {
+    "id": "knowledge-consumption",
+    "type": "positive",
+    "prompt": "新服务配置似乎读到了另一个数据库，查查已有经验；不要修改经验。",
+    "expect": [
+      "按症状查 MDEV-NEW-SERVICE 并核对当前配置",
+      "不把历史文档当作运行证据",
+      "不修改经验、索引或验证日期"
+    ]
+  },
+  {
+    "id": "resolved-mapper-stop-reading",
+    "type": "boundary",
+    "prompt": "MoeGo 客户端 App 的 gRPC 请求返回少了 displayName。请求记录、路由、当前契约与 mapper 代码已提供：真实入口为 client-api-v1，下游和契约已有字段，mapper 只设置 id。给出最小修复与验证方案。",
+    "expect": [
+      "先核对所给请求与代码，定位真实入口和映射缺失",
+      "事实足够后停止扩展参考阅读，不因 gRPC 或字段缺失加载协议与依赖判断或发布专题",
+      "只补映射并验证原请求，不新增协议或 SDK 发布"
+    ]
+  },
+  {
+    "id": "go-existing-reader",
+    "type": "boundary",
+    "prompt": "MoeGo Go 大仓一个已有 RPC 列表接口漏了公司过滤。已定位 Handler 和 Reader.List(ctx, companyID)，现有 Repo 实现已带公司条件；Handler 却绕过 Reader 调用了无过滤查询。协议和部署结构都不变。请给出修复和验证范围。",
+    "expect": [
+      "复用现有 Reader 和公司过滤，不新增服务、重复 Repo 或本地同名业务表",
+      "验证同公司数据可见、其他公司数据不可见及已有失败路径",
+      "按当前模块选择测试与构建目标，不套用 Java 命令",
+      "不因 RPC 或 Go 大仓关键词展开新增服务、跨栈或发包流程"
+    ]
+  },
+  {
+    "id": "cross-repo-temporary-dependencies",
+    "type": "boundary",
+    "prompt": "MoeGo 一个跨仓需求准备收尾：前端已把 feature tag 改成 latest，但 lockfile 仍是旧版本；BFF 的协议包仍通过 link 指向本地生成目录。同名后端分支已部署。能否认为依赖已经正式切换、可以交付？只给检查方案。",
+    "expect": [
+      "区分声明、lockfile、安装内容与 link 解析路径，不把 latest 文本或同名分支当作切换完成",
+      "确认正式产物包含所需契约，更新依赖后验证实际消费版本及原请求结果",
+      "从统一协议与依赖判断取得衔接条件，具体依赖操作按需查 npm 经验，不要求读另一份跨仓清单",
+      "不自动触发发布、合并、修改经验或外部消息"
+    ]
+  },
+  {
+    "id": "known-command-runtime-preconditions",
+    "type": "boundary",
+    "prompt": "MoeGo Go 大仓已有应用的 Handler 已改好，准备执行 make run app=example local=1 验证，目前没有报错。现有任务只修改这个应用，不新增服务。接下来该先核对什么？",
+    "expect": [
+      "操作前核对当前 Makefile 使用的构建产物是否包含本次修改，以及 local 配置的真实依赖落点",
+      "条件未确认时定向读取已有应用运行经验，不因命令已知或尚未报错就跳过",
+      "检查集中于当前构建产物、实际依赖与本次行为；注册、监听、Secret 或部署有改动或对应故障时才扩展"
+    ]
+  },
+  {
+    "id": "runtime-preconditions-already-confirmed",
+    "type": "boundary",
+    "prompt": "MoeGo Go 大仓已有应用只改了 Handler 返回值。已读当前 Makefile，run 复制的 Bazel 目标已经在修改后重新构建；local 配置的数据库和 Kafka 已确认指向本次隔离测试环境；定向单测已通过，注册、监听和 Secret 都未变。下一步怎么验证？只给方案。",
+    "expect": [
+      "复用已确认的构建、配置和测试证据，继续通过原请求验证运行结果",
+      "不重读运行经验，不展开新增服务、注册、Secret 或部署检查",
+      "未实际运行时不宣称验收通过"
+    ]
+  },
+  {
+    "id": "growthbook-sdk-routing",
+    "type": "boundary",
+    "prompt": "MoeGo 的 moego-mobile 要调整 GrowthBook wrapper：切换账号后同步 attributes，并明确初始化失败时的 fallback。不改业务接口、生成类型或跨仓依赖。请给出应使用的专业 skill 和下一步。",
+    "expect": [
+      "通过 growthbook 获取 SDK 接入指引，核对当前 wrapper 与版本",
+      "不因 SDK 关键词进入接口生成或发布分支"
+    ]
+  },
+  {
+    "id": "grey-mis-before-integration",
+    "type": "positive",
+    "prompt": "MoeGo 联调还没开始，需要先查目标 feature 分支是否可供 Grey 路由，再取得指定 T2 账号的信息及调试登录入口；目前没有失败请求。只给准备方案，暂不执行登录或改规则。",
+    "expect": [
+      "主动路由 moe-grey 与 moe-mis，不等请求报错",
+      "分别核对服务分支映射与账号身份，不自动启动整套验收或写规则"
+    ]
+  },
+  {
+    "id": "telemetry-sdk-and-query-boundaries",
+    "type": "boundary",
+    "prompt": "MoeGo Web 需要补 PostHog SDK 的埋点调用和 Sentry SDK 初始化配置，完成后查询已有 PostHog 事件确认落点。请分别给出三项工作应使用的资料或 skill，不执行修改。",
+    "expect": [
+      "PostHog 和 Sentry SDK 实现依据目标仓库与官方文档，不由当前查询 skill 承担",
+      "已有 PostHog 事件核验路由 posthog-skills",
+      "第三方 SDK 本身不触发接口生成或发布"
+    ]
+  },
+  {
+    "id": "metersphere-assets-vs-dynamic-acceptance",
+    "type": "boundary",
+    "prompt": "MoeGo 这个开发任务需要查 MeterSphere 里已有的搜索测试用例，并整理要更新的条目；本轮只做用例资产方案，不启动页面验收。请给出专业入口和下一步。",
+    "expect": [
+      "用例资产管理使用 metersphere",
+      "不把查询用例当作运行验收，也不自动准备浏览器"
+    ]
+  },
+  {
+    "id": "generated-sdk-route-regression",
+    "type": "positive",
+    "prompt": "MoeGo 列表接口要新增显式 proto 字段，当前生成 SDK 没有这个字段，前端消费依赖尚未发布的新包。请给出资料入口和最小依赖、验证顺序，只做方案。",
+    "expect": [
+      "进入协议与依赖判断，核对协议源和 SDK/codegen 产物",
+      "消费者验证服从实际产物依赖，不因第三方 SDK 分流而漏掉协议流程"
+    ]
+  },
+  {
+    "id": "t2-kubernetes-before-rpc",
+    "type": "positive",
+    "prompt": "MoeGo 后端修复已部署到 T2，要先核对 Service、当前 Pod 镜像，再转发到本机验证读取 RPC。当前 Host catalog 提供 moe-t2-k8s，安装根与开发 skill 不同。只给下一步和命令模板，不连接集群。",
+    "expect": [
+      "从当前 Host catalog 定位并读取 moe-t2-k8s，再从实际 SKILL.md 所在目录解析 scripts/t2kubectl",
+      "RPC 目标与端口核对使用 MDEV-GRPC-DEBUGGING，查询和转发参数不携带 wrapper 拒绝的 scope/auth flag",
+      "使用真实 selector 查当前 Pod、核对版本和监听端口，不把转发建立当作 RPC 验证成功"
+    ]
+  },
+  {
+    "id": "t2-wrapper-runtime-dependency",
+    "type": "boundary",
+    "prompt": "MoeGo T2 RPC 联调需要查 Pod，但当前 Host catalog 没有 moe-t2-k8s；我会自己添加。先继续能独立完成的协议核对，说明集群步骤的依赖。不要安装或复制这个 skill，也不要连接集群。",
+    "expect": [
+      "明确缺少运行时入口，不将其误判为没有 kubeconfig 或集群权限",
+      "不拼接历史或相邻路径、不回退裸 kubectl、不创建替代 wrapper",
+      "继续本地协议和源码核对，保留未执行的集群步骤"
+    ]
+  },
+  {
+    "id": "t2-database-routing",
+    "type": "positive",
+    "prompt": "MoeGo T2 联调需要查 PostgreSQL 的任务状态。当前 Host catalog 提供 moe-t2-database，安装根与开发 skill 不同。请给出入口及准备步骤，不实际查询。",
+    "expect": [
+      "从当前 catalog 定位并读取 moe-t2-database 及其 connections.yaml，按其原生客户端契约准备",
+      "业务表、租户和状态判断按需读取数据库经验，不照搬通用 psql 前置环境变量模板",
+      "不把 T2 直连改为 redshift，不执行真实查询"
+    ]
+  },
+  {
+    "id": "t2-database-missing",
+    "type": "boundary",
+    "prompt": "T2 MySQL 的 moe-t2-database 还没安装，我自己装。先查代码中的表映射，后面再查库。",
+    "expect": [
+      "继续源码映射核对，说明数据库步骤缺少运行时入口",
+      "不安装或复制 skill，不猜历史路径，不创建 wrapper 或自动回退通用 mysql 模板"
+    ]
+  }
+]

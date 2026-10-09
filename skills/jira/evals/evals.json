@@ -1,0 +1,290 @@
+{
+  "skill_name": "jira",
+  "benchmark_script": "evals/run-benchmark.sh",
+  "last_run": "2026-03-21",
+  "result": "48/48 passed, 0 failed",
+  "evals": [
+    {
+      "id": 1,
+      "name": "fetch-known-cs-ticket",
+      "prompt": "Fetch the full details of CS-43404 using the Jira skill",
+      "expected_output": "Structured output with 10 sections including basic info (Squad: FinTech, Priority: P1-Critical, Status: Confirmed), customer info, ADF-extracted descriptions, related issues (DES-761, FIN-6100), attachments, and comments",
+      "files": [],
+      "assertions": [
+        {
+          "name": "has-basic-info-section",
+          "type": "contains",
+          "value": "## 基本信息",
+          "description": "Output includes basic info section header"
+        },
+        {
+          "name": "correct-squad",
+          "type": "contains",
+          "value": "FinTech",
+          "description": "Squad field correctly extracted as FinTech"
+        },
+        {
+          "name": "correct-priority",
+          "type": "contains",
+          "value": "P1-Critical",
+          "description": "Priority correctly extracted as P1-Critical"
+        },
+        {
+          "name": "correct-status",
+          "type": "contains",
+          "value": "Confirmed",
+          "description": "Status correctly extracted as Confirmed"
+        },
+        {
+          "name": "has-adf-description",
+          "type": "contains",
+          "value": "## Issue Description",
+          "description": "ADF Issue Description extracted to plain text section"
+        },
+        {
+          "name": "has-related-issues",
+          "type": "contains",
+          "value": "## 关联单",
+          "description": "Related issues section present"
+        },
+        {
+          "name": "has-comments",
+          "type": "contains",
+          "value": "## 评论",
+          "description": "Comments section present"
+        },
+        {
+          "name": "exit-code-zero",
+          "type": "exit_code",
+          "value": 0,
+          "description": "Script exits successfully"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "search-by-keyword",
+      "prompt": "Search for CS tickets related to 'debit card' using JQL: project = CS AND summary ~ \"debit card\"",
+      "expected_output": "Multiple results including CS-43404 and CS-41980, with status, priority, squad, and root cause excerpts for closed tickets",
+      "files": [],
+      "assertions": [
+        {
+          "name": "contains-target-ticket",
+          "type": "contains",
+          "value": "CS-43404",
+          "description": "Search results include the known test ticket CS-43404"
+        },
+        {
+          "name": "contains-historical-closed",
+          "type": "contains",
+          "value": "CS-41980",
+          "description": "Search results include historical closed ticket CS-41980"
+        },
+        {
+          "name": "has-root-cause",
+          "type": "regex",
+          "value": "根因:",
+          "description": "Closed tickets include root cause excerpts"
+        },
+        {
+          "name": "multiple-results",
+          "type": "regex",
+          "value": "返回 \\d+ 条结果",
+          "description": "Header shows result count"
+        },
+        {
+          "name": "exit-code-zero",
+          "type": "exit_code",
+          "value": 0,
+          "description": "Script exits successfully"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "search-by-squad-filter",
+      "prompt": "Search for recent FinTech CS tickets: project = CS AND cf[10089] = FinTech ORDER BY created DESC, limit 5",
+      "expected_output": "5 results, all with [FinTech] squad tag, sorted by creation date descending",
+      "files": [],
+      "assertions": [
+        {
+          "name": "correct-count",
+          "type": "regex",
+          "value": "返回 5 条结果",
+          "description": "Exactly 5 results returned (maxResults=5)"
+        },
+        {
+          "name": "all-fintech",
+          "type": "not_contains",
+          "value": "[-]",
+          "description": "No results with missing squad (all should be FinTech)"
+        },
+        {
+          "name": "exit-code-zero",
+          "type": "exit_code",
+          "value": 0,
+          "description": "Script exits successfully"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "error-invalid-issue-key",
+      "prompt": "Fetch a non-existent ticket: CS-99999999",
+      "expected_output": "Error message indicating the issue does not exist or no permission, with non-zero exit code",
+      "files": [],
+      "assertions": [
+        {
+          "name": "error-message",
+          "type": "stderr_contains",
+          "value": "ERROR",
+          "description": "Error message written to stderr"
+        },
+        {
+          "name": "non-zero-exit",
+          "type": "exit_code",
+          "value": 1,
+          "description": "Script exits with error code 1"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "error-malformed-jql",
+      "prompt": "Search with invalid JQL: project = NONEXISTENT AND summary ~",
+      "expected_output": "Error message from Jira API about malformed JQL, with non-zero exit code",
+      "files": [],
+      "assertions": [
+        {
+          "name": "error-message",
+          "type": "stderr_contains",
+          "value": "ERROR",
+          "description": "Error message written to stderr"
+        },
+        {
+          "name": "non-zero-exit",
+          "type": "exit_code",
+          "value": 1,
+          "description": "Script exits with error code 1"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "search-pagination-indicator",
+      "prompt": "Search with small limit to verify pagination: project = CS ORDER BY created DESC, limit 2",
+      "expected_output": "2 results with 'more results available' indicator since CS project has 43000+ tickets",
+      "files": [],
+      "assertions": [
+        {
+          "name": "two-results",
+          "type": "regex",
+          "value": "返回 2 条结果",
+          "description": "Exactly 2 results returned"
+        },
+        {
+          "name": "has-more-indicator",
+          "type": "contains",
+          "value": "还有更多结果",
+          "description": "Pagination indicator shows more results available"
+        },
+        {
+          "name": "exit-code-zero",
+          "type": "exit_code",
+          "value": 0,
+          "description": "Script exits successfully"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "update-whitelist-rejection",
+      "prompt": "Try to update CS-43404 with a non-whitelisted field: {\"status\":\"Done\"}",
+      "expected_output": "Error about unknown patch fields, non-zero exit",
+      "files": [],
+      "assertions": [
+        {
+          "name": "rejects-unknown-field",
+          "type": "contains",
+          "value": "Unknown patch fields",
+          "description": "Whitelist enforcement rejects status field"
+        },
+        {
+          "name": "non-zero-exit",
+          "type": "exit_code",
+          "value": 1,
+          "description": "Script exits with error"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "update-empty-patch-rejection",
+      "prompt": "Try to update CS-43404 with an empty patch: {}",
+      "expected_output": "Error about needing at least one supported field",
+      "files": [],
+      "assertions": [
+        {
+          "name": "rejects-empty-patch",
+          "type": "contains",
+          "value": "at least one supported field",
+          "description": "Empty patch rejected"
+        },
+        {
+          "name": "non-zero-exit",
+          "type": "exit_code",
+          "value": 1,
+          "description": "Script exits with error"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "download-host-rejection",
+      "prompt": "Try to download from a non-Jira host: https://evil.example.com/malware.png",
+      "expected_output": "host_not_allowed error with ok=false",
+      "files": [],
+      "assertions": [
+        {
+          "name": "host-rejected",
+          "type": "contains",
+          "value": "host_not_allowed",
+          "description": "Non-Jira host rejected by whitelist"
+        },
+        {
+          "name": "ok-false",
+          "type": "contains",
+          "value": "\"ok\": false",
+          "description": "Result indicates failure"
+        },
+        {
+          "name": "non-zero-exit",
+          "type": "exit_code",
+          "value": 1,
+          "description": "Script exits with error"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "download-invalid-url",
+      "prompt": "Try to download from an invalid URL: not-a-url",
+      "expected_output": "ok=false with error details",
+      "files": [],
+      "assertions": [
+        {
+          "name": "ok-false",
+          "type": "contains",
+          "value": "\"ok\": false",
+          "description": "Result indicates failure for invalid URL"
+        },
+        {
+          "name": "non-zero-exit",
+          "type": "exit_code",
+          "value": 1,
+          "description": "Script exits with error"
+        }
+      ]
+    }
+  ]
+}

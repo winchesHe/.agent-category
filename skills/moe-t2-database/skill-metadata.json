@@ -1,0 +1,9 @@
+{
+  "requiredEnvVars": [
+    "T2_DATABASE_USER"
+  ],
+  "optionalEnvVars": [
+    "PGPASSWORD",
+    "T2_MYSQL_OPTION_FILE"
+  ]
+}

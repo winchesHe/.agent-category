@@ -1,0 +1,6 @@
+interface:
+  display_name: "技术文档架构师"
+  short_description: "从技术事实构建专业架构文档，并输出飞书、Obsidian 或 Markdown"
+  default_prompt: "使用 $tech-doc-architect 将当前系统整理成由浅入深、可追溯的专业技术架构文档。"
+policy:
+  allow_implicit_invocation: false

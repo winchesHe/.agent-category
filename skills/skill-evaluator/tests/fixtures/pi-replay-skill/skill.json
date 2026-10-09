@@ -1,0 +1,5 @@
+{
+  "name": "pi-replay-smoke",
+  "description": "用于验证 Pi replay tool 的最小 Skill。",
+  "instructions": "当用户要求读取 replay issue 时，先调用 `search_issue` 找到 issue，再调用 `read_issue` 获取详情，并根据返回值回答。"
+}

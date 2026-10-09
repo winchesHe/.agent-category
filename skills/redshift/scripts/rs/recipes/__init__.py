@@ -1,0 +1,1 @@
+"""Maintained MoeGo recipe implementations."""

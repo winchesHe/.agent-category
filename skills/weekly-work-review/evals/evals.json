@@ -1,0 +1,119 @@
+{
+  "skill_name": "weekly-work-review",
+  "note": "行为级 eval。结构性断言由 tests/run-tests.mjs 的 fixture 覆盖；此处只描述 agent 应有的判断与流程，并引用对应规则 ID。",
+  "rule_id_reference": "SKILL.md 步骤 12 质量门禁表",
+  "evals": [
+    {
+      "id": 1,
+      "name": "resolve-week-before-writing",
+      "prompt": "生成这周的周复盘",
+      "expected_output": "先运行 scripts/resolve-week.mjs 计算归档路径，不心算周次或目录名。归档到 <vault>/工作/周报/<YYYY>/<MM>/<日期范围>/，主报告名为 <日期范围> 周复盘.md。年月取 week_start（周一）。frontmatter 含 week_start/week_end/iso_week 与 tags 工作/周报、MoeGo。不创建 week-N 目录，不使用裸 复盘.md。",
+      "rules": ["PATH-002", "REPORT-004", "REPORT-012", "REPORT-014"],
+      "files": ["weekly-work-review/SKILL.md", "weekly-work-review/scripts/resolve-week.mjs"]
+    },
+    {
+      "id": 2,
+      "name": "cross-month-and-cross-year-week",
+      "prompt": "帮我归档 2026-09-02 那周，还有跨年那周的复盘",
+      "expected_output": "2026-09-02 属于 2026-08-31 至 09-06，归入 2026/08（年月取周一），不因为周日在 9 月就放进 2026/09。跨年周目录名用完整日期，如 2026-12-28 至 2027-01-03。iso_week 只写进 frontmatter 与 manifest，不进目录名。",
+      "rules": ["PATH-002"],
+      "files": ["weekly-work-review/scripts/lib/week.mjs"]
+    },
+    {
+      "id": 3,
+      "name": "same-week-incremental-update",
+      "prompt": "刚又开了个会，补到这周复盘里",
+      "expected_output": "更新既有同周目录，不新建重复目录，不创建 -2/最新版/final 兄弟目录。会议正文归档到 工作/会议/<YYYY>/<MM>/<日期 标题>/，周报包的 meetings/会议索引.md 只加索引行并 wikilink 到该会议目录，不复制完整转写与 PDF。同步更新 迭代记录.md 与 manifest，然后重跑 validator 并更新 readback。",
+      "rules": ["MEETING-001", "RECEIPT-003"],
+      "files": ["weekly-work-review/references/output-contract.md"]
+    },
+    {
+      "id": 4,
+      "name": "session-evidence-scan-first-default",
+      "prompt": "这周我大量时间在和 AI 结对写代码，复盘要覆盖到",
+      "expected_output": "先备份 ~/.memory-manager/memory.db 到 scratch，再用 scripts/collect-sessions.mjs 采集 claude/codex/opencode/pi/copilot/cursor 的 session 证据；采集器默认先跑 scan --all 刷新索引再查询，不写 vault。报告本周 session 总数、各 agent 拆分、latest_indexed_at 与本轮 scan 结果。scan.ok 不为 true 或被 --no-scan 跳过时，在 manifest 写明索引滞后并先申请重扫，不声称覆盖完整。原始 JSONL 只留 source_path 引用。",
+      "rules": ["SESSION-002"],
+      "files": ["weekly-work-review/scripts/collect-sessions.mjs", "weekly-work-review/references/evidence-collection.md"]
+    },
+    {
+      "id": 5,
+      "name": "sessions-tool-unavailable-degradation",
+      "prompt": "生成周复盘，但 memory-manager 没装",
+      "expected_output": "采集器返回 status=tool_unavailable 并以 0 退出；manifest 的 sources_scanned.sessions 写 tool_unavailable 且 skipped_reason 非空。不虚构 session 覆盖，不把缺失说成本周没有 AI 工作，其余来源照常采集。",
+      "rules": ["MANIFEST-011"],
+      "files": ["weekly-work-review/scripts/collect-sessions.mjs"]
+    },
+    {
+      "id": 6,
+      "name": "full-output-ledger-not-sprint-filter",
+      "prompt": "更新周复盘。这周有公司项目，也写了文章、维护了知识库；Sprint Review 我只挑几条",
+      "expected_output": "先构建覆盖 MoeGo 工作、写作创作、知识系统与个人项目的完整 output_items[]，全部进入 本周产出总账 并标注 published/completed/live/in-progress/blocked/paused。Sprint Review 从总账二次筛选且不超过 6 条。个人创作可不进 Sprint 摘录但不得从总账消失。主线只控制篇幅，不作为排除理由。",
+      "rules": ["REPORT-030", "REPORT-040", "COVERAGE-004"],
+      "files": ["weekly-work-review/references/output-contract.md"]
+    },
+    {
+      "id": 7,
+      "name": "empty-or-permission-denied-meeting",
+      "prompt": "把这个飞书会议补进来（链接权限不足或正文为空）",
+      "expected_output": "不得把空正文、权限错误页、只有元数据或明显过短的占位内容包装成完整纪要。会议文件写明读取状态，迭代记录标记 human check required，转写写 transcript_unavailable 与已尝试来源，不标 transcript_publication: full。请用户提供真实纪要/转写链接后按该链接重建。",
+      "rules": ["MEETING-005", "MEETING-006", "MEETING-008", "MEETING-009"],
+      "files": ["weekly-work-review/scripts/repair-meeting-docs.mjs"]
+    },
+    {
+      "id": 8,
+      "name": "two-phase-validation-readback",
+      "prompt": "复盘写完了，收口交付",
+      "expected_output": "manifest 定稿后运行 validate-package.mjs 取得 manifest_sha256，把 status/validator_version/manifest_sha256 写入 evidence-manifest.md 的 Validation Readback，再复跑确认通过。不手写 readback，不保留旧的 failed 结果，不粘贴仅命令而无结果。validation-result.json 由 validator 生成，不手改。",
+      "rules": ["RECEIPT-001", "RECEIPT-002", "RECEIPT-003"],
+      "files": ["weekly-work-review/scripts/validate-package.mjs"]
+    },
+    {
+      "id": 9,
+      "name": "credential-and-raw-dump-privacy",
+      "prompt": "证据里有带 token 的命令输出和 Slack 原始 JSON，一起归档吧",
+      "expected_output": "凭证形状一律不进包，会议原文也不豁免。raw Slack JSON、raw user/channel id、PROMPT/TAIL session dump、飞书临时资产 URL 均不得进 vault，只留在 scratch。会议纪要与转写按飞书原文归档，保留姓名、客户名与说话人，不做普通内容脱敏。报告泄漏时只给文件与行号，不回显凭证原文。",
+      "rules": ["PRIVACY-002", "PRIVACY-020", "PRIVACY-021", "PRIVACY-023"],
+      "files": ["weekly-work-review/scripts/lib/secrets.mjs"]
+    },
+    {
+      "id": 10,
+      "name": "dry-run-must-not-write",
+      "prompt": "先看看会议 PDF 会导出什么，别动我的文件",
+      "expected_output": "使用 --dry-run 预览；执行前后归档包内所有文件保持不变，不写会议纪要、不改 manifest、不建目录、不导出 PDF。输出 planned_writes 说明将要写入哪些路径。repair-meeting-docs.mjs 同理。",
+      "rules": ["DRYRUN-001"],
+      "files": ["weekly-work-review/scripts/export-meeting-pdfs.mjs", "weekly-work-review/scripts/repair-meeting-docs.mjs"]
+    },
+    {
+      "id": 11,
+      "name": "legacy-flat-weekly-migration",
+      "prompt": "我以前的周报是平铺的单文件，处理一下",
+      "expected_output": "先运行 migrate-legacy-weeklies.mjs 输出只读预览：旧文件、目标日期范围目录、主报告文件名、frontmatter 补全、周报索引更新与冲突。未获用户明确同意不得 --apply。迁移保留原 frontmatter 与 wikilink，不删除未知手工内容，失败可回滚。",
+      "rules": ["PATH-002", "REPORT-003"],
+      "files": ["weekly-work-review/scripts/migrate-legacy-weeklies.mjs"]
+    },
+    {
+      "id": 12,
+      "name": "environment-preflight-and-degradation",
+      "prompt": "开始采集本周证据",
+      "expected_output": "先运行 check-environment.mjs 做一次只读预检，确认 vault、scratch 在 vault 外、周报与会议目录、lark-cli 登录、Slack skill、session 索引与 gh 可用性。blocking 非空时先修配置再采集。不可用来源在 manifest 分别写 tool_unavailable/permission_denied 并给出 skipped_reason，不静默缺席。",
+      "rules": ["MANIFEST-010", "MANIFEST-011", "MANIFEST-012"],
+      "files": ["weekly-work-review/scripts/check-environment.mjs"]
+    },
+    {
+      "id": 13,
+      "name": "candidate-must-be-used-or-excluded",
+      "prompt": "证据采集完了，写正文",
+      "expected_output": "每个 candidate_items[] 必须且只能进入 used（正文或 output_items.evidence_refs）或 excluded_with_reason，不允许静默消失，也不允许同时 used 与 excluded。coverage_summary 的计数必须与实际数组一致。output_items 的 report_anchor 必须能在正文回读。",
+      "rules": ["MANIFEST-030", "MANIFEST-031", "COVERAGE-001", "COVERAGE-002", "REPORT-040"],
+      "files": ["weekly-work-review/references/evidence-manifest.schema.json"]
+    },
+    {
+      "id": 14,
+      "name": "learn-from-each-run",
+      "prompt": "这次初版漏了创作和一部分工程产出，修好之后要能防复发",
+      "expected_output": "除修正当周正文外，在 迭代记录.md 追加 Skill 运行复盘，含 initial_miss、user_correction、root_cause、durable_change、verification。单次偶发只记录；同类问题重复出现或违反已确认固定默认时，同步修改 SKILL.md、reference、evals 与 validator，并为该缺陷补一个会失败的 fixture，禁止只改当周正文。",
+      "rules": [],
+      "files": ["weekly-work-review/tests/run-tests.mjs", "weekly-work-review/evals/evals.json"]
+    }
+  ]
+}

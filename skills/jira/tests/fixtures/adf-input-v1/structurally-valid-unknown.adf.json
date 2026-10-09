@@ -1,0 +1,11 @@
+{
+  "type": "doc",
+  "version": 1,
+  "content": [
+    {
+      "type": "futureNode",
+      "attrs": {"feature": "forward-compatible"},
+      "content": []
+    }
+  ]
+}

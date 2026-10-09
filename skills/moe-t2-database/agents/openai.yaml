@@ -1,0 +1,4 @@
+interface:
+  display_name: "T2 Database"
+  short_description: "T2 database connection registry"
+  default_prompt: "Use $moe-t2-database to find T2 database connection details without exposing credentials."

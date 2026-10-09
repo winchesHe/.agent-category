@@ -1,0 +1,5 @@
+{
+  "tool": "search_issue",
+  "args_contain": {"query": "GRM-123"},
+  "result": {"issues": [{"issue_key": "GRM-123"}]}
+}

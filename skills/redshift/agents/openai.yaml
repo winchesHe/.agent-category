@@ -1,0 +1,4 @@
+interface:
+  display_name: "MoeGo Redshift"
+  short_description: "Read-only MoeGo Redshift queries and connection diagnostics"
+  default_prompt: "Use $redshift to select an explicit connection and answer this data question with bounded read-only queries."

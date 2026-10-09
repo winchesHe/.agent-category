@@ -1,0 +1,26 @@
+{
+  "actor": {
+    "requested": "auto",
+    "selected": "user",
+    "source_env": "SLACK_USER_TOKEN",
+    "team_id": "T_TEST",
+    "user_id": "U_TEST_AUTHOR",
+    "bot_id": null,
+    "fallback_reason": null,
+    "warnings": []
+  },
+  "operation_status": "succeeded",
+  "result": "uploaded",
+  "channel": {"id": "C_TESTAGENT", "name": "test-agent"},
+  "thread_ts": "1783101200.654321",
+  "uploaded": [
+    {
+      "id": "F_TEST_INCIDENT_SUMMARY",
+      "title": "incident-summary.md",
+      "permalink": "https://slack.example.com/files/T_TEST/F_TEST_INCIDENT_SUMMARY",
+      "local_path": "/tmp/incident-summary.md"
+    }
+  ],
+  "summary": {"count": 1, "bytes": 2048},
+  "initial_comment": ""
+}

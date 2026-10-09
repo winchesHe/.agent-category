@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "branch-stale-local-base",
+      "mode": "diff",
+      "input": "审查 feature/payment 相对 main 的完整增量；本地 main 落后 origin/main。",
+      "expect": "比较本地与 remote-tracking ref；远端单向领先时使用远端 SHA，并记录 base 与 merge-base SHA。"
+    },
+    {
+      "id": "worktree-three-layers",
+      "mode": "diff",
+      "input": "审查当前 worktree，tracked 文件在 index 和 worktree 中内容不同，并存在 untracked 文件。",
+      "expect": "分别读取 staged、unstaged、untracked，不以 HEAD 汇总差异替代。"
+    },
+    {
+      "id": "hard-two-completion",
+      "mode": "diff",
+      "input": "hard-2 两次启动成功，其中一名 reviewer 后续失败。",
+      "expect": "报告计划 2、启动 2、完成 1；主 agent 补齐缺口，不声称两名 reviewer 完成复核。"
+    },
+    {
+      "id": "no-nested-delegation",
+      "mode": "diff",
+      "input": "hard-3 reviewer 尝试继续调用 spawn_agent。",
+      "expect": "reviewer prompt 明确禁止继续委派，整棵任务树 reviewer 不超过 3。"
+    },
+    {
+      "id": "static-scope",
+      "mode": "static",
+      "input": "静态审查已提交认证文件。",
+      "expect": "只报告授权文件当前问题，明确范围偏移不适用，不给 merge verdict。"
+    }
+  ]
+}

@@ -1,168 +1,256 @@
 ---
 name: review-swarm
-description: "Parallel read-only multi-agent review of a current git diff or explicit file scope to find behavioral regressions, security or privacy risks, performance or reliability issues, and contract or test coverage gaps. Use when the user asks for a review swarm, parallel review, diff review, regression review, security review, or wants high-signal issues plus a prioritized fix path without editing files."
+description: >-
+  对用户明确指定的文件或目录做静态审查，或对 PR、分支、提交、revision range、当前 Git 改动做差异审查并可按路径过滤。根据风险动态使用 0–3 个 reviewer，核验范围偏移、正确性、可靠性、性能、可维护性、仓库内复用和复杂业务意图注释，必要时覆盖安全隐私、兼容迁移及测试可观测性。差异模式只报告本次改动引入的问题；静态模式只报告授权范围内当前存在且具体风险成立的问题。触发关键词：review-swarm、code review swarm、并行 review、diff review、文件审查、回归审查、合并前审查、代码审查。不触发：修改代码、普通实现任务或纯格式建议。
 ---
 
 # Review Swarm
 
-Review a diff with four read-only sub-agents in parallel, then have the main agent filter, order, and summarize only the issues that matter. This skill is review-only: sub-agents do not edit files, and the main agent does not apply fixes as part of this workflow.
+对明确的代码改动或静态文件范围进行只读、缺陷优先的审查。并行 reviewer 只负责扩大覆盖面；主 agent 负责确定范围、验证证据、去重和最终结论。
 
-## Step 1: Determine Scope and Intent
+## 运行边界
 
-Prefer this scope order:
+- 整个流程只读。不得编辑文件、应用 patch、暂存、提交或执行其他状态变更。
+- 只审查用户授权的目标，不把本地其他改动或最近文件静默混入。
+- 用户未指定任何目标时默认差异审查当前 worktree；没有可形成的 diff 时说明缺失范围并停止。用户显式指定文件或目录且未要求比较改动时，使用静态模式。
+- 审查深度必须按下方客观路由选择；命中固定的 2 或 3 reviewer 条件后不得因为 diff 看起来简单、主 agent 自认可以完成或暂未发现问题而降级。reviewer 可以没有 finding，不得为了给出反馈制造 finding。
 
-1. Files or paths explicitly named by the user
-2. Current git changes
-3. An explicit branch, commit, or PR diff requested by the user
-4. Most recently modified tracked files, only if the user asked for a review and there is no clearer diff
+## 场景决策树
 
-If there is no clear review scope, stop and say so briefly.
+### 1. 确定审查模式与范围
 
-When using git changes, choose the smallest correct diff command:
+先选择一种模式，不把两种门禁混用：
 
-- unstaged work: `git diff`
-- staged work: `git diff --cached`
-- mixed staged and unstaged work: review both
-- explicit branch or commit comparison: use exactly what the user requested
+- 差异模式：用户指定 PR、分支、commit、revision range 或当前改动时，确定一个变更来源；未指定任何目标时默认当前 worktree。文件或目录只作为已确定 diff 的可选过滤器，不能替代比较基线。应用过滤器后没有 diff，或无法确定基线时停止并说明。
+- 静态模式：用户显式要求审查文件或目录且没有要求比较改动时，审查这些路径的当前内容。只报告当前存在且具体风险成立的问题，不声称它由本次改动引入；行为与安全缺陷需有当前可执行场景，维护性与意图注释问题需有可证明的关键约束和未来回归机制。范围偏移在此模式不适用。
 
-Before launching reviewers, read the closest local instructions and any relevant project docs for the touched area, such as:
+Git 范围遵循以下规则：
 
-- `AGENTS.md`
-- repo workflow docs
-- architecture or contract docs for the touched module
+- 当前 worktree：始终分别读取 staged 的 `git diff --cached` 与 unstaged 的 `git diff`，再显式发现并阅读 untracked 文件。相对 `HEAD` 的组合差异只能作为汇总，不能替代前两层；否则会漏掉“已暂存后又在 worktree 改回”的 index 改动。
+- 分支：按“用户指定 base → PR 元数据中的 base → 仓库明确的集成或默认分支”选择基线，再通过 merge-base 审查真实分支增量。优先使用 PR 元数据给出的 base SHA；只有 base 名称时，同时解析本地分支与对应 remote-tracking ref 的 SHA/祖先关系，远端 ref 单向领先时使用较新的远端提交，两者分叉时停止并询问。remote-tracking ref 的新鲜度无法从本地证明时，按可用能力只读查询远端 ref；无法查询则披露新鲜度限制。不得仅因目标分支跟踪同名远端分支就把 configured upstream 当作合并基线。范围摘要必须记录最终 base ref、base SHA 与 merge-base SHA。
+- PR、commit 或 range：严格使用该目标及其可获得的元数据。
+- 解析变更来源后再应用路径过滤器，不把当前工作区的其他改动混入显式 revision。
 
-Build a short intent packet for the reviewers:
+对每个目标路径，读取从仓库根到目标目录祖先链上所有适用的 `AGENTS.md`，按层级合并，冲突时更近的规则优先；再读取仓库工作流规则、需求或 PR 描述、相关契约及表达既有行为的测试。可以读取范围外调用方和规则作为证据，但 finding 只能落在授权目标内。形成一份简短上下文包：
 
-1. What behavior is meant to change
-2. What behavior should remain unchanged
-3. Any stated or inferred constraints, such as compatibility, rollout, security, or migration expectations
+1. 审查模式、范围和适用的业务职责。
+2. 当前应保持的行为与关键业务不变量。
+3. 差异模式预期改变的行为及非目标；静态模式标记为不适用。
+4. 可观察的验收条件。
+5. 兼容、迁移、上线、安全和隐私等约束。
+6. 哪些要求有明确来源，哪些只是根据 diff 或当前实现推断。
 
-If the user did not state the intent clearly, infer it from the diff and say that the inference may be incomplete.
+### 2. 选择审查深度
 
-## Step 2: Launch Four Read-Only Reviewers in Parallel
+完成范围解析后，先识别会改变行为的文件；纯格式、生成物噪声和没有语义变化的机械改动不计入数量。然后先判定两个硬路由，均未命中时才进入 0–1 reviewer 的自适应档：
 
-Launch four sub-agents when the scope is large enough for parallel review to help. For a tiny diff or one very small file, it is acceptable to review locally instead.
+| 顺序 | 客观条件 | reviewer | 路由 |
+|---|---|---:|---|
+| 1 | 同一变更同时包含外部副作用、业务状态迁移，以及重试、未知结果、部分失败或补偿；或同时改变公开契约/schema、领域行为和资金/权限/破坏性操作 | **恰好 3** | 三个主角色各一个；不得合并角色或停在 2 个 |
+| 2 | 未命中 3；同一业务能力在至少两个行为文件中实现或修改，并且需要跨文件核对共享领域规则、复用/一致性或跨层交互；当前 worktree 跨 staged、unstaged、untracked 多层出现该能力时也属于此档 | **恰好 2** | 角色 A 覆盖范围与正确性；角色 B 覆盖可靠性、性能与代码库适配 |
+| 3 | 其余局部改动，包括单文件、互不相关的多文件、静态单文件和路径过滤后的局部范围 | **0–1** | 主 agent 根据关键业务敏感度选择本地完成或一个综合 reviewer |
 
-For every sub-agent:
+必须先记录 `route_class: hard-3 | hard-2 | adaptive-0-1`、命中理由和 `planned_reviewer_count`，再开始实质审查。命中 hard-3 或 hard-2 时，先按数量发起全部 reviewer，再等待结果；不得因主 agent 已发现问题或某个角色看似可合并而少启动。运行环境确实没有所需并行容量时才允许降级；主 agent 必须补齐未执行方向，并在覆盖限制中说明原定路由、实际 reviewer 数和原因。为每个计划 reviewer 记录 `coverage_dimensions`；分别记录成功返回任务 ID 的 `started_reviewer_count`，以及最终返回可验证结论的 `completed_reviewer_count`，使六个核心方向、条件覆盖项和实际完成并行度均可核对。
 
-- give the same scope and the same intent packet
-- state that the sub-agent is read-only
-- do not let the sub-agent edit files, run `apply_patch`, stage changes, commit, or perform any other state-mutating action
-- ask for concise findings only
-- ask for: file and line or symbol, issue, why it matters, recommended follow-up, and confidence
-- tell the sub-agent to avoid nits, style preferences, and speculative concerns without concrete impact
-- tell the sub-agent to send findings back to the main agent only
+### Reviewer 数量事实门禁
 
-Use these four review roles.
+用户可见的过程更新必须忠实区分“计划路由”“成功启动的 reviewer”和“审查方向”：
 
-### Sub-Agent 1: Intent and Regression Review
+- 调用 reviewer 前只能表述“计划采用 N 位 reviewer”，不得把计划数写成已经采用或已经启动的实际数。
+- 只有相应启动调用成功后，才能表述“已启动 N 位 reviewer”；只有收到 N 份可用最终结果后，才能表述“由 N 位 reviewer 完成复核”。启动数与完成数分别取 `started_reviewer_count`、`completed_reviewer_count`，不能取路由计划数、角色数或覆盖方向数。
+- “覆盖正确性、可靠性、可维护性三个方向”不等于“3 位 reviewer”；不得用“独立审查视角”“独立复核”等模糊措辞暗示多于实际数量的 reviewer。
+- 启动失败、容量不足、启动后超时/失败/无可用结果，或完成数与计划数不一致时，立即更正为“计划 N 位，启动 S 位，完成 M 位”，说明主 agent 如何补齐缺口，并把该差异写入最终覆盖限制。
+- 没有必要向用户报告并行度时可以省略 reviewer 数量，但凡报告就必须经过上述事实核对。
 
-Review whether the diff matches the intended behavior change without introducing extra behavior drift.
+reviewer 数量只改变并行分工，不减少适用方向。分派前在内部把六个核心方向和已触发的条件覆盖项逐项分配；主 agent 必须补齐未分配、因容量受限未执行或证据仍不足的方向。
 
-Check for:
+- 0 个 reviewer：主 agent 完成全部适用方向。
+- 1 个 reviewer：综合 reviewer 完成全部适用方向，主 agent 负责验证。
+- 2 个 reviewer：默认使用表中的 A/B 分工，条件覆盖项挂到最相关角色。
+- 3 个 reviewer：使用以下三个主角色。
 
-1. Unintended behavior changes outside the stated scope
-2. Broken edge cases or fallback paths
-3. Contract drift between callers and callees
-4. Missing updates to adjacent flows that should change together
+最多启动 3 个 sub-agent。三个主角色为：
 
-This sub-agent is read-only. It must not edit files, apply patches, or make any other workspace changes.
+1. 范围偏移 + 正确性。
+2. 可靠性 + 性能。
+3. 可维护性 + 复用与一致性 + 复杂业务逻辑的意图注释。
 
-Recommended sub-agent role: `reviewer`
+安全/隐私、契约/兼容/迁移、测试/可观测性是条件覆盖项，挂到最相关的 reviewer，不额外占固定角色。差异模式看改动是否触及该职责；静态模式看授权范围当前是否承担该职责：
 
-### Sub-Agent 2: Security and Privacy Review
+- 涉及信任边界、认证授权、外部输入、敏感数据、权限或 secret 时，覆盖安全与隐私。
+- 涉及 API、schema、类型、配置、feature flag、公开接口或持久化格式时，覆盖契约、兼容与迁移。
+- 涉及关键行为、失败路径、状态迁移或运维方式时，覆盖测试与可观测性。
 
-Review the diff for security regressions, privacy risks, and trust-boundary mistakes.
+主 agent 先完成 Git 范围解析、适用规则读取和意图包提炼，reviewer 不重复选择 base、扫描无关工作区或做全仓库式探索。只要 `spawn_agent` 暴露 `fork_turns` 参数，就必须使用 `fork_turns="none"`；只有运行时没有该参数时才使用默认上下文。只传递精简的审查模式、精确范围、相关 diff 或 symbol、业务不变量、适用规则、分配方向与条件覆盖项；不得传递完整会话、SKILL.md 全文、完整 transcript 或无关工具输出。每个 reviewer prompt 必须明确“不得再委派、不得调用 `spawn_agent` 或创建子代理”；最多 3 位 reviewer 的限制适用于整棵本次审查任务树，而不只是主 agent 的直接调用。reviewer 可按需读取直接调用方和相关测试来核验证据。
 
-Check for:
+每个 reviewer 都必须收到明确的 `coverage_dimensions`，并遵守：只读；只检查分配方向；只返回通过 finding 门禁的候选问题；没有候选时简短返回无 finding；不复述上下文、不输出泛化建议，也不重复其他 reviewer 已分配的全量探索。
 
-1. Missing or weakened authn or authz checks
-2. Unsafe input handling, injection risks, or validation gaps
-3. Secret, token, or sensitive data exposure
-4. Risky defaults, permission expansion, or trust of unverified data
+## 三层审查模型
 
-This sub-agent is read-only. It must not edit files, apply patches, or make any other workspace changes.
+### 第一层：变更对齐门禁
 
-Recommended sub-agent role: `reviewer`
+此层只适用于差异模式。检查每一处影响行为的改动是否能映射到上下文包或必要的支撑工作。额外重构、优化或顺手修复只有在造成实际行为、兼容、验证、回滚或影响面风险时才形成范围偏移 finding；纯机械移动和格式变化不算问题。静态模式将范围偏移标记为不适用。
 
-### Sub-Agent 3: Performance and Reliability Review
+“需求或提交说明没有提到”“路径或分支名看起来无关”只能触发核对，不能单独证明范围偏移。范围偏移 finding 必须同时给出：明确的意图边界来源、无法映射到该边界的具体行为变化，以及由 PRD、契约、调用方、测试或运行路径证明的受损对象或扩大影响面。没有证据时不得自行断言某个输入合法、某项行为非法或改动必然越界；仅当不确定性会改变结论时保留为 open question，否则省略。
 
-Review the diff for new cost, fragility, or operational risk.
+### 第二层：行为质量
 
-Check for:
+#### 正确性
 
-1. Duplicate work, redundant I/O, or unnecessary recomputation
-2. Added work on startup, render, request, or other hot paths
-3. Leaks, missing cleanup, retry storms, or subscription drift
-4. Ordering, race, or failure-handling problems that make the change brittle
+检查核心逻辑、边界条件、错误和 fallback 路径、调用方与被调用方假设，以及必须同步改变的相邻流程。
 
-This sub-agent is read-only. It must not edit files, apply patches, or make any other workspace changes.
+#### 可靠性
 
-Recommended sub-agent role: `reviewer`
+检查并发、顺序、幂等、重试、超时、补偿、部分失败、资源清理、错误分类和状态一致性。
 
-### Sub-Agent 4: Contracts and Coverage Review
+#### 性能
 
-Review the diff for compatibility gaps and missing safety nets.
+检查真实热路径上的重复 I/O、重复计算、N+1、无界增长及启动或渲染成本。只有能结合调用频率、数据规模或执行路径说明实际影响时才报告。
 
-Check for:
+### 第三层：代码库适配
 
-1. API, schema, type, config, or feature-flag mismatches
-2. Migration or backward-compatibility fallout
-3. Missing or weak tests for the changed behavior
-4. Missing logs, metrics, assertions, or error paths that make regressions harder to detect
+#### 可维护性
 
-This sub-agent is read-only. It must not edit files, apply patches, or make any other workspace changes.
+关注会让被审查行为难以安全理解、验证或继续修改的隐藏耦合、职责混杂、状态复杂度和误导性结构。函数较长、个人风格偏好或理论上的“更优雅”本身不是 finding。
 
-Recommended sub-agent role: `reviewer`
+#### 复用与一致性
 
-Report only issues that materially affect correctness, security, privacy, reliability, compatibility, or confidence in the change. It is better to miss a nit than to bury the user in low-value noise.
+主动检索仓库内已有的函数、组件、hook、service、领域规则和相似业务流程。复用类 finding 必须同时说明：
 
-## Step 3: Aggregate and Filter Findings
+1. 可复用的具体文件和 symbol。
+2. 新旧实现的语义重叠点。
+3. 直接复用或扩展为何成立。
+4. 两套实现继续分化的实际风险。
+5. 建议的复用或扩展方向。
 
-The main agent owns synthesis. Treat sub-agent output as raw review input, not final output.
+不要在语义不一致、复用会制造更差耦合、只有偶然相似的小片段，或找不到具体目标时要求复用。重复权限、计费、状态流转等核心业务规则通常是高优先级问题；普通 wrapper、组件或数据转换取决于分化风险；微小 helper 只有存在真实漂移风险时才报告。
 
-Merge findings across all four reviewers and filter aggressively:
+#### 复杂业务逻辑的意图注释
 
-- drop duplicates
-- drop weak or speculative claims
-- drop issues that conflict with the stated intent
-- drop minor style or readability comments unless they hide a real bug or maintenance risk
+对差异模式中的新增或修改逻辑，以及静态模式授权范围内当前存在的以下逻辑，检查是否缺少理解和维护所必需的业务意图、关键约束或非显而易见原因：
 
-Normalize surviving findings into this shape:
+- 状态机和多阶段工作流。
+- 权限、金额计算和核心领域规则。
+- 并发、幂等、重试、补偿与部分失败。
+- 复杂数据转换、兼容和迁移逻辑。
+- 看似反直觉但有意为之的行为。
+- 历史限制或外部系统 workaround。
 
-1. File and line or nearest symbol
-2. Category: regression, security, reliability, or contracts
-3. Severity: high, medium, or low
-4. Why it matters
-5. Recommended fix or follow-up
-6. Confidence: high, medium, or low
+注释应解释“为什么这样做、必须守住什么约束”，不能复述代码步骤。自解释代码、简单 CRUD、普通分支、仅仅较长的函数，或仓库没有要求的泛化 docstring，不需要注释。
 
-If a reviewer may be correct but the intent is unclear, turn it into an open question instead of a finding.
+删除仍然有效的设计理由、注释与实现不一致，或缺少意图说明会使维护者很可能破坏关键约束时，才形成 finding。必须指出具体逻辑、缺失的意图或约束、未来回归风险，以及注释应解释什么。MoeGo 仓库使用中文注释，其他仓库遵循就近规则。
 
-## Step 4: Order the Output
+判断前先把有来源的业务约束逐条拆成“主体、目标、租户/作用域、允许或禁止项、例外、业务原因”，再核对实现附近的意图说明。同一函数包含多个独立约束时不得漏项，也不得用来源未支持的更强概括替换原约束；例如“`PLATFORM_ADMIN` 不能 impersonate 另一个 `PLATFORM_ADMIN`”不能泛化成“任何角色都不能 impersonate `PLATFORM_ADMIN`”。业务原因本身也要按独立因果结果拆分：来源用“并、以及、同时”等连接多个目的或后果时，每项都要单独保留，不能用其中一项代替整段原因。例如“避免同级高权限身份被接管，并保持高权限操作可追责”必须同时保留“防止同级接管”和“保持可追责”，不能只写后者。注释 finding 应忠实列出实际缺失的约束和全部来源明确的原因；来源没有给出原因时不得编造原因。
 
-Present findings in this order:
+适用的 `AGENTS.md`、需求或领域规则若明确要求这类复杂逻辑写意图注释，并提供了代码本身看不出的业务原因，则该要求优先于“代码看起来自解释”的一般豁免：目标逻辑没有相邻注释覆盖这些原因时必须形成注释 finding。不能因为条件表达式容易读懂，就把“审计责任唯一”“未知外部结果不得立即重试”等业务理由判成无需说明；主 agent 必须自行复核，不能只采纳 reviewer 的“无注释问题”结论。
 
-1. High-severity, high-confidence issues
-2. Medium-severity issues that are likely worth fixing before merge
-3. Lower-severity issues or follow-ups that can wait
+### 业务约束完整性门禁
 
-Keep the review concise. Findings should be actionable and evidence-backed.
+对权限、安全、金额、状态机和复杂业务注释 finding，在进入最终输出前做一次逐条对照：
 
-If there are no material issues, say that directly instead of manufacturing feedback.
+1. 从适用规则和代码中列出该 symbol 的全部来源明确约束，每条独立记录主体、动作、目标、租户/作用域、允许或禁止项、例外和业务原因；一个业务原因包含多个独立目的或后果时，将原因继续拆成原子项。
+2. 标记每条约束是“实现正确且意图已说明”“实现缺陷”还是“实现存在但意图说明缺失”。
+3. 如果形成注释 finding，finding 文本必须覆盖所有标记为“意图说明缺失”的独立约束与原因原子项；可拆成多条 finding，但合计不能漏项。主体限制、目标限制和 tenant 作用域是不同字段，多个业务目的或后果也互不替代。例如 `OWNER` 仅限同 business 与目标不能是 `OWNER` 是两项约束；“防止同级接管”与“保持可追责”也是两个原因原子项。
+4. 输出前把 finding 文本反向映射到这张清单；任何约束或原因原子项没有对应文字时先补齐，再提交结果。来源未提供原因时只指出缺少原因说明，不自行编造。
 
-## Step 5: Recommend a Clear Path Forward
+### 证据与量词校准
 
-After the findings, give the user a short path forward:
+最终 finding 中的影响范围必须与证据严格相称。输出前检查“所有、任何、始终、必然、从不、全部”等全称或绝对量词：
 
-- what to fix before merge
-- what to improve if time permits
-- what can safely be left alone
+- 只有调用路径、状态空间、数学边界或仓库规则足以覆盖全集时才能使用；单个反例或一个演示输入只能证明对应场景。
+- 能写出精确触发条件时优先写条件，不用更宽泛的结论。例如 `Math.floor(x)` 与 `Math.round(x)` 只在小数部分至少为 `0.5` 时产生该方向的差异，不能概括成“所有非整数都会少收”。
+- 无法证明全集时改为“在……时”“可能”“这类满足……的输入”，并保留一个可复现示例。
+- 主 agent 聚合 reviewer 文本时必须重新校准量词；reviewer 的强断言不能直接继承。
 
-When helpful, group the path forward into:
+## Finding 门禁
 
-- `fix now`
-- `fix soon`
-- `optional follow-up`
+候选 finding 必须全部满足：
 
-Do not implement fixes as part of this skill. The output is a read-only review plus a prioritized recommendation.
+1. 差异模式中由被审查改动引入；静态模式中位于授权路径、问题当前存在且具体风险成立，并且不伪称为新引入。
+2. 造成具体的行为、业务、运维、兼容或维护风险。
+3. 离散且可行动。
+4. 能从 diff（差异模式）或当前实现（静态模式）、周边代码、调用路径或测试证明受影响场景。
+5. 证据足以支持结论；意图不明确时转为 open question。
+
+范围偏移候选还必须通过上文的三项专门证据门禁；缺少明确意图边界或具体受损对象时不能升格为 finding。
+
+reviewer 返回：最小文件/行或最近 symbol、类别、受影响场景、证据、影响、建议方向和内部 confidence。confidence 仅供主 agent 筛选，不进入最终输出。
+
+## 主 agent 验证与聚合
+
+将 reviewer 输出视为原始候选，而不是最终结论。对每项候选直接核对 diff（差异模式）或当前实现（静态模式）、最近 symbol、相关调用方和测试，然后：
+
+- 合并重复项。
+- 删除推测、与意图冲突的结论和纯风格意见。差异模式删除非本次 diff 引入的问题，并删除仅凭路径、分支名、commit 标题或“看似无关”推断的范围偏移；静态模式删除授权路径外、问题已不存在或具体风险证据不足的问题。
+- 删除没有具体回归风险的泛化测试、注释或抽象建议。
+- 对意图不明确但会改变结论的问题保留为 open question。
+- 对权限、安全、金额、状态机和复杂业务注释 finding 执行“业务约束完整性门禁”；部分覆盖来源约束的 finding 必须补全后才能输出。
+
+对于删除校验、意图难以判断或安全敏感的代码，可按需查看历史和 blame；不要把历史检查变成固定成本。
+
+## 优先级
+
+- P0：会造成广泛或灾难性影响，必须立即阻止交付；极少使用。
+- P1：明确阻断，可能导致严重错误、安全事故、数据损坏或关键流程不可用。
+- P2：应在交付前修复的局部真实缺陷或显著回归风险。
+- P3：真实但非阻断的问题，价值明确且不是风格偏好。
+
+## 输出合同
+
+按以下顺序输出：
+
+1. Findings，按 P0 到 P3；没有 material finding 时直接说明。
+2. 仅保留会改变结论的 open questions。
+3. 审查模式、范围、意图对齐结果和未覆盖限制。静态模式必须显式写出：`范围偏移：不适用（静态审查不判断改动是否超出需求）`。
+4. 整体分析、结论与残余风险：说明被审查改动的设计方向、关键边界与取舍，不以问题计数或 verdict 代替分析。
+
+每个 finding 包含：优先级、最小文件/行或 symbol、受影响场景、证据与影响、建议修复方向。
+
+完成 finding 复核后，加载 [整体 Review 总结](references/overall-summary.md)，由主 agent
+根据同一份审查证据综合形成整体分析。具体问题保留在 findings / inline comments；总结
+解释它们反映的共同领域规则、依赖方向或状态边界，并区分本次必改、非阻断建议与可以
+保留的取舍。没有跨文件设计议题时用短段落，不强行要求抽象或重构；没有 finding 时也
+说明已核对的关键路径及证据限制。未达到 finding 门禁的推测不能借总结成为新缺陷或阻断项。
+
+GitHub review body 使用这份整体总结，发布交给已获授权的 `github-workflow`；它不是
+PR Description，不调用 `review-brief` 的 PR Body 渲染器。Slack 回执可以简短，但不能
+把“问题数量 + 详见 inline”当作 GitHub 整体总结。上述输出规则不改变只读与发布授权边界。
+
+只有完整覆盖 PR diff，或完整覆盖用户明确说明 merge-ready 的目标时才使用 merge verdict：存在 P0–P2 时为 `Request changes`；只有 P3 时为 `Approve with non-blocking comments`；没有 finding 时为 `Approve`。若 open question 会改变结论，则在澄清前不提供 verdict。路径过滤缩小范围后，即使变更来源是 PR，也只给 scoped 描述性结论并明确未覆盖部分；普通分支、静态文件审查和本地 worktree 同样使用“无实质问题 / 存在非阻断问题 / 存在阻断问题”等描述性结论。
+
+不要再输出 `fix now / fix soon / optional`，它与 finding 优先级重复。不要在此 skill 内实施修复。
+
+## NEVER 规则
+
+- 不遗漏当前 worktree 的 staged、unstaged 或 untracked 改动。
+- 不用分支 tip 的直接差异替代 merge-base 范围。
+- 不在命中固定路由条件后自行减少 reviewer 数量。
+- 不把计划 reviewer 数、角色数或审查方向数表述为实际成功启动的 reviewer 数。
+- 不用“独立审查视角”“独立复核”等措辞夸大实际 reviewer 数量。
+- 不让整棵审查任务树出现超过 3 个 reviewer；每个 reviewer 都必须被明确禁止继续委派。
+- `spawn_agent` 支持 `fork_turns` 时，不使用 `fork_turns="all"` 启动 reviewer。
+- 不直接转发 reviewer 的未验证结论。
+- 不把“意图未提及”或路径看似无关单独当作范围偏移证据。
+- 不报告没有具体仓库 symbol 的“建议复用”。
+- 不要求为自解释代码补注释。
+- 不用“代码可读”否定仓库规则明确要求、且代码无法表达其业务原因的意图注释。
+- 不输出只覆盖部分主体、目标、tenant 作用域或例外的复杂业务注释 finding。
+- 不遗漏来源明确的独立业务约束，也不把它们泛化成更强但无来源支持的规则。
+- 不合并或遗漏来源明确的多个业务原因、目的或后果。
+- 不用单个示例或局部证据支撑“所有、始终、必然”等全称结论。
+- 不把内部 confidence 或多套重复优先级展示给用户。
+- 不对非 merge-ready 目标伪造 merge verdict。
+- 不用问题等级、数量或“详见 inline comments”代替整体分析；不在总结中引入未经核实的缺陷或把非阻断设计建议升级为必改。
+- 不在静态模式省略“范围偏移不适用”的显式说明。
+- 不修改被审查代码或 Git 状态。
+
+## 维护与评测
+
+- `evals/cases.json` 保存可版本化的核心路由、范围和数量真实性用例。
+- `evals/trajectory-fixtures.json` 保存启动后失败、完成数不足与嵌套委派等轨迹夹具。
+- `evals/summary-cases.json` 保存整体总结的场景与判定标准；修改总结规则后做基于给定证据包的输出评测，检查事实、建议强度、覆盖范围与 verdict 是否一致。
+- 修改路由、数量门禁或 reviewer prompt 后运行 `python3 evals/validate_contract.py`；大体积 transcript、计时与模型运行输出继续保存在隔离工作区，不提交到 Skill。
+
+## References
+
+- [整体 Review 总结](references/overall-summary.md)：完成 finding 复核、撰写最终分析或准备 GitHub review body 时加载；包含证据边界、篇幅选择与示例。

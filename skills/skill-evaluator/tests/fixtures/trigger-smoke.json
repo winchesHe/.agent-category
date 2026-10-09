@@ -1,0 +1,18 @@
+[
+  {
+    "query": "为已有的 jira-summary Skill 跑 evals，结合原始输出指出哪些断言失败以及原因。",
+    "should_trigger": true
+  },
+  {
+    "query": "从零创建一个帮助客服总结客户对话的 Skill，先写 SKILL.md。",
+    "should_trigger": false
+  },
+  {
+    "query": "把已有 SKILL.md 的标题改成中文，保持流程不变，不需要评测。",
+    "should_trigger": false
+  },
+  {
+    "query": "对三个区域的 API 延迟做 benchmark 并写性能报告。",
+    "should_trigger": false
+  }
+]

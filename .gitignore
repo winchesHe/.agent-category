@@ -1,1 +1,37 @@
+# 系统文件
 .DS_Store
+
+# 本机配置，保留配置示例
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+/skills/redshift/connections.json
+
+# 依赖与运行缓存
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.log
+
+# SkillDeck 运行状态与历史备份
+/.skilldeck-cache.json
+/.skilldeck-sync-state.json
+/.skilldeck-sync.lock
+/.skilldeck-staging/
+/.skilldeck-transactions/
+/.skill-lock.json.backup-*
+/skill-backups/
+
+# 已确认的技能运行缓存
+/skills/slack/cache/
+/skills/twitter-user-posts/cache/
+
+# 技能临时输出
+/skills/twitter-user-posts/tmp-outputs/

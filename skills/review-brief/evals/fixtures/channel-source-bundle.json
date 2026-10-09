@@ -1,0 +1,54 @@
+{
+  "review_brief": {
+    "schema_version": 1,
+    "target": {
+      "kind": "pr",
+      "identity": "MoeGolibrary/example#128",
+      "base": "7df5a7e",
+      "head": "be1f340"
+    },
+    "mode": "full",
+    "overview": "预约确认流程现在会先保存预约，再异步安排客户通知。通知失败不会回滚已经成功保存的预约，而是进入可追踪的待处理状态。",
+    "main_changes": [
+      {
+        "title": "预约保存边界",
+        "description": "创建入口先完成预约持久化，再把通知职责交给异步流程。",
+        "code_refs": ["src/booking/createBooking.ts:createBooking"],
+        "attachments": []
+      },
+      {
+        "title": "通知任务状态",
+        "description": "通知任务使用 queued、processing、sent 和 failed 表达独立生命周期。",
+        "code_refs": ["src/notification/notificationWorker.ts:processNotification"],
+        "attachments": []
+      },
+      {
+        "title": "失败后的可恢复性",
+        "description": "通知失败保留预约结果并记录失败原因，允许后续人工或自动重试。",
+        "code_refs": ["src/notification/notificationRepository.ts:markFailed"],
+        "attachments": []
+      }
+    ],
+    "diagram": null,
+    "reading_route": [
+      "src/booking/createBooking.ts:createBooking — 确认预约保存与通知派发的边界。",
+      "src/notification/notificationService.ts:dispatchNotification — 理解任务初始状态与投递。",
+      "src/notification/notificationWorker.ts:processNotification — 核对发送结果和失败回写。"
+    ],
+    "review_focus": [
+      "确认预约保存成功但通知任务发布失败时能够被发现和恢复。",
+      "确认重复投递不会导致同一客户收到重复通知。"
+    ],
+    "risk_release": [
+      "发布顺序需要保证 worker 已识别新状态后再切换创建入口。"
+    ],
+    "related": [
+      "https://github.com/MoeGolibrary/example/pull/128"
+    ],
+    "content_hash": "ccf8915fe79a973a5ff272b3f9c59fd090f65ad161cd47892b3ad314d7c5d4e0"
+  },
+  "artifacts": {
+    "attachments": [],
+    "diagram": null
+  }
+}

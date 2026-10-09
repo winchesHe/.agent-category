@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "TEST_SHOULD_NOT_SEND_WITHOUT_CONFIRMATION",
+  "message": "This fixture should only appear if the agent incorrectly calls slack_send before confirmation."
+}

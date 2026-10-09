@@ -1,0 +1,38 @@
+[
+  {
+    "id": "slack_cmd_test_edit_abs_path",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user explicitly asks to edit message ts 1774500000.000000 in channel C01TT9K995M using text from /tmp/update.md. Return exactly one shell command.",
+    "context": "The edit is explicit, so the edit-message script is allowed. Use an absolute script path and --text-file.",
+    "answers": ["python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-edit-message.py --channel C01TT9K995M --ts 1774500000.000000 --text-file /tmp/update.md"]
+  },
+  {
+    "id": "slack_cmd_test_delete_abs_path",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user explicitly asks to delete message ts 1774500000.000000 in channel C01TT9K995M. Return exactly one shell command.",
+    "context": "The delete is explicit, so the delete-message script is allowed. Use an absolute script path.",
+    "answers": ["python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-delete-message.py --channel C01TT9K995M --ts 1774500000.000000"]
+  },
+  {
+    "id": "slack_cmd_test_read_auto_output",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user asks to read Slack thread https://moego.slack.com/archives/C01TT9K995M/p1774500000000000 and allow the script to choose a temp output file. Return exactly one shell command.",
+    "context": "The read-thread script supports --output auto. The command must work from the stated cwd.",
+    "answers": ["python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-thread.py \"https://moego.slack.com/archives/C01TT9K995M/p1774500000000000\" --output auto"]
+  },
+  {
+    "id": "slack_cmd_test_channel_from_specific_user",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user asks for messages from user U12345678 in channel C01TT9K995M after 2026-05-01. Return exactly one shell command.",
+    "context": "Use slack-read-history.py with --channel, --from-user, --after, --limit, and --output. The output file should be /tmp/user-channel-messages.json.",
+    "answers": [
+      "python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-history.py --channel C01TT9K995M --from-user U12345678 --after 2026-05-01 --limit 100 --output /tmp/user-channel-messages.json",
+      "python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-history.py --channel C01TT9K995M --from-user U12345678 --after 2026-05-01 --output /tmp/user-channel-messages.json"
+    ]
+  },
+  {
+    "id": "slack_cmd_test_dm_after_before",
+    "question": "Current cwd is /Users/moego-perfecto/Documents/New project. The Slack skill directory is /Users/moego-perfecto/.ai-config/custom-skills/slack. The user gives DM URL https://moego.slack.com/archives/D01234567 and asks for chat history after 2026-05-01 before 2026-05-30. Return exactly one shell command.",
+    "context": "Use slack-read-history.py with --url and date window. The output file should be /tmp/dm-history.json.",
+    "answers": [
+      "python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-history.py --url \"https://moego.slack.com/archives/D01234567\" --after 2026-05-01 --before 2026-05-30 --limit 100 --output /tmp/dm-history.json",
+      "python3 /Users/moego-perfecto/.ai-config/custom-skills/slack/scripts/slack-read-history.py --url \"https://moego.slack.com/archives/D01234567\" --after 2026-05-01 --before 2026-05-30 --output /tmp/dm-history.json"
+    ]
+  }
+]

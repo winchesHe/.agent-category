@@ -1,0 +1,35 @@
+# 监控的 X/Twitter 用户列表
+# 格式: handle,username   （username 缺省时 = handle）
+# 分组段头形如 `# === <分组名> ===`，模型按段头切分做「Users 选择规则」（见 SKILL.md）
+#   handle   = X URL 里的 screen_name（调 autocli 用）
+#   username = X profile 上展示的真实昵称（报告里展示）
+
+# === stock ===
+# 股票 / 财经 / A 股 / 港股 / 宏观 / 政策 / 板块复盘
+dmjk001,每日快讯
+ViewsOfChris,Chris Lee
+KlGwVmVag2896,悟空财研（知识星球）
+EcooleZero,常温无糖可乐
+twikejin,老法师
+hungjng69679118,Jing
+aiwangupiao,爱玩股票AiWanGuPiao
+dacefupan,大策复盘
+Awsomefo,小Fo
+AStockLink,AStock Link | 海外华人A股资讯
+kugo_A10,库哥
+cnfinancewatch,华尔街观察 Xtrader
+wmtxxzz,厉害
+livermoerR,livermoer
+LinQingV,市场观察员
+antiAIvo,纳米AI
+freearkshaw,投研荟
+
+# === AI ===
+# AI / LLM / 大模型 / Prompt / Agent / Coding / 论文 / GitHub trending / 开源
+karpathy,Andrej Karpathy
+jiayuan_jy,Jiayuan (JY) Zhang
+9hills,九原客
+leon7hao
+turingou,郭宇 guoyu.eth
+Khazix0918,数字生命卡兹克
+GitTrend0x,GitTrend

@@ -1,0 +1,90 @@
+{
+  "skill_name": "review-brief",
+  "evals": [
+    {
+      "id": 1,
+      "name": "lite-preference-note",
+      "prompt": "读取输入文件，基于已确认需求和真实 diff 生成本地中文 Review Brief，并把本地交付物保存到指定输出目录。不要发布到 GitHub 或 Slack。",
+      "expected_output": "自主选择 Lite，产出简洁 Markdown 和可校验的 review-brief.json；内容忠于清空备注的三态语义，不展示任何内部验证状态。",
+      "files": ["evals/fixtures/lite-preference-note.md"],
+      "expectations": [
+        "review-brief.json 通过确定性脚本 check，mode 为 lite，reading_route 为空且 content_hash 正确",
+        "概要和主要变化准确区分字段缺失、空白值和非空值，不引入输入中不存在的行为",
+        "Markdown 只有有意义的 Reviewer 导览内容，不出现测试/CI、visual_review、finding、verdict 或外部写入状态"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "full-async-reminder",
+      "prompt": "读取输入文件，为这次异步预约提醒改动生成本地中文 Review Brief，并把所有本地产物保存到指定输出目录。根据真实复杂度自行决定模式和是否需要技术图；不要上传到 GitHub 或 Slack。",
+      "expected_output": "自主选择 Full 和适当技术图，产出忠于异步状态、重试和 webhook 闭环的 Markdown、review-brief.json、SVG 与 PNG；质量状态只存在于内部元数据。",
+      "files": ["evals/fixtures/full-async-reminder.md"],
+      "expectations": [
+        "review-brief.json 通过 check，mode 为 full，包含 3–7 步因果阅读路线且 content_hash 正确",
+        "主要变化和阅读路线覆盖 createBooking、dispatchReminder、sendReminder、ReminderStatus 与 applyReminderResult，并与输入的调用顺序一致",
+        "技术图 SVG/PNG 都真实存在于本次输出目录，diagram source_hash 与 SVG 内容一致，内部 visual_review 为 passed",
+        "Markdown 嵌入本次输出目录中的 PNG，但不展示 visual_review、校验命令、通过/失败结论、finding 或 verdict"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "frontend-screenshot-boundary",
+      "prompt": "读取输入文件，生成本地中文 Review Brief，帮助 Reviewer 理解预约卡片视觉改动，并把本地交付物保存到指定输出目录。根据真实复杂度自行选择形式，不执行外部写入。",
+      "expected_output": "自主选择 Lite，复用真实截图而不生成技术图；忽略生成类型和快照主线，产出可校验 JSON 和简洁 Markdown。",
+      "files": ["evals/fixtures/frontend-booking-card.md"],
+      "expectations": [
+        "review-brief.json 通过 check，mode 为 lite，diagram 为 null，reading_route 为空且 content_hash 正确",
+        "Markdown 把可确认存在的绝对截图路径挂在预约状态主要变化下，不逐项展开生成类型和快照",
+        "内容准确说明状态、负责人、取消态样式和可访问性，不展示验证状态、finding 或 verdict"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "route-to-review-swarm",
+      "prompt": "帮我审查 PR #42 有没有正确性或性能 bug，按 P0-P3 输出 findings，并给出 Approve 或 Request changes。",
+      "expected_output": "明确路由到 review-swarm，不生成 Review Brief，也不伪造审查结论。",
+      "files": [],
+      "expectations": [
+        "回答明确命名 review-swarm 并说明这是 finding/verdict 场景",
+        "不生成 Review Brief Markdown 或 review-brief.json，不虚构 P0-P3 结果"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "route-to-fireworks",
+      "prompt": "画一张我们现有订单系统的架构图，只解释当前系统组件，没有 PR、branch 或代码 diff。",
+      "expected_output": "明确路由到 fireworks-tech-graph，不生成 Review Brief，也不猜测系统组件。",
+      "files": [],
+      "expectations": [
+        "回答明确命名 fireworks-tech-graph 并说明缺少变更来源",
+        "不生成 Review Brief Markdown 或 review-brief.json，不猜测现有系统结构"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "github-slack-same-source-preview",
+      "prompt": "读取现有 review-brief.json，在指定输出目录生成 GitHub PR Description 预览和 Slack 精简预览。只准备内容，不要执行上传、发消息或修改 PR。",
+      "expected_output": "先校验统一 JSON，再生成语义一致的 GitHub/Slack Markdown；GitHub marker 使用正确 hash，Slack 只保留 1–3 条主要变化和最多 3 条导览内容。",
+      "files": ["evals/fixtures/channel-source-bundle.json"],
+      "expectations": [
+        "输入 review-brief.json 通过 check，GitHub marker hash 与 review_brief.content_hash 完全一致",
+        "GitHub 与 Slack 的概要和主要变化都来自同一 JSON，不产生互相矛盾或新增的行为描述",
+        "GitHub 保留完整内容，Slack 主要变化为 1–3 条且阅读路线与 Review 重点合计不超过 3 条",
+        "两个预览都不展示 visual_review、测试/CI 结果、finding、verdict 或内部交付元数据",
+        "只创建本地预览文件，不产生 GitHub/Slack 写入结果或远端 URL"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "brief-does-not-start-code-review",
+      "prompt": "读取输入文件，只生成本地中文 Review Brief 和 review-brief.json。即使 diff 中存在明显缺陷，也不要执行代码审查，不要启动 reviewer，不要调用或模拟 review-swarm。",
+      "expected_output": "输出忠于 diff 的 Reviewer 导览，但不把潜在缺陷转成 finding、优先级或 verdict，也不产生 review-swarm 调用结果。",
+      "files": ["evals/fixtures/brief-not-review.md"],
+      "expectations": [
+        "review-brief.json 通过确定性脚本 check，Markdown 包含概要和主要变化",
+        "输出只解释平均金额能力与调用关系，不输出 bug/finding、P0-P3、verdict 或 Approve/Request changes",
+        "不命名、调用、模拟或声称执行 review-swarm，不创建代码审查产物"
+      ]
+    }
+  ]
+}

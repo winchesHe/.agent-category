@@ -1,0 +1,38 @@
+{
+  "actor": {
+    "requested": "user",
+    "selected": "user",
+    "source_env": "SLACK_USER_TOKEN",
+    "team_id": "T_TEST",
+    "user_id": "U_TEST_AUTHOR",
+    "bot_id": null,
+    "fallback_reason": null,
+    "warnings": []
+  },
+  "status": "preview",
+  "operation_status": "succeeded",
+  "channel": {
+    "input": "#private-release",
+    "id": "C_TESTPRIVATE",
+    "name": "private-release",
+    "reachable": "yes"
+  },
+  "thread_ts": null,
+  "format": "markdown",
+  "compiled": {
+    "markdown_text": "## Release\n\n- Owner: <@UTESTALICE>"
+  },
+  "mentions": [
+    {
+      "type": "user",
+      "input": "@alice",
+      "id": "UTESTALICE"
+    }
+  ],
+  "broadcasts": [],
+  "warnings": [
+    "Slack 未单独保证 Markdown 控制串的通知行为；需要确定通知时使用 Block Kit 显式 mention"
+  ],
+  "preview_digest": "sha256:test-preview-user",
+  "would_call": "chat.postMessage"
+}

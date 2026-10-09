@@ -1,0 +1,51 @@
+$schema: ../../../../../evals/schemas/trigger-cases.schema.json
+skill: redshift
+queries:
+  - id: redshift-trigger-query
+    query: 查一下 Redshift 里的今日订单数量。
+    should_trigger: true
+  - id: redshift-trigger-warehouse
+    query: 从数仓验证本周支付趋势。
+    should_trigger: true
+  - id: redshift-trigger-replica
+    query: 用 MySQL 只读副本核对这条业务数据。
+    should_trigger: true
+  - id: redshift-trigger-provisioned-wire
+    query: 检查 Provisioned 的 Wire connection 是否可用。
+    should_trigger: true
+  - id: redshift-trigger-serverless-data-api
+    query: 用 Serverless Data API 连接执行只读查询。
+    should_trigger: true
+  - id: redshift-trigger-explain
+    query: 先对这条 Redshift SQL 做 EXPLAIN。
+    should_trigger: true
+  - id: redshift-trigger-csv
+    query: 把这次 Redshift 查询结果导出为 CSV。
+    should_trigger: true
+  - id: redshift-trigger-ndjson
+    query: 运行有界数仓查询，并输出 NDJSON artifact。
+    should_trigger: true
+  - id: redshift-no-trigger-code-search
+    query: 做一般代码搜索，找 Redshift client 的调用位置。
+    should_trigger: false
+  - id: redshift-no-trigger-logs
+    query: 做 Redshift 相关日志排查，不要查数据库。
+    should_trigger: false
+  - id: redshift-no-trigger-write
+    query: 请向 Redshift 写入数据库测试数据。
+    should_trigger: false
+  - id: redshift-no-trigger-mysql-write
+    query: 修改 MySQL 用户表中的状态。
+    should_trigger: false
+  - id: redshift-no-trigger-aws-tutorial
+    query: 写一份 Data API 的 AWS 通用教程。
+    should_trigger: false
+  - id: redshift-no-trigger-modeling
+    query: 设计一个新的数仓数据建模方案。
+    should_trigger: false
+  - id: redshift-no-trigger-sentry
+    query: 用 Sentry 分析线上 crash。
+    should_trigger: false
+  - id: redshift-no-trigger-background
+    query: 整理支付业务背景，没有查库需求。
+    should_trigger: false

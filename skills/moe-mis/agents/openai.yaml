@@ -1,0 +1,4 @@
+interface:
+  display_name: "MoeGo MIS"
+  short_description: "查询 MIS、账号、OB Session 与 Metadata"
+  default_prompt: "使用 $moe-mis 查询或管理 MIS 账号、Online Booking impersonate session 与 Metadata。"

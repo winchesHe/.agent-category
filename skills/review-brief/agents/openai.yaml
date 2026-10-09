@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Brief"
+  short_description: "把真实代码改动整理成人类 Reviewer 易读的统一导览"
+  default_prompt: "使用 $review-brief 根据真实 diff 生成中文 Review Brief；按语义组织主要变化，复杂改动给出阅读路线，只有确实必要时才生成技术图。"

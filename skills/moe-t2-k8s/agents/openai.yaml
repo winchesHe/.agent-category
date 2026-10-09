@@ -1,0 +1,4 @@
+interface:
+  display_name: "MoeGo T2 K8s"
+  short_description: "Manage MoeGo T2 test Kubernetes"
+  default_prompt: "Use $moe-t2-k8s to inspect the ns-testing pods for moego-bff."

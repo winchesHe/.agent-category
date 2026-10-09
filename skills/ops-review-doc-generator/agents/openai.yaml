@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ops Review Doc Generator"
+  short_description: "生成 Grooming Ops Review 飞书文档初稿"
+  default_prompt: "使用 $ops-review-doc-generator 基于 Tableau、PostHog、Jira、Datadog 和飞书 reference 生成 Grooming Ops Review 文档初稿。"

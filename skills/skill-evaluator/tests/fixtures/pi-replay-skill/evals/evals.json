@@ -1,0 +1,39 @@
+{
+  "skill_name": "pi-replay-smoke",
+  "evals": [
+    {
+      "id": 1,
+      "name": "pi-replay-order",
+      "prompt": "先搜索 replay issue GRM-123，再读取该 issue，只回答 issue 的 status。",
+      "assertions": [
+        {"type": "contains", "text": "包含 Done", "value": "Done"}
+      ],
+      "trajectory": {
+        "mode": "ordered",
+        "calls": [
+          {"tool": "search_issue", "args_contain": {"query": "GRM-123"}},
+          {"tool": "read_issue", "args_contain": {"issue_key": "GRM-123"}}
+        ],
+        "max_calls": 3
+      },
+      "fixtures": ["fixtures/search-issue.json", "fixtures/read-issue.json"]
+    },
+    {
+      "id": 2,
+      "name": "pi-replay-exact",
+      "prompt": "严格只执行两次工具调用：第一次调用 search_issue，参数必须完全是 {query: GRM-123}；第二次调用 read_issue，参数必须完全是 {issue_key: GRM-123}。不要重复调用工具，最后只回答 issue 的 status。",
+      "assertions": [
+        {"type": "contains", "text": "包含 Done", "value": "Done"}
+      ],
+      "trajectory": {
+        "mode": "exact",
+        "calls": [
+          {"tool": "search_issue", "args_exact": {"query": "GRM-123"}},
+          {"tool": "read_issue", "args_exact": {"issue_key": "GRM-123"}}
+        ],
+        "max_calls": 2
+      },
+      "fixtures": ["fixtures/search-issue.json", "fixtures/read-issue.json"]
+    }
+  ]
+}

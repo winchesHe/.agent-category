@@ -1,0 +1,219 @@
+{
+  "skill_name": "moe-router",
+  "evals": [
+    {
+      "id": 1,
+      "name": "开发中借用 App 身份",
+      "prompt": "我在修 MoeGo iOS 客户端的问题，模拟器里的开发 App 已登录正确门店，Metro 和应用都正常。现在要借这个 App 的身份读一个业务接口来定位问题，不做整套验收。先找现成做法，说明该连接哪里、用什么客户端、怎样拿到异步结果；这轮只查资料，不连接设备或发请求。",
+      "expected_output": "保留开发目标，找到验收平台通道中的运行时 API 知识并应用关键约束。",
+      "files": [],
+      "expectations": [
+        "实际读取适用的 iOS runtime API 正文，而非只引用标题或泛化猜测。",
+        "方案使用目标 App 主 JS runtime 和已有产品 HTTP/RPC 客户端，说明异步结果的有界回读。",
+        "保留已登录的健康 App，不建议抽取凭据、另开 Web、重建环境或启动完整验收。"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "直接查一个 trace",
+      "prompt": "MoeGo 后端有一条 trace_id=0000000000000042，要查 2026-09-12 09:00–09:10 UTC 的关联日志。给出符合现有工具的下一条只读查询命令即可，不需要查业务背景，也不要执行查询。",
+      "expected_output": "直接使用日志工具入口，准确给出 trace 查询与时间范围。",
+      "files": [],
+      "expectations": [
+        "读取 Datadog 入口或其命令定义后给出可用的关联日志查询命令。",
+        "命令保留 trace ID 和 UTC 时间窗口，不发起实际查询。",
+        "没有展开 Jira、代码仓库、多源业务调查、开发环境或 OPC 流程。"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "健康现场继续验收",
+      "prompt": "MoeGo 本地预约修复已通过构建，当前 T2 商家页面、账号、门店和测试预约都已核对正确，HMR 已生效。前一条 case 已通过，现在继续验证“修改服务时长后结束时间同步更新”。先说紧接着的动作和判定依据，这轮不实际操作页面，也不需要报告。",
+      "expected_output": "复用已验证现场，接续目标动作和业务观察，不重启准备。",
+      "files": [],
+      "expectations": [
+        "继续在既有测试预约上修改服务时长并观察结束时间与预期变化的关系。",
+        "复用已有账号、门店、页面、构建与 HMR 事实，不要求重新登录、查 MIS 或全量准备。",
+        "未把未执行的动作声明为通过，也没有启动正式报告或重新跑已完成 case。"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "维护 skill 文案",
+      "prompt": "请检查项目知识副本中 moe-development 的 description 是否容易误触发，给出一段更清楚的候选文案。这是在维护 skill 文案，先只读分析，不改文件。",
+      "expected_output": "按 skill 创作任务处理，被审查的 MoeGo 文案作为材料，不进入业务流程。",
+      "files": [],
+      "expectations": [
+        "读取目标 description，给出保留实际职责和近邻不触发边界的候选文案。",
+        "未将本任务当作 MoeGo 开发、验收或 OPC 执行，也未自动调用业务 router。",
+        "未修改任何文件或执行业务操作。"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Go 重启仍是旧逻辑",
+      "prompt": "MoeGo Go 大仓的一个已有应用改完重新启动了，接口还是旧表现。请结合已有做法给出最短核对顺序和来源，这轮只查资料，不运行应用。",
+      "expected_output": "找到已有应用构建运行经验，核对构建产物而不启动新增服务流程。",
+      "files": [],
+      "expectations": [
+        "实际读取开发经验中已有应用构建与本地运行正文。",
+        "区分重启和重新构建，核对当前源码、Bazel 产物与实际 run 路径，并保留环境依赖核对。",
+        "未扩展到创建新服务、部署、OPC 或发包，也没有宣称根因已经证实。"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "非 MoeGo 预约问题",
+      "prompt": "我自己的理发店想用一张纸管理客户预约。上午 9 点营业，每位客人预留 45 分钟，到中午 12 点前最多排几位？顺便列出开始时间。",
+      "expected_output": "按普通排期问题直接回答，不因预约和客户触发公司技能。",
+      "files": [],
+      "expectations": [
+        "正确给出 4 位及 09:00、09:45、10:30、11:15 四个开始时间。",
+        "未加载 MoeGo router、业务调查、开发或验收技能，未索取公司账号或系统信息。"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Flag 系统不明",
+      "prompt": "MoeGo 有位用户说自己没命中灰度，我还不知道开关在哪个系统。先说明最少需要确认什么，以及接下来该查哪个入口；这轮不访问平台、不改规则。",
+      "expected_output": "先识别 Flag 系统和目标实体，再选择平台，保留只读范围。",
+      "files": [],
+      "expectations": [
+        "先确认开关标识、所属系统及目标用户/环境，未直接假定是 Grey 服务路由。",
+        "区分 GrowthBook、PostHog Flag 与 Grey 的适用对象，后续入口依确认结果选择。",
+        "未创建会话、修改规则、强制命中或发起外部查询。"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Struct key 与 SDK",
+      "prompt": "MoeGo 后端准备往一个已有 Struct 里增加一个 key，前端要读它。我们是否必须先升级或发布 SDK？请按现有做法给出判断条件，这轮只读资料。",
+      "expected_output": "读取协议依赖判断，基于实际 schema 和消费者能力判断 SDK 需求。",
+      "files": [],
+      "expectations": [
+        "读取开发入口的协议与依赖判断正文。",
+        "区分动态 Struct key 与新增强类型契约，判断现有客户端是否已能承载新字段。",
+        "不因为前后端都改就要求发包；未经实际契约和产物核对，不断言必须升级或完全无需升级。"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Portal 开发借平台知识",
+      "prompt": "我在开发 MoeGo Client Portal 的 Report Card 页面，想本地看修改后的 CSR 页面。以前只用过商家 Web 的登录桥接，这次能直接改 Host 复用吗？请找现成做法说明路由、身份和验证边界；这轮不启动服务、不打开真实报告。",
+      "expected_output": "找到适用知识正文并保留当前任务与只读边界。",
+      "files": [],
+      "expectations": [
+        "实际读取 Client Portal 平台正文，说明商家 session_login 桥接不能换 Host 当作 Portal 桥接。",
+        "区分本地 CSR 与真实 SSR/分享元信息验证，保留实际 Host 与远端 API 分流。",
+        "区分 Portal 客户身份和商家身份，指出真实报告打开次数副作用；未操作环境或真实链接。"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "页面实际代码来源",
+      "prompt": "MoeGo 本地页面能打开，HMR 也提示更新了，但我怀疑页面没吃到这个 worktree 的改动。有什么现成的核对方法？只查资料给最小核对顺序，别改代码、重启环境或重新跑验收。",
+      "expected_output": "找到适用知识正文并保留当前任务与只读边界。",
+      "files": [],
+      "expectations": [
+        "实际读取实际消费入口与来源的相关正文，而不只引用技能标题。",
+        "以真实业务动作的调用/加载来源及目标 worktree 内容建立对应，不把 Host、200 或 HMR 提示单独当作证明。",
+        "保留已有现场，不制造 touch 或演示修改，也不声称来源已核实。"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "跨系统名称映射",
+      "prompt": "MoeGo 排障日志里看到 service=moego-customer-portal，另一个联调 PR 的仓库是 Boarding_Desktop，需要知道它在 Grey 里该找什么服务。帮我按已有资料对应这两个名字，并说后面要核对什么；只查资料，不访问 GitHub 或 Grey。",
+      "expected_output": "找到适用知识正文并保留当前任务与只读边界。",
+      "files": [],
+      "expectations": [
+        "实际读取日志服务映射和 Grey 仓库映射两份正文。",
+        "将 moego-customer-portal 对应到 moego-client-portal，将 Boarding_Desktop 对应到 Grey 的 moego-web-api，不混用映射。",
+        "指出需核对实际仓库/PR、namespace 和真实 service/branch，不执行外部操作或修改规则。"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "通知发送来源",
+      "prompt": "MoeGo 客户说刚刚没有收到 Grooming Report 的短信和邮件。现在只想找已有排查办法，确认到哪里看发送证据、哪些现象不能直接下结论；不查线上、不发消息，也不打开客户报告。",
+      "expected_output": "找到适用知识正文并保留当前任务与只读边界。",
+      "files": [],
+      "expectations": [
+        "读取 Grooming Report 发送排查正文，定位消息服务和发送/回复线索。",
+        "注意近期数仓镜像滞后，不由镜像缺记录断言未发送；不把系统发送直接等同客户收到。",
+        "保留调查范围，没有打开报告、发消息或实际查询线上。"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "报告类直接入口",
+      "prompt": "我需要 MoeGo 的反馈周报、Ops Review 和个人周复盘，分别该直接用哪个已有能力？这轮只告诉我入口，不采集数据、不生成或发布报告。",
+      "expected_output": "直接识别专项报告能力，不加载 MoeGo router。",
+      "files": [],
+      "expectations": [
+        "分别识别 moe-feedback-collector、ops-review-doc-generator 和 weekly-work-review；未加载 moe-router。",
+        "未采集数据、生成或发布报告，未扩展开发、验收或 OPC 流程。"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Android 开发借平台知识",
+      "prompt": "我正在开发 moego-mobile，想在 Android 模拟器看本地修改，已有 App 和 Metro。以前只做过 iOS，想找现成的 APK/JS 匹配与设备连接做法；这轮只查资料，不重启环境或开始完整验收。",
+      "expected_output": "从验收 Skill 找到 Android 平台指引，保留开发目标和已有现场。",
+      "files": [],
+      "expectations": [
+        "读取 moe-acceptance 的 Android 平台正文，区分 APK 原生依赖、Metro JS 与设备目标。",
+        "不把 iOS 的 simctl 或商家 Web 桥接套到 Android；仅借用当前相关知识。",
+        "不因为查资料重建 APK、重启 Metro、切换身份或启动完整验收。"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "T2 Headlamp 与命令入口",
+      "prompt": "我在 MoeGo T2 的 Headlamp 能看到 Pod，但命令行查不到 context。想查当前 Pod 日志并做短时端口转发，先找到已有入口、说明下一步；不实际连接集群。当前 Host catalog 提供 moe-t2-k8s，安装根与 router 不同。",
+      "expected_output": "定位 T2 Kubernetes 能力，核对其 Host 配置契约与实际脚本路径。",
+      "files": [],
+      "expectations": [
+        "从当前 Host catalog 定位并读取 moe-t2-k8s，脚本路径来自该 SKILL.md 所在目录。",
+        "按其契约处理 Headlamp kubeconfig，不由裸 kubectl 失败推断没有权限；命令参数不带 wrapper 拒绝的 scope/auth flag。",
+        "不启动完整开发或验收，不实际连接集群或安装 skill。"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "T2 入口尚未添加",
+      "prompt": "MoeGo T2 Pod 查询需要的 moe-t2-k8s 还没出现在当前 Host catalog，我会自己添加。现在只说明后续依赖和可继续做的事，不要连接集群。",
+      "expected_output": "说明缺少运行时入口，保留可独立工作和未验证项。",
+      "files": [],
+      "expectations": [
+        "不创建、复制、安装或同步 moe-t2-k8s，也不造替代 wrapper 或自动回退裸 kubectl。",
+        "不从历史 checkout 或相邻目录猜入口，不把缺少 skill 当作缺集群权限。",
+        "准确说明集群操作待依赖就绪，允许继续本地资料、源码或协议检查。"
+      ]
+    },
+    {
+      "id": 21,
+      "name": "T2 直连与数仓分流",
+      "prompt": "MoeGo 调试有两项：直连 T2 MySQL 查当前业务记录；在数仓统计同步副本的历史分布。分别给入口，不执行查询。",
+      "expected_output": "按目标选择专业入口，保留当前范围与运行时依赖边界。",
+      "files": [],
+      "expectations": [
+        "T2 直接操作路由 moe-t2-database，从当前 Host catalog 定位其真实入口并遵循契约",
+        "数仓统计使用 redshift，不把只读副本能力当作任意业务库直连",
+        "不执行查询或安装 skill"
+      ]
+    },
+    {
+      "id": 22,
+      "name": "T2 数据库入口待安装",
+      "prompt": "T2 PostgreSQL 查询需要的 moe-t2-database 尚未出现在 Host catalog，我自己安装。现在只核对本地表映射。",
+      "expected_output": "按目标选择专业入口，保留当前范围与运行时依赖边界。",
+      "files": [],
+      "expectations": [
+        "说明缺少运行时依赖，继续已授权的本地映射核对",
+        "不安装、复制、创建 wrapper 或使用历史路径，不以通用 psql 模板绕过",
+        "不把缺 skill 认定为缺数据库权限"
+      ]
+    }
+  ]
+}

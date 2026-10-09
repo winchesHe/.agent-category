@@ -1,83 +1,4916 @@
 {
-  "dismissed" : {
-
+  "dismissed": {
+    "findSkillsPrompt": true
   },
-  "lastSelectedAgents" : [
-
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed"
   ],
-  "skills" : {
-    "caveman" : {
-      "installedAt" : "2026-04-18T06:34:20Z",
-      "skillFolderHash" : "825e13085d1515fe67881b2123f3bf9b34c26154",
-      "skillPath" : "skills\/caveman\/SKILL.md",
-      "source" : "juliusbrussee\/caveman",
-      "sourceType" : "github",
-      "sourceUrl" : "https:\/\/github.com\/juliusbrussee\/caveman.git",
-      "updatedAt" : "2026-04-18T06:34:20Z"
+  "skills": {
+    "ablation": {
+      "installedAt": "2026-09-11T15:26:34.667985Z",
+      "skillFolderHash": "9b354825561ed06833b19b8ddf7dedb2218519c1",
+      "skillPath": "ablation/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "ablation",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "9b354825561ed06833b19b8ddf7dedb2218519c1",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "e65829ed80f54271545785e0375bc641f89a8545"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "d2c6139085de5ad281e643f0774f1a80150fb45b"
+          }
+        }
+      }
     },
-    "create-prompts" : {
-      "installedAt" : "2026-04-20T02:35:25Z",
-      "skillFolderHash" : "3c252818899cf245b1cce204fbe2724f14d53bcd",
-      "skillPath" : "create-prompts\/SKILL.md",
-      "source" : "winchesHe\/winches-skills",
-      "sourceType" : "github",
-      "sourceUrl" : "https:\/\/github.com\/winchesHe\/winches-skills.git",
-      "updatedAt" : "2026-04-20T02:35:25Z"
+    "autocli": {
+      "installedAt": "2026-05-01T13:47:53Z",
+      "skillFolderHash": "60c3d1f016dc58304f4d0f46e078a009d609994c",
+      "skillPath": "SKILL.md",
+      "source": "nashsu/autocli-skill",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/nashsu/autocli-skill.git",
+      "updatedAt": "2026-05-17T14:43:25Z"
     },
-    "create-system-rules" : {
-      "installedAt" : "2026-04-20T03:20:58Z",
-      "skillFolderHash" : "1d1d22fd9143834b606cb9e35549223e8a55c73b",
-      "skillPath" : "create-system-rules\/SKILL.md",
-      "source" : "winchesHe\/winches-skills",
-      "sourceType" : "github",
-      "sourceUrl" : "https:\/\/github.com\/winchesHe\/winches-skills.git",
-      "updatedAt" : "2026-04-23T11:50:03Z"
+    "caveman": {
+      "installedAt": "2026-04-18T06:34:20Z",
+      "skillFolderHash": "a22aa2a0a64d7d4b7b59bbddbdb865fedfb40d9c",
+      "skillPath": "skills/caveman/SKILL.md",
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
+      "updatedAt": "2026-06-17T15:14:14Z"
     },
-    "documentation-writer" : {
-      "installedAt" : "2026-04-20T03:23:21Z",
-      "skillFolderHash" : "016d8040a3f91c8360b1003e74fbf29f34c283f5",
-      "skillPath" : "skills\/documentation-writer\/SKILL.md",
-      "source" : "github\/awesome-copilot",
-      "sourceType" : "github",
-      "sourceUrl" : "https:\/\/github.com\/github\/awesome-copilot.git",
-      "updatedAt" : "2026-04-20T03:23:21Z"
+    "create-prompts": {
+      "installedAt": "2026-04-20T02:35:25Z",
+      "skillFolderHash": "60a28ac92a76092cd7205625769c165732fe6e72",
+      "skillPath": "create-prompts/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "create-prompts",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "60a28ac92a76092cd7205625769c165732fe6e72",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "5e2f45323de5231a04912d9ac578f2c3397726bb"
+          }
+        }
+      }
     },
-    "review-swarm" : {
-      "installedAt" : "2026-04-20T03:27:44Z",
-      "skillFolderHash" : "85a9ba515bc8c168d02b7b9013cd71a03c7602cf",
-      "skillPath" : "review-swarm\/SKILL.md",
-      "source" : "dimillian\/skills",
-      "sourceType" : "github",
-      "sourceUrl" : "https:\/\/github.com\/dimillian\/skills.git",
-      "updatedAt" : "2026-04-20T03:27:44Z"
+    "create-system-rules": {
+      "installedAt": "2026-04-20T03:20:58Z",
+      "skillFolderHash": "bae700e9664f2d282163baeb86abfde0a6a2c51f",
+      "skillPath": "create-system-rules/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "create-system-rules",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "bae700e9664f2d282163baeb86abfde0a6a2c51f",
+        "files": {
+          "README.md": {
+            "mode": "100644",
+            "oid": "caa94eb0b088d5040824c1d32152ebf7780304a2"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "44f3f350ff90084175b9fa5470b3a8bfacfa8ca1"
+          }
+        }
+      }
     },
-    "self-improving-agent" : {
-      "installedAt" : "2026-04-20T03:28:13Z",
-      "skillFolderHash" : "cc099bdad0f644886d6862da1eb887fdaab1256a",
-      "skillPath" : "skills\/self-improving-agent\/SKILL.md",
-      "source" : "charon-fan\/agent-playbook",
-      "sourceType" : "github",
-      "sourceUrl" : "https:\/\/github.com\/charon-fan\/agent-playbook.git",
-      "updatedAt" : "2026-04-20T03:28:13Z"
+    "datadog": {
+      "installedAt": "2026-06-08T04:00:38Z",
+      "skillFolderHash": "29b53a6367bff178817a27fe1964e12338ca422a",
+      "skillPath": "datadog/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "datadog",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "29b53a6367bff178817a27fe1964e12338ca422a",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "b6bbf932072dccb4d23d9e8a7d55c3edf50ce732"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "1243b821d6f32c210e6a8c56c522796a1aff1916"
+          },
+          "references/archive-rehydration.md": {
+            "mode": "100644",
+            "oid": "6bd2970c2dd8759f1240e7fd7c2da6f508f51771"
+          },
+          "references/datadog-service-map.md": {
+            "mode": "100644",
+            "oid": "865950955936e599d6df694189b9bfe5e9cac37b"
+          },
+          "references/dql-syntax.md": {
+            "mode": "100644",
+            "oid": "d3a31a07ce832555a041c29ed1a0422ab9810e7e"
+          },
+          "references/grooming-report-debugging.md": {
+            "mode": "100644",
+            "oid": "6e8e5e910762934f24ab6b425ee087ea69b8d61c"
+          },
+          "references/investigation-workflows.md": {
+            "mode": "100644",
+            "oid": "9b0e9b2f6bcd8aefcad0b25e9a13713d10661a5c"
+          },
+          "references/slow-sql-scan.md": {
+            "mode": "100644",
+            "oid": "e010bc7b1b9f709a4e5e976b6c52f6cf5ce895bf"
+          },
+          "scripts/datadog.py": {
+            "mode": "100644",
+            "oid": "9c061f3faa7adf9f062638ab7a2ce48bf4cb5dea"
+          },
+          "scripts/dd/__init__.py": {
+            "mode": "100644",
+            "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "scripts/dd/client.py": {
+            "mode": "100644",
+            "oid": "7f869850659594ac13121d182ceafe7878972eab"
+          },
+          "scripts/dd/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "cb34a92baf33ff6973112495e277959b4cf70b6c"
+          },
+          "scripts/dd/commands/aggregate_logs.py": {
+            "mode": "100644",
+            "oid": "fe74f003f54f21738fd6c28853dd17c18a10dc37"
+          },
+          "scripts/dd/commands/get_dashboard.py": {
+            "mode": "100644",
+            "oid": "7642d142b10bafee78f3a65ca44ff24bf2e57cd9"
+          },
+          "scripts/dd/commands/get_dependencies.py": {
+            "mode": "100644",
+            "oid": "d4e1250e2ce648d2fd690ad074388ddc0d145a2f"
+          },
+          "scripts/dd/commands/get_trace.py": {
+            "mode": "100644",
+            "oid": "7313d130939f0c77b60653af80d827fc83314bcb"
+          },
+          "scripts/dd/commands/list_services.py": {
+            "mode": "100644",
+            "oid": "0ddb54757dea878a53b8c9f967b602009d55d48d"
+          },
+          "scripts/dd/commands/query_metrics.py": {
+            "mode": "100644",
+            "oid": "b18a8910dfdcfce894905b40bd57f5cf35f4b5ed"
+          },
+          "scripts/dd/commands/search_logs.py": {
+            "mode": "100644",
+            "oid": "102c5c763f67deb1a03b95112817aaba43167559"
+          },
+          "scripts/dd/commands/search_spans.py": {
+            "mode": "100644",
+            "oid": "cee49301c6cfb9f07b54ca4c51422226a284a276"
+          },
+          "scripts/dd/config.py": {
+            "mode": "100644",
+            "oid": "1f97f166accc321f028cea380c783890b6b5b770"
+          },
+          "scripts/dd/errors.py": {
+            "mode": "100644",
+            "oid": "8e7b947d35e1268b8c413312a3c0811b2e0fe5d1"
+          },
+          "scripts/dd/formatter.py": {
+            "mode": "100644",
+            "oid": "f9128d37288cd0029856d1801ed2d8478fd7dfce"
+          },
+          "scripts/dd/retry.py": {
+            "mode": "100644",
+            "oid": "d742ea7b52980ecaf1e185530146fc9e8faef179"
+          },
+          "scripts/dd/timeutil.py": {
+            "mode": "100644",
+            "oid": "3a9b98fb9ecc5b184460810423e63e380a8b59eb"
+          },
+          "scripts/dd_v3/__init__.py": {
+            "mode": "100644",
+            "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "scripts/dd_v3/argtypes.py": {
+            "mode": "100644",
+            "oid": "1fe8ca6211485ed1b1e23c08f12788e41fa6eed5"
+          },
+          "scripts/dd_v3/client.py": {
+            "mode": "100644",
+            "oid": "adbed1adeb79bf7a396817269b36860dae16cc98"
+          },
+          "scripts/dd_v3/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "1853d85b966456ad05dc2cf31b4d12badad82271"
+          },
+          "scripts/dd_v3/commands/aggregate_logs.py": {
+            "mode": "100644",
+            "oid": "26618e28faa5c976ea2ac147eb4f3b716ed84ba1"
+          },
+          "scripts/dd_v3/commands/compare_logs.py": {
+            "mode": "100644",
+            "oid": "cbb33a6c443bee9eade338869cefcf61173517ce"
+          },
+          "scripts/dd_v3/commands/dashboard_lists.py": {
+            "mode": "100644",
+            "oid": "66aa76f0007a89baba2a1a93e920f656e94ed990"
+          },
+          "scripts/dd_v3/commands/dashboards.py": {
+            "mode": "100644",
+            "oid": "8f454b388cd54d59b90d3ccc8668ccb74b31721f"
+          },
+          "scripts/dd_v3/commands/datastore_items.py": {
+            "mode": "100644",
+            "oid": "449379048635b7dc6c6b0225f4dc93ec104d96c4"
+          },
+          "scripts/dd_v3/commands/datastores.py": {
+            "mode": "100644",
+            "oid": "30a19c7ae45e09fb128587f80922a7f3890af883"
+          },
+          "scripts/dd_v3/commands/error_summary.py": {
+            "mode": "100644",
+            "oid": "8d2c8468e32d5c2671647803a65ed5e8c69f9c52"
+          },
+          "scripts/dd_v3/commands/get_dashboard.py": {
+            "mode": "100644",
+            "oid": "6cae72854124c6ebc625e85ee0c85e9f7abaa827"
+          },
+          "scripts/dd_v3/commands/get_dependencies.py": {
+            "mode": "100644",
+            "oid": "991ab4a057326bf661444d512d6caa6b6382ee8a"
+          },
+          "scripts/dd_v3/commands/get_trace.py": {
+            "mode": "100644",
+            "oid": "a97b0aea42d6c1658e14ed67c22d936b2167c0ba"
+          },
+          "scripts/dd_v3/commands/list_services.py": {
+            "mode": "100644",
+            "oid": "2aa08de2c1f7e75314c6bfd2b2c9384895372dc6"
+          },
+          "scripts/dd_v3/commands/log_context.py": {
+            "mode": "100644",
+            "oid": "f35f15365b53982773b8f62f7ab15d507a0dd95d"
+          },
+          "scripts/dd_v3/commands/log_patterns.py": {
+            "mode": "100644",
+            "oid": "54d791b944524678da32f47ec1385aaf5f37764c"
+          },
+          "scripts/dd_v3/commands/log_services.py": {
+            "mode": "100644",
+            "oid": "620ce09012567f991d59204f93ab57f09f1c334a"
+          },
+          "scripts/dd_v3/commands/monitors.py": {
+            "mode": "100644",
+            "oid": "c47702d63b7775185d1b5fa46957d69b1bf40946"
+          },
+          "scripts/dd_v3/commands/query_metrics.py": {
+            "mode": "100644",
+            "oid": "4507f531ee8e8662f586a258ac7917450c52b69b"
+          },
+          "scripts/dd_v3/commands/scan_slow_sql.py": {
+            "mode": "100644",
+            "oid": "ce94b30c24914e2265c9d6a4aa8d5e8ed4c50e69"
+          },
+          "scripts/dd_v3/commands/search_logs.py": {
+            "mode": "100644",
+            "oid": "79bfa544c5a3bbec19547ff5d0c70ba2d551de4f"
+          },
+          "scripts/dd_v3/commands/search_spans.py": {
+            "mode": "100644",
+            "oid": "1cea7fc70fec731571722be4f56358d6082fb6f9"
+          },
+          "scripts/dd_v3/commands/trace_logs.py": {
+            "mode": "100644",
+            "oid": "1a6d10bedef23e8fb482fcf949ab02f3b96dc75a"
+          },
+          "scripts/dd_v3/config.py": {
+            "mode": "100644",
+            "oid": "df622ad5f947c164d4e5b199bff0a5516c6affcd"
+          },
+          "scripts/dd_v3/errors.py": {
+            "mode": "100644",
+            "oid": "9d7f169c5abb4238eac7b379b417fc751c939394"
+          },
+          "scripts/dd_v3/formatter.py": {
+            "mode": "100644",
+            "oid": "c36fa069bbad99d86dd4c07f6ee71b319f5ed203"
+          },
+          "scripts/dd_v3/log_analysis.py": {
+            "mode": "100644",
+            "oid": "68a89be9683168d94323f367a7b405f89ee85105"
+          },
+          "scripts/dd_v3/monitor_operations.py": {
+            "mode": "100644",
+            "oid": "be2e329b56b654544a8ac2af360de6c51c44f214"
+          },
+          "scripts/dd_v3/retry.py": {
+            "mode": "100644",
+            "oid": "4d59660e4c4a49c9e1e8e8e5ebf5e8761cc485a3"
+          },
+          "scripts/dd_v3/runtime.py": {
+            "mode": "100644",
+            "oid": "4b22163bf7eab2ce632508784c9a52ce4d4d375f"
+          },
+          "scripts/dd_v3/span_utils.py": {
+            "mode": "100644",
+            "oid": "2729a520800a2179a2150d82a3e125a617d2cd11"
+          },
+          "scripts/dd_v3/timeutil.py": {
+            "mode": "100644",
+            "oid": "a0c03a02891460454c3b4ba872d63aa4c646c6d8"
+          },
+          "tests/fixtures/dependencies_v1.json": {
+            "mode": "100644",
+            "oid": "c6bcb42a885376791dd13f0a017231729fcb6c11"
+          },
+          "tests/fixtures/list_services_v2.json": {
+            "mode": "100644",
+            "oid": "7e002ce6239c41807fc4958f4b0bdba133ccfedd"
+          },
+          "tests/fixtures/read_extensions_aggregates_v2.json": {
+            "mode": "100644",
+            "oid": "90ae3135b24428e74a03f8b86cbc99ccd55e4adf"
+          },
+          "tests/fixtures/read_extensions_dashboard_lists.json": {
+            "mode": "100644",
+            "oid": "0f467702a0f335d44f640ea284b3b23d0a36c023"
+          },
+          "tests/fixtures/read_extensions_dashboards_v1.json": {
+            "mode": "100644",
+            "oid": "5baff18a7c1d63cff2f3265e3836ffeffacabff7"
+          },
+          "tests/fixtures/read_extensions_logs_v2.json": {
+            "mode": "100644",
+            "oid": "21b9a882c673a39af717ec1dcb01bcc0af61ac5c"
+          },
+          "tests/fixtures/search_logs_v2.json": {
+            "mode": "100644",
+            "oid": "509ebd4d72d5a32d9e02878365187e2285a59830"
+          },
+          "tests/fixtures/trace_spans_v2.json": {
+            "mode": "100644",
+            "oid": "d6575207c667d770b15e8658cb62086609d1667c"
+          },
+          "tests/test_stage1_config_time_retry.py": {
+            "mode": "100644",
+            "oid": "a901a83864d939f125822b34fb77ccbdf46f23e4"
+          },
+          "tests/test_stage2_payloads.py": {
+            "mode": "100644",
+            "oid": "11959739386289493d038b6f6420ca089f76f14c"
+          },
+          "tests/test_stage3_format_extract.py": {
+            "mode": "100644",
+            "oid": "7337a6e17d27e8096686a82b8d2574d0e1164dbb"
+          },
+          "tests/test_stage4_cli_integration.py": {
+            "mode": "100644",
+            "oid": "6feb319800ae4737a3ea6d371b2ed5ffbb334398"
+          },
+          "tests/test_supplemental_router.py": {
+            "mode": "100644",
+            "oid": "8ebe5f8c0d489f574aac4d21e6ea7e9cac82415e"
+          },
+          "tests/test_v3_datastore_items.py": {
+            "mode": "100644",
+            "oid": "cc21157fe776b6b2e03483d6efbd0d3e04c3ed83"
+          },
+          "tests/test_v3_datastores.py": {
+            "mode": "100644",
+            "oid": "94dbb13a69f0d0a08e13a9b34e62401f689469da"
+          },
+          "tests/test_v3_monitors_read.py": {
+            "mode": "100644",
+            "oid": "fe9a864b01218ffc38c5932151e26751216f73a0"
+          },
+          "tests/test_v3_read_extensions.py": {
+            "mode": "100644",
+            "oid": "bd4933829f53ac634bd4989a3187227bca8e2404"
+          },
+          "tests/test_v3_slow_sql.py": {
+            "mode": "100644",
+            "oid": "a2b56d5a0522bb081a13eadf70bf6271e1f554b3"
+          }
+        }
+      }
     },
-    "session-handoff" : {
-      "installedAt" : "2026-04-20T03:28:35Z",
-      "skillFolderHash" : "9038976da9e22fa34168feb813ef18082fe005b1",
-      "skillPath" : "dist\/plugins\/session-handoff\/skills\/session-handoff\/SKILL.md",
-      "source" : "softaworks\/agent-toolkit",
-      "sourceType" : "github",
-      "sourceUrl" : "https:\/\/github.com\/softaworks\/agent-toolkit.git",
-      "updatedAt" : "2026-04-20T03:28:35Z"
+    "distill-experience": {
+      "installedAt": "2026-09-11T15:26:34.667985Z",
+      "skillFolderHash": "f3c402679f7c38b5cf653c83b0b531fee2a124b4",
+      "skillPath": "distill-experience/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "distill-experience",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "f3c402679f7c38b5cf653c83b0b531fee2a124b4",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "773e9d82e7c7692fb64d158d235c47344c7fff5f"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "3831a77f8f77db3684cf2f1fe5fc1bb94a740d24"
+          },
+          "references/accumulated-experience.md": {
+            "mode": "100644",
+            "oid": "66e68c9d4debbd481d8f1a1564ce84ee36d927b1"
+          },
+          "references/successful-procedures.md": {
+            "mode": "100644",
+            "oid": "55e19ad16b178708da8a1ea00b2eafda0e111ef2"
+          },
+          "references/troubleshooting.md": {
+            "mode": "100644",
+            "oid": "21ce3cae7dc35012326b0ff9fd46b5df8a3d684e"
+          }
+        }
+      }
     },
-    "subagent-driven-development" : {
-      "installedAt" : "2026-04-20T03:28:52Z",
-      "skillFolderHash" : "fbcd94ffcf589754a8ecfa59861cc8843313590e",
-      "skillPath" : "skills\/subagent-driven-development\/SKILL.md",
-      "source" : "obra\/superpowers",
-      "sourceType" : "github",
-      "sourceUrl" : "https:\/\/github.com\/obra\/superpowers.git",
-      "updatedAt" : "2026-04-20T03:28:52Z"
+    "dongfangcaifu-skills": {
+      "installedAt": "2026-08-29T16:43:57.502600Z",
+      "skillFolderHash": "3ba4fc6b3d0009553edab1271801c0b641ad9fcb",
+      "skillPath": "dongfangcaifu-skills/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "dongfangcaifu-skills",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "3ba4fc6b3d0009553edab1271801c0b641ad9fcb",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "c48eb8e355aa03ac083b67fe048a873e2cb98958"
+          },
+          ".gitignore": {
+            "mode": "100644",
+            "oid": "ebce15f9007de6d5d905e25f375c4a7dbc3e38ab"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "4f096071b5a12f4ce136df1246e9c12ef04b3c86"
+          },
+          "references/mx-data.md": {
+            "mode": "100644",
+            "oid": "a4fcdf7b0cd981d00b8fd49962ef21cf17018202"
+          },
+          "references/mx-moni.md": {
+            "mode": "100644",
+            "oid": "65f01189bce05bbcf46228cd853750d5426f72e6"
+          },
+          "references/mx-search.md": {
+            "mode": "100644",
+            "oid": "064d1fd3f4ac6fdb887229b6c256e9d8e9818c25"
+          },
+          "references/mx-xuangu.md": {
+            "mode": "100644",
+            "oid": "3b2731b9fc862d7b091cd12aa4d360587f261e37"
+          },
+          "references/mx-zixuan.md": {
+            "mode": "100644",
+            "oid": "fb868a83721994b0c80fa47f87de2b1fa8e2ff6c"
+          }
+        }
+      }
+    },
+    "fireworks-tech-graph": {
+      "installedAt": "2026-09-14T10:09:11Z",
+      "skillFolderHash": "b80eaed197ad394e9ea0a217d3150a0d7e90fb56",
+      "skillPath": "skills/fireworks-tech-graph/SKILL.md",
+      "source": "yizhiyanhua-ai/fireworks-tech-graph",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/yizhiyanhua-ai/fireworks-tech-graph.git",
+      "updatedAt": "2026-09-14T10:09:11Z"
+    },
+    "flow-brainstorm": {
+      "installedAt": "2026-05-17T09:31:07Z",
+      "skillFolderHash": "6a176305b1508bb258c233aa051f5a388090a5ce",
+      "skillPath": "flow-brainstorm/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "flow-brainstorm",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "6a176305b1508bb258c233aa051f5a388090a5ce",
+        "files": {
+          "README.md": {
+            "mode": "100644",
+            "oid": "fe45122a57ef0262f65b6a60a2855c34a4adc57d"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "a766d693992a04c7d46000690ab84eb467697372"
+          },
+          "references/cognitive-foundations.md": {
+            "mode": "100644",
+            "oid": "b1c98c6744c49f20749a9584e0d3b0b9e636a780"
+          },
+          "references/divergent-methods.md": {
+            "mode": "100644",
+            "oid": "3b4172fd69496642bb49f5ab4deb8c20166b28a0"
+          },
+          "references/logical-reasoning.md": {
+            "mode": "100644",
+            "oid": "3c69f6e282008664f6bb0573fc4f56f63cb3b531"
+          },
+          "references/problem-framing.md": {
+            "mode": "100644",
+            "oid": "0a1a6d1406605d69e5315c1032b845cb16c89195"
+          }
+        }
+      }
+    },
+    "flow-impl": {
+      "installedAt": "2026-05-17T09:31:08Z",
+      "skillFolderHash": "5cd36c7f173fb3a09d3185836bffbfad4b419846",
+      "skillPath": "flow-impl/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "flow-impl",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "5cd36c7f173fb3a09d3185836bffbfad4b419846",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "c35090941ec950378d80617a7c3edae214a231bd"
+          },
+          "references/impl-records.md": {
+            "mode": "100644",
+            "oid": "04bcbb896fdb60e9af4622ef46afe04c7abc1418"
+          }
+        }
+      }
+    },
+    "flow-ship": {
+      "installedAt": "2026-05-17T09:31:08Z",
+      "skillFolderHash": "82a39ba76a19f17e5f062948cde7b93f15b86431",
+      "skillPath": "flow-ship/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "flow-ship",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "82a39ba76a19f17e5f062948cde7b93f15b86431",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "37352a376bbe5dc08fa8251ddb7ebadce8df22b1"
+          },
+          "references/ship-release.md": {
+            "mode": "100644",
+            "oid": "bf3770a8ee53431effdaf1debe0adb7181376314"
+          }
+        }
+      }
+    },
+    "flow-spec": {
+      "installedAt": "2026-05-17T09:31:09Z",
+      "skillFolderHash": "af73349951d1813ac676dfb6cff35d984a18f774",
+      "skillPath": "flow-spec/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "flow-spec",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "af73349951d1813ac676dfb6cff35d984a18f774",
+        "files": {
+          "README.md": {
+            "mode": "100644",
+            "oid": "7ad1a2de34c922c2d5e7b3cb0ad01d73ceea4c43"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "4f73885849e5dae3bed953a4ac94249d2c8c6414"
+          },
+          "references/plan-template.md": {
+            "mode": "100644",
+            "oid": "a598dae68205cc2ca250d5aa6202689df37659df"
+          },
+          "references/spec-template.md": {
+            "mode": "100644",
+            "oid": "8d31b6aa4706f0d8219db48c8c85b24adde96fce"
+          }
+        }
+      }
+    },
+    "github-workflow": {
+      "installedAt": "2026-08-17T04:05:07Z",
+      "skillFolderHash": "51ae4fcbb7091f9bb7a67cf70300eb4a41834b55",
+      "skillPath": "github-workflow/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "github-workflow",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "51ae4fcbb7091f9bb7a67cf70300eb4a41834b55",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "ed341a442371c71795c744d6297b31bb177fc929"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "35c1c84450e92f458bcd4f4b02588efe186635e5"
+          },
+          "references/github-write-protocol.md": {
+            "mode": "100644",
+            "oid": "9f05e307c4e783153f27c5a62af9f24d4e3ab580"
+          },
+          "references/pr-template.md": {
+            "mode": "100644",
+            "oid": "6d64dd5ab14c5aa2cdbf54b4aa23122b76328dda"
+          },
+          "references/repository-operations.md": {
+            "mode": "100644",
+            "oid": "d34ffd9c2fbcdb80b70701e91de5d491a268dbd9"
+          },
+          "references/review-comment-assessment.md": {
+            "mode": "100644",
+            "oid": "88f517a8fa0c2fa9cd15ac4be20a1b4a258e0880"
+          }
+        }
+      }
+    },
+    "grilling": {
+      "installedAt": "2026-08-01T06:42:08Z",
+      "skillFolderHash": "f0732035b8b1b60ae39454e4191caef32fa91903",
+      "skillPath": "skills/productivity/grilling/SKILL.md",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "updatedAt": "2026-08-21T03:43:40Z"
+    },
+    "growthbook": {
+      "installedAt": "2026-05-29T06:33:03Z",
+      "skillFolderHash": "a7e159da721e0f92dcd97e5c32739a4f163fbb95",
+      "skillPath": "growthbook/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "growthbook",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "a7e159da721e0f92dcd97e5c32739a4f163fbb95",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "bcd54f26978f9210551c4ba4655eea8c8a171f3f"
+          },
+          "README.md": {
+            "mode": "100644",
+            "oid": "e864e968ae049767fbfc95336ee4ee01d41e4351"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "0d1f41d439fa45526aa9ad5457e2591719e998df"
+          },
+          "package.json": {
+            "mode": "100644",
+            "oid": "419ab8336b112026ad13e9379f1987c954350747"
+          },
+          "pnpm-lock.yaml": {
+            "mode": "100644",
+            "oid": "4951326211433c52341c81f0a2a5a7733ad263ab"
+          },
+          "references/go-server.md": {
+            "mode": "100644",
+            "oid": "c4d05489f39570082e4572b571342d0c29fd2186"
+          },
+          "references/java-spring.md": {
+            "mode": "100644",
+            "oid": "685d947423eaaa57c109c670a86f93fa2e3e6e3b"
+          },
+          "references/node-hono.md": {
+            "mode": "100644",
+            "oid": "cfed7e16e60e2e5c2408d5383f429d94f65fd036"
+          },
+          "references/python-fastapi.md": {
+            "mode": "100644",
+            "oid": "7f532e8e9a5c0977442a2af647a6cf7049656872"
+          },
+          "references/react-react-native-ssr.md": {
+            "mode": "100644",
+            "oid": "859c1e4c5ffaf0577533d546399fb1930afa81ce"
+          },
+          "references/sdk-navigation.md": {
+            "mode": "100644",
+            "oid": "d40d52d0ab474052ca47e0ccf3ea175290927abc"
+          },
+          "scripts/growthbook-sdk-eval.mjs": {
+            "mode": "100644",
+            "oid": "5ace17492002c26ccc329b8941358f772ac712aa"
+          },
+          "scripts/growthbook.py": {
+            "mode": "100755",
+            "oid": "adcdec77eb12d385acece7b8c4a07fac4f010b9f"
+          },
+          "scripts/smoke.py": {
+            "mode": "100755",
+            "oid": "69572bc1a28021e21d926c182f652059ea5572a6"
+          },
+          "tests/test_growthbook.py": {
+            "mode": "100644",
+            "oid": "e03756aa270770d14465d001de54d45e08348377"
+          }
+        }
+      }
+    },
+    "human-writing": {
+      "installedAt": "2026-08-07T03:13:09Z",
+      "skillFolderHash": "fc6106f433803a95c49dfd8a7d1a2f09af30a772",
+      "skillPath": "human-writing/SKILL.md",
+      "source": "KKKKhazix/human-writing",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/KKKKhazix/human-writing.git",
+      "updatedAt": "2026-08-07T03:13:09Z"
+    },
+    "jira": {
+      "installedAt": "2026-05-29T06:33:03Z",
+      "skillFolderHash": "aa6331bf7406b6e6e67447b1265f21df5664c8d6",
+      "skillPath": "jira/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "jira",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "aa6331bf7406b6e6e67447b1265f21df5664c8d6",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "ff565bb0b648957202a8364f1d506ab64c0b134b"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "0b0c289632671f151e354bca85b73608ed0bcf3f"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "886e703af3d03aa48beba1690025ad4d5d556856"
+          },
+          "evals/run-benchmark.sh": {
+            "mode": "100755",
+            "oid": "2c0cb7a04907b784d49f67ec84ec5596d3b0840b"
+          },
+          "references/adf.md": {
+            "mode": "100644",
+            "oid": "ab5e4fd5b7a75a425d29e465f1230e1c82984b63"
+          },
+          "references/field-mapping.md": {
+            "mode": "100644",
+            "oid": "48e2d5baefc687177cdb786b44b0ebce889efc89"
+          },
+          "references/intercom-linked-conversations.md": {
+            "mode": "100644",
+            "oid": "b2860e13d26e755c160528be5a73d6f419e840f2"
+          },
+          "references/jql-patterns.md": {
+            "mode": "100644",
+            "oid": "5f6d7d2d92caef6d76fbdf09538c91a90b12a78f"
+          },
+          "scripts/ji/__init__.py": {
+            "mode": "100644",
+            "oid": "929803d7af7517269fe898b87d3a523fae079031"
+          },
+          "scripts/ji/adf.py": {
+            "mode": "100644",
+            "oid": "8de0bc914e972f18c26e828fa9568e18250d77cb"
+          },
+          "scripts/ji/adf_input.py": {
+            "mode": "100644",
+            "oid": "c69e329f5e18ff72c3ccd8b79ebf0f674b0e636f"
+          },
+          "scripts/ji/client.py": {
+            "mode": "100644",
+            "oid": "8387ac7cf8d5e988d85ca6d775bffec9621da99c"
+          },
+          "scripts/ji/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "8813304977e260583ce6ae14152045f3ee7e22fd"
+          },
+          "scripts/ji/commands/create.py": {
+            "mode": "100644",
+            "oid": "bdabfc20d6689effc87de9ab3d6e903f2bb88c97"
+          },
+          "scripts/ji/commands/create_meta.py": {
+            "mode": "100644",
+            "oid": "1a54436afe9a7b64878576781b95ac97091990b4"
+          },
+          "scripts/ji/commands/download_attachment.py": {
+            "mode": "100644",
+            "oid": "83ed806bc4aa1b863f40e720941098cd70dfefca"
+          },
+          "scripts/ji/commands/intercom.py": {
+            "mode": "100644",
+            "oid": "d27556eeb6c5f02aa2669fa75cc0aeeff8c7b101"
+          },
+          "scripts/ji/commands/link.py": {
+            "mode": "100644",
+            "oid": "4bd0c8b8ff1f6baf9be75c1613ad6d4bcbde7fa9"
+          },
+          "scripts/ji/commands/read.py": {
+            "mode": "100644",
+            "oid": "47219894d510c4abd7fdbe0ae244c10f4bdec045"
+          },
+          "scripts/ji/commands/search.py": {
+            "mode": "100644",
+            "oid": "a05961271971ebf9e2dd9b79246c640454ed126f"
+          },
+          "scripts/ji/commands/transition.py": {
+            "mode": "100644",
+            "oid": "4da5dccf7f449f3a2b551109541904c0330bc42b"
+          },
+          "scripts/ji/commands/update.py": {
+            "mode": "100644",
+            "oid": "0e53e9249625ad53b87446f2ae8ed0057b9f4d4f"
+          },
+          "scripts/ji/commands/upload_attachment.py": {
+            "mode": "100644",
+            "oid": "fc08389c62a72375bff0ebf8f1c61901642514b5"
+          },
+          "scripts/ji/config.py": {
+            "mode": "100644",
+            "oid": "76eab259cbfb115803250fee01027f1cbe079916"
+          },
+          "scripts/ji/errors.py": {
+            "mode": "100644",
+            "oid": "c157f992e8a11cfcf2fac5b14fcb53990e6c16ee"
+          },
+          "scripts/ji/formatter.py": {
+            "mode": "100644",
+            "oid": "d0f1566b76e37d6662bc49098825abc649508d9d"
+          },
+          "scripts/ji/intercom.py": {
+            "mode": "100644",
+            "oid": "85c388bd3f86d80b0c27a032e80a01a45e90627b"
+          },
+          "scripts/ji/parsing.py": {
+            "mode": "100644",
+            "oid": "cd01adb2fae88c0e34378a71d68905289c045097"
+          },
+          "scripts/jira.py": {
+            "mode": "100644",
+            "oid": "b51355805748281a2f3dbd2461dba82ae10d44ad"
+          },
+          "tests/fixtures/adf-input-v1/invalid-adf-root.json": {
+            "mode": "100644",
+            "oid": "f5a7330e1a4f72f8ba8266e1a393d6814a7364ed"
+          },
+          "tests/fixtures/adf-input-v1/malformed-adf.txt": {
+            "mode": "100644",
+            "oid": "becf998aefd071dd27e973876a00d5753eae1728"
+          },
+          "tests/fixtures/adf-input-v1/manifest.json": {
+            "mode": "100644",
+            "oid": "3a66a4e06f633a8f4d5a8433d53b3eccf9367847"
+          },
+          "tests/fixtures/adf-input-v1/opc-lightweight-prd.md": {
+            "mode": "100644",
+            "oid": "05f2875ca88eda6ebb3e481f5e81a8c035a6e851"
+          },
+          "tests/fixtures/adf-input-v1/residual-output.adf.json": {
+            "mode": "100644",
+            "oid": "4b8b4507f1501d3f87b0498f6168e41095d71503"
+          },
+          "tests/fixtures/adf-input-v1/residual-source.md": {
+            "mode": "100644",
+            "oid": "e88f89a7ff6a4f3202b676ebc4dc93c49822f39e"
+          },
+          "tests/fixtures/adf-input-v1/structurally-valid-unknown.adf.json": {
+            "mode": "100644",
+            "oid": "60c227a724eebf91e9de7cffe0dd6b617f59ad59"
+          },
+          "tests/fixtures/adf-input-v1/supported.adf.json": {
+            "mode": "100644",
+            "oid": "9d0ba1dbd643def873afdb5af3b113119de93a22"
+          },
+          "tests/fixtures/adf-input-v1/supported.md": {
+            "mode": "100644",
+            "oid": "f5c8afff9f595caba2d044c099521649440273f1"
+          },
+          "tests/fixtures/adf-input-v1/unsafe-link.adf.json": {
+            "mode": "100644",
+            "oid": "1776b8f77af22f31879a70e18f64ffad6b0e038e"
+          },
+          "tests/fixtures/adf-input-v1/unsafe-link.md": {
+            "mode": "100644",
+            "oid": "7703ffdee3119863e873d1f96da1d708e5278a7c"
+          },
+          "tests/fixtures/adf-input-v1/unsupported-task-list.md": {
+            "mode": "100644",
+            "oid": "741b38106f0124caf1d4db1d0632cb0b8390ed3c"
+          },
+          "tests/fixtures/adf-input-v1/valid-rich.adf.json": {
+            "mode": "100644",
+            "oid": "25949afb164c2ecf47d3d03d5176da55fe3514cc"
+          },
+          "tests/test_adf_input_contract.py": {
+            "mode": "100644",
+            "oid": "f24c51d0f7a7e196443d9554d00642a0e4a4adfb"
+          },
+          "tests/test_adf_input_runtime.py": {
+            "mode": "100644",
+            "oid": "f544e39b373188640b3ac954a479ee6aacb9006a"
+          },
+          "tests/test_intercom_cli.py": {
+            "mode": "100644",
+            "oid": "9b9c60c2c8d342558f69069a04740deaee549a77"
+          },
+          "tests/test_jira_skill.py": {
+            "mode": "100644",
+            "oid": "57e1c2538b6a94e453a1954a2c31a95ab1c5f7fc"
+          }
+        }
+      }
+    },
+    "lark-approval": {
+      "installedAt": "2026-06-26T10:06:14.950Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-approval.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.317Z",
+      "wellKnownDigest": "sha256:a96e48edf549a11024e36b9f9ce05935ef96fbb8359f3c9a815f06471ba4657d"
+    },
+    "lark-apps": {
+      "installedAt": "2026-06-26T10:06:14.951Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-apps.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.318Z",
+      "wellKnownDigest": "sha256:1e19a938488c812d56793e87e601edb4296bc4885be549e01bf4e13f0c382c18"
+    },
+    "lark-attendance": {
+      "installedAt": "2026-06-26T10:06:14.951Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-attendance.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.319Z",
+      "wellKnownDigest": "sha256:592e7c085e5c17778abb15dd7730d4d42957d0b891d70b475f91607f35279b1c"
+    },
+    "lark-base": {
+      "installedAt": "2026-06-26T10:06:14.951Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-base.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.319Z",
+      "wellKnownDigest": "sha256:2b1c3c378d0f2d87ccd5a77830016fa8aa992a52e3ff837f799a221604ffac13"
+    },
+    "lark-calendar": {
+      "installedAt": "2026-06-26T10:06:14.952Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-calendar.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.319Z",
+      "wellKnownDigest": "sha256:295b400aeddd10e0b5def3441add66e109a8750e5c8cc64564924cf3ace894c9"
+    },
+    "lark-contact": {
+      "installedAt": "2026-06-26T10:06:14.952Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-contact.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.319Z",
+      "wellKnownDigest": "sha256:f2bc0dd6acc1e57d8b2b93d9731908be88e37ab0b82fe78c244a620c696c0dcf"
+    },
+    "lark-doc": {
+      "installedAt": "2026-06-26T10:06:14.952Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-doc.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.320Z",
+      "wellKnownDigest": "sha256:53a03e8b0788f9f4007322c0c15b941129e41a7fd34b0a94d1f1c6f2d9d45c06"
+    },
+    "lark-drive": {
+      "installedAt": "2026-06-26T10:06:14.952Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-drive.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.320Z",
+      "wellKnownDigest": "sha256:2cc7cbcf6a77fbe7d9aee2e0c9e1862675574504e73e95258b3efb242d29f393"
+    },
+    "lark-event": {
+      "installedAt": "2026-06-26T10:06:14.952Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-event.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.320Z",
+      "wellKnownDigest": "sha256:d308fd233fe9a0d027d4f5f95967f56f5f8b2adcc2aa1ec2c2d411cde3979dfc"
+    },
+    "lark-im": {
+      "installedAt": "2026-06-26T10:06:14.953Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-im.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.320Z",
+      "wellKnownDigest": "sha256:32e67c575579b986f687d75d7c417f78ce1f10f2fcdd0940bba80d0144dbfeee"
+    },
+    "lark-mail": {
+      "installedAt": "2026-06-26T10:06:14.953Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-mail.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.321Z",
+      "wellKnownDigest": "sha256:9b3ed109ccf31cae9c0bda923506c1bcc8f19846f0e1c3a5e0b8d5164f7ea70e"
+    },
+    "lark-markdown": {
+      "installedAt": "2026-06-26T10:06:14.953Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-markdown.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.321Z",
+      "wellKnownDigest": "sha256:69a980e42d9a426e2bef4b38cb1817cd81f354451d4e3469ccdb0f5677e24f62"
+    },
+    "lark-meeting": {
+      "installedAt": "2026-08-28T08:22:35.321Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-meeting.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.321Z",
+      "wellKnownDigest": "sha256:2a852165aa5874f08fc3528c15f40e6713bfb0ecaab24b719d230822cba7e5b2"
+    },
+    "lark-minutes": {
+      "installedAt": "2026-06-26T10:06:14.953Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-minutes.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.322Z",
+      "wellKnownDigest": "sha256:023f3d405fdc4c7fb0ce66db2b07baac77e61c6f27a624a7a4e73409a4ee3cd4"
+    },
+    "lark-note": {
+      "installedAt": "2026-06-26T10:06:14.954Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-note.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.322Z",
+      "wellKnownDigest": "sha256:433cd27b45a728dd8a99abd644ea6c059070cf6b700d644001937f76e4c5e305"
+    },
+    "lark-okr": {
+      "installedAt": "2026-06-26T10:06:14.954Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-okr.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.322Z",
+      "wellKnownDigest": "sha256:49849fbab0869420fec39c31ee73a1221bf20044ae2650e392ca62f12f5cdaa6"
+    },
+    "lark-openapi-explorer": {
+      "installedAt": "2026-06-26T10:06:14.954Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-openapi-explorer.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.322Z",
+      "wellKnownDigest": "sha256:93545364db47b45d63929efc4d0178763ce6b0db2ceff884219d6465cbc70a8d"
+    },
+    "lark-shared": {
+      "installedAt": "2026-06-26T10:06:14.954Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-shared.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.323Z",
+      "wellKnownDigest": "sha256:5bc8c1de26a7a320c6c5ce5a70f8ef3da87b4c0b07b08fafe1e241848e3624bf"
+    },
+    "lark-sheets": {
+      "installedAt": "2026-06-26T10:06:14.954Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-sheets.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.323Z",
+      "wellKnownDigest": "sha256:9199d90dc373b20469d62cb63a246859166db1f18f88523bbbaf37a116c2d11c"
+    },
+    "lark-skill-maker": {
+      "installedAt": "2026-06-26T10:06:14.955Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-skill-maker.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.323Z",
+      "wellKnownDigest": "sha256:f81de22b1c82600727e941698e059aef27aa2480a1bc4b3b8829dd18c30a0a29"
+    },
+    "lark-skills": {
+      "installedAt": "2026-05-29T06:33:04Z",
+      "skillFolderHash": "58592b7a154d76071a2e7ae9e68a4ed97d2af661",
+      "skillPath": "lark-skills/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "lark-skills",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "58592b7a154d76071a2e7ae9e68a4ed97d2af661",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "41de4cfda7da92f2da4649c5809343f3724217d8"
+          },
+          "references/business-process.md": {
+            "mode": "100644",
+            "oid": "dcadbc40330c93db33da65d3abe0ec3e305e85d8"
+          },
+          "references/business-task.md": {
+            "mode": "100644",
+            "oid": "d6982994b64faea86d0d9bc2fa308ed99b9c145d"
+          },
+          "references/collab-calendar.md": {
+            "mode": "100644",
+            "oid": "6f5c073595ffabdec0dd60eca3cb645685d3b8f6"
+          },
+          "references/collab-im.md": {
+            "mode": "100644",
+            "oid": "7b58ed125e1ff0ba6c14fd394ff03ee8c712691c"
+          },
+          "references/collab-mail.md": {
+            "mode": "100644",
+            "oid": "63dcb05ff9bacb5bd4d925f54d5931b2a8009efd"
+          },
+          "references/content-data.md": {
+            "mode": "100644",
+            "oid": "8a9d59506401e63769638cd9f092a551966dae84"
+          },
+          "references/content-doc-rich-text.md": {
+            "mode": "100644",
+            "oid": "84eb7ce18d39d4fc33e4c28538bec7b6c3cc1a97"
+          },
+          "references/content-doc.md": {
+            "mode": "100644",
+            "oid": "528a518ca8e6b95d25ef1dfaf3a6a5df9d8b5803"
+          },
+          "references/content-visual.md": {
+            "mode": "100644",
+            "oid": "15ac33d9a5bcdd6aa00fc1626f635b873e2e7328"
+          },
+          "references/event-stream.md": {
+            "mode": "100644",
+            "oid": "388837170f26495a5ac23030be6e0d5cdab5a5bf"
+          },
+          "references/lark-shared.md": {
+            "mode": "100644",
+            "oid": "a7ead58e608f7ea937a55f830030995cc3014681"
+          },
+          "references/openapi-explorer.md": {
+            "mode": "100644",
+            "oid": "f5cff8f4969a968db33ee3c3b0217b3b9653c2cd"
+          },
+          "references/workflow-meeting-summary.md": {
+            "mode": "100644",
+            "oid": "cd246e538da2c5f1edc588cd9186970c8406dca5"
+          },
+          "references/workflow-standup-report.md": {
+            "mode": "100644",
+            "oid": "d0acc0fd409ca81ce57b8c3258036480742f38dc"
+          }
+        }
+      }
+    },
+    "lark-slides": {
+      "installedAt": "2026-06-26T10:06:14.955Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-slides.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.323Z",
+      "wellKnownDigest": "sha256:e79d9f6b8a238623ea57c7cb633348bf131ce760bb2473d1e17284138228f345"
+    },
+    "lark-task": {
+      "installedAt": "2026-06-26T10:06:14.955Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-task.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.323Z",
+      "wellKnownDigest": "sha256:bf3750510e2514f1892c9de0e34f010b9d9272f484c97122789ff9fc8beccaa8"
+    },
+    "lark-vc": {
+      "installedAt": "2026-06-26T10:06:14.955Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-vc.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.324Z",
+      "wellKnownDigest": "sha256:6930cfbaaa50b6eaf967c6dff5d44b5e5d96366a96a26c10f82c47725270524b"
+    },
+    "lark-vc-agent": {
+      "installedAt": "2026-06-26T10:06:14.956Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-vc-agent.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.324Z",
+      "wellKnownDigest": "sha256:6a1d7ac3b8b154f5cdc50f1694ca6a9f4911b0d17670ad287b18668ccfe97dc8"
+    },
+    "lark-whiteboard": {
+      "installedAt": "2026-06-26T10:06:14.956Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-whiteboard.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.324Z",
+      "wellKnownDigest": "sha256:a5c4f670dc0c6ccf6bfe054adfe9b7d9429002ce105c9b446598b5d7816f42c4"
+    },
+    "lark-wiki": {
+      "installedAt": "2026-06-26T10:06:14.956Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-wiki.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.324Z",
+      "wellKnownDigest": "sha256:9f341fa668320a7fd688ccfd7a3a9c8954c003e9e10ef37e91c181351d108ac4"
+    },
+    "lark-workflow-meeting-summary": {
+      "installedAt": "2026-06-26T10:06:14.956Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-workflow-meeting-summary.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.325Z",
+      "wellKnownDigest": "sha256:063d13abb9c1a19197eb38806e2e525d6c3cf8e10df81a39b0f8d9fd687f91f1"
+    },
+    "lark-workflow-standup-report": {
+      "installedAt": "2026-06-26T10:06:14.956Z",
+      "skillFolderHash": "",
+      "skillPath": "",
+      "source": "open.feishu.cn",
+      "sourceBaseUrl": "https://open.feishu.cn/lark-cli/skills/regular",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/lark-cli/skills/regular/.well-known/agent-skills/lark-workflow-standup-report.tar.gz",
+      "updatedAt": "2026-08-28T08:22:35.325Z",
+      "wellKnownDigest": "sha256:0bc28d4dc97bbdee8fba780303cdfacd8c7b36b3922ab1b67f1058d3e949ff7b"
+    },
+    "local-session-context": {
+      "installedAt": "2026-08-10T15:26:23Z",
+      "skillFolderHash": "89a887e83b985a40aeb115afbdfabe0a778f1a88",
+      "skillPath": "local-session-context/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "local-session-context",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "89a887e83b985a40aeb115afbdfabe0a778f1a88",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "0ddcc8eff878dc77efc84a44a90987d4f991d562"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "fddc77c00ebdebab12653d40f6509b7a4d6803f2"
+          },
+          "references/cli-contract.md": {
+            "mode": "100644",
+            "oid": "56666e715eec252f6e144ab67130ae21646d04f6"
+          }
+        }
+      }
+    },
+    "metersphere": {
+      "installedAt": "2026-05-29T06:33:05Z",
+      "skillFolderHash": "a02313104128ae69263b0bf20d6f0f52d0e040c8",
+      "skillPath": "metersphere/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "metersphere",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "a02313104128ae69263b0bf20d6f0f52d0e040c8",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "15a054e9fa2c19da1f8743b387ed0289b60bfc67"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "5bc2493a322da7d58d0da141e36057022270407b"
+          },
+          "references/ai-api-bundle-prompt.md": {
+            "mode": "100644",
+            "oid": "e15d9e8f1433975b6f3215ba943a1c9ec32e45d4"
+          },
+          "references/ai-functional-case-prompt.md": {
+            "mode": "100644",
+            "oid": "bd618b2afe16e37d8118c0f8055ce997e11a7899"
+          },
+          "references/ms-api.md": {
+            "mode": "100644",
+            "oid": "381314411da52649a872ec8a16fa152d39759d55"
+          },
+          "scripts/metersphere.py": {
+            "mode": "100644",
+            "oid": "2c0b6b16ee5490aeb84028d74a3a17a9c51c697a"
+          },
+          "scripts/ms.sh": {
+            "mode": "100755",
+            "oid": "9ab7cbc32ab43fcbc2643ebe824ec8852f98e4d9"
+          },
+          "scripts/ms_batch.py": {
+            "mode": "100644",
+            "oid": "b31b74e7a463ef9ed79ee91e93243c69e2e870df"
+          },
+          "scripts/ms_case_report.py": {
+            "mode": "100644",
+            "oid": "3cb1d221bf11c088d016e1603c32f0397bfd87c1"
+          },
+          "scripts/ms_case_report_md.py": {
+            "mode": "100644",
+            "oid": "c4d17e6e7a06cc55a33b0ec20456dc45f923525c"
+          },
+          "scripts/ms_generate.py": {
+            "mode": "100644",
+            "oid": "523206b019ac297b15574a99ab0d4ed2c3690776"
+          },
+          "scripts/ms_review_summary.py": {
+            "mode": "100644",
+            "oid": "07a4ca235cda838c0c5b1d43810fa766359f831d"
+          },
+          "scripts/mscli/__init__.py": {
+            "mode": "100644",
+            "oid": "21fbf928252346ea628c51724742763c80a86aba"
+          },
+          "scripts/mscli/client.py": {
+            "mode": "100644",
+            "oid": "f959182d19a6cdbbf563f401a68f4d4879f428f0"
+          },
+          "scripts/mscli/commands.py": {
+            "mode": "100644",
+            "oid": "c6dc2354f4d122cbf668046458ef31a9a77f080c"
+          },
+          "scripts/mscli/config.py": {
+            "mode": "100644",
+            "oid": "73c794c6fa11353473685f87e4e3452aa12308c1"
+          },
+          "scripts/mscli/errors.py": {
+            "mode": "100644",
+            "oid": "c9851899f8550f733510affd2f48cf6793671718"
+          },
+          "scripts/mscli/formatter.py": {
+            "mode": "100644",
+            "oid": "bf394b85d74b53f93d2c5d10823f21bd7204c2b0"
+          },
+          "skill-metadata.json": {
+            "mode": "100644",
+            "oid": "595ec2e22013cc037dfd7f1ef57afd745642e780"
+          },
+          "tests/test_metersphere_skill.py": {
+            "mode": "100644",
+            "oid": "0bbf40f2a8d43cd431088e34618ba8ca423db6e9"
+          }
+        }
+      }
+    },
+    "mlx-whisper-transcription": {
+      "installedAt": "2026-08-04T06:58:21Z",
+      "skillFolderHash": "433e8d31fa06b2605c43dc48361f82233582ddf9",
+      "skillPath": "mlx-whisper-transcription/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "mlx-whisper-transcription",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "433e8d31fa06b2605c43dc48361f82233582ddf9",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "cc3db6232930d97d12f7b973f99a0994171f1bc3"
+          },
+          "scripts/mlx_whisper_transcription.py": {
+            "mode": "100755",
+            "oid": "4bcac13375e24671e048c7102733dfe7121006be"
+          },
+          "scripts/mwt/__init__.py": {
+            "mode": "100644",
+            "oid": "c9d2831113542add80c6d298a7e97e6daf6f81eb"
+          },
+          "scripts/mwt/audio.py": {
+            "mode": "100644",
+            "oid": "4f0552c95aae0ceb4e5026f529b1f9a1e9d7beeb"
+          },
+          "scripts/mwt/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "72ea2beea6979c6af694919493805a7cca94c2e4"
+          },
+          "scripts/mwt/commands/doctor.py": {
+            "mode": "100644",
+            "oid": "bd56981d33c9eb25bfdeafb5bde57e0ab7ffcb28"
+          },
+          "scripts/mwt/commands/setup.py": {
+            "mode": "100644",
+            "oid": "d4d98e6be11a251b02423dafcdbd3572aab6c51c"
+          },
+          "scripts/mwt/commands/transcribe.py": {
+            "mode": "100644",
+            "oid": "31ed4bc4c9d4d87e7683b6e2ec608beb742509c5"
+          },
+          "scripts/mwt/config.py": {
+            "mode": "100644",
+            "oid": "786c3cf87c9c539da2b5c6bfb09618b5666acf8a"
+          },
+          "scripts/mwt/errors.py": {
+            "mode": "100644",
+            "oid": "2afee829bc4b4473cd407a65b59ca9e681a77f98"
+          },
+          "scripts/mwt/formatter.py": {
+            "mode": "100644",
+            "oid": "a29df6e1a3c0610c496a4a02a887ba74026e6a34"
+          },
+          "scripts/mwt/model.py": {
+            "mode": "100644",
+            "oid": "2c1c0a5a6b085a74a628572248f204bd0af6bc5e"
+          },
+          "scripts/mwt/platform.py": {
+            "mode": "100644",
+            "oid": "c9d31bd8f076b424fdc6e203c7a22843c6b35211"
+          }
+        }
+      }
+    },
+    "moe-acceptance": {
+      "installedAt": "2026-09-11T08:37:28.176603Z",
+      "skillFolderHash": "0dfe4d4ada6820de585dba87ee534d31feec0f54",
+      "skillPath": "moe-acceptance/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-10-09T08:14:20.724769Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-acceptance",
+        "appliedRevision": "cc51ba62944cc95d908a17228187449c03a838e7",
+        "remoteTree": "0dfe4d4ada6820de585dba87ee534d31feec0f54",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "117ef33b7d3763857e8003f15addf77476439aea"
+          },
+          "AGENTS.md": {
+            "mode": "100644",
+            "oid": "09ed5cd6fe47950752d9c553762050f586278631"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "f82abfefb711a0abab22293758c4e888e7f54017"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "5d43fca76e114182276372869bf9d4008d723d7f"
+          },
+          "evals/files/ui-review/README.md": {
+            "mode": "100644",
+            "oid": "caa85a2208fa5684073083f11c7e444be3309b7d"
+          },
+          "evals/files/ui-review/design.png": {
+            "mode": "100644",
+            "oid": "29e091d48e24b1ca214fec8575505eb2a64de53b"
+          },
+          "evals/files/ui-review/sample-a.png": {
+            "mode": "100644",
+            "oid": "c89a867f68ab4dc28ea5f1ab0d1676a13da7b137"
+          },
+          "evals/files/ui-review/sample-b.png": {
+            "mode": "100644",
+            "oid": "7bfe6c14e82e89181f6527acd8edc521506cd640"
+          },
+          "references/account.md": {
+            "mode": "100644",
+            "oid": "29eb0012337ed75ce28f69211403c973df9a1afc"
+          },
+          "references/android-emulator.md": {
+            "mode": "100644",
+            "oid": "4cc242ca1976fd87d1621e85be6a5310e8f39b6e"
+          },
+          "references/api-reference.md": {
+            "mode": "100644",
+            "oid": "9d72b0c1fa6c53f280a3ce66f0209bb17c048e8b"
+          },
+          "references/case-execution.md": {
+            "mode": "100644",
+            "oid": "e53c90fb988477721bb245799f957e47921ef343"
+          },
+          "references/data.md": {
+            "mode": "100644",
+            "oid": "e07330522183d3b80e97a8c19988093f05cb8262"
+          },
+          "references/environment.md": {
+            "mode": "100644",
+            "oid": "c26df4eda149a6f6b3edb2d66d5266fb79d5fbad"
+          },
+          "references/evidence-capture.md": {
+            "mode": "100644",
+            "oid": "5e8d5eb50d5f15db1e7fe9eadf7d4811939a0280"
+          },
+          "references/ios-runtime-api.md": {
+            "mode": "100644",
+            "oid": "01504eba0cde77c55746ef3b69b896bf184c72cc"
+          },
+          "references/ios-simulator.md": {
+            "mode": "100644",
+            "oid": "f0c30c0a4088bd481cbb67e4448dcdd1a48e5961"
+          },
+          "references/observability.md": {
+            "mode": "100644",
+            "oid": "4285706d3232af75ef1e3f5aaa6f6470cd7798eb"
+          },
+          "references/parallel-browser.md": {
+            "mode": "100644",
+            "oid": "92da44a2586304e4c26aad17dc47618f268201c6"
+          },
+          "references/repair-and-retest.md": {
+            "mode": "100644",
+            "oid": "b8d47c8497010796777f3d6e6b633a4bad1facd5"
+          },
+          "references/report-publishing.md": {
+            "mode": "100644",
+            "oid": "6b7f97139d9d3e4241025a7ab6df07872684cd49"
+          },
+          "references/t2-client-portal.md": {
+            "mode": "100644",
+            "oid": "0770e3785e4beb39c7930b1bf0db50e14b766692"
+          },
+          "references/t2-obc.md": {
+            "mode": "100644",
+            "oid": "60840e45c8e89a5ccc5f847fb20836502cd2cfec"
+          },
+          "references/t2-web.md": {
+            "mode": "100644",
+            "oid": "339e3935ee081320e6453e17f4930089515443e5"
+          },
+          "references/ui-design-review.md": {
+            "mode": "100644",
+            "oid": "a667b53c3074163944a3c3c3d4d796b7342128a4"
+          },
+          "requirements-report.txt": {
+            "mode": "100644",
+            "oid": "df659d4a17cc1ab9a91a898711ef55cd0a709fe3"
+          },
+          "scripts/delivery_artifacts.py": {
+            "mode": "100644",
+            "oid": "b195a0ba2964e7c674b61f27b499345a48e29468"
+          },
+          "scripts/lifecycle.py": {
+            "mode": "100644",
+            "oid": "282351d5b4eebcef87f8d29fbc8aaf9eb02c5b40"
+          },
+          "scripts/observability.py": {
+            "mode": "100644",
+            "oid": "06feed43f514ba73ab39f788b630499185d69c06"
+          },
+          "scripts/report_diagnostics.py": {
+            "mode": "100644",
+            "oid": "d59977fd201ac3b9b0341c5baedef4092ef1abcc"
+          },
+          "scripts/report_media.py": {
+            "mode": "100644",
+            "oid": "315e5d4080a5500eaf9e1ef2ad23792ff946c58d"
+          },
+          "scripts/report_ui/report.css": {
+            "mode": "100644",
+            "oid": "e22c25f6f0ab0e46302fa3d2c0a2e4b4d0518820"
+          },
+          "scripts/report_ui/report.js": {
+            "mode": "100644",
+            "oid": "9812a5b3c53e4d35ec4d06075814e6a11d68425b"
+          },
+          "scripts/session_login.py": {
+            "mode": "100644",
+            "oid": "11de79074194ca0b533bcfc76c5c676e81b7768d"
+          },
+          "scripts/sites_report.py": {
+            "mode": "100644",
+            "oid": "ba2fb05ca42a99a571b09d49cc5f64ee90148609"
+          },
+          "scripts/ui_review.py": {
+            "mode": "100644",
+            "oid": "885a1b7a0e8ae49c794d7de4a7dfc053987fe0cb"
+          },
+          "templates/sites/.gitignore": {
+            "mode": "100644",
+            "oid": "d7dc4dd5864d9b4d55efd3b9550819d26160d78f"
+          },
+          "templates/sites/.openai/hosting.json": {
+            "mode": "100644",
+            "oid": "47c28cb400bdab23565c9a36f833a675266221b3"
+          },
+          "templates/sites/README.md": {
+            "mode": "100644",
+            "oid": "72cfd169cfe78ea258d92a2b979442514273b35a"
+          },
+          "templates/sites/app/globals.css": {
+            "mode": "100644",
+            "oid": "5d607915b0358e481d0f0474e1e001756cf0deda"
+          },
+          "templates/sites/app/layout.tsx": {
+            "mode": "100644",
+            "oid": "b4bf64fc17277583da0abb988ba3f4e2eaae783e"
+          },
+          "templates/sites/app/page.tsx": {
+            "mode": "100644",
+            "oid": "90edf5c8d31575017bc90382735b7b629391b9b0"
+          },
+          "templates/sites/app/reading/evidence.tsx": {
+            "mode": "100644",
+            "oid": "95c56245a91e071642a19f8246752c7d36516307"
+          },
+          "templates/sites/app/reading/inline-tokens.ts": {
+            "mode": "100644",
+            "oid": "69c50895c9cfb2cb316faeff93217eea94ab1311"
+          },
+          "templates/sites/app/reading/moego-theme.css": {
+            "mode": "100644",
+            "oid": "32fa0da3294f7520de35721928ac775a18feaf28"
+          },
+          "templates/sites/app/reading/page.tsx": {
+            "mode": "100644",
+            "oid": "3ba6ff009e67bb753ede01990641043f5accd37e"
+          },
+          "templates/sites/app/reading/reading.css": {
+            "mode": "100644",
+            "oid": "2c8c60b8da0216b52f0790b7c0eda0aea57a996b"
+          },
+          "templates/sites/app/reading/report-model.ts": {
+            "mode": "100644",
+            "oid": "9b30da133118f50bc95164234fc3914db8b46588"
+          },
+          "templates/sites/app/reading/report-page.tsx": {
+            "mode": "100644",
+            "oid": "348d4a0d80cf95ed82b88db38658455bac4f7912"
+          },
+          "templates/sites/app/reading/rich-text.tsx": {
+            "mode": "100644",
+            "oid": "5725aa0d8f394b7ea8816544d060970c01f91308"
+          },
+          "templates/sites/app/reading/use-case-navigation.ts": {
+            "mode": "100644",
+            "oid": "625f16eec324c45dfe277cc960cb1b7badb9b78d"
+          },
+          "templates/sites/build/sites-vite-plugin.LICENSE": {
+            "mode": "100644",
+            "oid": "4243cb4a9aaa50f954498e54c850773e9ba13eea"
+          },
+          "templates/sites/build/sites-vite-plugin.ts": {
+            "mode": "100644",
+            "oid": "fbe815d6df16c28cb486c60bfabf1a5f16a7e1bd"
+          },
+          "templates/sites/components/ui/badge.tsx": {
+            "mode": "100644",
+            "oid": "6eb2a057aae0e23a74368cc4daf9657210e9a740"
+          },
+          "templates/sites/components/ui/button.tsx": {
+            "mode": "100644",
+            "oid": "4d38506cee5430d95a59ec6a2a0cef2b79217e7a"
+          },
+          "templates/sites/components/ui/collapsible.tsx": {
+            "mode": "100644",
+            "oid": "2f7a4e7fc64a8874373c1584646a63f28cd63c47"
+          },
+          "templates/sites/components/ui/dialog.tsx": {
+            "mode": "100644",
+            "oid": "84bdef4bb307087da1bfaf3cadf7be5dbda73f24"
+          },
+          "templates/sites/components/ui/select.tsx": {
+            "mode": "100644",
+            "oid": "c0dc7120b4f78008ae5efc6d1c8b7ec8205c35d5"
+          },
+          "templates/sites/components/ui/slider.tsx": {
+            "mode": "100644",
+            "oid": "2169a9a2864d152503d01de6e0d52d2fecd9871e"
+          },
+          "templates/sites/components/ui/tabs.tsx": {
+            "mode": "100644",
+            "oid": "b463afd170637df477e36184aa27d2ad1bd3c3e0"
+          },
+          "templates/sites/lib/utils.ts": {
+            "mode": "100644",
+            "oid": "b500fb167fdaa78785feb0ff03b51f8a182a44ae"
+          },
+          "templates/sites/next.config.ts": {
+            "mode": "100644",
+            "oid": "e9ffa3083ad279ecf95fd8eae59cb253e9a539c4"
+          },
+          "templates/sites/package-lock.json": {
+            "mode": "100644",
+            "oid": "b976c3ad9abe47db4e5d50ef19b0aab7f887ab9a"
+          },
+          "templates/sites/package.json": {
+            "mode": "100644",
+            "oid": "45510e32c3ef89173a7570005d75a34e23b405d1"
+          },
+          "templates/sites/postcss.config.mjs": {
+            "mode": "100644",
+            "oid": "61e36849cf7cfa9f1f71b4a3964a4953e3e243d3"
+          },
+          "templates/sites/public/favicon.svg": {
+            "mode": "100644",
+            "oid": "cb754434d9969bc7edeb52db5edf96a21d201470"
+          },
+          "templates/sites/public/fonts/Manrope-OFL.txt": {
+            "mode": "100644",
+            "oid": "462280f3e4037df1839fba6cdee11d0980d3f0a9"
+          },
+          "templates/sites/public/fonts/Manrope.woff2": {
+            "mode": "100644",
+            "oid": "fba35fc388e66749a055e51f03bd394c6ee802a6"
+          },
+          "templates/sites/scripts/install-ci.mjs": {
+            "mode": "100644",
+            "oid": "5e5ca5a24cff3b5f977793a2adb7860e04dc175a"
+          },
+          "templates/sites/scripts/shared-deps.mjs": {
+            "mode": "100644",
+            "oid": "4f6fed3b627311ebb6c7a6b21d1413c53d747e03"
+          },
+          "templates/sites/scripts/sites-env.mjs": {
+            "mode": "100644",
+            "oid": "1eeedb5e13e4b9af70d89446d981dfd4cd92a3fd"
+          },
+          "templates/sites/template.json": {
+            "mode": "100644",
+            "oid": "7faeb2e01902bddf20e205911b24d166abd50208"
+          },
+          "templates/sites/tsconfig.json": {
+            "mode": "100644",
+            "oid": "be170f57ec372cc118f2d343092a53b85fc189a4"
+          },
+          "templates/sites/vendor/shadcn-tailwind-4.13.0.LICENSE.md": {
+            "mode": "100644",
+            "oid": "fad4d887a681dd49233e5ed01ee2c7a1513089a0"
+          },
+          "templates/sites/vendor/shadcn-tailwind-4.13.0.css": {
+            "mode": "100644",
+            "oid": "7807c58eb94de8b764b9b6b7b5d8cde6d012b17f"
+          },
+          "templates/sites/vite.config.ts": {
+            "mode": "100644",
+            "oid": "dfd0207fdbca69ceb9c53d50dc2c7d761c4612c1"
+          },
+          "tests/check_inline_tokens.mjs": {
+            "mode": "100644",
+            "oid": "bf05a606757583b3c0f89ca008597c9e31e61ff3"
+          },
+          "tests/check_report_rounds.cjs": {
+            "mode": "100644",
+            "oid": "404ef8dd692c6345ad1f396a3857ec63d843ce26"
+          },
+          "tests/check_shared_deps.mjs": {
+            "mode": "100644",
+            "oid": "5e8e6a454e6563464021747a63a69436401641bc"
+          },
+          "tests/check_sites_model.mjs": {
+            "mode": "100644",
+            "oid": "5e1505365d49bdf5bedb37cfac4bf0e3880b3af0"
+          },
+          "tests/test_delivery_artifacts.py": {
+            "mode": "100644",
+            "oid": "9bd496d0e2ba0d1e400d8d38ffcf20df5e437ee4"
+          },
+          "tests/test_export_diagnostics.py": {
+            "mode": "100644",
+            "oid": "d418faec0663a840f9aeedbb8c419769443a0dcb"
+          },
+          "tests/test_report_rounds.py": {
+            "mode": "100644",
+            "oid": "f1ee8b4e0a6eb93e7bbb37edd53b2d19ad703f6e"
+          },
+          "tests/test_session_login.py": {
+            "mode": "100644",
+            "oid": "35c049474397b4e5b4292bd673e313c9cdf50c9d"
+          },
+          "tests/test_sites_report.py": {
+            "mode": "100644",
+            "oid": "ae165d9af5f2b555adab51dfe394948085595e81"
+          },
+          "tests/test_ui_review.py": {
+            "mode": "100644",
+            "oid": "62d3669b1789de309797fd5b98322916919befe5"
+          }
+        }
+      }
+    },
+    "moe-development": {
+      "installedAt": "2026-09-13T06:13:18.310392Z",
+      "skillFolderHash": "39ea194462d9f32851973aebeeda0b4aafec91a3",
+      "skillPath": "moe-development/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-20T07:50:17.934436Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-development",
+        "appliedRevision": "1e3584607134d3699b02b33aea77cd607d435016",
+        "remoteTree": "39ea194462d9f32851973aebeeda0b4aafec91a3",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "74db1aea633a2d0977ca6ff6a18b05c5c2a91f3a"
+          },
+          "references/protocol-and-dependencies.md": {
+            "mode": "100644",
+            "oid": "3379a721c686801725c72d193aadcf90d0e45237"
+          },
+          "test-prompts.json": {
+            "mode": "100644",
+            "oid": "f63fb92b117a4dd2332e9affdaa07e5161f79fb8"
+          }
+        }
+      }
+    },
+    "moe-development-experience": {
+      "installedAt": "2026-09-13T06:13:18.310392Z",
+      "skillFolderHash": "3f4194a5a809a85c298f45fdaa3b27f58826c3f8",
+      "skillPath": "moe-development-experience/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T16:02:33.530807Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-development-experience",
+        "appliedRevision": "fbccaf527166309acb7d1ebec70472547f6fb5a4",
+        "remoteTree": "3f4194a5a809a85c298f45fdaa3b27f58826c3f8",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "67f96372d47cc488b47e5374972b2bfffdbf7705"
+          },
+          "references/api-web-publish-cheatsheet.md": {
+            "mode": "100644",
+            "oid": "e68280dfa227090f11cb78ec9351b28da0e666e3"
+          },
+          "references/backend-dev-flow.md": {
+            "mode": "100644",
+            "oid": "d165366eb847c9e1ad080a577393edb79cdf7019"
+          },
+          "references/backend-service-handbook.md": {
+            "mode": "100644",
+            "oid": "9ce1028465dc6d507967c59bde84ee6132a2713e"
+          },
+          "references/bff-openapi-publish-cheatsheet.md": {
+            "mode": "100644",
+            "oid": "96a7cecd9e16aa3a6e18a5b70831f619410f10c9"
+          },
+          "references/business-chain-logging.md": {
+            "mode": "100644",
+            "oid": "44db8e92c4a0be1e3b6a88fc7e5ac2376df1aa8a"
+          },
+          "references/commit-and-review-conventions.md": {
+            "mode": "100644",
+            "oid": "39a400aca6b3d93986846f0acb67a86579f7938c"
+          },
+          "references/database-debugging.md": {
+            "mode": "100644",
+            "oid": "74565053c62b0728899f148c71730210e50d3e1d"
+          },
+          "references/debugging-and-observability.md": {
+            "mode": "100644",
+            "oid": "0b6fb06349fc3eccf5f9da592b4c3cac8c639d48"
+          },
+          "references/frontend-dev-flow.md": {
+            "mode": "100644",
+            "oid": "00f583bf96aec1bef72a8c146e819e0f31faf4e8"
+          },
+          "references/index.md": {
+            "mode": "100644",
+            "oid": "1b3582826b198310c1732f23dfb3f3bc99df611a"
+          },
+          "references/kafka-debugging.md": {
+            "mode": "100644",
+            "oid": "8a5bb5ae9ab6b3e6764ca5edbe11be7ca0fcf012"
+          },
+          "references/legacy-svc-codegen.md": {
+            "mode": "100644",
+            "oid": "8c6b9277c08baed42a6c6b4bd643a511d19c74ce"
+          },
+          "references/local-grpc-debugging.md": {
+            "mode": "100644",
+            "oid": "8af230c05a55504fcd03bd66043c9c31ee782b88"
+          },
+          "references/maintenance.md": {
+            "mode": "100644",
+            "oid": "3452376c69f4b7946eab44e628ede3be25be4c49"
+          },
+          "references/npm-dependencies.md": {
+            "mode": "100644",
+            "oid": "bba47dd876d606fc7975f6a3798d0c6ff285d713"
+          },
+          "references/repo-navigation.md": {
+            "mode": "100644",
+            "oid": "171c8e09794c40613b06b60cb22d004b661afe1a"
+          },
+          "test-prompts.json": {
+            "mode": "100644",
+            "oid": "5db2c839bd26b7343a505e3ffa04eaf964cb7e9e"
+          }
+        }
+      }
+    },
+    "moe-feedback-collector": {
+      "installedAt": "2026-08-28T03:26:12Z",
+      "skillFolderHash": "1b754ab3c2cbc3ff01d093885bdde666b7be6113",
+      "skillPath": "moe-feedback-collector/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-20T08:02:19.452235Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-feedback-collector",
+        "appliedRevision": "d959429eacdaf3c2b046bbd7f5bc0ea0baec19b7",
+        "remoteTree": "1b754ab3c2cbc3ff01d093885bdde666b7be6113",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "e8bf0c0ce51340b6187a9b44890fd1cbe4da6abc"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "fd671ba1e7482d1c2f60cf074bac711e466df92e"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "51b04d29927b4f3e7a9cad6d60c92a2875c1e47b"
+          },
+          "references/canny.md": {
+            "mode": "100644",
+            "oid": "7b4f7a9f59649b8ec02f78558fe4acdc2fea1552"
+          },
+          "references/facebook.md": {
+            "mode": "100644",
+            "oid": "cf2b6592cecf99b27985a9bd4648c9e80f45b76a"
+          },
+          "references/intercom.md": {
+            "mode": "100644",
+            "oid": "996aea15478b44fc0b40e8a6972135fee32fc4fe"
+          },
+          "references/jira.md": {
+            "mode": "100644",
+            "oid": "54447162f084afd7a02e7c4e908f0852f58ad911"
+          },
+          "references/lark-storage.md": {
+            "mode": "100644",
+            "oid": "9609fd24693d54a08a2f4b3501a5a5ae6bb1be10"
+          },
+          "scripts/mfc/__init__.py": {
+            "mode": "100644",
+            "oid": "0b3125d5803bde5aa05acf763e19aecad7228dde"
+          },
+          "scripts/mfc/analysis_input.py": {
+            "mode": "100644",
+            "oid": "34709d9286d8fb4a35f5f1b1bc09f1cc924caaec"
+          },
+          "scripts/mfc/analysis_v3.py": {
+            "mode": "100644",
+            "oid": "6d5198b138ef053bfaed5fbf3c913ecd267d11b2"
+          },
+          "scripts/mfc/canny.py": {
+            "mode": "100644",
+            "oid": "3e4d92d68d1cf18778fdcf07a26ab8146eb99788"
+          },
+          "scripts/mfc/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "d8a9d17d1a9b70ca9becb4eba1a689f032797bdc"
+          },
+          "scripts/mfc/commands/analysis.py": {
+            "mode": "100644",
+            "oid": "ef10cde54d8ac8b7dc5d6224487f54b84c0a8111"
+          },
+          "scripts/mfc/commands/analysis_input.py": {
+            "mode": "100644",
+            "oid": "0861d0ab174692541e86ff4c8cae4e0308456673"
+          },
+          "scripts/mfc/commands/collect.py": {
+            "mode": "100644",
+            "oid": "c306605f6fa1fa6cff406636e69db585ce81510d"
+          },
+          "scripts/mfc/commands/dashboard.py": {
+            "mode": "100644",
+            "oid": "637005bbc8dca626d98c5bb1d453252e57e7db8a"
+          },
+          "scripts/mfc/commands/doctor.py": {
+            "mode": "100644",
+            "oid": "34d561a539823b166e6b740cb1e193514dce952d"
+          },
+          "scripts/mfc/commands/monthly.py": {
+            "mode": "100644",
+            "oid": "c08319ac2cb4914a1978917ea43715b3ea202b19"
+          },
+          "scripts/mfc/commands/publish.py": {
+            "mode": "100644",
+            "oid": "7a8ac90b927380f0b64952d7cf765d8ba09b22bd"
+          },
+          "scripts/mfc/commands/schema.py": {
+            "mode": "100644",
+            "oid": "b2f0f7a2d95c1cf6f40601bd6adb53f785ec91c5"
+          },
+          "scripts/mfc/config.py": {
+            "mode": "100644",
+            "oid": "03776d39564e0c4a36f454fa21d9354d75353fb5"
+          },
+          "scripts/mfc/dashboard.py": {
+            "mode": "100644",
+            "oid": "40ecbef691dd4cce4e3f8e45f173d686d496a233"
+          },
+          "scripts/mfc/errors.py": {
+            "mode": "100644",
+            "oid": "6f27f3a1e22bbcffc00744af230504d1a4aede19"
+          },
+          "scripts/mfc/facebook.py": {
+            "mode": "100644",
+            "oid": "9f9636018a50c20c53f6fb382ad3bc96f294e1b2"
+          },
+          "scripts/mfc/formatter.py": {
+            "mode": "100644",
+            "oid": "04235ce089c0f031128a35ab0a292d717553050a"
+          },
+          "scripts/mfc/intercom.py": {
+            "mode": "100644",
+            "oid": "e2dfee2b90f3d2ab593ae84baa7e80e2b7741504"
+          },
+          "scripts/mfc/jira.py": {
+            "mode": "100644",
+            "oid": "5614cd502646650a52983f495e21c6ba29ec994c"
+          },
+          "scripts/mfc/lark.py": {
+            "mode": "100644",
+            "oid": "c0d7ca1cf857002981eea0264d2815bdb4058d73"
+          },
+          "scripts/mfc/monthly.py": {
+            "mode": "100644",
+            "oid": "98fa7d69f447b1c9ae7901e50b25f74a2c59fb3a"
+          },
+          "scripts/mfc/report.py": {
+            "mode": "100644",
+            "oid": "3b7d5807a3025d5eb8393bcf9ae34697fda57a8a"
+          },
+          "scripts/mfc/schema.py": {
+            "mode": "100644",
+            "oid": "1bcea186b5d8436d6c823674f588a74b1f769ef3"
+          },
+          "scripts/mfc/store.py": {
+            "mode": "100644",
+            "oid": "65e02dd38016b5f9a190a9362d395c3db15916e7"
+          },
+          "scripts/moe_feedback_collector.py": {
+            "mode": "100644",
+            "oid": "2e09419e13852e2aac1806674e215a1570e0f6b8"
+          },
+          "tests/fixtures/canny.json": {
+            "mode": "100644",
+            "oid": "8df75e4c9c94580ff00b3f3d895761de7cc1e7d5"
+          },
+          "tests/fixtures/facebook.json": {
+            "mode": "100644",
+            "oid": "2f365376dc6b4026105a31899add0a815be52c53"
+          },
+          "tests/fixtures/intercom.json": {
+            "mode": "100644",
+            "oid": "7afb7961d4fb254351023c35730abd8b8c830935"
+          },
+          "tests/fixtures/jira.json": {
+            "mode": "100644",
+            "oid": "c4eea89e9246e9bbc7a74487569187236f76cb30"
+          },
+          "tests/fixtures/jira_grooming_scope_week.json": {
+            "mode": "100644",
+            "oid": "55d5ce1950c9fb0c5c3e97e7cb3c16ba74f1139c"
+          },
+          "tests/test_analysis_input.py": {
+            "mode": "100644",
+            "oid": "2302135e37a9014a26899af654c6470680028298"
+          },
+          "tests/test_analysis_v3.py": {
+            "mode": "100644",
+            "oid": "a7578f8d5fdcd4c4c3e66bbba5ac6d677f1560ee"
+          },
+          "tests/test_cli.py": {
+            "mode": "100644",
+            "oid": "75816b8d10db7840c3229dc6bee9d25cbfe072af"
+          },
+          "tests/test_collector.py": {
+            "mode": "100644",
+            "oid": "9f92a661195cbb68d61804a5b7035563d10ee33d"
+          },
+          "tests/test_config_schema.py": {
+            "mode": "100644",
+            "oid": "cd040c859d081b5a5aca6a8192462906fc5802c4"
+          },
+          "tests/test_dashboard.py": {
+            "mode": "100644",
+            "oid": "2a6440d6d2e135d96e633272d3b029ed38804aa8"
+          },
+          "tests/test_doctor.py": {
+            "mode": "100644",
+            "oid": "8927591995f05ab4f895bff1b1b39f5f2d008aea"
+          },
+          "tests/test_facebook.py": {
+            "mode": "100644",
+            "oid": "606082e5ecfff62326780cbd27b808497bae6975"
+          },
+          "tests/test_intercom.py": {
+            "mode": "100644",
+            "oid": "547ff0a9c4b70f8e9094c978de3da6feab1b8a4c"
+          },
+          "tests/test_jira.py": {
+            "mode": "100644",
+            "oid": "67b774acbf4857ec42f17636ce3b9b5301aee6dd"
+          },
+          "tests/test_lark.py": {
+            "mode": "100644",
+            "oid": "e59ff24553f5bcb7790522fdfa085b86d8ae483b"
+          },
+          "tests/test_monthly.py": {
+            "mode": "100644",
+            "oid": "5fee99e293b8aeade496ae3780ba23c9900ebc87"
+          },
+          "tests/test_publish.py": {
+            "mode": "100644",
+            "oid": "3cf05cbc39148b359dac57de24133449491895f6"
+          },
+          "tests/test_report.py": {
+            "mode": "100644",
+            "oid": "bf5a30e53d9938f7ead8c4bab2ef8820f52718c5"
+          }
+        }
+      }
+    },
+    "moe-grey": {
+      "installedAt": "2026-08-26T16:12:23Z",
+      "skillFolderHash": "65a37af96ccd329a044398e7c0d5a69b663457aa",
+      "skillPath": "moe-grey/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-17T15:44:03.841453Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-grey",
+        "appliedRevision": "4c7c6544acdcc0f8c159a47b42611535469d7c8d",
+        "remoteTree": "65a37af96ccd329a044398e7c0d5a69b663457aa",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "c43d801cc4f9ef1e7c1d298801b7222c688835c7"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "43b09a760a6db56ef64783095b2f69839cae6bda"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "e047761134cdbb6b903e362fd90a0cfd787c10c1"
+          },
+          "references/grey-service-mapping.md": {
+            "mode": "100644",
+            "oid": "763ea3cc0a23f73902e4edc642073dd822508f32"
+          },
+          "references/grey.md": {
+            "mode": "100644",
+            "oid": "08109bb6d7d361172996b40276b36d4e0a856f9a"
+          },
+          "scripts/mgrey/__init__.py": {
+            "mode": "100644",
+            "oid": "430544e87091cfc904e07747a8f26717e1afe9a9"
+          },
+          "scripts/mgrey/clients/__init__.py": {
+            "mode": "100644",
+            "oid": "d4906614c3e26b7e85d8a7c5ae213c1cb660ff4d"
+          },
+          "scripts/mgrey/clients/grey.py": {
+            "mode": "100644",
+            "oid": "e6c59294b71df837eefee0511e2e8032973724ae"
+          },
+          "scripts/mgrey/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "7d85d423ad7f3665dc1d45826e29a9d95642da7c"
+          },
+          "scripts/mgrey/commands/_shared.py": {
+            "mode": "100644",
+            "oid": "7a78ca8f5a6036fc389629803d961561c9cade47"
+          },
+          "scripts/mgrey/commands/branches.py": {
+            "mode": "100644",
+            "oid": "d64fc9df3770b139d572ab5bf76128d3f7c17d30"
+          },
+          "scripts/mgrey/commands/copy.py": {
+            "mode": "100644",
+            "oid": "c9c7dd8aaa9e98a6617cfc4d8d8d1e83f4d08eac"
+          },
+          "scripts/mgrey/commands/create.py": {
+            "mode": "100644",
+            "oid": "564156495c8a8600acc0fbe918ca8c7bdc95aa34"
+          },
+          "scripts/mgrey/commands/delete.py": {
+            "mode": "100644",
+            "oid": "d9418120468963a5526e2146e0b8ecfd48229dea"
+          },
+          "scripts/mgrey/commands/get.py": {
+            "mode": "100644",
+            "oid": "ddbb9062d35825cbb969ea7cb34768913b5a50c1"
+          },
+          "scripts/mgrey/commands/list.py": {
+            "mode": "100644",
+            "oid": "6131d0aeeafd67e8cff2603dca183acab7f1a67d"
+          },
+          "scripts/mgrey/commands/update.py": {
+            "mode": "100644",
+            "oid": "d08d3186d0b8ed1fc94df76177d37901f7ca25ad"
+          },
+          "scripts/mgrey/config.py": {
+            "mode": "100644",
+            "oid": "8f9111e65597272eb288b24a2a6c57d457a7e023"
+          },
+          "scripts/mgrey/errors.py": {
+            "mode": "100644",
+            "oid": "2fba667efb7384e61b8eb2edc6cc576e85b8b185"
+          },
+          "scripts/mgrey/formatter.py": {
+            "mode": "100644",
+            "oid": "c79343fd827a8ad281ecffe58f3522fdf43fbfc6"
+          },
+          "scripts/mgrey/grey_mutation.py": {
+            "mode": "100644",
+            "oid": "510376a5ed8e07df3aebf8f813150e9d0bcb5b6f"
+          },
+          "scripts/mgrey/http.py": {
+            "mode": "100644",
+            "oid": "b343a891c13da8b561562fc44d41684de3b83062"
+          },
+          "scripts/moe_grey.py": {
+            "mode": "100644",
+            "oid": "d02f2f2b41f720bd6282892d177fcd059a63d6d6"
+          },
+          "tests/test_config.py": {
+            "mode": "100644",
+            "oid": "6787c40550f9188d19186ba9c78052ebe765687e"
+          },
+          "tests/test_formatter.py": {
+            "mode": "100644",
+            "oid": "fad3a3fad0a907d0a309536fe7aa7f6ae487a5b7"
+          },
+          "tests/test_grey.py": {
+            "mode": "100644",
+            "oid": "2067cde5d1b96ce2b55aaeebfe4c54940578c819"
+          },
+          "tests/test_http_integration.py": {
+            "mode": "100644",
+            "oid": "6c50b79c0d05b84643c9e7581906b67f09965132"
+          }
+        }
+      }
+    },
+    "moe-mis": {
+      "installedAt": "2026-08-26T16:12:23Z",
+      "skillFolderHash": "e76df3e22fc488e418ccade1d7371831d4f68dd1",
+      "skillPath": "moe-mis/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-mis",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "e76df3e22fc488e418ccade1d7371831d4f68dd1",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "e5f0147425f362e7ce39e369da58a7392f0f4132"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "a25cc3be64f4ddeff9cbc323bafd85993dca357b"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "4ad5757b2a09298d339dbf014b2817cc10c9dc30"
+          },
+          "references/mis.md": {
+            "mode": "100644",
+            "oid": "86a92ce398569e4db94cfc3cf71e5683af20c46e"
+          },
+          "scripts/mmis/__init__.py": {
+            "mode": "100644",
+            "oid": "21f959b7e406af5e65790e3bc4ca6d07b02922a6"
+          },
+          "scripts/mmis/browser.py": {
+            "mode": "100644",
+            "oid": "c0c3b1c687f7c39a61053905e8e4092cc185e985"
+          },
+          "scripts/mmis/cdp.py": {
+            "mode": "100644",
+            "oid": "2333a87646f17641b356823065c1fac475be4e7b"
+          },
+          "scripts/mmis/clients/__init__.py": {
+            "mode": "100644",
+            "oid": "5bf296e1c761331c080d5c0d37338abc8b0fa1bd"
+          },
+          "scripts/mmis/clients/metadata.py": {
+            "mode": "100644",
+            "oid": "a8d41ebe78d82465f3e2ec9347362aea6a59bc62"
+          },
+          "scripts/mmis/clients/mis.py": {
+            "mode": "100644",
+            "oid": "f0cccb6443ddb0fb8d16248b96443c261f2f255c"
+          },
+          "scripts/mmis/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "eaa2e1291b2c5296301a3568442be42f3205e710"
+          },
+          "scripts/mmis/commands/metadata.py": {
+            "mode": "100644",
+            "oid": "3d324c95fbb9b14a426c747e925008185a62f2a7"
+          },
+          "scripts/mmis/commands/mis.py": {
+            "mode": "100644",
+            "oid": "01e2cd7c18ed6cba0ac24ed4b8359f05a86f60ed"
+          },
+          "scripts/mmis/commands/ob_impersonate.py": {
+            "mode": "100644",
+            "oid": "095240b7baa4e7c2de3e9fc9cf7c7321629eea37"
+          },
+          "scripts/mmis/config.py": {
+            "mode": "100644",
+            "oid": "b0933fa9612483104885b23a6f5465f9ed7fd08a"
+          },
+          "scripts/mmis/errors.py": {
+            "mode": "100644",
+            "oid": "628d9baddac4300d0bd58bad95bf00aafb359008"
+          },
+          "scripts/mmis/formatter.py": {
+            "mode": "100644",
+            "oid": "da5a593f5785a26936d99ad5c74f5afc3a5ef616"
+          },
+          "scripts/mmis/http.py": {
+            "mode": "100644",
+            "oid": "ad94a2f88505a4b64a05bd0cef8d6e7bb958895a"
+          },
+          "scripts/mmis/keychain.py": {
+            "mode": "100644",
+            "oid": "f6d1a2de1446f06f0ff521cff20e71abfb4a35a8"
+          },
+          "scripts/mmis/metadata_mutation.py": {
+            "mode": "100644",
+            "oid": "87c3e92892b7f3addb350de1f7133ff16386811b"
+          },
+          "scripts/mmis/ob_impersonate.py": {
+            "mode": "100644",
+            "oid": "5ffa3fa82422892a1f5ad4b4d0db79c359e88df3"
+          },
+          "scripts/mmis/sso.py": {
+            "mode": "100644",
+            "oid": "ed848cabf94e86113bbe758ef0be6e850ce82e7a"
+          },
+          "scripts/moe_mis.py": {
+            "mode": "100755",
+            "oid": "49622e65d23340c056c90b8ed01c66ad51da7893"
+          },
+          "tests/test_metadata.py": {
+            "mode": "100644",
+            "oid": "12f2232beaa9808d207c5de7d96ec19a3a534544"
+          },
+          "tests/test_mis.py": {
+            "mode": "100644",
+            "oid": "b7cab08582d4319976dd7da10cdb7dd9b5fe7bec"
+          },
+          "tests/test_ob_impersonate.py": {
+            "mode": "100644",
+            "oid": "3d005079cd07b29440895d2c59e050307c391b10"
+          },
+          "tests/test_security.py": {
+            "mode": "100644",
+            "oid": "8bb9379b5bdebb2480548a98de8b1c5ecf097f5e"
+          },
+          "tests/test_sso.py": {
+            "mode": "100644",
+            "oid": "fe188a5884ecb1793d21338abc3389413419b63d"
+          }
+        }
+      }
+    },
+    "moe-opc": {
+      "installedAt": "2026-08-28T03:26:16Z",
+      "skillFolderHash": "79cfad91b0f36f0613939d3749d640ea8272fd3b",
+      "skillPath": "moe-opc/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-21T07:50:36.404533Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-opc",
+        "appliedRevision": "e815ec77b274831c13c062b5181139f24caf7b41",
+        "remoteTree": "79cfad91b0f36f0613939d3749d640ea8272fd3b",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "13020987d093f2e3554a521dd043401a0655c25b"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "4c8a049fc35092a3717e3e3267d66f09d793bfc7"
+          },
+          "assets/templates/delivery-handoff.md": {
+            "mode": "100644",
+            "oid": "d230832d50e30e0916bc4661448f4562920697fe"
+          },
+          "assets/templates/lightweight-prd.md": {
+            "mode": "100644",
+            "oid": "05f2875ca88eda6ebb3e481f5e81a8c035a6e851"
+          },
+          "assets/templates/requirement-cockpit.md": {
+            "mode": "100644",
+            "oid": "99c3c482962d197ca358bf75c0446823ac117901"
+          },
+          "assets/templates/requirement-index.md": {
+            "mode": "100644",
+            "oid": "bf3cedfb742c522c3f09a6994ff981119ae49dea"
+          },
+          "assets/templates/resource-context.md": {
+            "mode": "100644",
+            "oid": "9ca1159ce0cd442df22fbfe0a4514a75a84eaa00"
+          },
+          "assets/templates/slack-product-walkthrough-message.md": {
+            "mode": "100644",
+            "oid": "a54cd68d8403cedf03d9fdfaeda2f597108a34df"
+          },
+          "assets/templates/stage-run-receipt.md": {
+            "mode": "100644",
+            "oid": "880003a296649a183bbeb04d473e7065893412b0"
+          },
+          "assets/templates/technical-design.md": {
+            "mode": "100644",
+            "oid": "b6fedd467a7ee66f8ac85c5f325d569a935dca89"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "bf83933331552e6690ba79f38db3ee08db1b1e93"
+          },
+          "evals/fixtures/opc-contracts.json": {
+            "mode": "100644",
+            "oid": "eabd72d04b1b970c6cf9b01949e6ec244e08fa45"
+          },
+          "references/communications/slack-pr-review.md": {
+            "mode": "100644",
+            "oid": "4d4dfdfc3538d81b3d3f10e46840739d737b2731"
+          },
+          "references/communications/slack-product-walkthrough.md": {
+            "mode": "100644",
+            "oid": "3e3870fd6a97c3e36250f46dbbe4e0a440a0e49f"
+          },
+          "references/execution-boundaries.md": {
+            "mode": "100644",
+            "oid": "ad7f684c26c2c45cc339a69303c0022739932fbc"
+          },
+          "references/experience-protocol.md": {
+            "mode": "100644",
+            "oid": "8b359a28ffbb0f8700942b92de0cd181784056e5"
+          },
+          "references/experiences/index.md": {
+            "mode": "100644",
+            "oid": "b5e488b18d7951a332585646efa6f9037ce95fb3"
+          },
+          "references/experiences/opc-orchestration.md": {
+            "mode": "100644",
+            "oid": "6928f7c7b14ab2bc6a4a00d4c6c84dfb78446ba2"
+          },
+          "references/operating-model.md": {
+            "mode": "100644",
+            "oid": "0e117ca835cce7dd50d4a09c677a9410e8f0f309"
+          },
+          "references/releases/mobile.md": {
+            "mode": "100644",
+            "oid": "676bca819824c742262e3a80940747ddffb83bc2"
+          },
+          "references/releases/moego-monorepo.md": {
+            "mode": "100644",
+            "oid": "7d388d4c5729b60bc3b669015e17f99b0de56108"
+          },
+          "references/releases/web.md": {
+            "mode": "100644",
+            "oid": "8bcf18a85984f718f5c61d3dc9e1bbec6f595573"
+          },
+          "references/requirement-workspace.md": {
+            "mode": "100644",
+            "oid": "f0414597420baf97d22f075de0d9e4e4ef93a929"
+          },
+          "references/resource-context.md": {
+            "mode": "100644",
+            "oid": "639ebfba03f5daefbcfe026864c1865b8e0e1c9f"
+          },
+          "references/review-readiness.md": {
+            "mode": "100644",
+            "oid": "6fc77d8dc090ed4f7e1c693addc03f1bf0efe874"
+          },
+          "references/sources/grooming-quick-win.md": {
+            "mode": "100644",
+            "oid": "e1a3056a233c6efac874b5242ebc8ff331d4b970"
+          },
+          "references/stage-routing.md": {
+            "mode": "100644",
+            "oid": "30022423e7a7db8a7129da3089ec4ddee1746176"
+          },
+          "references/stages/closure.md": {
+            "mode": "100644",
+            "oid": "3a8c4c8007a03f586bde7c918b919b3fcb654234"
+          },
+          "references/stages/delivery.md": {
+            "mode": "100644",
+            "oid": "f5e3a5feaf03d6f838ed65604312c28669150ac9"
+          },
+          "references/stages/design-coordination.md": {
+            "mode": "100644",
+            "oid": "5fd64ea6f62cc141c80582be1c3c3f6f4aa00df3"
+          },
+          "references/stages/development.md": {
+            "mode": "100644",
+            "oid": "bcb5bf3d07f12439dbc433d7309572a10c4ea0e1"
+          },
+          "references/stages/observation.md": {
+            "mode": "100644",
+            "oid": "1818e162db5fa679d74881d4f570de099b0bee18"
+          },
+          "references/stages/pr-review.md": {
+            "mode": "100644",
+            "oid": "295ff92e1aa8ee9c2556db2583a43a2b7a860395"
+          },
+          "references/stages/prd.md": {
+            "mode": "100644",
+            "oid": "2f19e515851fdb0a735e1eee4a0c27814554599d"
+          },
+          "references/stages/release.md": {
+            "mode": "100644",
+            "oid": "6edf2d915ae0b94e3b5efff92bd27f7f3e180e6f"
+          },
+          "references/stages/technical-design.md": {
+            "mode": "100644",
+            "oid": "dcba91736f48cfc1fec9d765e1e326715596a00e"
+          }
+        }
+      }
+    },
+    "moe-router": {
+      "installedAt": "2026-09-13T14:18:05.648620Z",
+      "skillFolderHash": "26a829422cf2f0330427d2be429de446ef3a2514",
+      "skillPath": "moe-router/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T16:02:33.530807Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-router",
+        "appliedRevision": "fbccaf527166309acb7d1ebec70472547f6fb5a4",
+        "remoteTree": "26a829422cf2f0330427d2be429de446ef3a2514",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "085e81d66ee5d953564302b52158fb6b3e0f3bbd"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "6db1605ed7512a19ed88579c67c39de7fb6b2502"
+          },
+          "references/knowledge-navigation.md": {
+            "mode": "100644",
+            "oid": "d09f3c00d2b7db5584abe108711cb212af0cd6cc"
+          }
+        }
+      }
+    },
+    "moe-t2-database": {
+      "installedAt": "2026-09-16T14:42:48Z",
+      "skillFolderHash": "b1880b5a2aaff73df9d211059417ae252ba243f2",
+      "skillPath": "skills/moe-t2-database/SKILL.md",
+      "source": "MoeGolibrary/moego-ai-plugin",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MoeGolibrary/moego-ai-plugin.git",
+      "updatedAt": "2026-09-16T14:42:48Z"
+    },
+    "moe-t2-k8s": {
+      "installedAt": "2026-09-16T02:18:35Z",
+      "skillFolderHash": "e56c777274d6d08d153770b4da8d22ca8c03a354",
+      "skillPath": "skills/moe-t2-k8s/SKILL.md",
+      "source": "MoeGolibrary/moego-ai-plugin",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MoeGolibrary/moego-ai-plugin.git",
+      "updatedAt": "2026-09-16T02:18:35Z"
+    },
+    "multica-slack-intent": {
+      "installedAt": "2026-09-10T08:30:53.859734Z",
+      "skillFolderHash": "9f3b18a891efed4370eeaf61371f0c169ff409ef",
+      "skillPath": "multica-slack-intent/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "multica-slack-intent",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "9f3b18a891efed4370eeaf61371f0c169ff409ef",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "e9fa75728fae995dece549993375fb7737425f2e"
+          },
+          "references/intent-cases.md": {
+            "mode": "100644",
+            "oid": "2c22042446dcc6150510e9df4c9367b6f627e53e"
+          },
+          "references/pr-review.md": {
+            "mode": "100644",
+            "oid": "21fe2a8bde2a88683d3b14e2a68c4643d42f5ddf"
+          },
+          "references/silent-cleanup.md": {
+            "mode": "100644",
+            "oid": "c097729dee528e84cb1492114138bac95c5b4339"
+          }
+        }
+      }
+    },
+    "ops-review-doc-generator": {
+      "installedAt": "2026-08-30T14:14:54.673376Z",
+      "skillFolderHash": "c667d99bce9cc207658e9c8b2e7302cee3bf7501",
+      "skillPath": "ops-review-doc-generator/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "ops-review-doc-generator",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "c667d99bce9cc207658e9c8b2e7302cee3bf7501",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "396f57e1b149c8ca8100c40e49968a5058be247a"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "bbd15aea484bc3648619ec1fb0785141e110eb7d"
+          },
+          "assets/grooming-evidence.example.json": {
+            "mode": "100644",
+            "oid": "a9a2484efc9050af57095fc371d78909725d1a73"
+          },
+          "references/data-source-playbook.md": {
+            "mode": "100644",
+            "oid": "ad9bd85ad499563d8fa1e7d49ab7097c74d7816f"
+          },
+          "references/grooming-template.md": {
+            "mode": "100644",
+            "oid": "642bf997dd4625dd0f8cf1bee6a97dbd2f58dd83"
+          },
+          "references/output-quality.md": {
+            "mode": "100644",
+            "oid": "3d4027779ec0c92300ca2cf6f916aa51cdef8bf5"
+          },
+          "references/pre-generation-confirmation-gate.md": {
+            "mode": "100644",
+            "oid": "9b60526cf73c24a8ccb4267a6df447caf12c814c"
+          },
+          "references/supplemental-data-backfill.md": {
+            "mode": "100644",
+            "oid": "81f3a2d356b4f4b8c278a0747c5828c3da1b6710"
+          },
+          "references/tableau-extraction-audit.md": {
+            "mode": "100644",
+            "oid": "0d7ea119475dd1e7ab76b28e714e1f3136dd5e63"
+          },
+          "scripts/render_grooming_ops_review.py": {
+            "mode": "100755",
+            "oid": "f3884eac29b506cfe61d6247ae9be923401d05ed"
+          },
+          "tests/test_render_grooming_ops_review.py": {
+            "mode": "100644",
+            "oid": "ea50fb1c522186b7e674d448c34f1030affff39a"
+          }
+        }
+      }
+    },
+    "posthog-skills": {
+      "installedAt": "2026-05-29T06:33:06Z",
+      "skillFolderHash": "cf94afd23e0e203fa0798d0eb07b0daaa0ac74fe",
+      "skillPath": "posthog-skills/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "posthog-skills",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "cf94afd23e0e203fa0798d0eb07b0daaa0ac74fe",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "1037c81c09b2853a03fa149b0e790744587884ec"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "b6eb15be651b3ec860ca6a2f828a92308c81e06d"
+          },
+          "references/entity-crud.md": {
+            "mode": "100644",
+            "oid": "d5b03c7d075ec5a32cf13cf90ad76eeb604fb97a"
+          },
+          "references/posthog-shared.md": {
+            "mode": "100644",
+            "oid": "93b2f25826c20063034d6de58649518d8308532a"
+          },
+          "references/query-hogql.md": {
+            "mode": "100644",
+            "oid": "3214e357319e98d8ed18a13c9db184322c268345"
+          },
+          "scripts/posthog.py": {
+            "mode": "100755",
+            "oid": "d87b2814f0bd53732709dfb39e19f7d93886baf5"
+          }
+        }
+      }
+    },
+    "redshift": {
+      "installedAt": "2026-06-08T04:00:40Z",
+      "skillFolderHash": "c403ad4cba0eb16b56e4d23ef22136ee82239174",
+      "skillPath": "redshift/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "redshift",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "c403ad4cba0eb16b56e4d23ef22136ee82239174",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "5aa8e8363c7d653d66794f0bc177b503dc3ad798"
+          },
+          "AGENTS.md": {
+            "mode": "100644",
+            "oid": "3cebb650bea9dfa4513647185386b0caa7e46f41"
+          },
+          "ARCHITECTURE.md": {
+            "mode": "100644",
+            "oid": "a8cdbe4926ea73ff773260f506d52c402883ff60"
+          },
+          "MAINTENANCE.md": {
+            "mode": "100644",
+            "oid": "579f46e4b637a976af4980e778d57f05e29b56b8"
+          },
+          "README.md": {
+            "mode": "100644",
+            "oid": "319148eb5c7793e5553f4860aa4baf473eb96108"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "2bdc671f3c3eafc06cbe17d0d19ca3a3dbbcb7c0"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "edde942163c67a3e1ff8fdc9063fb0126b94987b"
+          },
+          "connections.example.json": {
+            "mode": "100644",
+            "oid": "12defd0e3cb8e2c57376f813acdb10dc7db54738"
+          },
+          "evals/trigger-cases.yaml": {
+            "mode": "100644",
+            "oid": "b13dbaa87680c28be3b2fe0d542ac1258fe24811"
+          },
+          "references/catalog.jsonl": {
+            "mode": "100644",
+            "oid": "829a3d3bee9b50b4e5e72371fa1d3dabc9c42e53"
+          },
+          "references/domain-routing.md": {
+            "mode": "100644",
+            "oid": "b30a644ac20ef29228dcee497b96fa5bbbdb3457"
+          },
+          "references/legacy-grooming.md": {
+            "mode": "100644",
+            "oid": "d0ef5757c1b1ff449dfd4e98a148dc371b4abaf8"
+          },
+          "references/moego-domain-map.json": {
+            "mode": "100644",
+            "oid": "839f09e3fce95b60d77ea8cc84e76babf7f35e6b"
+          },
+          "references/query-patterns.md": {
+            "mode": "100644",
+            "oid": "33dacd40f9f4a36f77b370e87dd39af0517bfcda"
+          },
+          "references/redshift-semantics.md": {
+            "mode": "100644",
+            "oid": "8fc4b4b9c4fd3678e67112230148361f2a7c9def"
+          },
+          "requirements-data-api.txt": {
+            "mode": "100644",
+            "oid": "fe1719f4d966558f0cc7023bd965d3ccba5ffb6c"
+          },
+          "scripts/build_catalog.py": {
+            "mode": "100644",
+            "oid": "df69417b5c9c9d31952417444a74a9d1a3f78a94"
+          },
+          "scripts/generate_contract_cases.py": {
+            "mode": "100644",
+            "oid": "6ea7247667239c4188722505ee8e438896f51a96"
+          },
+          "scripts/redshift.py": {
+            "mode": "100644",
+            "oid": "fd08f935c82745f3c406607fec1e412cc6cb95ff"
+          },
+          "scripts/rs/__init__.py": {
+            "mode": "100644",
+            "oid": "5483b261050030d3540f7fcd645732d2738415b8"
+          },
+          "scripts/rs/application.py": {
+            "mode": "100644",
+            "oid": "48a9507edfc840446b9f4673e107a4b951410b85"
+          },
+          "scripts/rs/catalog/__init__.py": {
+            "mode": "100644",
+            "oid": "aa08ee4cc47f836d0053454034ff18895ab50dd4"
+          },
+          "scripts/rs/catalog/builder.py": {
+            "mode": "100644",
+            "oid": "2fc38cfdbbaf237c20f45bcf0c3cc7324711c412"
+          },
+          "scripts/rs/catalog/enrichment.py": {
+            "mode": "100644",
+            "oid": "67f05006e3d6e4b3a20090164cb0e81206cf3a03"
+          },
+          "scripts/rs/catalog/identifiers.py": {
+            "mode": "100644",
+            "oid": "175dae5e52eaa86c6bd94c080923c91bfc3f7f6d"
+          },
+          "scripts/rs/catalog/live.py": {
+            "mode": "100644",
+            "oid": "b291c4d8f28bbc3840164d0ccb6188a9de4c770e"
+          },
+          "scripts/rs/catalog/model.py": {
+            "mode": "100644",
+            "oid": "e822b91a977a68595cbf8d0446b2ed743192485c"
+          },
+          "scripts/rs/catalog/redshift.py": {
+            "mode": "100644",
+            "oid": "3bef4abba94f14b40d72482b1344a63cc892838b"
+          },
+          "scripts/rs/catalog/search.py": {
+            "mode": "100644",
+            "oid": "8c11a573b02b83b1c167763b2836e97233a3ea9e"
+          },
+          "scripts/rs/catalog/snapshot.py": {
+            "mode": "100644",
+            "oid": "219e0450eb46948b75cdda5e709faa23ff8240b3"
+          },
+          "scripts/rs/cli.py": {
+            "mode": "100644",
+            "oid": "19b07a5925513b3b0174a12db658077c09c27a3f"
+          },
+          "scripts/rs/config.py": {
+            "mode": "100644",
+            "oid": "634c43c0d438c21f00726b1ae07d491ea9025d27"
+          },
+          "scripts/rs/connection.py": {
+            "mode": "100644",
+            "oid": "17636824abbba106b70b2ff8af82a5f5cc568bd9"
+          },
+          "scripts/rs/connectivity/__init__.py": {
+            "mode": "100644",
+            "oid": "1474e84e4bc42d017d24fcd1fefa3a5f483e61b5"
+          },
+          "scripts/rs/connectivity/aws.py": {
+            "mode": "100644",
+            "oid": "b22db5eadbe4a92e3f9180ac60d0e56fa82fe284"
+          },
+          "scripts/rs/connectivity/data_api.py": {
+            "mode": "100644",
+            "oid": "a80b66e92ed73dc01b5db700a0af6774305aa098"
+          },
+          "scripts/rs/connectivity/doctor.py": {
+            "mode": "100644",
+            "oid": "89fd283a25dc3bfbbd64eebc012de8399febd1ff"
+          },
+          "scripts/rs/connectivity/model.py": {
+            "mode": "100644",
+            "oid": "6d6aa804b84db7ab7db04353ee84d4856a0d6c3c"
+          },
+          "scripts/rs/connectivity/registry.py": {
+            "mode": "100644",
+            "oid": "c258f1a6d408d92c312472e5eae358dd22979f9d"
+          },
+          "scripts/rs/connectivity/service.py": {
+            "mode": "100644",
+            "oid": "9df1ff6cd4244df1eb2cc2c531e95d6aedbbb2ec"
+          },
+          "scripts/rs/connectivity/wire.py": {
+            "mode": "100644",
+            "oid": "aaf962f4f58603c55c4cc8031e6dc0380d24f3e0"
+          },
+          "scripts/rs/contract.py": {
+            "mode": "100644",
+            "oid": "ab1c5965d75f196a803a34736e19df835397659f"
+          },
+          "scripts/rs/errors.py": {
+            "mode": "100644",
+            "oid": "72b9df20f3ddeb8eacc1d771943ad199f551a97f"
+          },
+          "scripts/rs/models.py": {
+            "mode": "100644",
+            "oid": "6151936ffc72c3a548bfd5ca201caeb8642ec1a5"
+          },
+          "scripts/rs/output.py": {
+            "mode": "100644",
+            "oid": "014291ea061f76ba0b92319f4f26ef4ab80d4d77"
+          },
+          "scripts/rs/query/__init__.py": {
+            "mode": "100644",
+            "oid": "fe8dae3988a1623fa9b17101c2e551d0c8ce0e47"
+          },
+          "scripts/rs/query/execute.py": {
+            "mode": "100644",
+            "oid": "f5eaf21717eb1850c1eece884f1774425a8148eb"
+          },
+          "scripts/rs/query/explain.py": {
+            "mode": "100644",
+            "oid": "60653ec86010999c26abf321eb58cbf322c947cc"
+          },
+          "scripts/rs/query/guard.py": {
+            "mode": "100644",
+            "oid": "fbb2fda48d04ad08d2f172726366a0fb70df5d5a"
+          },
+          "scripts/rs/query/parameter_plan.py": {
+            "mode": "100644",
+            "oid": "542c7586fea25706332d1de81f3528a158b8b424"
+          },
+          "scripts/rs/query/params.py": {
+            "mode": "100644",
+            "oid": "7d2e801a4d8f5dbd9475c5b899d1bbd7f8e5331c"
+          },
+          "scripts/rs/recipes/__init__.py": {
+            "mode": "100644",
+            "oid": "6355488a963c3921a435a78501ef98788bf1e3d8"
+          },
+          "scripts/rs/recipes/appointment_timeline.py": {
+            "mode": "100644",
+            "oid": "0fa455c8cd9aa6cd97f8e87ab9dca9d26aba5a5d"
+          },
+          "scripts/rs/recipes/email_to_company.py": {
+            "mode": "100644",
+            "oid": "db8170648a17b5c263487482d4cb1a59050d20eb"
+          },
+          "scripts/rs/recipes/membership_entitlement.py": {
+            "mode": "100644",
+            "oid": "da531ccb239c8145d879d3d689a832d607f6f832"
+          },
+          "scripts/rs/recipes/refund_origin.py": {
+            "mode": "100644",
+            "oid": "42a53c5ba9ed02f5156bd71d81058dfd0c687c73"
+          },
+          "scripts/rs/recipes/registry.py": {
+            "mode": "100644",
+            "oid": "5d9dac6c404669c9d38bc56a57afccd854ad0958"
+          },
+          "scripts/run_contract_replay.py": {
+            "mode": "100644",
+            "oid": "b4114268807b856905ad257f90804047f6ebd409"
+          },
+          "tests/conftest.py": {
+            "mode": "100644",
+            "oid": "39d46f19a5c434ecd68cf47439795aba16679a9e"
+          },
+          "tests/fixtures/contract-cases.json": {
+            "mode": "100644",
+            "oid": "3c42e58357bdd1f9085bcaec7eae07ca9d71aa29"
+          },
+          "tests/test_adapter_parity.py": {
+            "mode": "100644",
+            "oid": "e6434afdcefb9cfe27615b23ea61915cb37428fb"
+          },
+          "tests/test_application.py": {
+            "mode": "100644",
+            "oid": "af9ebd0189002d9a98b2e0c2b609c274f8ab537d"
+          },
+          "tests/test_aws_resolver.py": {
+            "mode": "100644",
+            "oid": "1eeec85afe809285bc3e8deedc14e5cff6908c4d"
+          },
+          "tests/test_build_catalog_cli.py": {
+            "mode": "100644",
+            "oid": "07f4eaee9cf23a03a46b23d3853d61070500a599"
+          },
+          "tests/test_catalog.py": {
+            "mode": "100644",
+            "oid": "4ad0b55aa10bb5f1ff435da07968410f9f42faf8"
+          },
+          "tests/test_catalog_builder.py": {
+            "mode": "100644",
+            "oid": "7c96a4222464771f2b821d091c77226b0a4a0bd9"
+          },
+          "tests/test_catalog_enrichment.py": {
+            "mode": "100644",
+            "oid": "917969ac06d956726ac672d3b6a3b43a2b0f6fe0"
+          },
+          "tests/test_cli.py": {
+            "mode": "100644",
+            "oid": "483c41914cbb8496739148dfa54ef78891ca74df"
+          },
+          "tests/test_config.py": {
+            "mode": "100644",
+            "oid": "208f11e54bc1cec8ee9f130a21473829d905168a"
+          },
+          "tests/test_connection.py": {
+            "mode": "100644",
+            "oid": "82fd46093f55fae22f68f138df1139016982ff5c"
+          },
+          "tests/test_connection_registry.py": {
+            "mode": "100644",
+            "oid": "1394f374cef0eb8697ebc7460fdd6659324a8fda"
+          },
+          "tests/test_connectivity_service.py": {
+            "mode": "100644",
+            "oid": "4d9ccb11931ac7cdffe9f332e62cda1e291beb41"
+          },
+          "tests/test_contract.py": {
+            "mode": "100644",
+            "oid": "ba8a7f25209546cce3b8b6f44e1016df07a5599b"
+          },
+          "tests/test_contract_replay.py": {
+            "mode": "100644",
+            "oid": "26f0cb90e57cf162b92a4f406447db8b7259741d"
+          },
+          "tests/test_control.py": {
+            "mode": "100644",
+            "oid": "680da2fe29beff7661fbf555ded74af532bc2e85"
+          },
+          "tests/test_data_api_adapter.py": {
+            "mode": "100644",
+            "oid": "bf3697f6f3f14da6a0fe8007d90b6b26f941298a"
+          },
+          "tests/test_explain.py": {
+            "mode": "100644",
+            "oid": "b08b6fdea8d0e317f28a46108bc921d30de51c2d"
+          },
+          "tests/test_guard.py": {
+            "mode": "100644",
+            "oid": "78f3497546f0fe4ae33c2ad07bef3eb6345fb37c"
+          },
+          "tests/test_knowledge_contract.py": {
+            "mode": "100644",
+            "oid": "ba9d2d7639d8f211261c8c49942899b47338b8d3"
+          },
+          "tests/test_metadata.py": {
+            "mode": "100644",
+            "oid": "c6e4f63ce776e61479f0dda9e2739de0631fe72f"
+          },
+          "tests/test_output_contract.py": {
+            "mode": "100644",
+            "oid": "c3d6a58421c57174d6f13efb7d86ed771df278b4"
+          },
+          "tests/test_parameter_plan.py": {
+            "mode": "100644",
+            "oid": "34ee1c2f5ad7dc0d032f2b62a96cea71d06c6e88"
+          },
+          "tests/test_params.py": {
+            "mode": "100644",
+            "oid": "51c1eec93bc8e5074783cda58f2c30f4b63e14f3"
+          },
+          "tests/test_query.py": {
+            "mode": "100644",
+            "oid": "098bbf8000f08662c2bc0308c5558d13f00e8284"
+          },
+          "tests/test_recipe.py": {
+            "mode": "100644",
+            "oid": "0eb17e9cce3b4fc4ae3044fe25055de0357a9638"
+          },
+          "tests/test_recipe_workflows.py": {
+            "mode": "100644",
+            "oid": "f93a5de844f7394e3ae9f5085f406d89f0db8cbd"
+          },
+          "tests/test_redaction.py": {
+            "mode": "100644",
+            "oid": "0008a8eabcc5a384b289d1b83c3216f70fc9163b"
+          },
+          "tests/test_redshift_metadata_adapter.py": {
+            "mode": "100644",
+            "oid": "090e4ee0659030c12a67859760baa6eb702be07e"
+          },
+          "tests/test_search.py": {
+            "mode": "100644",
+            "oid": "c43ffec958d727b7a4529613cedebae257059f05"
+          },
+          "tests/test_streaming_lifecycle.py": {
+            "mode": "100644",
+            "oid": "72c6e0be829855d078e1f252366232d1e15bb84c"
+          },
+          "tests/test_wire_adapter.py": {
+            "mode": "100644",
+            "oid": "dfff6671bd18c10471c35acba3c6e2f1845f3b88"
+          }
+        }
+      }
+    },
+    "review-brief": {
+      "installedAt": "2026-08-30T13:28:48.028830Z",
+      "skillFolderHash": "d57dfa5d407d38d6266391ae8aed31dff683040d",
+      "skillPath": "review-brief/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "review-brief",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "d57dfa5d407d38d6266391ae8aed31dff683040d",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "f5de23c1c51e83efa25c05ff3bb4bda3dec157d1"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "a93abc3957e1447165d926268fbee3c62b517315"
+          },
+          "evals/README.md": {
+            "mode": "100644",
+            "oid": "8ef85d6b4afd1d29a2d52938305d8754a524cdbb"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "d762d6bac0c53bf5c711314a96c51c83fbffa660"
+          },
+          "evals/fixtures/assets/booking-card-after.html": {
+            "mode": "100644",
+            "oid": "93b6a71a061adeebef323c2c2d7d44918e6ae48e"
+          },
+          "evals/fixtures/assets/booking-card-after.png": {
+            "mode": "100644",
+            "oid": "2c3af0ad54bfc0aef484d51727f83b2c7a554168"
+          },
+          "evals/fixtures/brief-not-review.md": {
+            "mode": "100644",
+            "oid": "866dec739db4d6cf216a9872aa2dfa327e36f354"
+          },
+          "evals/fixtures/channel-source-bundle.json": {
+            "mode": "100644",
+            "oid": "ed470f35e49da6fbbdfef7ae713e4614486ca66c"
+          },
+          "evals/fixtures/frontend-booking-card.md": {
+            "mode": "100644",
+            "oid": "655a316d3d2cd53f1f8b02c7c4c744938deed99e"
+          },
+          "evals/fixtures/full-async-reminder.md": {
+            "mode": "100644",
+            "oid": "203d1ef8096633b9ced84e841734462df996d9d0"
+          },
+          "evals/fixtures/lite-preference-note.md": {
+            "mode": "100644",
+            "oid": "6399bdb5eac644dac98b57567697bf61faee3daa"
+          },
+          "evals/grade_outputs.mjs": {
+            "mode": "100644",
+            "oid": "ca2b25b6652f0afeface7a710e2bab8a0ba5db58"
+          },
+          "evals/rendering.test.mjs": {
+            "mode": "100644",
+            "oid": "25adb8ed87cb3eeaeeff9ebdc6cf6a6c80378f16"
+          },
+          "evals/trigger-evals.json": {
+            "mode": "100644",
+            "oid": "fea08224e3f2e97785a76fdf0ef3c27298881bda"
+          },
+          "references/channel-rendering.md": {
+            "mode": "100644",
+            "oid": "e6d4122c4ea64540b34af61de87dedeed9b36c69"
+          },
+          "references/output-contract.md": {
+            "mode": "100644",
+            "oid": "4c3696d78c69f57a4566fe76f1ea049a4bf75e94"
+          },
+          "scripts/review-brief-policy.mjs": {
+            "mode": "100644",
+            "oid": "a5b65af7d08d34b11539fe09f59e369188afe643"
+          },
+          "scripts/review-brief.mjs": {
+            "mode": "100644",
+            "oid": "b9abd7167f9a0f27b64242c6be3061b530e406a8"
+          }
+        }
+      }
+    },
+    "review-swarm": {
+      "installedAt": "2026-04-20T03:27:44Z",
+      "skillFolderHash": "947c85b1018984304e1cf7ad117663277ebe2314",
+      "skillPath": "review-swarm/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "review-swarm",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "947c85b1018984304e1cf7ad117663277ebe2314",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "e9f72fb6bc0eab90442ecd14d5012e250edba07d"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "c143720515d2cb375a2d17cdb1798a41ee53eb83"
+          },
+          "evals/cases.json": {
+            "mode": "100644",
+            "oid": "29d51bcd8dac5f17498cf13839e475ebebeb8bee"
+          },
+          "evals/summary-cases.json": {
+            "mode": "100644",
+            "oid": "3d5913045740b392fd3f0d80f2ecf1562615ef2a"
+          },
+          "evals/trajectory-fixtures.json": {
+            "mode": "100644",
+            "oid": "8ccbd2ca777b62138921516b8edb52044858361f"
+          },
+          "evals/validate_contract.py": {
+            "mode": "100644",
+            "oid": "7e3ed1fdf2f580ca0d1c4fcdd6fca69a015ed9d4"
+          },
+          "references/overall-summary.md": {
+            "mode": "100644",
+            "oid": "281fbcd021c2ebabf2da180c2f0901e55ebce53f"
+          }
+        }
+      }
+    },
+    "sentry": {
+      "installedAt": "2026-05-29T06:33:06Z",
+      "skillFolderHash": "25e461dc189ab47e66a628714ae559d7c837c96d",
+      "skillPath": "sentry/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "sentry",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "25e461dc189ab47e66a628714ae559d7c837c96d",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "b655e434bc1c44bd1e8686620a3c7668aa42312d"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "b65c43300dd4a9b9fff539dcb100c5156244faa5"
+          },
+          "references/bundle-repo-resolution.md": {
+            "mode": "100644",
+            "oid": "8eb5649c0a535edef79bfbe79af69b8dea4dbd4c"
+          },
+          "references/crash-analysis.md": {
+            "mode": "100644",
+            "oid": "d1d6b1b075bb3c959e629c09e806021ee3dbb5cd"
+          },
+          "references/output-contract.md": {
+            "mode": "100644",
+            "oid": "0c7007525d81faa90aa89df353d3c107e5977fac"
+          },
+          "references/sentry-query-syntax.md": {
+            "mode": "100644",
+            "oid": "562fea1aa9549d108c44f63ee380d5affb824489"
+          },
+          "scripts/sentry.py": {
+            "mode": "100644",
+            "oid": "43042f040cb8ae8cffeeccb17c06650a422df8c5"
+          },
+          "scripts/st/__init__.py": {
+            "mode": "100644",
+            "oid": "b2792263ed2c12d99eddbfe3e1b4212cf5cf8fcb"
+          },
+          "scripts/st/client.py": {
+            "mode": "100644",
+            "oid": "17a371ee7db246f1808f4d7d91e517e553e0a6c1"
+          },
+          "scripts/st/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "e39bc8e70a5fea09b61a535a428bd639d39d2f8b"
+          },
+          "scripts/st/commands/_common.py": {
+            "mode": "100644",
+            "oid": "f5f5195c8606bc8e96b10f6f84d579fceeb38341"
+          },
+          "scripts/st/commands/analyze.py": {
+            "mode": "100644",
+            "oid": "546cd429779a09e0e5054263ac0eeea9fe0a06df"
+          },
+          "scripts/st/commands/fetch_event.py": {
+            "mode": "100644",
+            "oid": "c8703b6b91ae679789fa84b6e2c46a786de38b94"
+          },
+          "scripts/st/commands/get_issue.py": {
+            "mode": "100644",
+            "oid": "c5a6bcc8d47dea2120a8be71b598cc9de5737016"
+          },
+          "scripts/st/commands/list_issue_events.py": {
+            "mode": "100644",
+            "oid": "805824b1697c934dd040ddb7334de01be5ac508e"
+          },
+          "scripts/st/commands/list_issues.py": {
+            "mode": "100644",
+            "oid": "6a442e9efe494e36a308788c7f311a2eddd9f182"
+          },
+          "scripts/st/commands/list_projects.py": {
+            "mode": "100644",
+            "oid": "eecaa8e3f469727afcc22e4e08dcdd492528505a"
+          },
+          "scripts/st/commands/tag_values.py": {
+            "mode": "100644",
+            "oid": "ffdf1845d15ae1dea4ba7b7239c4ade232bf1a76"
+          },
+          "scripts/st/config.py": {
+            "mode": "100644",
+            "oid": "7d8c5db06991fa0673d675765e8bbbf5810e938c"
+          },
+          "scripts/st/errors.py": {
+            "mode": "100644",
+            "oid": "86438a67395e08a52d3b72cd576500216bb79e58"
+          },
+          "scripts/st/extract.py": {
+            "mode": "100644",
+            "oid": "75eb7a576d2a6d51031803f63c35bfe68c79818b"
+          },
+          "scripts/st/formatter.py": {
+            "mode": "100644",
+            "oid": "c6d1003cb2c46249e2904f8ad444dc3e77ca36c7"
+          },
+          "scripts/st/urls.py": {
+            "mode": "100644",
+            "oid": "4d1897f1dfd799eaea46201305800dd0045aaf81"
+          },
+          "tests/test_analysis_behavior.py": {
+            "mode": "100644",
+            "oid": "4cdf10332e5708fbe4cec396b9586e974655658a"
+          },
+          "tests/test_cli_contracts.py": {
+            "mode": "100644",
+            "oid": "0b353b04083b83c38d2b09ff5e5ff169e4352493"
+          },
+          "tests/test_config_and_client.py": {
+            "mode": "100644",
+            "oid": "4bb81a1e8bcae5de94adb227ec42f4fb8395211b"
+          },
+          "tests/test_issue_endpoint_fallback.py": {
+            "mode": "100644",
+            "oid": "69afafad342ebef7b3e3f24b9293298ac93d8a09"
+          },
+          "tests/test_sentry_skill.py": {
+            "mode": "100644",
+            "oid": "b536062133f2af233e28f408111a400172e5d546"
+          }
+        }
+      }
+    },
+    "skill-evaluator": {
+      "installedAt": "2026-08-17T04:05:09Z",
+      "skillFolderHash": "3df22729da46495f77a8a2f8e48e8dfcfb440439",
+      "skillPath": "skill-evaluator/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "skill-evaluator",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "3df22729da46495f77a8a2f8e48e8dfcfb440439",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "62b123e44cf7145bd94a8f712a8a05db5b62d356"
+          },
+          "LICENSE.txt": {
+            "mode": "100644",
+            "oid": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "193557e793747ea7e65db8882679b665e356374a"
+          },
+          "agents/analyzer.md": {
+            "mode": "100644",
+            "oid": "14e41d6068635f4dd3fb878fd1626312395dda63"
+          },
+          "agents/comparator.md": {
+            "mode": "100644",
+            "oid": "80e00eb45db3ee53a132fc2ba97fd59a7339e563"
+          },
+          "agents/grader.md": {
+            "mode": "100644",
+            "oid": "558ab05c0a9a8bb062ef4c51823d4d76c3acf7c4"
+          },
+          "assets/eval_review.html": {
+            "mode": "100644",
+            "oid": "938ff32aed9bffabf723bd5492d720f4736c8e4d"
+          },
+          "eval-viewer/generate_review.py": {
+            "mode": "100644",
+            "oid": "7fa5978631fed1ed545591dbb2b0eb21ce3f3d08"
+          },
+          "eval-viewer/viewer.html": {
+            "mode": "100644",
+            "oid": "d7c2e226f1b38353c83b67ed2722336fdb64170b"
+          },
+          "package.json": {
+            "mode": "100644",
+            "oid": "1bc081fc9089283112838c590c8e17a08801850a"
+          },
+          "references/runtime-extensions.md": {
+            "mode": "100644",
+            "oid": "d6566a7b5ab9b7b45afd54241ef36d20672b3d96"
+          },
+          "references/schemas.md": {
+            "mode": "100644",
+            "oid": "1aed5afcdfea176847d99235c6883d55deecb653"
+          },
+          "scripts/__init__.py": {
+            "mode": "100644",
+            "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "scripts/aggregate_benchmark.py": {
+            "mode": "100755",
+            "oid": "63f769c19c3ad3b1a07fa82c8c21f07c2693358f"
+          },
+          "scripts/eval_runtime/__init__.py": {
+            "mode": "100644",
+            "oid": "3454df82e9f26c4f1e8bedc4779e0ed085069da6"
+          },
+          "scripts/eval_runtime/configuration.py": {
+            "mode": "100644",
+            "oid": "ac232a97006af5f7e802d724313683cfe1c1afa8"
+          },
+          "scripts/eval_runtime/executors.py": {
+            "mode": "100644",
+            "oid": "b18507f3e4cc279fb0f951c2f6932b989764f6ae"
+          },
+          "scripts/eval_runtime/fixture_match.mjs": {
+            "mode": "100644",
+            "oid": "bc123238eb2beaab0820566db905a1892a10512f"
+          },
+          "scripts/eval_runtime/pi_sdk_bridge.mjs": {
+            "mode": "100644",
+            "oid": "367d1cfdfad2835d164ca1da1fd667fc8cf9ee86"
+          },
+          "scripts/eval_runtime/replay.py": {
+            "mode": "100644",
+            "oid": "e32d37575f25fa15821f7038107b11eb97ea6e8d"
+          },
+          "scripts/eval_runtime/trajectory.py": {
+            "mode": "100644",
+            "oid": "1a38c1f9438671bb018706ef16caadf8afe38eb6"
+          },
+          "scripts/generate_report.py": {
+            "mode": "100755",
+            "oid": "586e5b8ed928c9294684bead821740019a3c4a1e"
+          },
+          "scripts/improve_description.py": {
+            "mode": "100755",
+            "oid": "8bbd5affc08319f28ff26564fa7a0bbac2f4e1af"
+          },
+          "scripts/package_skill.py": {
+            "mode": "100755",
+            "oid": "f48eac444656ddc41204aac1760a217951ce609e"
+          },
+          "scripts/quick_validate.py": {
+            "mode": "100755",
+            "oid": "ed8e1dddce77b16af13c6f36b3fe86c4ac7c590c"
+          },
+          "scripts/run_ci.py": {
+            "mode": "100644",
+            "oid": "5928079445aa56ce74f8a9873fbaa8a7d85b222b"
+          },
+          "scripts/run_eval.py": {
+            "mode": "100755",
+            "oid": "c2a2d912c8601e92e175a72d4ef67146d7604f28"
+          },
+          "scripts/run_loop.py": {
+            "mode": "100755",
+            "oid": "ddd87778e43ee5e935ccf1bae91bbae2e877ca13"
+          },
+          "scripts/utils.py": {
+            "mode": "100644",
+            "oid": "3c383157ba1f93c014927b566537a3441ab14ffe"
+          },
+          "tests/__init__.py": {
+            "mode": "100644",
+            "oid": "61fef3cfe4b82c2fa3ea336f7bf06f888856bc02"
+          },
+          "tests/fixture_skills.py": {
+            "mode": "100644",
+            "oid": "0abd3646a0deb842156fb397f2db9fe37d0f9a60"
+          },
+          "tests/fixtures/pi-replay-negative/evals/evals.json": {
+            "mode": "100644",
+            "oid": "38b3192977889cdd4ec29b62304bbe74d7c85253"
+          },
+          "tests/fixtures/pi-replay-negative/fixtures/read-issue.json": {
+            "mode": "100644",
+            "oid": "25a7a4767f457d89b676df997e34dea614d55be7"
+          },
+          "tests/fixtures/pi-replay-negative/fixtures/search-issue.json": {
+            "mode": "100644",
+            "oid": "6fea7fc6b94dff034db3a70a4acea1e3ac79a695"
+          },
+          "tests/fixtures/pi-replay-negative/skill.json": {
+            "mode": "100644",
+            "oid": "5a4fb5279e3bcbf8f5115d64502247a3ab13af54"
+          },
+          "tests/fixtures/pi-replay-skill/evals/evals.json": {
+            "mode": "100644",
+            "oid": "0cbc50ff7038bce191ac22624082f4c25edc2171"
+          },
+          "tests/fixtures/pi-replay-skill/fixtures/read-issue.json": {
+            "mode": "100644",
+            "oid": "25a7a4767f457d89b676df997e34dea614d55be7"
+          },
+          "tests/fixtures/pi-replay-skill/fixtures/search-issue.json": {
+            "mode": "100644",
+            "oid": "6fea7fc6b94dff034db3a70a4acea1e3ac79a695"
+          },
+          "tests/fixtures/pi-replay-skill/skill.json": {
+            "mode": "100644",
+            "oid": "daa08dc5431b6f2534a89f5d57183086784d2e90"
+          },
+          "tests/fixtures/pi-skill/evals/evals.json": {
+            "mode": "100644",
+            "oid": "5b396b677286d9a4160c492c007914b0617091f4"
+          },
+          "tests/fixtures/pi-skill/skill.json": {
+            "mode": "100644",
+            "oid": "394de84ae018f1396431ef5a9ba06e05778cd31c"
+          },
+          "tests/fixtures/read-issue.json": {
+            "mode": "100644",
+            "oid": "25a7a4767f457d89b676df997e34dea614d55be7"
+          },
+          "tests/fixtures/trigger-full.json": {
+            "mode": "100644",
+            "oid": "12ce685b90c84ba00d64544c03f1ed3474d62969"
+          },
+          "tests/fixtures/trigger-smoke.json": {
+            "mode": "100644",
+            "oid": "c25e4fca110e03132b3db6c3f9b13f2c62937882"
+          },
+          "tests/test_fallback.py": {
+            "mode": "100644",
+            "oid": "da49f998e6688eeadc1aff6f033dc56efca020d4"
+          },
+          "tests/test_runtime.py": {
+            "mode": "100644",
+            "oid": "312154950089ce671e52a3d21891998d892d93e7"
+          }
+        }
+      }
+    },
+    "slack": {
+      "installedAt": "2026-06-08T04:00:41Z",
+      "skillFolderHash": "ec2f082d0ff46ba6bf4981112739e66aff809e98",
+      "skillPath": "slack/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-21T10:19:54.042774Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "slack",
+        "appliedRevision": "44a59c39007ea0d9148dc9a78ebdf7f347f23469",
+        "remoteTree": "ec2f082d0ff46ba6bf4981112739e66aff809e98",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "2f2e2638c6bde9886674dddffbf45e6860243206"
+          },
+          "README.md": {
+            "mode": "100644",
+            "oid": "c6be200bc85dafd6ef633013781c9cdb225cd3c7"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "627111f208d420b5b39f94fb222c3b776a3c702c"
+          },
+          "evals/.gitignore": {
+            "mode": "100644",
+            "oid": "191d423906c1a2d6ef1734de5d6b5beff1b98dd9"
+          },
+          "evals/ab-cases.yaml": {
+            "mode": "100644",
+            "oid": "392065d9ba471846ddf7fd35b360feac6ddf3a59"
+          },
+          "evals/assert-cases.yaml": {
+            "mode": "100644",
+            "oid": "3b467db4716c22e0e9a3c3d4863c9fc7358bb1ee"
+          },
+          "evals/claude-bare.sh": {
+            "mode": "100755",
+            "oid": "c4b236edc46608b9ccfde4b3175bcb567a2b04f0"
+          },
+          "evals/fixtures/download-private-csv.json": {
+            "mode": "100644",
+            "oid": "1bb7c4d9beb7c25298bc4a4dc689ded2337722e5"
+          },
+          "evals/fixtures/error-history-not-in-channel.txt": {
+            "mode": "100644",
+            "oid": "c4319358991dc398d39fcca4bc59d6f7b93f57b1"
+          },
+          "evals/fixtures/get-delete-message.json": {
+            "mode": "100644",
+            "oid": "9d74eb3397a6e3874b519d814c7026c0c9f199f9"
+          },
+          "evals/fixtures/get-edit-message.json": {
+            "mode": "100644",
+            "oid": "19a9db2a6c1db43177b0f3cdbfeda183cf58b083"
+          },
+          "evals/fixtures/get-private-csv.json": {
+            "mode": "100644",
+            "oid": "d3c5f903a52f3c38613b42f5fc85c98972e51e96"
+          },
+          "evals/fixtures/get-root-message.json": {
+            "mode": "100644",
+            "oid": "0dfaf7ca49976cf0545c5070b8d839bbd05e3125"
+          },
+          "evals/fixtures/history-ops-alerts-1d.json": {
+            "mode": "100644",
+            "oid": "76ccf8beed64e6555cbd66f8ed4e20bc2858f337"
+          },
+          "evals/fixtures/history-ops-alerts-saved.txt": {
+            "mode": "100644",
+            "oid": "8e740d6389451723b4cfec892e762bb987ab71b2"
+          },
+          "evals/fixtures/history-release-ops-1d.json": {
+            "mode": "100644",
+            "oid": "dbdab78920c4da391083b8c91d44806de0cb5ded"
+          },
+          "evals/fixtures/history-release-ops-saved.txt": {
+            "mode": "100644",
+            "oid": "b67c9bd18e6d0cf40da5d01aa6b40c12afbc30c3"
+          },
+          "evals/fixtures/private-csv-header.txt": {
+            "mode": "100644",
+            "oid": "5612b1a1f2ea534291e40d50615fa7802b6b49e0"
+          },
+          "evals/fixtures/resolve-release-ops.json": {
+            "mode": "100644",
+            "oid": "eedb881098c75642c0ad97604704b02d0b65c930"
+          },
+          "evals/fixtures/send-forbidden.json": {
+            "mode": "100644",
+            "oid": "f1668d6ba6f09b934cea35e3d9c77aa2186798d3"
+          },
+          "evals/fixtures/send-preview-user.json": {
+            "mode": "100644",
+            "oid": "b210adac62dcdb36cb4160165c2a6c8783d3fc61"
+          },
+          "evals/fixtures/send-success.json": {
+            "mode": "100644",
+            "oid": "4c1ada6c8d8c5c118ebb4218fdf1ef8db976ee1c"
+          },
+          "evals/fixtures/send-unknown.json": {
+            "mode": "100644",
+            "oid": "f5aaf0973448926db9403031dc13d3c73d10bedb"
+          },
+          "evals/fixtures/thread-summary.json": {
+            "mode": "100644",
+            "oid": "a7fa170c0b7d0d368e7156b0bba3302267715523"
+          },
+          "evals/fixtures/upload-incident-summary.json": {
+            "mode": "100644",
+            "oid": "5d633d204585017bbda51c8f0e2532bc790b6df2"
+          },
+          "evals/skillopt-commandqa-split/test/items.json": {
+            "mode": "100644",
+            "oid": "aed18b1397faebe258289c69b4d13b30e93247c0"
+          },
+          "evals/skillopt-commandqa-split/train/items.json": {
+            "mode": "100644",
+            "oid": "9caca8597c27a10f0a281f5bb6c1ab832233e4fb"
+          },
+          "evals/skillopt-commandqa-split/val/items.json": {
+            "mode": "100644",
+            "oid": "879ed7337411e306b9697a8111c89d89c280f12b"
+          },
+          "evals/skillopt-searchqa-split/test/items.json": {
+            "mode": "100644",
+            "oid": "5104033d6f23b35fcdef178a17c1aaeea4f1223f"
+          },
+          "evals/skillopt-searchqa-split/train/items.json": {
+            "mode": "100644",
+            "oid": "80a0c149c9a80b01ddb10caa7f75e7787f26a35d"
+          },
+          "evals/skillopt-searchqa-split/val/items.json": {
+            "mode": "100644",
+            "oid": "1d1e8db4bd620611b906210c26918698ffc77d97"
+          },
+          "evals/skillopt-slack-commandqa.yaml": {
+            "mode": "100644",
+            "oid": "41dab5263481fdf3c29c54afb47f563981a98ca8"
+          },
+          "evals/skillopt-slack-searchqa.yaml": {
+            "mode": "100644",
+            "oid": "6129e2cb1a33230d3f4fefec09cbf1330b42ada6"
+          },
+          "evals/trajectory-cases.yaml": {
+            "mode": "100644",
+            "oid": "1ad93b5bdead272aeaebb6363cb89eae8f189022"
+          },
+          "evals/trigger-cases.yaml": {
+            "mode": "100644",
+            "oid": "8b48f13cc979160106a1ad0689af47328d242b76"
+          },
+          "references/block-kit.md": {
+            "mode": "100644",
+            "oid": "df37bebc5c40d84693a0cfef0fb6a686f0a34802"
+          },
+          "references/command-reference.md": {
+            "mode": "100644",
+            "oid": "75b9915817ecdebaa280642baca4b796b65866ce"
+          },
+          "references/message-formatting.md": {
+            "mode": "100644",
+            "oid": "2673940c6152a0b6b01911f8483980588e5b84b4"
+          },
+          "references/search-syntax.md": {
+            "mode": "100644",
+            "oid": "d20660f9ce3596b70725faaf9e25e9f8fb316366"
+          },
+          "scripts/sk/__init__.py": {
+            "mode": "100644",
+            "oid": "97d29b60e866f8548e263ba1cd706cdf44bd6d4a"
+          },
+          "scripts/sk/actor.py": {
+            "mode": "100644",
+            "oid": "b98b387e5879a16ed5c31814b28d6038c3b563b7"
+          },
+          "scripts/sk/block_kit.py": {
+            "mode": "100644",
+            "oid": "1d5ab33629398a087c643ddc76bede388e6c9141"
+          },
+          "scripts/sk/cache.py": {
+            "mode": "100644",
+            "oid": "21db930f8bfe9c6ce9cc8711118d419e9a88ff0a"
+          },
+          "scripts/sk/channels.py": {
+            "mode": "100644",
+            "oid": "6ab21055cc74c7086a08e19a1b18f4f9e7949996"
+          },
+          "scripts/sk/cli.py": {
+            "mode": "100644",
+            "oid": "e5fd9c6d96746736c4b280d6d7ce83cda936c014"
+          },
+          "scripts/sk/client.py": {
+            "mode": "100644",
+            "oid": "a65998752968ba0c9aa4a978aec4f84224f8d9a2"
+          },
+          "scripts/sk/cmd_cache_refresh.py": {
+            "mode": "100644",
+            "oid": "e7819622eab84c81e351f55635b2e5cc88bcdd2a"
+          },
+          "scripts/sk/cmd_channels.py": {
+            "mode": "100644",
+            "oid": "4c75d8184d7f86495cc2ba1f82583306e54aa82a"
+          },
+          "scripts/sk/cmd_delete.py": {
+            "mode": "100644",
+            "oid": "d7a8599caaf23dc8d60e957a3c91694bc04aa504"
+          },
+          "scripts/sk/cmd_doctor.py": {
+            "mode": "100644",
+            "oid": "d0eb7b7436476973682e9e3257a86dc5c99af873"
+          },
+          "scripts/sk/cmd_edit.py": {
+            "mode": "100644",
+            "oid": "37a7204b8dc5df6701595116f2dd4b7afa807a37"
+          },
+          "scripts/sk/cmd_files_download.py": {
+            "mode": "100644",
+            "oid": "904f1decaeab640deb6ddc184b5e8c977d1e0948"
+          },
+          "scripts/sk/cmd_files_upload.py": {
+            "mode": "100644",
+            "oid": "c5d40cd67b89edf74653d50182f0bdaad85a176e"
+          },
+          "scripts/sk/cmd_get.py": {
+            "mode": "100644",
+            "oid": "93c1200e02f0030e6fe895e2385a683aa4c9818c"
+          },
+          "scripts/sk/cmd_history.py": {
+            "mode": "100644",
+            "oid": "37624c1657ba99006eb15da89c96cdf73b951309"
+          },
+          "scripts/sk/cmd_react.py": {
+            "mode": "100644",
+            "oid": "dcdb20ebc5aca29fdb4a0c7e080376ee12092220"
+          },
+          "scripts/sk/cmd_replies.py": {
+            "mode": "100644",
+            "oid": "e12432049f1a0893bc99e97bfd11669982857ecd"
+          },
+          "scripts/sk/cmd_resolve.py": {
+            "mode": "100644",
+            "oid": "59fd675602ddd0f7adb64df1133a05dfb78b347c"
+          },
+          "scripts/sk/cmd_search.py": {
+            "mode": "100644",
+            "oid": "3f241178b03edfa8e7d9e0657a0e91116eef0f3f"
+          },
+          "scripts/sk/cmd_send.py": {
+            "mode": "100644",
+            "oid": "94eb2182018993162489c0f3679b7c7f687bce16"
+          },
+          "scripts/sk/cmd_users.py": {
+            "mode": "100644",
+            "oid": "6a4fb73b98a868de5cff416bca9689b03f78c161"
+          },
+          "scripts/sk/config.py": {
+            "mode": "100644",
+            "oid": "2ec42a782de4f1447382d1f93dc6a30dac9ab63e"
+          },
+          "scripts/sk/errors.py": {
+            "mode": "100644",
+            "oid": "5bf4665bb7579da4ed6fe1b1c4ca5f5d1627fcc0"
+          },
+          "scripts/sk/files.py": {
+            "mode": "100644",
+            "oid": "dec58828630f7c0d07331b768532441c715a8b08"
+          },
+          "scripts/sk/identity.py": {
+            "mode": "100644",
+            "oid": "af7af7c8e19ae62c92c980dfa70a91d15e5547a2"
+          },
+          "scripts/sk/lookups.py": {
+            "mode": "100644",
+            "oid": "b25ed2f2c1610f4780a677266644f67c5d819cc4"
+          },
+          "scripts/sk/mentions.py": {
+            "mode": "100644",
+            "oid": "c959628930f36c3a07218a37c98d10bda2275597"
+          },
+          "scripts/sk/message.py": {
+            "mode": "100644",
+            "oid": "7e5069cf82cf3f06281978b749188876eb25035a"
+          },
+          "scripts/sk/output.py": {
+            "mode": "100644",
+            "oid": "5c173db0590d25340adc41ac526c17add6f49077"
+          },
+          "scripts/sk/render.py": {
+            "mode": "100644",
+            "oid": "ef43c2709ada75c354e1e0df44be378dce89a46e"
+          },
+          "scripts/sk/send_content.py": {
+            "mode": "100644",
+            "oid": "b6510b841abf378e12d75e7643308e9c512774dd"
+          },
+          "scripts/sk/shared.py": {
+            "mode": "100644",
+            "oid": "46fe4399d5f1acdb1fe3ef03634b5f4e7d6aec38"
+          },
+          "scripts/sk/timex.py": {
+            "mode": "100644",
+            "oid": "6ee4054c19864eb3b527913403818c99c173df91"
+          },
+          "scripts/sk/urls.py": {
+            "mode": "100644",
+            "oid": "ba627c22d1be965fc9dc04fc430530122d73534b"
+          },
+          "scripts/sk/version.py": {
+            "mode": "100644",
+            "oid": "f33cd93eefc6d2445cf6f15f709f45774c30e70e"
+          },
+          "scripts/sk/write_client.py": {
+            "mode": "100644",
+            "oid": "63e027adcff4c3899b8a164821c27bd09b3a5bb0"
+          },
+          "scripts/sk/write_target.py": {
+            "mode": "100644",
+            "oid": "e308d2e55ef605294e9287540b021a52301f2550"
+          },
+          "scripts/slack.py": {
+            "mode": "100755",
+            "oid": "dc9cb6efa31260562974e01fc3ac66cd9ae72309"
+          },
+          "skill-metadata.json": {
+            "mode": "100644",
+            "oid": "3161c54b894e161792ab872323f244958f3a366f"
+          },
+          "tests/test_block_kit.py": {
+            "mode": "100644",
+            "oid": "f04403ff4ae39879f68d5d3d7ad3bef659dc2d5f"
+          },
+          "tests/test_config_local.py": {
+            "mode": "100644",
+            "oid": "99d20b6ca65ef747944f7653e69f0041b8c915f4"
+          },
+          "tests/test_identity_actor.py": {
+            "mode": "100644",
+            "oid": "bee9a4e4760cde8909019febde3159aa4db74ddd"
+          },
+          "tests/test_message_actor.py": {
+            "mode": "100644",
+            "oid": "d99be072095f563a711d97f609e892ae645e9f44"
+          },
+          "tests/test_react.py": {
+            "mode": "100644",
+            "oid": "a107e3a9e7f4514ad8623fed81967ee226de4442"
+          },
+          "tests/test_read_fallback_transaction.py": {
+            "mode": "100644",
+            "oid": "5f3aa3513aad8fc5f6dc2252be0c04ade1412ace"
+          },
+          "tests/test_send_content.py": {
+            "mode": "100644",
+            "oid": "157704f9044a5821d2d4b45b3361d868a463ef82"
+          },
+          "tests/test_verified_upload.py": {
+            "mode": "100644",
+            "oid": "1d227f6a441da6710a2f6c1337a959108c470051"
+          },
+          "tests/test_write_client.py": {
+            "mode": "100644",
+            "oid": "f2ec5188281860f5d4a8709cd9353790a1fe6277"
+          },
+          "tests/test_write_commands.py": {
+            "mode": "100644",
+            "oid": "43de110081d114785380c177a93aba64c090f7d4"
+          }
+        }
+      }
+    },
+    "subagent-orchestration": {
+      "installedAt": "2026-09-05T08:29:23.964914Z",
+      "skillFolderHash": "b57b033c2ee53a07c3dc1571117b7bc8cb62816b",
+      "skillPath": "subagent-orchestration/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "subagent-orchestration",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "b57b033c2ee53a07c3dc1571117b7bc8cb62816b",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "45e07605fb0d68799fff3e8c176d01e3ba5c9378"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "08ae59e0fa6797f68ebf4425e11b4bc9445be75a"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "755898d7909cf8f9f3574262c9a35e65c58a7e03"
+          }
+        }
+      }
+    },
+    "tech-doc-architect": {
+      "installedAt": "2026-08-30T08:20:10.497471Z",
+      "skillFolderHash": "4cb52d671e0e5d889e1b760f25e511ea1c6bc9bb",
+      "skillPath": "tech-doc-architect/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-21T07:55:27.816597Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "tech-doc-architect",
+        "appliedRevision": "5db8efb626829facd6b1f89ace10903ee6054e82",
+        "remoteTree": "4cb52d671e0e5d889e1b760f25e511ea1c6bc9bb",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "3dc00617242c51e1d08e23dae3af8b2a9d961988"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "ab9b99e181c38332c8b6347c31929be56c40245a"
+          },
+          "assets/document-model.template.json": {
+            "mode": "100644",
+            "oid": "bbe6035e3e60d0c934f6815751f329c897fafc6f"
+          },
+          "assets/overview.template.md": {
+            "mode": "100644",
+            "oid": "732ab66ec369a5656936ccd0ec3cb44fc82060c5"
+          },
+          "assets/topic.template.md": {
+            "mode": "100644",
+            "oid": "e05d4c18ce09cd0d19eec7562e12d4373565c731"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "315f4d7212baf2d6e0089e28a925b3e178ed313c"
+          },
+          "evals/trigger-evals.json": {
+            "mode": "100644",
+            "oid": "fe0e278bc98aa0b2871f25c57c0b610aef928010"
+          },
+          "references/diagram-design.md": {
+            "mode": "100644",
+            "oid": "a0d8d699f8f609725d2004748ce2b30e0d47c0bd"
+          },
+          "references/document-structure.md": {
+            "mode": "100644",
+            "oid": "9986b6d6bac5da690a3a295d5338f1bc11ec3c88"
+          },
+          "references/methodology.md": {
+            "mode": "100644",
+            "oid": "1020f0bb81c1f739d226358e8ea27c1c90862e6b"
+          },
+          "references/output-feishu.md": {
+            "mode": "100644",
+            "oid": "8d7b5d0b8a378bc8a92073998d09788849caf20d"
+          },
+          "references/output-markdown.md": {
+            "mode": "100644",
+            "oid": "91e0ea432ef693cab370155f79c06f3bc6f00789"
+          },
+          "references/output-obsidian.md": {
+            "mode": "100644",
+            "oid": "5901178493c58a6b727717025c5887ab1cdbd650"
+          },
+          "references/quality-gates.md": {
+            "mode": "100644",
+            "oid": "b08e5107ad18c928437f865ba9fe3d48a0873f25"
+          },
+          "scripts/tda/__init__.py": {
+            "mode": "100644",
+            "oid": "6bde9033f71613d4c7109483059def5bcc5b01c3"
+          },
+          "scripts/tda/commands/__init__.py": {
+            "mode": "100644",
+            "oid": "30ca8254febcf0e208a108d395d54c059e4b7174"
+          },
+          "scripts/tda/commands/content_model.py": {
+            "mode": "100644",
+            "oid": "5586b6208f7cf148e80ba1725e609d65ba6ad14d"
+          },
+          "scripts/tda/commands/docset.py": {
+            "mode": "100644",
+            "oid": "5eb099bf6ba112c98020ff6d719850d81798b02c"
+          },
+          "scripts/tda/commands/semantic_checksum.py": {
+            "mode": "100644",
+            "oid": "3793d2c9fdc1ea705fc93cd346e6b201fd4e2894"
+          },
+          "scripts/tda/errors.py": {
+            "mode": "100644",
+            "oid": "3c860fbf87bd672cbab31169c3a3acbde3dcda75"
+          },
+          "scripts/tda/formatter.py": {
+            "mode": "100644",
+            "oid": "abe086b9224293b41da4de290e0d2b06083021bd"
+          },
+          "scripts/tech_doc_architect.py": {
+            "mode": "100644",
+            "oid": "8e6d75c9517649b57c987c8d7ff1b7a8113e74ae"
+          },
+          "tests/test_validators.py": {
+            "mode": "100644",
+            "oid": "2741ddc5272b071dea7ec61ecf2d5ca06ea50b92"
+          }
+        }
+      }
+    },
+    "tonghuashun-skills": {
+      "installedAt": "2026-08-30T11:23:49.824358Z",
+      "skillFolderHash": "861fb77eccf608ce7b00af4a5fddfca7da88d780",
+      "skillPath": "tonghuashun-skills/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "tonghuashun-skills",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "861fb77eccf608ce7b00af4a5fddfca7da88d780",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "cd203fea46e1e2d5a6df9829520a14ceab6b1d28"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "716220726804025b09b29c08598d13d82311206c"
+          },
+          "internal-skills/.skills_store_lock.json": {
+            "mode": "100644",
+            "oid": "15d7eebc5dede3f13fab523b745d664e68d0404a"
+          },
+          "internal-skills/announcement-search/README.md": {
+            "mode": "100644",
+            "oid": "fab1ec68e01a4aad6955519848f5cb0c99f881ef"
+          },
+          "internal-skills/announcement-search/internal-skill.md": {
+            "mode": "100644",
+            "oid": "bd75b71afbf7041b52f6fd96f408a5868592b1b3"
+          },
+          "internal-skills/announcement-search/references/api.md": {
+            "mode": "100644",
+            "oid": "c1bf9b9a4ee9dc39684dac58eca447cb343ee025"
+          },
+          "internal-skills/announcement-search/scripts/__main__.py": {
+            "mode": "100644",
+            "oid": "99a335dc03194dfe73e5239304fb674270c036ad"
+          },
+          "internal-skills/announcement-search/scripts/announcement_search.log": {
+            "mode": "100644",
+            "oid": "cbb045541e4b16d32c004e518e8e9b3adee3e893"
+          },
+          "internal-skills/announcement-search/scripts/announcement_search.py": {
+            "mode": "100644",
+            "oid": "cd0766163931b8b93a353fb0b07455f2d38ad061"
+          },
+          "internal-skills/announcement-search/scripts/config.example.json": {
+            "mode": "100644",
+            "oid": "e5eb994a1df481b31fd5353b10efa347e0879151"
+          },
+          "internal-skills/announcement-search/scripts/config.py": {
+            "mode": "100644",
+            "oid": "f4e5a39db7ebe5073fe1c31e1338bf49c687b6d7"
+          },
+          "internal-skills/announcement-search/scripts/example_usage.py": {
+            "mode": "100644",
+            "oid": "1e9f11ce038e87b99698ab154e0410fdba721d57"
+          },
+          "internal-skills/announcement-search/scripts/requirements.txt": {
+            "mode": "100644",
+            "oid": "05cecc1f89b75bad8947b3adacb41bee51d39634"
+          },
+          "internal-skills/announcement-search/scripts/setup.py": {
+            "mode": "100644",
+            "oid": "227ff36cda4361318671ec1b8af75badfbf896fd"
+          },
+          "internal-skills/announcement-search/scripts/test_basic.py": {
+            "mode": "100644",
+            "oid": "ae3b8012837a07c52864161b01e5eaa53602d005"
+          },
+          "internal-skills/announcement-search/scripts/test_queries.txt": {
+            "mode": "100644",
+            "oid": "10608b63a8bb8e3fc586ed2ef0042d9c2b1356b4"
+          },
+          "internal-skills/announcement-search/scripts/utils.py": {
+            "mode": "100644",
+            "oid": "1f7e2d3bcfdb32fd9dccce2c7f5d55b2825c96a7"
+          },
+          "internal-skills/hithink-astock-selector/LICENSE.txt": {
+            "mode": "100644",
+            "oid": "14fac913ccf80234b1848540089a3bbcb6e5283d"
+          },
+          "internal-skills/hithink-astock-selector/internal-skill.md": {
+            "mode": "100644",
+            "oid": "4127bb05b11ae463e09e193c58094212687a3946"
+          },
+          "internal-skills/hithink-astock-selector/scripts/cli.py": {
+            "mode": "100644",
+            "oid": "a243844002fbb16e00215d310f1d11f89773fb5a"
+          },
+          "internal-skills/hithink-basicinfo-query/LICENSE.txt": {
+            "mode": "100644",
+            "oid": "14fac913ccf80234b1848540089a3bbcb6e5283d"
+          },
+          "internal-skills/hithink-basicinfo-query/internal-skill.md": {
+            "mode": "100644",
+            "oid": "0fe5b778ab41676dc0b7646c9219202c50ee7851"
+          },
+          "internal-skills/hithink-basicinfo-query/scripts/cli.py": {
+            "mode": "100644",
+            "oid": "b1505feda898d1de01646cc107592d2931e912f4"
+          },
+          "internal-skills/hithink-business-query/LICENSE.txt": {
+            "mode": "100644",
+            "oid": "14fac913ccf80234b1848540089a3bbcb6e5283d"
+          },
+          "internal-skills/hithink-business-query/internal-skill.md": {
+            "mode": "100644",
+            "oid": "6b8d30d40be80ce168cc6fc6334a8a0e266271be"
+          },
+          "internal-skills/hithink-business-query/scripts/cli.py": {
+            "mode": "100644",
+            "oid": "e8d6609f7f292e20fae1e978493e43c9a32bf021"
+          },
+          "internal-skills/hithink-finance-query/LICENSE.txt": {
+            "mode": "100644",
+            "oid": "14fac913ccf80234b1848540089a3bbcb6e5283d"
+          },
+          "internal-skills/hithink-finance-query/internal-skill.md": {
+            "mode": "100644",
+            "oid": "20746549a146d5c870be8e7a3bb18157ac9835c3"
+          },
+          "internal-skills/hithink-finance-query/scripts/cli.py": {
+            "mode": "100644",
+            "oid": "3893815957471b183b2bccdaa21735e92b272f0c"
+          },
+          "internal-skills/hithink-insresearch-query/LICENSE.txt": {
+            "mode": "100644",
+            "oid": "14fac913ccf80234b1848540089a3bbcb6e5283d"
+          },
+          "internal-skills/hithink-insresearch-query/internal-skill.md": {
+            "mode": "100644",
+            "oid": "4ffb7722460ba4b1fb3911ac93533764ed5525fe"
+          },
+          "internal-skills/hithink-insresearch-query/scripts/cli.py": {
+            "mode": "100644",
+            "oid": "4ba10d2c3bb740ca1bc800fc0099c1f8690defc8"
+          },
+          "internal-skills/hithink-market-query/LICENSE.txt": {
+            "mode": "100644",
+            "oid": "14fac913ccf80234b1848540089a3bbcb6e5283d"
+          },
+          "internal-skills/hithink-market-query/internal-skill.md": {
+            "mode": "100644",
+            "oid": "19dee156eb92c99c8c1493e3b7f4a4ee39b7a362"
+          },
+          "internal-skills/hithink-market-query/scripts/cli.py": {
+            "mode": "100644",
+            "oid": "3cfbdea003a0ccec36feaa07ae0ebcc60dfdc612"
+          },
+          "internal-skills/hithink-sector-selector/LICENSE.txt": {
+            "mode": "100644",
+            "oid": "14fac913ccf80234b1848540089a3bbcb6e5283d"
+          },
+          "internal-skills/hithink-sector-selector/internal-skill.md": {
+            "mode": "100644",
+            "oid": "10c298e5c6ad3c945fe9044c79f0c6a2a842760e"
+          },
+          "internal-skills/hithink-sector-selector/scripts/cli.py": {
+            "mode": "100644",
+            "oid": "dc29b45db4f0afd781af0bb4026fa2d7214ba18f"
+          },
+          "internal-skills/news-search/README.md": {
+            "mode": "100644",
+            "oid": "ba95ae82bc9209b0a77be1f909a5efc3b9653349"
+          },
+          "internal-skills/news-search/internal-skill.md": {
+            "mode": "100644",
+            "oid": "56c8ee182cb5f4a1ec704ae6c51c7fee7f0737f1"
+          },
+          "internal-skills/news-search/references/api.md": {
+            "mode": "100644",
+            "oid": "4602249357ad9618e61bb908ef5cea06df63f00b"
+          },
+          "internal-skills/news-search/scripts/__main__.py": {
+            "mode": "100644",
+            "oid": "0c0c675b45061ae95d677203291089ef633cebfb"
+          },
+          "internal-skills/news-search/scripts/config.example.json": {
+            "mode": "100644",
+            "oid": "93b90876ed12543b93eabdc31c839f2a69050667"
+          },
+          "internal-skills/news-search/scripts/config.py": {
+            "mode": "100644",
+            "oid": "617684383e4916055296d2fd37fcf57cc8c65ae9"
+          },
+          "internal-skills/news-search/scripts/example_usage.py": {
+            "mode": "100644",
+            "oid": "7602aecc443e0ca203bff7e32bfb903492f964f0"
+          },
+          "internal-skills/news-search/scripts/news_search.py": {
+            "mode": "100644",
+            "oid": "88c3bd1f3a229327c46abc629a1c3e481d95ad67"
+          },
+          "internal-skills/news-search/scripts/requirements.txt": {
+            "mode": "100644",
+            "oid": "0e3d5005509648d92c99b9fec3146cd7b9015d1a"
+          },
+          "internal-skills/news-search/scripts/setup.py": {
+            "mode": "100644",
+            "oid": "0cfdabce44c4a8b74f923dac2d315690059ef1ac"
+          },
+          "internal-skills/news-search/scripts/test_basic.py": {
+            "mode": "100644",
+            "oid": "5e5a09887d9fe31a2f53a479e229c10cfd180999"
+          },
+          "internal-skills/news-search/scripts/test_queries.txt": {
+            "mode": "100644",
+            "oid": "ca4c558b5c17ea1a078c4af3e616a8c76a0b0102"
+          },
+          "internal-skills/report-search/README.md": {
+            "mode": "100644",
+            "oid": "341f557fa49d1ed08471d7249cf1dcba258af208"
+          },
+          "internal-skills/report-search/internal-skill.md": {
+            "mode": "100644",
+            "oid": "79f77c3aad45966e71cdd7d877141afb1897165e"
+          },
+          "internal-skills/report-search/references/api.md": {
+            "mode": "100644",
+            "oid": "a2b60de5d198e0a9c261349da52ad64694efb989"
+          },
+          "internal-skills/report-search/scripts/__main__.py": {
+            "mode": "100644",
+            "oid": "f5e206752bf69d1b86cf26c966f43f01e0654aad"
+          },
+          "internal-skills/report-search/scripts/api_client.py": {
+            "mode": "100644",
+            "oid": "76c38ef5d72b1a9288870d9d114125febe5723c6"
+          },
+          "internal-skills/report-search/scripts/cli.py": {
+            "mode": "100644",
+            "oid": "90a2aae64ce83a255cf6784defa8d8373fa3e4d4"
+          },
+          "internal-skills/report-search/scripts/config.example.json": {
+            "mode": "100644",
+            "oid": "9167ad72daf581897cca73a21331687e3645e634"
+          },
+          "internal-skills/report-search/scripts/config.py": {
+            "mode": "100644",
+            "oid": "568878866caae0d61776bbae8502b2c2060bd3cb"
+          },
+          "internal-skills/report-search/scripts/data_processor.py": {
+            "mode": "100644",
+            "oid": "5627a57d24fac826012c6ab94bd7d7085d7762c0"
+          },
+          "internal-skills/report-search/scripts/example_usage.py": {
+            "mode": "100644",
+            "oid": "4e8f971510c721891ab35f11f535121cadbf0e7a"
+          },
+          "internal-skills/report-search/scripts/requirements.txt": {
+            "mode": "100644",
+            "oid": "e630ff344b27100d434f987a8b8851337b091dd1"
+          },
+          "internal-skills/report-search/scripts/research_report_search.py": {
+            "mode": "100644",
+            "oid": "667a513aaac761f1fb83cdd43ed883491945dd3f"
+          },
+          "internal-skills/report-search/scripts/setup.py": {
+            "mode": "100644",
+            "oid": "a849e52a285a19e5882511a42c406aec7a3753be"
+          },
+          "internal-skills/report-search/scripts/test_basic.py": {
+            "mode": "100644",
+            "oid": "ff0b4e02bc8297de85e0402f95cb0d44e9e56d90"
+          },
+          "internal-skills/report-search/scripts/test_queries.txt": {
+            "mode": "100644",
+            "oid": "8cfbc6c3592b4524511848e13efa7ae7a2cc4bda"
+          },
+          "references/announcement-search.md": {
+            "mode": "100644",
+            "oid": "1805bc6cef8fca2e0ccff2a400f3369983054344"
+          },
+          "references/basic-info.md": {
+            "mode": "100644",
+            "oid": "e83fe9b655a3f0b7cab9b84e8115e7f9003b67bb"
+          },
+          "references/business-data.md": {
+            "mode": "100644",
+            "oid": "6dc959407eb4fd89c83910fedb5e4e5103172947"
+          },
+          "references/financial-data.md": {
+            "mode": "100644",
+            "oid": "128df2355dc8249b688464118eeafda48a63d9c2"
+          },
+          "references/institutional-research.md": {
+            "mode": "100644",
+            "oid": "5742259b05ea228d73b74c97f495c5bb436e51ff"
+          },
+          "references/market-data.md": {
+            "mode": "100644",
+            "oid": "227a66d97f4690855d60e58ee10e41c82597970f"
+          },
+          "references/news-search.md": {
+            "mode": "100644",
+            "oid": "2cc38086b774539b274c52bbcb9d5543b0df44c7"
+          },
+          "references/report-search.md": {
+            "mode": "100644",
+            "oid": "7434b38f0b948e9836bf834f6e6326bf3014d38e"
+          },
+          "references/sector-selector.md": {
+            "mode": "100644",
+            "oid": "2eb9ee5349b08b7550e802c5bee7673c2e3de608"
+          },
+          "references/wencai-a-stock.md": {
+            "mode": "100644",
+            "oid": "beaa954ed84bfd692e3d24ab39952ab2d3182792"
+          }
+        }
+      }
+    },
+    "twitter-user-posts": {
+      "installedAt": "2026-08-30T11:23:49.824358Z",
+      "skillFolderHash": "e6971ae9fcc9f6a4c3f6c1ecd77dd13d3e6f79d1",
+      "skillPath": "twitter-user-posts/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "twitter-user-posts",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "e6971ae9fcc9f6a4c3f6c1ecd77dd13d3e6f79d1",
+        "files": {
+          ".gitignore": {
+            "mode": "100644",
+            "oid": "e934adfd1b9e6221c1d83189148fb490f7e92f70"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "cef8be60a1f39da1d5bd1ce14b2768b335536219"
+          },
+          "scripts/_process_user.sh": {
+            "mode": "100755",
+            "oid": "c223768ac8d41795960cc026eda4de8a2615aa17"
+          },
+          "scripts/enrich_media_ocr.py": {
+            "mode": "100755",
+            "oid": "2bed8f5535b1d04fe78b237a946cf41cadf354ef"
+          },
+          "scripts/fetch_all.sh": {
+            "mode": "100755",
+            "oid": "50f82a12a400d26f8b99edcd667de674cb2b1cc2"
+          },
+          "scripts/fetch_all_v2.sh": {
+            "mode": "100755",
+            "oid": "d5c06eb91436d9be030ac51a6c705a1cdddd695d"
+          },
+          "scripts/fetch_user.sh": {
+            "mode": "100755",
+            "oid": "fce94c0ce3849037cbd0f81254193be7d3d8bd48"
+          },
+          "scripts/fetch_user_v2.sh": {
+            "mode": "100755",
+            "oid": "6580bb8be6ef2865227043bc3554b8c4ee0f6d77"
+          },
+          "tmp-outputs/stock1.json": {
+            "mode": "100644",
+            "oid": "b5e07c328c1c170dee1eff14d36b94378783967e"
+          },
+          "tmp-outputs/stock2.json": {
+            "mode": "100644",
+            "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "users.txt": {
+            "mode": "100644",
+            "oid": "5b695fb04b100ec8275a43975635ac0121a72c2e"
+          }
+        }
+      }
+    },
+    "weekly-work-review": {
+      "installedAt": "2026-08-17T08:16:52Z",
+      "skillFolderHash": "7b214539ec82f12724be5359ba30c9d4e72e2c84",
+      "skillPath": "weekly-work-review/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "weekly-work-review",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "7b214539ec82f12724be5359ba30c9d4e72e2c84",
+        "files": {
+          ".env.example": {
+            "mode": "100644",
+            "oid": "371b848e5775278c7fce0827a001307a5fc13294"
+          },
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "9f84d2ae7c48752be396019042be9b540234da9c"
+          },
+          "agents/openai.yaml": {
+            "mode": "100644",
+            "oid": "8e057a94a6895c92b5a7f8302e0fa4f9df963c69"
+          },
+          "config/profile.example.json": {
+            "mode": "100644",
+            "oid": "8404f3a0f34a59c2dddc06da6272c6456db20c65"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "04d72955815a6fe830ebfdb8b87c8a452237afad"
+          },
+          "references/evidence-collection.md": {
+            "mode": "100644",
+            "oid": "eec16a9feef936b0fe5997948672a07d32b65758"
+          },
+          "references/evidence-manifest-schema.md": {
+            "mode": "100644",
+            "oid": "8c516c6be3c71578d150df6fc213ee3d402313b3"
+          },
+          "references/evidence-manifest.schema.json": {
+            "mode": "100644",
+            "oid": "9b60d68b67a263ac4922731f075086a5f11577d4"
+          },
+          "references/output-contract.md": {
+            "mode": "100644",
+            "oid": "b46d3264302c7337755bbb8b681649becd1d6665"
+          },
+          "scripts/check-environment.mjs": {
+            "mode": "100644",
+            "oid": "f32ea8d320856e6aa46b67c91059126b84dd75a7"
+          },
+          "scripts/collect-github.mjs": {
+            "mode": "100644",
+            "oid": "7ce28a197ae9411b7b482e9926ac22ca8b322936"
+          },
+          "scripts/collect-jira.mjs": {
+            "mode": "100644",
+            "oid": "c925e6f7c223ed88a6e5509e98e71d9076c2aa5f"
+          },
+          "scripts/collect-sessions.mjs": {
+            "mode": "100644",
+            "oid": "c66f54fd428a06ef4f578260c76ddbda607f277f"
+          },
+          "scripts/collect-slack.mjs": {
+            "mode": "100644",
+            "oid": "5b77359c14df616669db5212f99cbd9c62697191"
+          },
+          "scripts/export-meeting-pdfs.mjs": {
+            "mode": "100755",
+            "oid": "11fd2e21673d420a31069a7a91423fa2825d19e2"
+          },
+          "scripts/lib/config.mjs": {
+            "mode": "100644",
+            "oid": "a0cb2c9e7ff5893fc6c3d63cbb14e9c3f8ca1fdc"
+          },
+          "scripts/lib/schema.mjs": {
+            "mode": "100644",
+            "oid": "f4162d3089f2da2bbf8acb6ab3674b11dfe7000d"
+          },
+          "scripts/lib/secrets.mjs": {
+            "mode": "100644",
+            "oid": "82aad4b08dbe8c66fa4b4029785e18daee6c82d5"
+          },
+          "scripts/lib/week.mjs": {
+            "mode": "100644",
+            "oid": "2bc15c0a0ded5cd93575f01032825b6057ff35c5"
+          },
+          "scripts/migrate-legacy-weeklies.mjs": {
+            "mode": "100644",
+            "oid": "84c8b35620f8e3284d11ce734d69677b61b28e0b"
+          },
+          "scripts/repair-meeting-docs.mjs": {
+            "mode": "100644",
+            "oid": "c989628878ab6b81bd13639c375ec8b7af15e044"
+          },
+          "scripts/resolve-week.mjs": {
+            "mode": "100644",
+            "oid": "d36895f873766052ec36686dcb8d2d0d73e03bd2"
+          },
+          "scripts/validate-package.mjs": {
+            "mode": "100755",
+            "oid": "089fd8be577bb017811dee472dd74b521e0241dd"
+          },
+          "tests/README.md": {
+            "mode": "100644",
+            "oid": "3d64765f59ee1ce7f9765a8c61833fdd11f21e86"
+          },
+          "tests/build-minimal-fixture.mjs": {
+            "mode": "100644",
+            "oid": "37bf6d0741b284f640d048e6587dd83a91f3c7df"
+          },
+          "tests/build-w31-manifest.mjs": {
+            "mode": "100644",
+            "oid": "aa31f9396f41e944cdaab6535a02a6331f8ee202"
+          },
+          "tests/build-w32-manifest.mjs": {
+            "mode": "100644",
+            "oid": "c7febed6be819b7ace91c0ddc3aa5f9253e11ef9"
+          },
+          "tests/fixtures/minimal-valid/2026/08/2026-08-03 至 08-09/2026-08-03 至 08-09 周复盘.md": {
+            "mode": "100644",
+            "oid": "053efc44d7ae3d2396f04dff9cb0c79056a3b481"
+          },
+          "tests/fixtures/minimal-valid/2026/08/2026-08-03 至 08-09/evidence-manifest.json": {
+            "mode": "100644",
+            "oid": "2194e59f4382ce0591246b7d143a2b7e61bf3684"
+          },
+          "tests/fixtures/minimal-valid/2026/08/2026-08-03 至 08-09/evidence-manifest.md": {
+            "mode": "100644",
+            "oid": "3d8458a1cd71f37aa87b2cd70952ef0e432c423a"
+          },
+          "tests/fixtures/minimal-valid/2026/08/2026-08-03 至 08-09/meetings/会议索引.md": {
+            "mode": "100644",
+            "oid": "81041b054f933ef16932725190d68f559232affa"
+          },
+          "tests/fixtures/minimal-valid/2026/08/2026-08-03 至 08-09/validation-result.json": {
+            "mode": "100644",
+            "oid": "7135d4a2abfbf6564622190353d60f650b3e2f6c"
+          },
+          "tests/fixtures/minimal-valid/2026/08/2026-08-03 至 08-09/小时证据附录.md": {
+            "mode": "100644",
+            "oid": "3e1387cb10d718efcf271cc66f40ef010ba2a587"
+          },
+          "tests/fixtures/minimal-valid/2026/08/2026-08-03 至 08-09/迭代记录.md": {
+            "mode": "100644",
+            "oid": "16fba99cdb0d797e1049693caad86341e99a1c48"
+          },
+          "tests/run-tests.mjs": {
+            "mode": "100644",
+            "oid": "a66f0236d439ea649ac946bb986d1c2894bb20e4"
+          }
+        }
+      }
+    },
+    "writing-charter": {
+      "installedAt": "2026-06-23T08:25:45Z",
+      "skillFolderHash": "92ccaf44336d2394918064f49d07cea7bb8cb99f",
+      "skillPath": "writing-charter/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-16T14:46:57.688395Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "writing-charter",
+        "appliedRevision": "35b5855d9c45c7c0190dd63972f1c59b573d5978",
+        "remoteTree": "92ccaf44336d2394918064f49d07cea7bb8cb99f",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "5b8125e1df0b42e256be4c80c96bba2b95b2eacd"
+          },
+          "references/charter-template.md": {
+            "mode": "100644",
+            "oid": "d994c6f07cb722bac6278f5273516545156ab842"
+          },
+          "references/clarification-prompts.md": {
+            "mode": "100644",
+            "oid": "14b4aebc67ce82c4d0c4b2e328fec94b0e179df0"
+          },
+          "references/concepts.md": {
+            "mode": "100644",
+            "oid": "f463750e9a97aa37c764e26af88c62016f3dc9ad"
+          },
+          "references/example-charter.md": {
+            "mode": "100644",
+            "oid": "a16ea4d8372345d9d6fee1f4fbd3b3e23493d220"
+          },
+          "references/five-optimization-rules.md": {
+            "mode": "100644",
+            "oid": "f7cbbf734e59cea681d38be49c2b357c453d1dc9"
+          },
+          "references/full-initiation-template.md": {
+            "mode": "100644",
+            "oid": "74ee68aabe1fcf9667943fb47b0325ecc695ed88"
+          },
+          "references/opportunity-guide.md": {
+            "mode": "100644",
+            "oid": "5629f615f917b0a56c7f58d5938203cdf25583b1"
+          },
+          "references/output-format.md": {
+            "mode": "100644",
+            "oid": "87c5ef7c754f47bdc0a7e6655ed426404fcb9a4a"
+          },
+          "references/project-initiation-checklist.md": {
+            "mode": "100644",
+            "oid": "f853b35806856034b4877141f24387ca7b693cb4"
+          },
+          "references/recommended-structure.md": {
+            "mode": "100644",
+            "oid": "5216a7034adb11f6511b47d3adb1f9d58c8bd9d5"
+          },
+          "references/scope-boundary-guide.md": {
+            "mode": "100644",
+            "oid": "ce4c9608e891fc6f7275918d2250dc48c1b5d9d4"
+          },
+          "references/smart-objectives-guide.md": {
+            "mode": "100644",
+            "oid": "cb027fd6c5720f86005db8f81ea41a8773ce96e0"
+          },
+          "references/stakeholder-guide.md": {
+            "mode": "100644",
+            "oid": "9cac595e4c25a6e22cc0cab8240f3542543d81f6"
+          }
+        }
+      }
+    },
+    "moe-business-context": {
+      "installedAt": "2026-05-29T06:33:02Z",
+      "skillFolderHash": "6fcf33210dd05d3342d13fd1b767014358078b8d",
+      "skillPath": "moe-business-context/SKILL.md",
+      "source": "winchesHe/winches-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/winchesHe/winches-skills.git",
+      "updatedAt": "2026-09-20T07:50:17.934436Z",
+      "skilldeckSyncManifest": {
+        "version": 1,
+        "source": "winchesHe/winches-skills",
+        "sourceSkill": "moe-business-context",
+        "appliedRevision": "1e3584607134d3699b02b33aea77cd607d435016",
+        "remoteTree": "6fcf33210dd05d3342d13fd1b767014358078b8d",
+        "files": {
+          "SKILL.md": {
+            "mode": "100644",
+            "oid": "7beb4d2b08cf12c081b8c5ba6f22abbcebe0addc"
+          },
+          "evals/evals.json": {
+            "mode": "100644",
+            "oid": "b033accc14d193aefbbdb3ba85238925c02b1ce2"
+          },
+          "references/business-terms.md": {
+            "mode": "100644",
+            "oid": "9f22af8fa8b4eb5e8c0ce82525043616db6bfceb"
+          },
+          "references/investigation-patterns.md": {
+            "mode": "100644",
+            "oid": "1f086493fbd4c4ce270d7c2abdf8e1317d73bdd6"
+          },
+          "references/source-boundaries.md": {
+            "mode": "100644",
+            "oid": "88e8eb212c6c2e187056167463d1901b61b3b93a"
+          }
+        }
+      }
     }
   },
-  "version" : 3
+  "version": 3
 }

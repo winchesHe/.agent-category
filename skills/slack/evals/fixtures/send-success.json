@@ -1,0 +1,44 @@
+{
+  "actor": {
+    "requested": "auto",
+    "selected": "bot",
+    "source_env": "SLACK_BOT_TOKEN",
+    "team_id": "T_TEST",
+    "user_id": "U_TESTBOT",
+    "bot_id": "B_TESTBOT",
+    "fallback_reason": null,
+    "warnings": []
+  },
+  "status": "sent",
+  "operation_status": "succeeded",
+  "result": "sent",
+  "channel": {"id": "C_TESTRELEASE", "name": "test-release"},
+  "message": {
+    "channel_id": "C_TESTRELEASE",
+    "ts": "1785000000.123456",
+    "thread_ts": "1785000000.123456",
+    "is_thread_root": true,
+    "permalink": "https://slack.example.com/archives/C_TESTRELEASE/p1785000000123456",
+    "author": {
+      "id": "B_TESTBOT",
+      "user_id": "U_TESTBOT",
+      "bot_id": "B_TESTBOT",
+      "name": "TEST Release Bot",
+      "display_name": "TEST Release Bot",
+      "is_bot": true
+    },
+    "text_raw": "QA sign-off received",
+    "text_rendered": "QA sign-off received",
+    "blocks_rendered": null,
+    "reactions": [],
+    "files": [],
+    "raw": {
+      "ts": "1785000000.123456",
+      "text": "QA sign-off received",
+      "user": "U_TESTBOT",
+      "bot_id": "B_TESTBOT"
+    }
+  },
+  "permalink": "https://slack.example.com/archives/C_TESTRELEASE/p1785000000123456",
+  "warnings": []
+}

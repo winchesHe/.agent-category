@@ -1,0 +1,9 @@
+defaultLocale: en
+icon: tools
+locales:
+  en:
+    displayName: t2 k8s
+    shortDescription: Manage MoeGo T2/test Kubernetes in the ns-testing namespace. Use this skill when inspecting or operating the moego-development-ns-testing context, debugging pods, deployments, services, or jobs, reading logs, using exec or port-forward, restarting or deleting test workloads, applying test manifests, or verifying T2 deployments.
+  zh-CN:
+    displayName: T2 Kubernetes
+    shortDescription: 检查和管理测试环境中的资源。

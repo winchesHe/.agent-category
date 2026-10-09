@@ -1,0 +1,13 @@
+{
+  "skill_name": "pi-smoke",
+  "evals": [
+    {
+      "id": 1,
+      "name": "pi-smoke",
+      "prompt": "执行 Pi smoke test，只回复 PI_OK。",
+      "assertions": [
+        {"type": "contains", "text": "回复 PI_OK", "value": "PI_OK"}
+      ]
+    }
+  ]
+}

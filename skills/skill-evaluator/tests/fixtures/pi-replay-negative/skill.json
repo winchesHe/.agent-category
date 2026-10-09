@@ -1,0 +1,5 @@
+{
+  "name": "pi-replay-negative",
+  "description": "用于验证 Pi Replay 的失败门禁。",
+  "instructions": "当用户要求读取 replay issue 时，严格只调用一次 `search_issue`，再调用一次 `read_issue`，最后根据返回值回答。"
+}

@@ -1,0 +1,30 @@
+{
+  "channel_id": "C_TESTREL",
+  "ts": "1782700000.111222",
+  "thread_ts": "1782700000.111222",
+  "is_thread_root": true,
+  "permalink": "https://slack.example.com/archives/C_TESTREL/p1782700000111222",
+  "author": {
+    "id": "U_TESTLEAD",
+    "name": "TEST Release Lead",
+    "display_name": "TEST Release Lead",
+    "is_bot": false
+  },
+  "subtype": null,
+  "text_raw": "Synthetic release coordination root",
+  "text_rendered": "Synthetic release coordination root",
+  "blocks_rendered": null,
+  "reply_count": 0,
+  "reply_users_count": 0,
+  "reactions": [],
+  "files": [],
+  "attachments": [],
+  "raw": {
+    "type": "message",
+    "user": "U_TESTLEAD",
+    "text": "Synthetic release coordination root",
+    "ts": "1782700000.111222",
+    "reply_count": 0,
+    "reply_users_count": 0
+  }
+}

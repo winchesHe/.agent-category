@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "command": "search",
+  "ok": true,
+  "jql": "project = CS AND created >= \"2026-08-16\" AND created < \"2026-08-25\" ORDER BY created DESC",
+  "fields": [
+    "summary",
+    "status",
+    "created",
+    "issuetype",
+    "issuelinks",
+    "components",
+    "customfield_10089"
+  ],
+  "count": 5,
+  "total": 5,
+  "is_last": true,
+  "next_page_token": null,
+  "issues": [
+    {
+      "key": "CS-1001",
+      "summary": "希望支持批量预约 customer@example.com",
+      "issue_type": "Feature Request",
+      "status": "Open",
+      "squad": "Grooming",
+      "created": "2026-08-20T08:00:00.000+0000",
+      "links": []
+    },
+    {
+      "key": "CS-1002",
+      "summary": "设计流程反馈",
+      "issue_type": "Bug Report",
+      "status": "In Progress",
+      "squad": "grooming",
+      "created": "2026-08-21T08:00:00.000+0000",
+      "links": [
+        {
+          "id": "2001",
+          "type": "Defect",
+          "direction": "outward",
+          "relationship": "created",
+          "key": "DES-1090",
+          "project_key": "DES",
+          "issue_type": "Design Issue",
+          "status": "Open",
+          "url": "https://moego.atlassian.net/browse/DES-1090"
+        }
+      ]
+    },
+    {
+      "key": "CS-1003",
+      "summary": "既是需求也关联设计单",
+      "issue_type": "Feature Request",
+      "status": "Open",
+      "squad": "Grooming",
+      "created": "2026-08-22T08:00:00.000+0000",
+      "links": [
+        {
+          "id": "2002",
+          "type": "Defect",
+          "direction": "outward",
+          "relationship": "created",
+          "key": "DES-1091",
+          "project_key": "DES",
+          "issue_type": "Design Issue",
+          "status": "In Progress",
+          "url": "https://moego.atlassian.net/browse/DES-1091"
+        }
+      ]
+    },
+    {
+      "key": "CS-1004",
+      "summary": "只关联数据修改单",
+      "issue_type": "Bug Report",
+      "status": "Open",
+      "squad": "Grooming",
+      "created": "2026-08-23T08:00:00.000+0000",
+      "links": [
+        {
+          "id": "2003",
+          "type": "Defect",
+          "direction": "outward",
+          "relationship": "created",
+          "key": "DM-42",
+          "project_key": "DM",
+          "issue_type": "Data Modification",
+          "status": "Done",
+          "url": "https://moego.atlassian.net/browse/DM-42"
+        }
+      ]
+    },
+    {
+      "key": "CS-1005",
+      "summary": "查询扩窗中的下一周工单",
+      "issue_type": "Feature Request",
+      "status": "Open",
+      "squad": "Grooming",
+      "created": "2026-08-24T00:30:00.000+0800",
+      "links": []
+    }
+  ]
+}
