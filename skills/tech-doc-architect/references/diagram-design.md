@@ -47,7 +47,7 @@
 | 11 | Event Transit | 具有主题、处理顺序、消费组及分支事实的事件链路 |
 | 12 | Ops Pulse | 有观测窗口、指标、状态和 trace 证据的运行与可靠性视图 |
 
-选择后，按 `fireworks-tech-graph` 的 `references/style-diagram-matrix.md` 和所选样式文件核对适用条件，生成与验证沿用该 skill 的当前流程。
+选择后，按 `fireworks-tech-graph` 的 `references/style-diagram-matrix.md` 和所选样式文件核对适用条件，生成与验证沿用该 skill 的当前流程。目标是飞书时，依赖渐变、透明或滤镜效果的样式（如 5、8）以 PNG 图片嵌入，不转白板，选择规则见 [飞书输出](output-feishu.md#插图png-图片或白板)。
 
 **Style 10、11、12 含领域语义。** 缺少相应事实时，默认回到 1、5、8 等通用候选；当次明确指定这些样式时，说明缺口，并按绘图工具的合同处理，不编造区域、Topic、实时状态或指标。
 

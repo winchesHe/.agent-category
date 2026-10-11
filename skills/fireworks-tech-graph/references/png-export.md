@@ -46,3 +46,18 @@ NODE_PATH=/tmp/fireworks-tech-graph-puppeteer/node_modules node "$SKILL_ROOT/scr
 - `rsvg-convert` can omit complex CSS, filters, and `<foreignObject>` content.
 - CairoSVG can miss CJK or emoji glyphs when the selected system font lacks them.
 - Use Puppeteer when browser rendering is required; its viewport path preserves the SVG dimensions more reliably than a raw Chrome `--window-size` screenshot.
+
+## 本地补充：中文缺字与 Chrome 无头导出
+
+> 本节为 `.agent-category` 仓库的本地补充，不属于上游内容；升级本 skill 后需确认仍然保留。基于 fireworks-tech-graph 1.2.0 在 macOS 上验证（2026-10-11）。
+
+- `export-png` 默认走 CairoSVG。系统字体缺少 CJK 回退时，中文会渲染成方框；`doctor` 显示 Puppeteer 不可用时无法切换到浏览器渲染。导出后必须打开 PNG 确认中文正常显示。
+- 没有 Puppeteer 时，可用本机 Chrome 无头截图导出 2 倍图。先写一个 wrapper HTML，用 `<img src="diagram.svg" width="W" height="H">` 固定图片尺寸，`body` 设 `margin:0`，背景色设为图的底色，避免边缘露白：
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
+  --hide-scrollbars --force-device-scale-factor=2 --window-size=W,H \
+  --screenshot=diagram.png file:///absolute/path/wrapper.html
+```
+
+- `W`、`H` 取 SVG 根节点的宽高；输出 PNG 应为 `2W × 2H`，导出后核对尺寸，并确认四边没有被裁切或多出空白。

@@ -123,3 +123,16 @@ font-weight: 400 normal, 600 semi-bold, 700 bold titles
   <!-- labels with gradient text for heroes -->
 </svg>
 ```
+
+## 本地补充：文档嵌图的玻璃感增强
+
+> 本节为 `.agent-category` 仓库的本地补充，不属于上游内容；升级本 skill 后需确认仍然保留。
+
+按上方默认参数生成的图玻璃感偏弱。用于飞书等文档的展示型总览时，以下调整经实际验证效果更好：
+
+- 背景：深蓝到深紫的线性渐变，再叠加蓝、紫两个 `radialGradient` 光晕。
+- 卡片：`fill` 改为白色纵向渐变，透明度从顶部 0.11 过渡到底部 0.035；描边 `rgba(255,255,255,0.16)`；卡片顶部加 1px `rgba(255,255,255,0.42)` 高光线。
+- 分区标题使用 `#93c5fd`。
+- 连线语义色要拉开距离：data 流 `#fb923c` 与 feedback 流默认的 `#f59e0b` 过于接近，feedback 流改用 `#f87171`。
+
+渐变、半透明和滤镜在飞书白板中都会丢失，此风格嵌入飞书时导出为 PNG 图片，不转白板。导出方法见 [png-export.md](png-export.md)。
